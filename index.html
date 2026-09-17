@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Growlio - 10 Min Grocery & Video Recipe Kits | Tricity Chandigarh, Mohali, Panchkula, Kharar</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Leaflet Map CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+
+  <div class="device-page-layout">
+    <!-- Desktop Preview Controls Bar -->
+    <aside class="desktop-preview-bar">
+      <div class="preview-title-badge">
+        <span class="preview-apple-icon"></span>
+        <span class="preview-device-name">iPhone 16 Pro • iOS 18</span>
+      </div>
+      <div class="preview-info-text">
+        Mobile Quick-Commerce Experience • <strong>Growlio</strong>
+      </div>
+      <button class="btn-toggle-fullscreen" id="toggleViewBtn" onclick="toggleIphoneView()">
+        🖥️ Toggle Fullscreen / Phone
+      </button>
+    </aside>
+
+    <!-- iPhone Hardware Shell -->
+    <div class="iphone-shell" id="iphoneShell">
+      
+      <!-- iOS Status Bar & Dynamic Island -->
+      <div class="ios-status-bar">
+        <span class="ios-clock" id="iosClock">9:41</span>
+        <div class="ios-dynamic-island">
+          <div class="island-cam-dot"></div>
+          <div class="island-sensor-dot"></div>
+        </div>
+        <div class="ios-status-icons">
+          <span class="ios-net-label">5G</span>
+          <span class="ios-wifi-icon">●●●</span>
+          <div class="ios-battery-pill">
+            <div class="ios-battery-level"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrollable Mobile Viewport -->
+      <div class="iphone-screen-viewport" id="iphoneViewport">
+
+        <!-- App Header: iOS Mobile Native with HIGHLIGHTED GROWLIO -->
+        <header class="app-header">
+          <div class="ios-header-brand-row">
+            <div class="ios-brand-group">
+              <a href="#" class="brand-logo" onclick="switchView('groceries')" aria-label="Growlio Home">
+                <span class="brand-logo-mark">G</span>
+                <span class="brand-logo-text">Growlio</span>
+              </a>
+              <span class="growlio-highlight-pill">⚡ 10 MINS</span>
+            </div>
+
+            <div class="ios-header-actions">
+              <button class="ios-action-btn" onclick="openLocationModal()" title="GPS Map Pinpoint">
+                <span>📍</span>
+              </button>
+              <button class="ios-action-btn ios-cart-btn" onclick="openCartDrawer()" title="View Cart">
+                <span>🛒</span>
+                <span id="iosHeaderCartBadge" class="ios-badge-count">0</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- iOS Address Selector Row with Live Pulse -->
+          <div class="ios-location-bar" onclick="openLocationModal()" title="Change Delivery Location">
+            <span class="pulse-live-dot"></span>
+            <span class="ios-loc-label">8 Mins to</span>
+            <span class="ios-loc-text" id="currentLocationText">Phase 3B2, Mohali</span>
+            <span class="ios-loc-arrow">▾</span>
+          </div>
+
+          <!-- iOS Search Bar -->
+          <div class="header-search-bar">
+            <div class="search-input-wrapper">
+              <span class="search-icon">🔍</span>
+              <input 
+                type="text" 
+                id="globalSearchInput" 
+                class="search-input" 
+                placeholder="Search 'all milks', 'cooking oils', 'paneer'..." 
+                oninput="handleSearch(this.value)"
+              />
+              <span class="search-mic-icon">🎙️</span>
+            </div>
+          </div>
+
+          <!-- iOS Segmented Control Pills -->
+          <div class="nav-tab-switch">
+            <button id="tabBtnGroceries" class="tab-btn active" onclick="switchView('groceries')">
+              🛒 Store
+            </button>
+            <button id="tabBtnRecipes" class="tab-btn" onclick="switchView('recipes')">
+              🍳 Recipe Kits
+              <span class="tab-badge">1-Click</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Main Mobile Container -->
+        <main class="main-container">
+
+          <!-- Top Category Tabs Carousel (Exactly 4 Visible, Auto-Sliding on Click) -->
+          <div class="top-category-carousel-wrapper">
+            <div class="top-category-tabs-row" id="topCategoryTabsRow">
+              <div class="top-cat-tab-chip active" id="topCatTab0" data-index="0" data-cat="All" onclick="selectTopCategoryTab(0, 'All', this)">
+                <div class="tab-chip-icon-box">
+                  <span class="tab-chip-icon">✨</span>
+                </div>
+                <span class="tab-chip-label">All</span>
+              </div>
+              <div class="top-cat-tab-chip" id="topCatTab1" data-index="1" data-cat="Electronics" onclick="selectTopCategoryTab(1, 'Electronics', this)">
+                <div class="tab-chip-icon-box">
+                  <span class="tab-chip-icon">🎧</span>
+                </div>
+                <span class="tab-chip-label">Electronics</span>
+              </div>
+              <div class="top-cat-tab-chip" id="topCatTab2" data-index="2" data-cat="Beauty" onclick="selectTopCategoryTab(2, 'Beauty', this)">
+                <div class="tab-chip-icon-box">
+                  <span class="tab-chip-icon">💄</span>
+                </div>
+                <span class="tab-chip-label">Beauty</span>
+              </div>
+              <div class="top-cat-tab-chip" id="topCatTab3" data-index="3" data-cat="Gifting" onclick="selectTopCategoryTab(3, 'Gifting', this)">
+                <div class="tab-chip-icon-box">
+                  <span class="tab-chip-icon">🎁</span>
+                </div>
+                <span class="tab-chip-label">Gifting</span>
+              </div>
+              <div class="top-cat-tab-chip" id="topCatTab4" data-index="4" data-cat="Decor" onclick="selectTopCategoryTab(4, 'Decor', this)">
+                <div class="tab-chip-icon-box">
+                  <span class="tab-chip-icon">🛋️</span>
+                </div>
+                <span class="tab-chip-label">Decor</span>
+              </div>
+              <div class="top-cat-tab-chip" id="topCatTab5" data-index="5" data-cat="Kids" onclick="selectTopCategoryTab(5, 'Kids', this)">
+                <div class="tab-chip-icon-box">
+                  <span class="tab-chip-icon">🧸</span>
+                </div>
+                <span class="tab-chip-label">Kids</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Compact iOS Hero Banner -->
+          <div id="heroBanner" class="recipe-hero-banner">
+            <div class="hero-text">
+              <div class="hero-badge-pill">
+                ⚡ 8-10 Min Express Delivery
+              </div>
+              <h2>All Groceries &amp; <span class="hero-highlight">Chef Kits</span></h2>
+              <p>Chandigarh, Mohali, Panchkula &amp; Kharar dark stores.</p>
+              
+              <button class="hero-cta-btn" onclick="switchView('recipes')">
+                Explore Recipe Kits ➔
+              </button>
+            </div>
+
+            <div class="hero-visual-graphic">
+              <div class="hero-preview-badge">
+                <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=160&auto=format&fit=crop&q=80" alt="Paneer Butter Masala Kit" class="hero-preview-img" />
+                <div class="hero-preview-info">
+                  <span class="hero-preview-tag">Top Kit</span>
+                  <span class="hero-preview-name">Verka Paneer Kit</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    <!-- ================================================= -->
+    <!-- MASTER DEPARTMENTS (BLINKIT STANDARD 4 SECTIONS) -->
+    <!-- ================================================= -->
+    <div id="masterDepartmentsWrapper" class="master-departments-wrapper">
+
+      <!-- DEPARTMENT 1: GROCERY & KITCHEN -->
+      <section class="department-block" id="deptGroceryBlock">
+        <div class="dept-header-row">
+          <div class="dept-title-group">
+            <h3 class="dept-title">🛒 Grocery &amp; Kitchen</h3>
+            <p class="dept-subtitle">Dairy, mandi produce, atta, oils &amp; kitchen tools</p>
+          </div>
+          <button class="dept-see-all-btn" onclick="openFullDepartment('Grocery & Kitchen')">
+            See All ➔
+          </button>
+        </div>
+
+        <!-- 4-Column Visual Category Grid -->
+        <div class="dept-categories-grid">
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Dairy, Bread & Eggs', this)">
+            <div class="tile-icon-bubble">🥛</div>
+            <span class="tile-label">Dairy, Bread &amp; Eggs</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Vegetables & Fruits', this)">
+            <div class="tile-icon-bubble">🥦</div>
+            <span class="tile-label">Vegetables &amp; Fruits</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Atta, Rice & Dals', this)">
+            <div class="tile-icon-bubble">🌾</div>
+            <span class="tile-label">Atta, Rice &amp; Dals</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Oils, Ghee & Masalas', this)">
+            <div class="tile-icon-bubble">🫒</div>
+            <span class="tile-label">Oils, Ghee &amp; Masalas</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Dry Fruits & Cereals', this)">
+            <div class="tile-icon-bubble">🥜</div>
+            <span class="tile-label">Dry Fruits &amp; Cereals</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Kitchen Tools & Storage', this)">
+            <div class="tile-icon-bubble">🍳</div>
+            <span class="tile-label">Kitchenware &amp; Foil</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Oils, Ghee & Masalas', this)">
+            <div class="tile-icon-bubble">🧂</div>
+            <span class="tile-label">Salt, Sugar &amp; Spices</span>
+          </div>
+          <div class="dept-category-tile highlight" onclick="switchView('recipes')">
+            <div class="tile-icon-bubble">👨‍🍳</div>
+            <span class="tile-label">Recipe Kits</span>
+          </div>
+        </div>
+
+        <!-- Featured Product Shelf -->
+        <div class="dept-shelf-container">
+          <div class="dept-shelf-label">Bestsellers in Grocery &amp; Kitchen</div>
+          <div class="dept-shelf-scroll" id="shelfGroceryContainer">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- DEPARTMENT 2: SNACKS & DESSERTS -->
+      <section class="department-block" id="deptSnacksBlock">
+        <div class="dept-header-row">
+          <div class="dept-title-group">
+            <h3 class="dept-title">🍿 Snacks &amp; Desserts</h3>
+            <p class="dept-subtitle">Chips, namkeen, ice creams, cold drinks &amp; sweets</p>
+          </div>
+          <button class="dept-see-all-btn" onclick="openFullDepartment('Snacks & Desserts')">
+            See All ➔
+          </button>
+        </div>
+
+        <!-- 4-Column Visual Category Grid -->
+        <div class="dept-categories-grid">
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Chips & Namkeen', this)">
+            <div class="tile-icon-bubble">🍟</div>
+            <span class="tile-label">Chips &amp; Namkeen</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Sweets & Chocolates', this)">
+            <div class="tile-icon-bubble">🍫</div>
+            <span class="tile-label">Sweets &amp; Chocolates</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Ice Creams & Kulfi', this)">
+            <div class="tile-icon-bubble">🍦</div>
+            <span class="tile-label">Ice Creams &amp; More</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Cold Drinks & Juices', this)">
+            <div class="tile-icon-bubble">🥤</div>
+            <span class="tile-label">Cold Drinks &amp; Juices</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Biscuits & Cookies', this)">
+            <div class="tile-icon-bubble">🍪</div>
+            <span class="tile-label">Biscuits &amp; Cookies</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Instant Noodles & Pasta', this)">
+            <div class="tile-icon-bubble">🍜</div>
+            <span class="tile-label">Noodles &amp; Maggi</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Tea & Coffee', this)">
+            <div class="tile-icon-bubble">☕</div>
+            <span class="tile-label">Tea &amp; Coffee</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Chips & Namkeen', this)">
+            <div class="tile-icon-bubble">🥨</div>
+            <span class="tile-label">Munchies &amp; Popcorn</span>
+          </div>
+        </div>
+
+        <!-- Featured Product Shelf -->
+        <div class="dept-shelf-container">
+          <div class="dept-shelf-label">Popular Munchies, Drinks &amp; Desserts</div>
+          <div class="dept-shelf-scroll" id="shelfSnacksContainer">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- DEPARTMENT 3: BEAUTY & PERSONAL CARE -->
+      <section class="department-block" id="deptBeautyBlock">
+        <div class="dept-header-row">
+          <div class="dept-title-group">
+            <h3 class="dept-title">✨ Beauty &amp; Personal Care</h3>
+            <p class="dept-subtitle">Soaps, shampoos, skincare, oral hygiene &amp; grooming</p>
+          </div>
+          <button class="dept-see-all-btn" onclick="openFullDepartment('Beauty & Personal Care')">
+            See All ➔
+          </button>
+        </div>
+
+        <!-- 4-Column Visual Category Grid -->
+        <div class="dept-categories-grid">
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Bath & Body Soaps', this)">
+            <div class="tile-icon-bubble">🧼</div>
+            <span class="tile-label">Bath &amp; Body Soaps</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Hair Care & Shampoo', this)">
+            <div class="tile-icon-bubble">🧴</div>
+            <span class="tile-label">Hair Care &amp; Shampoo</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Skin & Face Care', this)">
+            <div class="tile-icon-bubble">🌸</div>
+            <span class="tile-label">Skin &amp; Face Care</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Oral Care & Dental', this)">
+            <div class="tile-icon-bubble">🪥</div>
+            <span class="tile-label">Oral Care &amp; Dental</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Shaving & Grooming', this)">
+            <div class="tile-icon-bubble">🪒</div>
+            <span class="tile-label">Shaving &amp; Grooming</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Skin & Face Care', this)">
+            <div class="tile-icon-bubble">💨</div>
+            <span class="tile-label">Deos &amp; Fragrances</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Feminine Hygiene', this)">
+            <div class="tile-icon-bubble">🩸</div>
+            <span class="tile-label">Feminine Hygiene</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Bath & Body Soaps', this)">
+            <div class="tile-icon-bubble">🫧</div>
+            <span class="tile-label">Handwash &amp; Hygiene</span>
+          </div>
+        </div>
+
+        <!-- Featured Product Shelf -->
+        <div class="dept-shelf-container">
+          <div class="dept-shelf-label">Daily Grooming &amp; Personal Care</div>
+          <div class="dept-shelf-scroll" id="shelfBeautyContainer">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- DEPARTMENT 4: HOUSEHOLD ESSENTIALS -->
+      <section class="department-block" id="deptHouseholdBlock">
+        <div class="dept-header-row">
+          <div class="dept-title-group">
+            <h3 class="dept-title">🏠 Household Essentials</h3>
+            <p class="dept-subtitle">Detergents, dishwash, cleaners, paper &amp; electricals</p>
+          </div>
+          <button class="dept-see-all-btn" onclick="openFullDepartment('Household Essentials')">
+            See All ➔
+          </button>
+        </div>
+
+        <!-- 4-Column Visual Category Grid -->
+        <div class="dept-categories-grid">
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Laundry & Detergents', this)">
+            <div class="tile-icon-bubble">🧺</div>
+            <span class="tile-label">Laundry &amp; Detergents</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Dishwash & Utensils', this)">
+            <div class="tile-icon-bubble">🧽</div>
+            <span class="tile-label">Dishwash &amp; Utensils</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Floor & Toilet Cleaning', this)">
+            <div class="tile-icon-bubble">🧹</div>
+            <span class="tile-label">Cleaners &amp; Disinfectants</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Paper & Tissues', this)">
+            <div class="tile-icon-bubble">🧻</div>
+            <span class="tile-label">Paper &amp; Tissues</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Pest Control & Repellents', this)">
+            <div class="tile-icon-bubble">🦟</div>
+            <span class="tile-label">Pest Control &amp; Coil</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Electricals & Batteries', this)">
+            <div class="tile-icon-bubble">🔋</div>
+            <span class="tile-label">Electricals &amp; Batteries</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Floor & Toilet Cleaning', this)">
+            <div class="tile-icon-bubble">🗑️</div>
+            <span class="tile-label">Garbage Bags</span>
+          </div>
+          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Floor & Toilet Cleaning', this)">
+            <div class="tile-icon-bubble">🪔</div>
+            <span class="tile-label">Pooja &amp; Agarbatti</span>
+          </div>
+        </div>
+
+        <!-- Featured Product Shelf -->
+        <div class="dept-shelf-container">
+          <div class="dept-shelf-label">Essential Cleaning &amp; Home Needs</div>
+          <div class="dept-shelf-scroll" id="shelfHouseholdContainer">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- FILTERED / ALL PRODUCTS VIEW (Activated on subcategory click or search) -->
+    <section id="groceriesSection" style="display: none;">
+      <div class="section-header">
+        <h3 class="section-title">
+          <span id="sectionTitleText">🛒 All Groceries &amp; Daily Essentials</span>
+          <span class="section-badge" id="sectionDeliveryBadge">⚡ 8-10 MINS</span>
+        </h3>
+        <button class="btn-back-to-departments" onclick="resetToAllDepartments()">
+          ⬅️ Back to All Categories
+        </button>
+      </div>
+
+      <!-- Dynamic Subcategory Filter Pills Row (e.g. All Milks, All Oils) -->
+      <div class="subcategory-pills-container" id="subcategoryFilterWrapper">
+        <div class="subcategory-label">Filter by Variety:</div>
+        <div class="category-pills-row" id="subcategoryPillsRow">
+          <!-- Dynamically populated by JS based on selected department -->
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGridContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- RECIPES VIEW -->
+    <section id="recipesSection" style="display: none;">
+      <div class="section-header">
+        <h3 class="section-title">
+          🍳 Chef-Curated Video Masterclasses & Kits
+          <span class="section-badge">1-Click Ingredient Cart</span>
+        </h3>
+        <span id="recipeCountLabel" style="font-size: 12.5px; color: var(--text-muted); font-weight: 700;">4 recipes</span>
+      </div>
+
+      <!-- Recipe Category Pills -->
+      <div class="category-pills-row" id="recipeCategoryPills">
+        <button class="category-pill active" onclick="filterRecipeCategory('All', this)">✨ All Dishes</button>
+        <button class="category-pill" onclick="filterRecipeCategory('Tricity Specials', this)">🍛 Popular Curries</button>
+        <button class="category-pill" onclick="filterRecipeCategory('Quick 15-Mins', this)">⏱️ Quick 15-Mins</button>
+        <button class="category-pill" onclick="filterRecipeCategory('Breakfast & Snacks', this)">🥪 Breakfast & Snacks</button>
+      </div>
+
+      <!-- Recipes Grid -->
+      <div class="recipes-grid" id="recipesGridContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- ORDER AGAIN VIEW (PAST ORDERS & FREQUENT STAPLES) -->
+    <!-- ================================================= -->
+    <section id="orderAgainSection" style="display: none;">
+      <div class="section-header">
+        <div class="dept-title-group">
+          <h3 class="section-title">
+            <span>🔄 Order Again</span>
+            <span class="section-badge">⚡ 8-10 MINS</span>
+          </h3>
+          <p class="dept-subtitle">Reorder past purchases & daily staples with 1 tap</p>
+        </div>
+      </div>
+
+      <!-- Recent Order Card (1-Click Reorder Basket) -->
+      <div class="past-order-card">
+        <div class="past-order-header">
+          <div class="past-order-badge-row">
+            <span class="past-order-status">✓ Delivered Yesterday</span>
+            <span class="past-order-time">⚡ Express 8 Mins</span>
+          </div>
+          <div class="past-order-info-line">
+            <strong>Order #GR-8941</strong> • Mohali Phase 7 Dark Store #104
+          </div>
+          <div class="past-order-address-text">
+            📍 Delivered to: Flat 402, Royal Palms, Phase 3B2, Mohali
+          </div>
+        </div>
+
+        <div class="past-order-items-preview">
+          <div class="past-item-row">
+            <div class="past-item-left">
+              <span class="past-item-icon">🥛</span>
+              <div>
+                <div class="past-item-name">Verka Standard Gold Milk</div>
+                <div class="past-item-qty-tag">500 ml • 1 unit</div>
+              </div>
+            </div>
+            <span class="past-item-price">₹33</span>
+          </div>
+
+          <div class="past-item-row">
+            <div class="past-item-left">
+              <span class="past-item-icon">🍞</span>
+              <div>
+                <div class="past-item-name">Harvest Gold White Bread</div>
+                <div class="past-item-qty-tag">400 g • 1 unit</div>
+              </div>
+            </div>
+            <span class="past-item-price">₹28</span>
+          </div>
+
+          <div class="past-item-row">
+            <div class="past-item-left">
+              <span class="past-item-icon">🥚</span>
+              <div>
+                <div class="past-item-name">Farm Fresh Brown Eggs</div>
+                <div class="past-item-qty-tag">Pack of 6 • 1 unit</div>
+              </div>
+            </div>
+            <span class="past-item-price">₹55</span>
+          </div>
+
+          <div class="past-item-row">
+            <div class="past-item-left">
+              <span class="past-item-icon">🍅</span>
+              <div>
+                <div class="past-item-name">Shimla Fresh Red Tomatoes</div>
+                <div class="past-item-qty-tag">500 g • 1 unit</div>
+              </div>
+            </div>
+            <span class="past-item-price">₹24</span>
+          </div>
+        </div>
+
+        <div class="past-order-footer">
+          <div class="past-order-total-block">
+            <span class="past-total-label">Basket Total (4 items):</span>
+            <span class="past-total-amount">₹140</span>
+          </div>
+          <button class="btn-reorder-basket" onclick="reorderPastBasket()">
+            ⚡ 1-Click Reorder Entire Basket (₹140)
+          </button>
+        </div>
+      </div>
+
+      <!-- Frequently Ordered Daily Essentials -->
+      <div class="frequent-essentials-block">
+        <div class="block-header-title">
+          <h4>🥛 Frequently Ordered Daily Staples</h4>
+          <span class="block-subtitle">Verka milk, atta, oils & breakfast essentials</span>
+        </div>
+        <div class="frequent-staples-grid" id="frequentStaplesContainer">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Past Recipe Kits Cooked -->
+      <div class="frequent-recipe-block">
+        <div class="block-header-title">
+          <h4>👨‍🍳 Cooked Recently: Recipe Kits</h4>
+          <span class="block-subtitle">1-click ingredients reorder</span>
+        </div>
+        <div class="past-recipe-kit-card">
+          <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=160&auto=format&fit=crop&q=80" alt="Paneer Butter Masala" class="past-recipe-img" />
+          <div class="past-recipe-details">
+            <div class="past-recipe-title">Verka Paneer Butter Masala Kit</div>
+            <div class="past-recipe-meta">7 Fresh Ingredients • 25 Mins</div>
+            <div class="past-recipe-action-row">
+              <span class="past-recipe-price">₹238</span>
+              <button class="btn-reorder-kit" onclick="reorderRecipeKit('paneer_butter_masala')">
+                🛒 Add Kit to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================= -->
+    <!-- ALL CATEGORIES VIEW ("SAB KUCH EK JAGAH") -->
+    <!-- ================================================= -->
+    <section id="categoriesSection" style="display: none;">
+      <div class="section-header">
+        <div class="dept-title-group">
+          <h3 class="section-title">
+            <span>🗂️ All Categories</span>
+            <span class="section-badge">Sab Kuch Ek Jagah</span>
+          </h3>
+          <p class="dept-subtitle">Browse all 4 departments &amp; 32 aisles in one place</p>
+        </div>
+      </div>
+
+      <!-- In-Category Instant Filter Input -->
+      <div class="category-search-box">
+        <span class="cat-search-icon">🔍</span>
+        <input type="text" id="catSearchInput" class="cat-search-input" placeholder="Search within all categories (e.g. milk, tea, soap)..." oninput="filterCategoriesHub(this.value)" />
+      </div>
+
+      <!-- Department Filter Tabs -->
+      <div class="category-dept-tabs" id="categoriesDeptTabs">
+        <button class="dept-tab-pill active" onclick="filterCategoriesDept('all', this)">✨ All Categories</button>
+        <button class="dept-tab-pill" onclick="filterCategoriesDept('Grocery & Kitchen', this)">🛒 Grocery &amp; Kitchen</button>
+        <button class="dept-tab-pill" onclick="filterCategoriesDept('Snacks & Desserts', this)">🍿 Snacks &amp; Desserts</button>
+        <button class="dept-tab-pill" onclick="filterCategoriesDept('Beauty & Personal Care', this)">✨ Beauty &amp; Care</button>
+        <button class="dept-tab-pill" onclick="filterCategoriesDept('Household Essentials', this)">🏠 Household</button>
+      </div>
+
+      <!-- Categories Directory Container -->
+      <div class="categories-directory-container" id="categoriesDirectoryContainer">
+        <!-- Rendered dynamically by JS with high-res icon cards, item counts & direct jump links -->
+      </div>
+    </section>
+
+  </main>
+</div> <!-- /iphone-screen-viewport -->
+
+      <!-- Sticky Bottom Cart Bar (Mobile & Desktop) -->
+      <div id="floatingBottomBar" class="floating-bottom-bar" onclick="openCartDrawer()">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 24px;">🛒</span>
+          <div>
+            <div id="bottomBarItemCount" style="font-family: var(--font-heading); font-size: 14px; font-weight: 800;">0 Items</div>
+            <div id="bottomBarPrice" style="font-size: 12px; opacity: 0.95; color: #fce7b2;">₹0 • 8-10 Min Express Delivery</div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 900; font-size: 14px; background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: var(--radius-full);">
+          View Cart ➔
+        </div>
+      </div>
+
+      <!-- Mobile Bottom App Bar (Solid Red Fill & White Outline, No Square Boxes) -->
+      <nav class="blinkit-bottom-app-bar">
+        <button class="bottom-nav-item active" id="bnavHome" onclick="switchView('groceries')">
+          <div class="nav-icon-wrapper">
+            <svg class="nav-custom-svg" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 12.8L14 4L24 12.8C24.4 13.1 24.7 13.6 24.7 14.2C24.7 15.3 23.8 16.2 22.7 16.2H21.5V23.5C21.5 24.6 20.6 25.5 19.5 25.5H16.2V18.5C16.2 17.3 15.2 16.3 14 16.3C12.8 16.3 11.8 17.3 11.8 18.5V25.5H8.5C7.4 25.5 6.5 24.6 6.5 23.5V16.2H5.3C4.2 16.2 3.3 15.3 3.3 14.2C3.3 13.6 3.6 13.1 4 12.8Z" class="svg-red-fill"/>
+            </svg>
+          </div>
+          <span class="nav-label">Home</span>
+        </button>
+
+        <button class="bottom-nav-item" id="bnavOrderAgain" onclick="switchView('order-again')">
+          <div class="nav-icon-wrapper">
+            <svg class="nav-custom-svg" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 3.5C19.2 3.5 23.5 7.4 24.3 12.4H21.1C20.4 9.2 17.5 6.7 14 6.7C11.5 6.7 9.3 7.9 7.9 9.8L10.8 12.6H3V4.8L5.8 7.6C7.7 5.1 10.6 3.5 14 3.5Z" class="svg-red-fill"/>
+              <path d="M14 24.5C8.8 24.5 4.5 20.6 3.7 15.6H6.9C7.6 18.8 10.5 21.3 14 21.3C16.5 21.3 18.7 20.1 20.1 18.2L17.2 15.4H25V23.2L22.2 20.4C20.3 22.9 17.4 24.5 14 24.5Z" class="svg-red-fill"/>
+            </svg>
+          </div>
+          <span class="nav-label">Order Again</span>
+        </button>
+
+        <button class="bottom-nav-item" id="bnavCategories" onclick="switchView('categories')">
+          <div class="nav-icon-wrapper">
+            <svg class="nav-custom-svg" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3.5" y="3.5" width="9.2" height="9.2" rx="2.8" class="svg-red-fill"/>
+              <rect x="15.3" y="3.5" width="9.2" height="9.2" rx="2.8" class="svg-red-fill"/>
+              <rect x="3.5" y="15.3" width="9.2" height="9.2" rx="2.8" class="svg-red-fill"/>
+              <rect x="15.3" y="15.3" width="9.2" height="9.2" rx="2.8" class="svg-red-fill"/>
+            </svg>
+          </div>
+          <span class="nav-label">Categories</span>
+        </button>
+
+        <button class="bottom-nav-item" id="bnavRecipes" onclick="switchView('recipes')">
+          <div class="nav-icon-wrapper">
+            <svg class="nav-custom-svg" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 20.5H21C21.8 20.5 22.5 21.2 22.5 22C22.5 22.8 21.8 23.5 21 23.5H7C6.2 23.5 5.5 22.8 5.5 22C5.5 21.2 6.2 20.5 7 20.5Z" class="svg-red-fill"/>
+              <path d="M7.5 20C5 20 3 17.8 3 15.2C3 13 4.4 11.2 6.4 10.6C6.1 9.7 6 8.7 6.3 7.7C7.2 4.8 10.2 3.5 13 4.5C14.3 3.3 16.2 2.8 18 3.5C20.2 4.4 21.5 6.6 21.3 9C23.4 9.6 25 11.6 25 14C25 16.8 22.8 20 20.5 20H7.5Z" class="svg-red-fill"/>
+            </svg>
+          </div>
+          <span class="nav-label">Recipes</span>
+        </button>
+
+        <button class="bottom-nav-item" id="bnavCart" onclick="openCartDrawer()">
+          <div class="nav-icon-wrapper" style="position: relative;">
+            <svg class="nav-custom-svg" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.5 4C2.5 3.2 3.2 2.5 4 2.5H6.5C7.3 2.5 8 3.1 8.2 3.9L8.8 6.8H24C24.8 6.8 25.4 7.5 25.3 8.3L23.7 16.5C23.5 17.4 22.7 18 21.8 18H10.2L9.2 19.8H23C23.8 19.8 24.5 20.5 24.5 21.3C24.5 22.1 23.8 22.8 23 22.8H8.8C7.6 22.8 6.8 21.6 7.1 20.5L8.2 17.2L5.8 5.2H4C3.2 5.2 2.5 4.5 2.5 4Z" class="svg-red-fill"/>
+              <circle cx="11.2" cy="24.2" r="2.8" class="svg-red-fill"/>
+              <circle cx="20.8" cy="24.2" r="2.8" class="svg-red-fill"/>
+            </svg>
+            <span id="bottomNavCartBadge" class="bottom-badge" style="display: none;">0</span>
+          </div>
+          <span class="nav-label">Cart</span>
+        </button>
+      </nav>
+
+      <!-- iOS Home Indicator Pill -->
+      <div class="ios-home-indicator">
+        <div class="ios-home-bar"></div>
+      </div>
+
+  <!-- ================================================= -->
+  <!-- EXACT GPS & MAP LOCATION PICKER MODAL -->
+  <!-- ================================================= -->
+  <div id="locationModalBackdrop" class="modal-backdrop">
+    <div class="recipe-modal-card location-map-modal" style="max-width: 600px;">
+      <div class="ios-sheet-handle"></div>
+      <div class="modal-header">
+        <div>
+          <h3>📍 Pinpoint Exact Delivery Location</h3>
+          <p style="font-size: 12px; color: var(--text-muted); margin: 2px 0 0 0;">Connected to GPS & maps for 8-10 min doorstep delivery</p>
+        </div>
+        <button class="btn-close-modal" onclick="closeLocationModal()">✕</button>
+      </div>
+
+      <div class="modal-scrollable-body" style="padding: 18px;">
+        
+        <!-- GPS One-Click Detect Button -->
+        <button class="btn-detect-gps" onclick="detectExactUserLocation()">
+          <span class="gps-pulse-icon">🎯</span>
+          <div style="flex: 1; text-align: left;">
+            <div style="font-weight: 800; font-size: 14.5px; color: #fff;">Detect My Exact Location (GPS)</div>
+            <div style="font-size: 11.5px; color: rgba(255,255,255,0.85); margin-top: 1px;" id="gpsStatusText">Uses device GPS for pinpoint accuracy across Tricity</div>
+          </div>
+          <span id="gpsLoader" class="gps-loader-spin" style="display: none;">⏳</span>
+        </button>
+
+        <!-- Interactive Map Frame with Centered Pin -->
+        <div class="map-interactive-container">
+          <div id="leafletMapBox" class="leaflet-map-canvas"></div>
+          <div class="map-center-pin-overlay">
+            <div class="map-pin-icon">📍</div>
+            <div class="map-pin-pulse"></div>
+          </div>
+          <div class="map-drag-indicator">Drag map to position pin at your exact gate</div>
+        </div>
+
+        <!-- Detected Address Box -->
+        <div class="detected-address-display">
+          <div class="detected-badge-strip">
+            <span class="detected-dot"></span>
+            <span style="font-weight: 800; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--maroon-primary);">Detected Street & Sector</span>
+          </div>
+          <div id="displayDetectedAddress" class="detected-address-text">Phase 3B2, SAS Nagar, Mohali, Punjab</div>
+          <div id="displayCoordinates" class="detected-coords-text">GPS: 30.7046° N, 76.7179° E • Dark Store #104 (8 Mins)</div>
+        </div>
+
+        <!-- Exact Doorstep Inputs -->
+        <div class="doorstep-form-row">
+          <div class="form-field-col">
+            <label class="form-input-label">House / Flat / Floor No. *</label>
+            <input type="text" id="inputFlatHouse" class="doorstep-input" placeholder="e.g. Flat 304, Tower B / House #451" value="Flat 402, Royal Palms" />
+          </div>
+          <div class="form-field-col">
+            <label class="form-input-label">Nearby Landmark (Optional)</label>
+            <input type="text" id="inputLandmark" class="doorstep-input" placeholder="e.g. Near Verka Booth / Gurudwara Sahib" value="Near Sector 70 Main Market" />
+          </div>
+        </div>
+
+        <!-- Address Type Tags -->
+        <div class="address-type-strip">
+          <span style="font-size: 12px; font-weight: 800; color: var(--text-dark);">Save Address As:</span>
+          <div class="address-tags-group">
+            <button class="addr-tag-btn active" onclick="selectAddressTag('Home', this)">🏠 Home</button>
+            <button class="addr-tag-btn" onclick="selectAddressTag('Work', this)">🏢 Work</button>
+            <button class="addr-tag-btn" onclick="selectAddressTag('Other', this)">📍 Other</button>
+          </div>
+        </div>
+
+        <!-- Quick Hub Jump Chips for Tricity -->
+        <div class="quick-hubs-section">
+          <div style="font-size: 11.5px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Or jump to major Tricity Hub:</div>
+          <div class="quick-hubs-pills-row">
+            <button class="quick-hub-pill active" onclick="jumpToTricityCoordinates('Mohali Phase 7', 30.7056, 76.7088, 'Mohali Phase 7 Dark Store #104', '8-10 Mins', this)">
+              📍 Mohali (Phase 1-11)
+            </button>
+            <button class="quick-hub-pill" onclick="jumpToTricityCoordinates('Sector 35-C, Chandigarh', 30.7259, 76.7725, 'Sector 26 Mandi Express Hub #101', '8-10 Mins', this)">
+              📍 Chandigarh (Sec 1-40)
+            </button>
+            <button class="quick-hub-pill" onclick="jumpToTricityCoordinates('Sector 9, Panchkula', 30.6942, 76.8606, 'Panchkula Sector 9 Dark Store #102', '9-11 Mins', this)">
+              📍 Panchkula (MDC & Sec)
+            </button>
+            <button class="quick-hub-pill" onclick="jumpToTricityCoordinates('Sunny Enclave, Kharar', 30.7490, 76.6520, 'Sunny Enclave Express Pod #103', '10-12 Mins', this)">
+              📍 Kharar (Sunny Enclave)
+            </button>
+          </div>
+        </div>
+
+        <!-- Confirm Address Button -->
+        <button class="btn-confirm-address" onclick="confirmSelectedAddress()">
+          Confirm Exact Location & Deliver in 8-10 Mins ➔
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- RECIPE DETAIL & VIDEO MODAL (CORE USP FEATURE) -->
+  <!-- ================================================= -->
+  <div id="recipeModalBackdrop" class="modal-backdrop">
+    <div class="recipe-modal-card">
+      <div class="ios-sheet-handle"></div>
+      <div class="modal-header">
+        <h3 id="modalRecipeTitle">
+          🍳 Recipe Title
+        </h3>
+        <button class="btn-close-modal" onclick="closeRecipeModal()">✕</button>
+      </div>
+
+      <div class="modal-scrollable-body">
+        
+        <!-- Video Player -->
+        <div class="recipe-video-container">
+          <iframe 
+            id="modalVideoFrame" 
+            class="recipe-video-iframe" 
+            src="" 
+            title="Recipe Cooking Guide" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- Meta Bar & Servings Scaler -->
+        <div class="recipe-meta-box">
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; font-size: 13.5px; font-weight: 700;">
+            <span id="modalMetaTime">⏱️ 30 Mins</span>
+            <span id="modalMetaCalories">🔥 385 kcal</span>
+            <span id="modalMetaDifficulty">⚡ Medium</span>
+            <span id="modalMetaDiet" style="color: var(--maroon-primary);">🟢 100% Veg</span>
+          </div>
+
+          <!-- Dynamic Servings Scaler -->
+          <div class="servings-scaler">
+            <label>Portions / Servings:</label>
+            <div class="servings-controls">
+              <button class="btn-serving-step" onclick="updateServings(-1)">−</button>
+              <span id="modalServingsCount" class="servings-display">2</span>
+              <button class="btn-serving-step" onclick="updateServings(1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart "Recipe-to-Cart" Customizer Section -->
+        <div class="ingredients-customizer-box">
+          <div class="ingredients-header">
+            <div>
+              <h4>🛒 Required Ingredients (Customizable Cart Kit)</h4>
+              <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">
+                Uncheck ingredients you already have at home (e.g. Salt, Oil, Spices). Only selected items will be added to your 10-minute cart.
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="toggle-all-btn" onclick="toggleAllIngredients(true)">Select All</button>
+              <button class="toggle-all-btn" onclick="deselectPantryStaples()">Exclude Staples</button>
+            </div>
+          </div>
+
+          <!-- List of Ingredients with Checkboxes & Products -->
+          <div id="modalIngredientsList" class="ingredient-items-list">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Recipe Cooking Steps & Timestamps -->
+        <div class="recipe-steps-section">
+          <h4 style="font-family: var(--font-heading); font-size: 17px; font-weight: 800; margin-bottom: 14px; color: var(--text-dark);">
+            📝 Step-by-Step Masterclass Guide (Video Synced)
+          </h4>
+          <div id="modalStepsList">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sticky Action Bar in Modal -->
+      <div class="modal-footer-action">
+        <div class="cart-summary-text">
+          <span id="modalSelectedSummary" class="cart-summary-count">Selected 0 items</span>
+          <span id="modalSelectedTotal" class="cart-summary-price">₹0</span>
+        </div>
+        <button id="btnBatchAddToCart" class="btn-batch-add-cart" onclick="batchAddSelectedIngredients()">
+          🛒 Add Selected Ingredients to Cart
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- SLIDE-OUT CART DRAWER -->
+  <!-- ================================================= -->
+  <div id="cartDrawerBackdrop" class="cart-drawer-backdrop" onclick="closeCartDrawer()"></div>
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="ios-sheet-handle"></div>
+    <div class="cart-header">
+      <h3 id="cartDrawerTitle">My Shopping Cart (0)</h3>
+      <button class="btn-close-modal" onclick="closeCartDrawer()">✕</button>
+    </div>
+
+    <div class="cart-body">
+      <!-- 10 Mins Delivery Strip -->
+      <div class="cart-delivery-strip">
+        <span class="delivery-clock-icon">⚡</span>
+        <div>
+          <div style="font-family: var(--font-heading); font-size: 14px; font-weight: 800; color: var(--text-dark);" id="cartDeliveryHubTitle">Delivery in 8-10 Mins</div>
+          <div style="font-size: 11.5px; color: var(--text-muted);" id="cartDeliveryHubSubtitle">Growlio dark store packing in Mohali Phase 7 Hub</div>
+        </div>
+      </div>
+
+      <!-- Cart Items Container -->
+      <div class="cart-items-card">
+        <div id="cartItemsList">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Bill Breakdown -->
+      <div class="bill-summary-card">
+        <div style="font-family: var(--font-heading); font-size: 15px; font-weight: 800; margin-bottom: 12px; color: var(--text-dark);">Bill Summary</div>
+        <div class="bill-row">
+          <span>Item Total</span>
+          <span id="billItemTotal">₹0</span>
+        </div>
+        <div class="bill-row">
+          <span>Delivery Partner Fee (10-min instant)</span>
+          <span id="billDeliveryFee" style="color: var(--maroon-primary); font-weight: 800;">FREE</span>
+        </div>
+        <div class="bill-row">
+          <span>Dark Store Handling & Packaging</span>
+          <span>₹4</span>
+        </div>
+        <div class="bill-row">
+          <span>Delivery Partner Tip</span>
+          <span id="billTipAmount">₹10</span>
+        </div>
+        <div class="bill-row total-row">
+          <span>To Pay</span>
+          <span id="billGrandTotal">₹0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Footer -->
+    <div class="cart-footer">
+      <button id="btnProceedCheckout" class="btn-proceed-pay" onclick="proceedToCheckout()">
+        <span id="checkoutPayAmount">₹0</span>
+        <span>Proceed to Pay (8-10 Min Delivery) ➔</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 10-MINUTE LIVE ORDER TRACKER MODAL -->
+  <!-- ================================================= -->
+  <div id="trackingModalBackdrop" class="modal-backdrop">
+    <div class="recipe-modal-card tracking-modal">
+      <div class="ios-sheet-handle"></div>
+      <div class="modal-header">
+        <h3>⚡ Live Tricity Order Tracking</h3>
+        <button class="btn-close-modal" onclick="closeTrackingModal()">✕</button>
+      </div>
+
+      <div class="modal-scrollable-body">
+        
+        <div class="tracking-hero">
+          <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #fce7b2;">
+            Estimated Delivery Time
+          </div>
+          <div id="trackingCountdown" class="tracking-countdown-clock">08:45</div>
+          <div id="trackingStatusHeadline" class="tracking-status-text">
+            🛵 Rider Gurpreet Singh is picking up your order from Mohali Hub #104
+          </div>
+
+          <div class="tracking-progress-track">
+            <div id="trackingProgressBar" class="tracking-progress-fill"></div>
+          </div>
+        </div>
+
+        <!-- Rider Profile Card -->
+        <div class="rider-card-strip">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div class="rider-avatar">🛵</div>
+            <div>
+              <div style="font-family: var(--font-heading); font-weight: 800; font-size: 15px; color: var(--text-dark);">Gurpreet Singh</div>
+              <div style="font-size: 12px; color: var(--text-muted);">⭐ 4.95 • Electric Scooter (CH-01-EV-2024)</div>
+            </div>
+          </div>
+          <button style="background: var(--maroon-soft); color: var(--maroon-primary); border: 1.5px solid var(--maroon-primary); padding: 8px 16px; border-radius: var(--radius-full); font-family: var(--font-heading); font-weight: 800; font-size: 12.5px; cursor: pointer;" onclick="showToast('📞 Calling Rider Gurpreet Singh...')">
+            Call Rider
+          </button>
+        </div>
+
+        <!-- Timeline Steps -->
+        <div class="timeline-flow">
+          <div id="nodeStep1" class="timeline-node completed">
+            <h6>Order Placed & Confirmed</h6>
+            <p>Payment received, Tricity dark store staff assigned</p>
+          </div>
+          <div id="nodeStep2" class="timeline-node active">
+            <h6>Verka Dairy & Ingredients Packed</h6>
+            <p>Fresh Verka paneer & veggies packed in insulated cooling bag</p>
+          </div>
+          <div id="nodeStep3" class="timeline-node">
+            <h6>Rider on the Way</h6>
+            <p id="trackingRouteText">Navigating via Mohali Phase 3B2 main road (approx 3 mins)</p>
+          </div>
+          <div id="nodeStep4" class="timeline-node">
+            <h6>Delivered at Doorstep</h6>
+            <p>Ready to unpack and cook your delicious meal!</p>
+          </div>
+        </div>
+
+        <!-- Prompt to view recipe while waiting -->
+        <div style="margin-top: 22px; background: var(--beige-surface); border: 1.5px solid var(--beige-border); border-radius: var(--radius-sm); padding: 18px; text-align: center;">
+          <div style="font-family: var(--font-heading); font-weight: 800; font-size: 15px; margin-bottom: 4px; color: var(--maroon-primary);">👨‍🍳 Preparing to cook?</div>
+          <div style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 14px;">
+            Watch the video masterclass and prep your utensils while your delivery is on the way!
+          </div>
+          <button style="background: var(--maroon-primary); color: #fff; border: none; padding: 10px 22px; border-radius: var(--radius-full); font-family: var(--font-heading); font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: var(--shadow-sm);" onclick="closeTrackingModal(); switchView('recipes');">
+            Open Recipe Masterclass
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast-notice">
+      <span id="toastMessage">Notification</span>
+    </div>
+
+    </div> <!-- /iphone-shell -->
+  </div> <!-- /device-page-layout -->
+
+  <!-- Application Logic -->
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

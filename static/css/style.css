@@ -284,7 +284,7 @@ body {
 
 .main-container {
   max-width: 1240px;
-  margin: 16px auto;
+  margin: 6px auto;
   padding: 0 20px;
 }
 
@@ -2613,7 +2613,7 @@ body {
 
 /* Search Bar in iPhone View */
 .header-search-bar {
-  padding: 0 14px 9px;
+  padding: 0 14px 5px;
 }
 
 .search-input-wrapper {
@@ -2706,7 +2706,7 @@ body {
 
 /* Main Mobile Content Area */
 .main-container {
-  padding: 12px 12px 75px;
+  padding: 2px 12px 75px;
   max-width: 100%;
 }
 
@@ -2716,8 +2716,8 @@ body {
 .top-category-carousel-wrapper {
   width: 100%;
   overflow: hidden;
-  padding: 2px 0 10px 0;
-  margin-bottom: 4px;
+  padding: 0 0 6px 0;
+  margin-bottom: 2px;
   position: relative;
 }
 

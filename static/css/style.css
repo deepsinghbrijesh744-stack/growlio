@@ -2655,11 +2655,12 @@ body {
   cursor: pointer;
 }
 
-/* iOS Segmented Nav Tabs */
+/* iOS Segmented Nav Tabs (Placed Below Categories) */
 .nav-tab-switch {
   display: flex;
-  gap: 6px;
-  padding: 0 14px 9px;
+  gap: 8px;
+  padding: 0 0 10px 0;
+  margin-bottom: 6px;
   overflow-x: auto;
   scrollbar-width: none;
 }

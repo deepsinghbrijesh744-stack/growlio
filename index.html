@@ -95,23 +95,12 @@
               <span class="search-mic-icon">🎙️</span>
             </div>
           </div>
-
-          <!-- iOS Segmented Control Pills -->
-          <div class="nav-tab-switch">
-            <button id="tabBtnGroceries" class="tab-btn active" onclick="switchView('groceries')">
-              🛒 Store
-            </button>
-            <button id="tabBtnRecipes" class="tab-btn" onclick="switchView('recipes')">
-              🍳 Recipe Kits
-              <span class="tab-badge">1-Click</span>
-            </button>
-          </div>
         </header>
 
         <!-- Main Mobile Container -->
         <main class="main-container">
 
-          <!-- Top Category Tabs Carousel (Exactly 4 Visible, Auto-Sliding on Click) -->
+          <!-- Top Category Tabs Carousel (All, Electronics, Beauty, Gifting, Decor, Kids) - Placed Above -->
           <div class="top-category-carousel-wrapper">
             <div class="top-category-tabs-row" id="topCategoryTabsRow">
               <div class="top-cat-tab-chip active" id="topCatTab0" data-index="0" data-cat="All" onclick="selectTopCategoryTab(0, 'All', this)">
@@ -151,6 +140,17 @@
                 <span class="tab-chip-label">Kids</span>
               </div>
             </div>
+          </div>
+
+          <!-- iOS Segmented Control Pills (Store / Recipe Kits) - Placed Below Categories -->
+          <div class="nav-tab-switch">
+            <button id="tabBtnGroceries" class="tab-btn active" onclick="switchView('groceries')">
+              🛒 Store
+            </button>
+            <button id="tabBtnRecipes" class="tab-btn" onclick="switchView('recipes')">
+              🍳 Recipe Kits
+              <span class="tab-badge">1-Click</span>
+            </button>
           </div>
           
           <!-- Compact iOS Hero Banner -->

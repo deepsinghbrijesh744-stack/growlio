@@ -8,6 +8,7 @@ let selectedSubcategory = 'all';
 let selectedRecipeCat = 'All';
 let selectedRecipeCuisine = 'All';
 let selectedRecipeDiet = 'all';
+let selectedBrand = 'all';
 
 const CUISINE_DEFINITIONS = [
   {
@@ -226,14 +227,14 @@ async function loadData() {
       prodRes = await fetch('/api/products');
       if (!prodRes.ok) throw new Error('API route unavailable');
     } catch {
-      prodRes = await fetch('./data/products.json?v=6.0');
+      prodRes = await fetch('./data/products.json?v=7.0');
     }
 
     try {
       recRes = await fetch('/api/recipes');
       if (!recRes.ok) throw new Error('API route unavailable');
     } catch {
-      recRes = await fetch('./data/recipes.json?v=6.0');
+      recRes = await fetch('./data/recipes.json?v=7.0');
     }
 
     allProducts = await prodRes.json();
@@ -1082,6 +1083,7 @@ function renderStoreCategoriesGrid() {
 function selectStoreCategory(catId, cardEl) {
   selectedDepartment = catId;
   selectedSubcategory = 'all';
+  selectedBrand = 'all';
 
   document.querySelectorAll('.blinkit-cat-card').forEach(el => el.classList.remove('active'));
   if (cardEl) {
@@ -1094,11 +1096,70 @@ function selectStoreCategory(catId, cardEl) {
     });
   }
 
+  renderStoreBrandPills();
+  renderProducts();
+}
+
+function renderStoreBrandPills() {
+  const container = document.getElementById('storeBrandFilterBar');
+  if (!container) return;
+
+  // Find products matching current department
+  let prods = allProducts;
+  if (selectedDepartment && selectedDepartment !== 'all') {
+    if (selectedDepartment.startsWith('sub:')) {
+      const sub = selectedDepartment.slice(4);
+      prods = prods.filter(p => p.subcategory === sub || p.subcat_dept === sub);
+    } else {
+      prods = prods.filter(p => p.department === selectedDepartment || p.category === selectedDepartment);
+    }
+  }
+
+  // Extract distinct brands with counts
+  const brandCounts = {};
+  prods.forEach(p => {
+    if (p.brand) {
+      brandCounts[p.brand] = (brandCounts[p.brand] || 0) + 1;
+    }
+  });
+
+  const brandsList = Object.keys(brandCounts).sort((a, b) => brandCounts[b] - brandCounts[a]);
+
+  if (brandsList.length <= 1) {
+    container.style.display = 'none';
+    return;
+  }
+  container.style.display = 'flex';
+
+  let html = `
+    <button class="brand-filter-pill ${selectedBrand === 'all' ? 'active' : ''}" onclick="selectStoreBrand('all', this)">
+      ✨ All Brands (${prods.length})
+    </button>
+  `;
+
+  brandsList.forEach(brand => {
+    const isActive = (selectedBrand === brand);
+    const safeBrand = brand.replace(/'/g, "\\'");
+    html += `
+      <button class="brand-filter-pill ${isActive ? 'active' : ''}" onclick="selectStoreBrand('${safeBrand}', this)">
+        ${brand} <span style="opacity: 0.7; font-size: 9.5px; font-weight: 600;">(${brandCounts[brand]})</span>
+      </button>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+function selectStoreBrand(brandName, btnEl) {
+  selectedBrand = brandName;
+  document.querySelectorAll('#storeBrandFilterBar .brand-filter-pill').forEach(b => b.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
   renderProducts();
 }
 
 function renderStoreDepartments() {
   renderStoreCategoriesGrid();
+  renderStoreBrandPills();
 }
 
 function selectStoreDepartment(deptId, chipEl) {
@@ -1167,6 +1228,11 @@ function renderProducts() {
     }
   }
 
+  // 1.5 Brand Filter
+  if (selectedBrand && selectedBrand !== 'all') {
+    filtered = filtered.filter(p => p.brand === selectedBrand);
+  }
+
   // 2. Subcategory Filter
   if (selectedSubcategory && selectedSubcategory !== 'all') {
     filtered = filtered.filter(p => 
@@ -1177,10 +1243,11 @@ function renderProducts() {
     );
   }
 
-  // 3. Search Filter
+  // 3. Search Filter (Matches Product Name, Brand, Department, Category & Subcategory)
   if (searchQuery) {
     filtered = filtered.filter(p => 
       p.name.toLowerCase().includes(searchQuery) ||
+      (p.brand && p.brand.toLowerCase().includes(searchQuery)) ||
       (p.department && p.department.toLowerCase().includes(searchQuery)) ||
       (p.category && p.category.toLowerCase().includes(searchQuery)) ||
       (p.subcategory && p.subcategory.toLowerCase().includes(searchQuery)) ||
@@ -1278,6 +1345,7 @@ function renderProducts() {
           ${discountBadge}
         </div>
         ${tricityTag}
+        <div class="product-brand-tag">${p.brand || ''}</div>
         <div class="product-weight">${p.weight}</div>
         <div class="product-title" title="${p.name}">${p.name}</div>
         <div class="product-bottom-row">

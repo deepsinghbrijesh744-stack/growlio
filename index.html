@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Grovio - 10 Min Groceries & Chef Recipe Kits | Tricity Chandigarh, Mohali, Panchkula</title>
-  <link rel="stylesheet" href="./static/css/style.css?v=3.3" />
+  <link rel="stylesheet" href="./static/css/style.css?v=3.4" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -218,25 +218,25 @@
 
               <!-- Quick Grocery Department Grid (Purely Grocery) -->
               <div class="home-grocery-category-tiles">
-                <div class="grocery-tile-item" onclick="openFullDepartment('Grocery & Kitchen', 'Dairy, Bread & Eggs')">
-                  <div class="grocery-tile-bubble">🥛</div>
-                  <span class="grocery-tile-title">Dairy &amp; Eggs</span>
-                </div>
-                <div class="grocery-tile-item" onclick="openFullDepartment('Grocery & Kitchen', 'Vegetables & Fruits')">
+                <div class="grocery-tile-item" onclick="openFullDepartment('Vegetables & Fruits', 'all')">
                   <div class="grocery-tile-bubble">🥦</div>
                   <span class="grocery-tile-title">Fresh Veggies</span>
                 </div>
-                <div class="grocery-tile-item" onclick="openFullDepartment('Grocery & Kitchen', 'Atta, Rice & Dals')">
+                <div class="grocery-tile-item" onclick="openFullDepartment('Dairy, Bread & Eggs', 'all')">
+                  <div class="grocery-tile-bubble">🥛</div>
+                  <span class="grocery-tile-title">Dairy &amp; Eggs</span>
+                </div>
+                <div class="grocery-tile-item" onclick="openFullDepartment('Cold Drinks & Juices', 'all')">
+                  <div class="grocery-tile-bubble">🥤</div>
+                  <span class="grocery-tile-title">Cold Drinks</span>
+                </div>
+                <div class="grocery-tile-item" onclick="openFullDepartment('Snacks & Munchies', 'all')">
+                  <div class="grocery-tile-bubble">🍿</div>
+                  <span class="grocery-tile-title">Munchies</span>
+                </div>
+                <div class="grocery-tile-item" onclick="openFullDepartment('Atta, Rice & Dals', 'all')">
                   <div class="grocery-tile-bubble">🌾</div>
                   <span class="grocery-tile-title">Atta &amp; Dals</span>
-                </div>
-                <div class="grocery-tile-item" onclick="openFullDepartment('Grocery & Kitchen', 'Oils, Ghee & Masalas')">
-                  <div class="grocery-tile-bubble">🫒</div>
-                  <span class="grocery-tile-title">Ghee &amp; Spices</span>
-                </div>
-                <div class="grocery-tile-item" onclick="openFullDepartment('Snacks & Desserts', 'Chips & Namkeen')">
-                  <div class="grocery-tile-bubble">🍿</div>
-                  <span class="grocery-tile-title">Munchies &amp; Drinks</span>
                 </div>
                 <div class="grocery-tile-item" onclick="switchView('recipes')">
                   <div class="grocery-tile-bubble highlight">👨‍🍳</div>
@@ -282,21 +282,26 @@
 
           </div> <!-- /homeExperienceView -->
 
-    <!-- FILTERED / ALL PRODUCTS VIEW (Activated on subcategory click or search) -->
+    <!-- FILTERED / ALL PRODUCTS VIEW (Blinkit-Style Grocery Store) -->
     <section id="groceriesSection" style="display: none;">
-      <div class="section-header">
-        <h3 class="section-title">
-          <span id="sectionTitleText">🛒 All Groceries &amp; Daily Essentials</span>
-          <span class="section-badge" id="sectionDeliveryBadge">⚡ 8-10 MINS</span>
-        </h3>
-        <button class="btn-back-to-departments" onclick="resetToAllDepartments()">
-          ⬅️ Back to All Categories
-        </button>
+      <!-- Store Hub Minimal Header -->
+      <div class="store-hub-header">
+        <div class="store-hub-title-row">
+          <h2 class="store-hub-title" id="sectionTitleText">🛒 Grovio SuperStore</h2>
+          <span class="store-hub-count" id="productCountLabel">169 items</span>
+        </div>
+        <p class="store-hub-sub">Blinkit-fast delivery of fresh produce, cold drinks, snacks &amp; daily essentials in 8–10 mins</p>
       </div>
 
-      <!-- Dynamic Subcategory Filter Pills Row (e.g. All Milks, All Oils) -->
+      <!-- Blinkit-Style Top Departments Carousel -->
+      <div class="store-departments-wrapper">
+        <div class="store-department-bar" id="storeDepartmentBar">
+          <!-- Populated by JS renderStoreDepartments() -->
+        </div>
+      </div>
+
+      <!-- Dynamic Subcategory Filter Pills Row (e.g. Soft Drinks, Juices, Energy Drinks) -->
       <div class="subcategory-pills-container" id="subcategoryFilterWrapper">
-        <div class="subcategory-label">Filter by Variety:</div>
         <div class="category-pills-row" id="subcategoryPillsRow">
           <!-- Dynamically populated by JS based on selected department -->
         </div>
@@ -875,6 +880,6 @@
   </div> <!-- /device-page-layout -->
 
   <!-- Application Logic -->
-  <script src="./static/js/app.js?v=3.3"></script>
+  <script src="./static/js/app.js?v=3.4"></script>
 </body>
 </html>

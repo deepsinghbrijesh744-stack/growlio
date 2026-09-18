@@ -106,26 +106,144 @@ let ingredientSelection = {};
 let trackingTimer = null;
 let secondsRemaining = 540; // 9 mins
 
-// Department Subcategories Mapping (Blinkit Standard)
+// -------------------------------------------------------------
+// Blinkit Food & Drink Departments Architecture
+// -------------------------------------------------------------
+const STORE_DEPARTMENTS = [
+  {
+    id: 'all',
+    name: 'All Items',
+    icon: '🌟'
+  },
+  {
+    id: 'Vegetables & Fruits',
+    name: 'Vegetables & Fruits',
+    icon: '🥦'
+  },
+  {
+    id: 'Dairy, Bread & Eggs',
+    name: 'Dairy, Bread & Eggs',
+    icon: '🥛'
+  },
+  {
+    id: 'Cold Drinks & Juices',
+    name: 'Cold Drinks & Juices',
+    icon: '🥤'
+  },
+  {
+    id: 'Snacks & Munchies',
+    name: 'Snacks & Munchies',
+    icon: '🍿'
+  },
+  {
+    id: 'Atta, Rice & Dals',
+    name: 'Atta, Rice & Dals',
+    icon: '🌾'
+  },
+  {
+    id: 'Oils, Ghee & Masalas',
+    name: 'Oils, Ghee & Masalas',
+    icon: '🫒'
+  },
+  {
+    id: 'Instant & Frozen Food',
+    name: 'Instant & Frozen',
+    icon: '🍜'
+  },
+  {
+    id: 'Bakery, Sweets & Chocolates',
+    name: 'Sweets & Chocolates',
+    icon: '🍫'
+  },
+  {
+    id: 'Tea, Coffee & Drinks',
+    name: 'Tea, Coffee & Drinks',
+    icon: '☕'
+  },
+  {
+    id: 'Meat, Poultry & Seafood',
+    name: 'Meat & Seafood',
+    icon: '🍗'
+  }
+];
+
 const departmentSubcategories = {
-  'Grocery & Kitchen': [
-    { id: 'all', label: '✨ All Grocery & Kitchen' },
-    { id: 'Dairy, Bread & Eggs', label: '🥛 Dairy, Bread & Eggs' },
-    { id: 'Vegetables & Fruits', label: '🥦 Vegetables & Fruits' },
-    { id: 'Atta, Rice & Dals', label: '🌾 Atta, Rice & Dals' },
-    { id: 'Oils, Ghee & Masalas', label: '🫒 Oils, Ghee & Spices' },
-    { id: 'Dry Fruits & Cereals', label: '🥜 Dry Fruits & Cereals' },
-    { id: 'Kitchen Tools & Storage', label: '🍳 Kitchenware & Foil' }
+  'all': [
+    { id: 'all', label: '✨ All Items' },
+    { id: 'Vegetables & Fruits', label: '🥦 Fresh Produce' },
+    { id: 'Dairy, Bread & Eggs', label: '🥛 Dairy & Eggs' },
+    { id: 'Cold Drinks & Juices', label: '🥤 Cold Drinks' },
+    { id: 'Snacks & Munchies', label: '🍿 Munchies' },
+    { id: 'Atta, Rice & Dals', label: '🌾 Atta & Dals' },
+    { id: 'Oils, Ghee & Masalas', label: '🫒 Oils & Spices' },
+    { id: 'Instant & Frozen Food', label: '🍜 Instant Food' },
+    { id: 'Bakery, Sweets & Chocolates', label: '🍫 Chocolates & Mithai' }
   ],
-  'Snacks & Desserts': [
-    { id: 'all', label: '✨ All Snacks & Desserts' },
-    { id: 'Chips & Namkeen', label: '🍟 Chips & Namkeen' },
-    { id: 'Sweets & Chocolates', label: '🍫 Sweets & Chocolates' },
-    { id: 'Ice Creams & Kulfi', label: '🍦 Ice Creams & Kulfi' },
-    { id: 'Cold Drinks & Juices', label: '🥤 Chilled Drinks & Juices' },
-    { id: 'Biscuits & Cookies', label: '🍪 Biscuits & Cookies' },
-    { id: 'Instant Noodles & Pasta', label: '🍜 Noodles & Maggi' },
-    { id: 'Tea & Coffee', label: '☕ Tea & Coffee' }
+  'Vegetables & Fruits': [
+    { id: 'all', label: '✨ All Produce' },
+    { id: 'Fresh Vegetables', label: '🥔 Fresh Vegetables' },
+    { id: 'Fresh Fruits', label: '🍎 Fresh Fruits' },
+    { id: 'Herbs & Lemon', label: '🍋 Herbs & Lemon' }
+  ],
+  'Dairy, Bread & Eggs': [
+    { id: 'all', label: '✨ All Dairy & Eggs' },
+    { id: 'Milk', label: '🥛 Fresh & Tetra Milk' },
+    { id: 'Butter & Ghee', label: '🧈 Butter & Ghee' },
+    { id: 'Paneer & Curd', label: '🧀 Paneer & Curd' },
+    { id: 'Cheese', label: '🍕 Slices & Cubes' },
+    { id: 'Bread & Pav', label: '🍞 Breads & Pav' },
+    { id: 'Eggs', label: '🥚 Farm Eggs' }
+  ],
+  'Cold Drinks & Juices': [
+    { id: 'all', label: '✨ All Drinks' },
+    { id: 'Soft Drinks', label: '🥤 Cola & Sparkling' },
+    { id: 'Fruit Juices', label: '🧃 Real & Tropicana' },
+    { id: 'Energy Drinks', label: '⚡ Red Bull & Monster' },
+    { id: 'Soda & Mixers', label: '💧 Soda & Water' },
+    { id: 'Cold Coffee & Milk Drinks', label: '☕ Cold Coffee & Shakes' }
+  ],
+  'Snacks & Munchies': [
+    { id: 'all', label: '✨ All Munchies' },
+    { id: 'Chips & Crisps', label: '🥔 Lay\'s & Pringles' },
+    { id: 'Namkeen & Bhujia', label: '🥨 Haldiram\'s Bhujia' },
+    { id: 'Biscuits & Cookies', label: '🍪 Cookies & Parle-G' },
+    { id: 'Dry Fruits & Nuts', label: '🥜 Almonds & Cashews' }
+  ],
+  'Atta, Rice & Dals': [
+    { id: 'all', label: '✨ All Staples' },
+    { id: 'Atta & Flours', label: '🌾 Chakki Atta & Besan' },
+    { id: 'Basmati Rice & Grains', label: '🍚 Basmati Rice' },
+    { id: 'Dals & Pulses', label: '🥣 Toor, Moong & Rajma' },
+    { id: 'Salt, Sugar & Seasonings', label: '🧂 Sugar & Salt' }
+  ],
+  'Oils, Ghee & Masalas': [
+    { id: 'all', label: '✨ All Oils & Spices' },
+    { id: 'Cooking Oils', label: '🌻 Mustard & Sunflower' },
+    { id: 'Pure Desi Ghee', label: '🧈 Verka Desi Ghee' },
+    { id: 'Whole & Ground Spices', label: '🌶️ MDH & Everest Spices' },
+    { id: 'Salt, Sugar & Seasonings', label: '🧂 Table Salt & Seasonings' }
+  ],
+  'Instant & Frozen Food': [
+    { id: 'all', label: '✨ All Instant Food' },
+    { id: 'Noodles & Pasta', label: '🍜 Maggi & Pasta' },
+    { id: 'Frozen Snacks', label: '🍟 McCain Fries & Smiles' },
+    { id: 'Sauces & Spreads', label: '🍅 Ketchup & Nutella' }
+  ],
+  'Bakery, Sweets & Chocolates': [
+    { id: 'all', label: '✨ All Sweets' },
+    { id: 'Chocolates', label: '🍫 Silk & KitKat' },
+    { id: 'Indian Mithai', label: '🍯 Gulab Jamun & Rasgulla' }
+  ],
+  'Tea, Coffee & Drinks': [
+    { id: 'all', label: '✨ All Hot Beverages' },
+    { id: 'Tea', label: '🫖 Tata Tea & Green Tea' },
+    { id: 'Coffee', label: '☕ Nescafe & Bru' },
+    { id: 'Health Drinks', label: '🍫 Bournvita' }
+  ],
+  'Meat, Poultry & Seafood': [
+    { id: 'all', label: '✨ All Fresh Meat' },
+    { id: 'Fresh Chicken', label: '🍗 Curry Cut & Boneless' },
+    { id: 'Cold Cuts & Sausages', label: '🥓 Sausages & Salami' }
   ]
 };
 
@@ -136,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initIosClock();
   loadData();
   setupSearchPlaceholderRotation();
+  renderStoreDepartments();
   renderSubcategoryPills();
 });
 
@@ -163,6 +282,7 @@ async function loadData() {
 
     renderHomeExperience();
     renderDepartmentShelves();
+    renderStoreDepartments();
     renderCuisinesMenu();
     renderRecipes();
     renderProducts();
@@ -410,6 +530,7 @@ function switchView(viewName) {
     if (bnavStore) bnavStore.classList.add('active');
     if (grocSec) grocSec.style.display = 'block';
 
+    renderStoreDepartments();
     renderSubcategoryPills();
     renderProducts();
   } else if (viewName === 'order-again') {
@@ -562,17 +683,13 @@ function openFullDepartment(deptName, subcatName = 'all') {
   selectedSubcategory = subcatName;
   switchView('groceries');
 
+  const def = STORE_DEPARTMENTS.find(d => d.id === deptName);
   const titleEl = document.getElementById('sectionTitleText');
   if (titleEl) {
-    titleEl.innerText = subcatName !== 'all' ? `${deptName} ➔ ${subcatName}` : `🛒 ${deptName}`;
+    titleEl.innerText = def ? `${def.icon} ${def.name}` : `🛒 ${deptName}`;
   }
 
-  const backBtn = document.querySelector('.btn-back-to-departments');
-  if (backBtn) {
-    backBtn.innerHTML = '⬅️ Back to Home';
-    backBtn.onclick = () => switchView('home');
-  }
-
+  renderStoreDepartments();
   renderSubcategoryPills();
   renderProducts();
 
@@ -986,15 +1103,64 @@ function renderDepartmentShelves() {
   });
 }
 
+// -------------------------------------------------------------
+// STORE DEPARTMENTS & SUBCATEGORY CONTROLS (BLINKIT ARCHITECTURE)
+// -------------------------------------------------------------
+function renderStoreDepartments() {
+  const bar = document.getElementById('storeDepartmentBar');
+  if (!bar) return;
+
+  bar.innerHTML = STORE_DEPARTMENTS.map(d => {
+    const isActive = selectedDepartment === d.id;
+    const count = d.id === 'all' 
+      ? allProducts.length 
+      : allProducts.filter(p => p.department === d.id).length;
+
+    return `
+      <div class="store-dept-chip ${isActive ? 'active' : ''}" onclick="selectStoreDepartment('${d.id}', this)">
+        <span class="store-dept-icon">${d.icon}</span>
+        <span class="store-dept-name">${d.name}</span>
+        <span class="store-dept-count">${count}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+function selectStoreDepartment(deptId, chipEl) {
+  selectedDepartment = deptId;
+  selectedSubcategory = 'all';
+
+  document.querySelectorAll('#storeDepartmentBar .store-dept-chip').forEach(el => el.classList.remove('active'));
+  if (chipEl) {
+    chipEl.classList.add('active');
+  } else {
+    document.querySelectorAll('#storeDepartmentBar .store-dept-chip').forEach(el => {
+      const nameEl = el.querySelector('.store-dept-name');
+      if (nameEl && (nameEl.innerText.trim() === deptId || (deptId === 'all' && nameEl.innerText.includes('All')))) {
+        el.classList.add('active');
+      }
+    });
+  }
+
+  const titleEl = document.getElementById('sectionTitleText');
+  if (titleEl) {
+    const def = STORE_DEPARTMENTS.find(d => d.id === deptId);
+    titleEl.innerText = def && def.id !== 'all' ? `${def.icon} ${def.name}` : '🛒 Grovio SuperStore';
+  }
+
+  renderSubcategoryPills();
+  renderProducts();
+}
+
 function renderSubcategoryPills() {
   const container = document.getElementById('subcategoryPillsRow');
   const wrapper = document.getElementById('subcategoryFilterWrapper');
   if (!container || !wrapper) return;
 
-  const currentDeptKey = selectedDepartment !== 'all' ? selectedDepartment : 'Grocery & Kitchen';
-  const subcats = departmentSubcategories[currentDeptKey] || [];
+  const currentDeptKey = selectedDepartment;
+  const subcats = departmentSubcategories[currentDeptKey] || departmentSubcategories['all'] || [];
 
-  if (subcats.length === 0) {
+  if (subcats.length <= 1) {
     wrapper.style.display = 'none';
     return;
   }

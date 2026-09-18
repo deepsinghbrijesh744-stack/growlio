@@ -2149,59 +2149,137 @@ body {
 }
 
 /* ================================================= */
-/* BLINKIT DEPARTMENTS & DYNAMIC SUBCATEGORY PILLS */
+/* BLINKIT STORE HUB & DEPARTMENT CAROUSEL */
 /* ================================================= */
 
-.category-grid-item.active .category-icon-circle {
-  border-color: #d49f37;
-  background: var(--maroon-primary);
-  box-shadow: 0 4px 16px var(--maroon-glow);
-  transform: translateY(-4px) scale(1.08);
+.store-hub-header {
+  padding: 16px 4px 10px;
+  margin-bottom: 12px;
 }
 
-.category-grid-item.active {
-  border-color: var(--maroon-primary);
-  background: var(--maroon-soft);
+.store-hub-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
 }
 
-.category-grid-item.active .category-icon-circle {
-  background: var(--maroon-primary);
+.store-hub-title {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+
+.store-hub-count {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #15803d;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.store-hub-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Blinkit Top Departments Carousel */
+.store-departments-wrapper {
+  margin-bottom: 12px;
+}
+
+.store-department-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 2px 2px 8px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.store-department-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.store-dept-chip {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #ffffff;
+  border: 1.5px solid var(--beige-border);
+  border-radius: 22px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  user-select: none;
+}
+
+.store-dept-chip:hover {
+  border-color: #15803d;
+  transform: translateY(-1px);
+}
+
+.store-dept-chip.active {
+  background: #0f4a24;
+  border-color: #0f4a24;
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(15, 74, 36, 0.28);
+  transform: translateY(-1px);
+}
+
+.store-dept-icon {
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.store-dept-name {
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+.store-dept-chip.active .store-dept-name {
   color: #ffffff;
 }
 
-.category-grid-item.active span {
-  color: var(--maroon-primary);
+.store-dept-count {
+  font-size: 10.5px;
   font-weight: 700;
+  color: #71717a;
+  background: #f4f4f5;
+  padding: 1px 7px;
+  border-radius: 10px;
 }
 
+.store-dept-chip.active .store-dept-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Subcategory Pills Row */
 .subcategory-pills-container {
-  margin-bottom: 20px;
-  padding: 14px 16px;
-  background: #ffffff;
-  border: 1.5px solid var(--beige-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.subcategory-label {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--maroon-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.subcategory-label::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--maroon-primary);
+  margin-bottom: 16px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 /* ================================================= */

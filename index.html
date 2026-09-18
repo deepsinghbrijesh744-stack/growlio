@@ -284,30 +284,16 @@
 
     <!-- FILTERED / ALL PRODUCTS VIEW (Blinkit-Style Grocery Store) -->
     <section id="groceriesSection" style="display: none;">
-      <!-- Store Hub Minimal Header -->
-      <div class="store-hub-header">
-        <div class="store-hub-title-row">
-          <h2 class="store-hub-title" id="sectionTitleText">🛒 Grovio SuperStore</h2>
-          <span class="store-hub-count" id="productCountLabel">169 items</span>
-        </div>
-        <p class="store-hub-sub">Blinkit-fast delivery of fresh produce, cold drinks, snacks &amp; daily essentials in 8–10 mins</p>
+      <!-- Hidden elements for backward-compatibility with any JS hooks -->
+      <span id="sectionTitleText" style="display: none;">🛒 Store</span>
+      <span id="productCountLabel" style="display: none;">169 items</span>
+
+      <!-- Blinkit 4-Column Category Grid (Pairs of 4) -->
+      <div class="blinkit-store-categories-grid" id="storeCategoriesGrid">
+        <!-- Populated by JS renderStoreCategoriesGrid() -->
       </div>
 
-      <!-- Blinkit-Style Top Departments Carousel -->
-      <div class="store-departments-wrapper">
-        <div class="store-department-bar" id="storeDepartmentBar">
-          <!-- Populated by JS renderStoreDepartments() -->
-        </div>
-      </div>
-
-      <!-- Dynamic Subcategory Filter Pills Row (e.g. Soft Drinks, Juices, Energy Drinks) -->
-      <div class="subcategory-pills-container" id="subcategoryFilterWrapper">
-        <div class="category-pills-row" id="subcategoryPillsRow">
-          <!-- Dynamically populated by JS based on selected department -->
-        </div>
-      </div>
-
-      <!-- Products Grid -->
+      <!-- Products Grid (Directly below 4-column categories) -->
       <div class="products-grid" id="productsGridContainer">
         <!-- Rendered by JS -->
       </div>

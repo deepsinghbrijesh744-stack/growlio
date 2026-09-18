@@ -107,65 +107,24 @@ let trackingTimer = null;
 let secondsRemaining = 540; // 9 mins
 
 // -------------------------------------------------------------
-// Blinkit Food & Drink Departments Architecture
+// Blinkit Food & Drink Departments Architecture (12 Categories - 3 Rows of 4)
 // -------------------------------------------------------------
-const STORE_DEPARTMENTS = [
-  {
-    id: 'all',
-    name: 'All Items',
-    icon: '🌟'
-  },
-  {
-    id: 'Vegetables & Fruits',
-    name: 'Vegetables & Fruits',
-    icon: '🥦'
-  },
-  {
-    id: 'Dairy, Bread & Eggs',
-    name: 'Dairy, Bread & Eggs',
-    icon: '🥛'
-  },
-  {
-    id: 'Cold Drinks & Juices',
-    name: 'Cold Drinks & Juices',
-    icon: '🥤'
-  },
-  {
-    id: 'Snacks & Munchies',
-    name: 'Snacks & Munchies',
-    icon: '🍿'
-  },
-  {
-    id: 'Atta, Rice & Dals',
-    name: 'Atta, Rice & Dals',
-    icon: '🌾'
-  },
-  {
-    id: 'Oils, Ghee & Masalas',
-    name: 'Oils, Ghee & Masalas',
-    icon: '🫒'
-  },
-  {
-    id: 'Instant & Frozen Food',
-    name: 'Instant & Frozen',
-    icon: '🍜'
-  },
-  {
-    id: 'Bakery, Sweets & Chocolates',
-    name: 'Sweets & Chocolates',
-    icon: '🍫'
-  },
-  {
-    id: 'Tea, Coffee & Drinks',
-    name: 'Tea, Coffee & Drinks',
-    icon: '☕'
-  },
-  {
-    id: 'Meat, Poultry & Seafood',
-    name: 'Meat & Seafood',
-    icon: '🍗'
-  }
+const BLINKIT_STORE_CATEGORIES = [
+  { id: 'Vegetables & Fruits', name: 'Veggies & Fruits', icon: '🥦' },
+  { id: 'Dairy, Bread & Eggs', name: 'Dairy & Eggs', icon: '🥛' },
+  { id: 'Cold Drinks & Juices', name: 'Cold Drinks', icon: '🥤' },
+  { id: 'Snacks & Munchies', name: 'Munchies', icon: '🍿' },
+  { id: 'Atta, Rice & Dals', name: 'Atta & Dals', icon: '🌾' },
+  { id: 'Oils, Ghee & Masalas', name: 'Oils & Spices', icon: '🫒' },
+  { id: 'Instant & Frozen Food', name: 'Instant Food', icon: '🍜' },
+  { id: 'Bakery, Sweets & Chocolates', name: 'Sweets & Choco', icon: '🍫' },
+  { id: 'Tea, Coffee & Drinks', name: 'Tea & Coffee', icon: '☕' },
+  { id: 'Meat, Poultry & Seafood', name: 'Fresh Meat', icon: '🍗' },
+  { id: 'sub:Bread & Pav', name: 'Bakery & Bread', icon: '🍞' },
+  { id: 'all', name: 'All Items', icon: '🌟' }
 ];
+
+const STORE_DEPARTMENTS = BLINKIT_STORE_CATEGORIES;
 
 const departmentSubcategories = {
   'all': [
@@ -530,8 +489,7 @@ function switchView(viewName) {
     if (bnavStore) bnavStore.classList.add('active');
     if (grocSec) grocSec.style.display = 'block';
 
-    renderStoreDepartments();
-    renderSubcategoryPills();
+    renderStoreCategoriesGrid();
     renderProducts();
   } else if (viewName === 'order-again') {
     if (bnavOrderAgain) bnavOrderAgain.classList.add('active');
@@ -1104,83 +1062,57 @@ function renderDepartmentShelves() {
 }
 
 // -------------------------------------------------------------
-// STORE DEPARTMENTS & SUBCATEGORY CONTROLS (BLINKIT ARCHITECTURE)
+// BLINKIT 4-COLUMN STORE CATEGORY GRID (PAIRS OF 4)
 // -------------------------------------------------------------
-function renderStoreDepartments() {
-  const bar = document.getElementById('storeDepartmentBar');
-  if (!bar) return;
+function renderStoreCategoriesGrid() {
+  const container = document.getElementById('storeCategoriesGrid');
+  if (!container) return;
 
-  bar.innerHTML = STORE_DEPARTMENTS.map(d => {
-    const isActive = selectedDepartment === d.id;
-    const count = d.id === 'all' 
-      ? allProducts.length 
-      : allProducts.filter(p => p.department === d.id).length;
-
+  container.innerHTML = BLINKIT_STORE_CATEGORIES.map(cat => {
+    const isActive = selectedDepartment === cat.id;
     return `
-      <div class="store-dept-chip ${isActive ? 'active' : ''}" onclick="selectStoreDepartment('${d.id}', this)">
-        <span class="store-dept-icon">${d.icon}</span>
-        <span class="store-dept-name">${d.name}</span>
-        <span class="store-dept-count">${count}</span>
+      <div class="blinkit-cat-card ${isActive ? 'active' : ''}" onclick="selectStoreCategory('${cat.id}', this)">
+        <div class="blinkit-cat-icon-wrap">${cat.icon}</div>
+        <span class="blinkit-cat-name">${cat.name}</span>
       </div>
     `;
   }).join('');
 }
 
-function selectStoreDepartment(deptId, chipEl) {
-  selectedDepartment = deptId;
+function selectStoreCategory(catId, cardEl) {
+  selectedDepartment = catId;
   selectedSubcategory = 'all';
 
-  document.querySelectorAll('#storeDepartmentBar .store-dept-chip').forEach(el => el.classList.remove('active'));
-  if (chipEl) {
-    chipEl.classList.add('active');
+  document.querySelectorAll('.blinkit-cat-card').forEach(el => el.classList.remove('active'));
+  if (cardEl) {
+    cardEl.classList.add('active');
   } else {
-    document.querySelectorAll('#storeDepartmentBar .store-dept-chip').forEach(el => {
-      const nameEl = el.querySelector('.store-dept-name');
-      if (nameEl && (nameEl.innerText.trim() === deptId || (deptId === 'all' && nameEl.innerText.includes('All')))) {
+    document.querySelectorAll('.blinkit-cat-card').forEach(el => {
+      const def = BLINKIT_STORE_CATEGORIES.find(c => c.id === catId);
+      const nameEl = el.querySelector('.blinkit-cat-name');
+      if (def && nameEl && nameEl.innerText.trim() === def.name) {
         el.classList.add('active');
       }
     });
   }
 
-  const titleEl = document.getElementById('sectionTitleText');
-  if (titleEl) {
-    const def = STORE_DEPARTMENTS.find(d => d.id === deptId);
-    titleEl.innerText = def && def.id !== 'all' ? `${def.icon} ${def.name}` : '🛒 Grovio SuperStore';
-  }
-
-  renderSubcategoryPills();
   renderProducts();
+}
+
+function renderStoreDepartments() {
+  renderStoreCategoriesGrid();
+}
+
+function selectStoreDepartment(deptId, chipEl) {
+  selectStoreCategory(deptId, chipEl);
 }
 
 function renderSubcategoryPills() {
-  const container = document.getElementById('subcategoryPillsRow');
-  const wrapper = document.getElementById('subcategoryFilterWrapper');
-  if (!container || !wrapper) return;
-
-  const currentDeptKey = selectedDepartment;
-  const subcats = departmentSubcategories[currentDeptKey] || departmentSubcategories['all'] || [];
-
-  if (subcats.length <= 1) {
-    wrapper.style.display = 'none';
-    return;
-  }
-
-  wrapper.style.display = 'block';
-  container.innerHTML = subcats.map((sc, index) => {
-    const isActive = (selectedSubcategory === sc.id || (selectedSubcategory === 'all' && index === 0));
-    return `
-      <button class="category-pill ${isActive ? 'active' : ''}" onclick="selectSubcategory('${sc.id}', this)">
-        ${sc.label}
-      </button>
-    `;
-  }).join('');
+  // Intentionally blank - variety filter removed
 }
 
 function selectSubcategory(subcatId, btn) {
-  selectedSubcategory = subcatId;
-  document.querySelectorAll('#subcategoryPillsRow .category-pill').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  renderProducts();
+  // Legacy stub
 }
 
 function handleSearch(query) {
@@ -1201,12 +1133,12 @@ function handleSearch(query) {
       if (homeView) homeView.style.display = 'none';
       if (grocSec) grocSec.style.display = 'none';
       if (recSec) recSec.style.display = 'block';
-    } else if (currentView === 'groceries') {
+    } else if (currentView === 'groceries' || currentView === 'store') {
       if (homeView) homeView.style.display = 'none';
       if (recSec) recSec.style.display = 'none';
       if (grocSec) grocSec.style.display = 'block';
       const titleEl = document.getElementById('sectionTitleText');
-      if (titleEl) titleEl.innerText = '🛒 All Groceries & Daily Essentials';
+      if (titleEl) titleEl.innerText = '🛒 Store';
     } else {
       if (homeView) homeView.style.display = 'block';
       if (recSec) recSec.style.display = 'none';
@@ -1228,12 +1160,17 @@ function renderProducts() {
   let filtered = allProducts;
 
   // 1. Department Filter
-  if (selectedDepartment !== 'all') {
-    filtered = filtered.filter(p => p.department === selectedDepartment || p.category === selectedDepartment);
+  if (selectedDepartment && selectedDepartment !== 'all') {
+    if (selectedDepartment.startsWith('sub:')) {
+      const sub = selectedDepartment.slice(4);
+      filtered = filtered.filter(p => p.subcategory === sub || p.subcat_dept === sub);
+    } else {
+      filtered = filtered.filter(p => p.department === selectedDepartment || p.category === selectedDepartment);
+    }
   }
 
   // 2. Subcategory Filter
-  if (selectedSubcategory !== 'all') {
+  if (selectedSubcategory && selectedSubcategory !== 'all') {
     filtered = filtered.filter(p => 
       p.subcat_dept === selectedSubcategory ||
       p.subcategory === selectedSubcategory || 
@@ -1254,7 +1191,8 @@ function renderProducts() {
     );
   }
 
-  document.getElementById('productCountLabel').innerText = `${filtered.length} items`;
+  const countEl = document.getElementById('productCountLabel');
+  if (countEl) countEl.innerText = `${filtered.length} items`;
 
   // Prepend matching recipe kits when search query is active
   let matchingRecipesHtml = '';

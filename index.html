@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Grovio - 10 Min Groceries & Chef Recipe Kits | Tricity Chandigarh, Mohali, Panchkula</title>
-  <link rel="stylesheet" href="./static/css/style.css?v=3.0" />
+  <link rel="stylesheet" href="./static/css/style.css?v=3.1" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -76,7 +76,7 @@
           <!-- iOS Address Selector Row with Live Pulse -->
           <div class="ios-location-bar" onclick="openLocationModal()" title="Change Delivery Location">
             <span class="pulse-live-dot"></span>
-            <span class="ios-loc-label">8 Mins to</span>
+            <span class="ios-loc-label">Deliver to</span>
             <span class="ios-loc-text" id="currentLocationText">Phase 3B2, Mohali</span>
             <span class="ios-loc-arrow">▾</span>
           </div>
@@ -84,7 +84,9 @@
           <!-- iOS Search Bar -->
           <div class="header-search-bar">
             <div class="search-input-wrapper">
-              <span class="search-icon">🔍                type="text" 
+              <span class="search-icon">🔍</span>
+              <input 
+                type="text" 
                 id="globalSearchInput" 
                 class="search-input" 
                 placeholder="Search recipes ('Dal Makhani', 'Biryani') or groceries ('Milk', 'Ghee')..." 
@@ -98,36 +100,21 @@
         <!-- Main Mobile Container -->
         <main class="main-container">
 
-          <!-- Grovio Modern Segmented Control (Home / Recipe Kits / Grocery Store) -->
-          <div class="nav-tab-switch">
-            <button id="tabBtnHome" class="tab-btn active" onclick="switchView('home')">
-              🏠 Home
-            </button>
-            <button id="tabBtnRecipes" class="tab-btn" onclick="switchView('recipes')">
-              🍳 Recipe Kits
-              <span class="tab-badge">1-Click</span>
-            </button>
-            <button id="tabBtnGroceries" class="tab-btn" onclick="switchView('groceries')">
-              🛒 Grocery Store
-            </button>
-          </div>
-
           <!-- ================================================= -->
           <!-- GROVIO HOME EXPERIENCE (RECIPES HIGHLIGHT + GROCERY) -->
           <!-- ================================================= -->
           <div id="homeExperienceView" class="home-experience-view">
 
-            <!-- 1. Tonight's MasterChef Spotlight Hero Card -->
+            <!-- 1. Today's Special MasterChef Spotlight Hero Card -->
             <section class="grovio-spotlight-card" id="homeSpotlightCard">
               <div class="spotlight-image-backdrop" style="background-image: url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&auto=format&fit=crop&q=80');">
                 <div class="spotlight-overlay-gradient"></div>
               </div>
               <div class="spotlight-content">
                 <div class="spotlight-badges-row">
-                  <span class="spotlight-tag">🔥 Tonight's Spotlight</span>
+                  <span class="spotlight-tag">⭐ Today's Special</span>
                   <span class="spotlight-meta-pill">⏱️ 25 Mins</span>
                   <span class="spotlight-meta-pill">🟢 100% Veg</span>
-                  <span class="spotlight-meta-pill">⭐ 4.98</span>
                 </div>
                 <h2 class="spotlight-dish-title">Highway Dhaba Dal Makhani</h2>
                 <p class="spotlight-dish-desc">
@@ -886,6 +873,6 @@
   </div> <!-- /device-page-layout -->
 
   <!-- Application Logic -->
-  <script src="./static/js/app.js?v=3.0"></script>
+  <script src="./static/js/app.js?v=3.1"></script>
 </body>
 </html>

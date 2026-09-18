@@ -1,57 +1,58 @@
 [
   {
     "id": "rec_1",
-    "name": "Dhaba Style Paneer Butter Masala (Verka Special)",
-    "headline": "Silky, aromatic Punjabi makhani gravy with tender Verka malai paneer cooked in pure butter.",
-    "category": "Tricity Specials",
-    "cuisine": "Punjabi Dhaba",
+    "name": "Dhaba Style Paneer Butter Masala",
+    "headline": "Silky, aromatic Punjabi makhani gravy with tender malai paneer cooked in pure butter & cashews.",
+    "category": "Punjabi & Dhaba",
+    "cuisine": "Punjabi & Dhaba",
     "diet": "Vegetarian",
-    "difficulty": "Medium",
+    "difficulty": "Easy",
     "prepTime": "10 mins",
     "cookTime": "20 mins",
     "totalTime": "30 mins",
     "calories": "390 kcal / serving",
-    "rating": 4.9,
-    "reviewsCount": 3450,
+    "rating": 4.95,
+    "reviewsCount": 4200,
     "defaultServings": 2,
+    "kitPrice": 195,
     "thumbnail": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&auto=format&fit=crop&q=80",
     "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
     "videoDuration": "04:45",
     "chef": "Chef Harpal Singh / Dhaba Special",
-    "description": "Tricity favorite! Soft Verka paneer cubes simmered in a spiced, buttery tomato-cashew gravy finished with fragrant kasuri methi and fresh cream.",
+    "description": "Tricity highway dhaba favorite! Soft malai paneer cubes simmered in a spiced, buttery tomato-cashew gravy with kasuri methi and fresh cream.",
     "steps": [
       {
         "stepNum": 1,
-        "title": "Make the Tomato & Cashew Puree",
-        "instruction": "Roughly chop fresh tomatoes, onions, ginger, and garlic from Sector 26 mandi. Simmer with whole cashews in 1 cup water for 8 mins, then blend until velvety smooth.",
+        "title": "Tomato & Cashew Puree",
+        "instruction": "Simmer fresh tomatoes, onions, ginger, and cashews in 1 cup water for 8 mins, then blend until velvety smooth.",
         "timestamp": 15,
         "formattedTime": "00:15"
       },
       {
         "stepNum": 2,
-        "title": "Temper Spices in Desi Ghee & Butter",
-        "instruction": "Melt Amul butter and Verka desi ghee in a handi. Add Deggi mirch on low flame for that iconic deep red Punjabi restaurant color.",
+        "title": "Temper Spices in Desi Ghee",
+        "instruction": "Melt butter and desi ghee. Add Deggi mirch on low flame for iconic deep red Punjabi color.",
         "timestamp": 75,
         "formattedTime": "01:15"
       },
       {
         "stepNum": 3,
         "title": "Simmer Makhani Gravy",
-        "instruction": "Pour the strained makhani gravy into the spiced butter. Cook covered for 8 mins until butter separates gently on the sides.",
+        "instruction": "Pour the gravy into spiced butter. Cook covered for 8 mins until butter separates gently.",
         "timestamp": 135,
         "formattedTime": "02:15"
       },
       {
         "stepNum": 4,
-        "title": "Add Verka Paneer & Fresh Cream",
-        "instruction": "Slide in fresh Verka paneer cubes. Season with garam masala and crushed Nagauri kasuri methi. Swirl in fresh cream and serve hot with naan!",
+        "title": "Add Paneer & Cream",
+        "instruction": "Slide in fresh paneer cubes. Season with garam masala and crushed kasuri methi. Swirl in fresh cream!",
         "timestamp": 210,
         "formattedTime": "03:30"
       }
     ],
     "ingredients": [
       {
-        "name": "Verka Malai Fresh Paneer",
+        "name": "Fresh Malai Paneer",
         "amountPerServing": 100,
         "unit": "g",
         "productId": "prod_v1",
@@ -72,23 +73,23 @@
         "unit": "ml",
         "productId": "prod_amul_cream",
         "isPantryStaple": false,
-        "notes": "For velvety texture"
+        "notes": "Rich velvety finish"
       },
       {
-        "name": "Tomatoes (Sec 26 Mandi)",
+        "name": "Mandi Fresh Tomatoes",
         "amountPerServing": 150,
         "unit": "g",
         "productId": "prod_v5",
         "isPantryStaple": false,
-        "notes": "Juicy red tomatoes"
+        "notes": "Ripe red tomatoes"
       },
       {
-        "name": "Red Onions (Mohali Mandi)",
+        "name": "Red Onions",
         "amountPerServing": 80,
         "unit": "g",
         "productId": "prod_v6",
         "isPantryStaple": false,
-        "notes": "Sliced"
+        "notes": "Fine sliced"
       },
       {
         "name": "Cashews Whole (Kaju)",
@@ -96,249 +97,732 @@
         "unit": "g",
         "productId": "prod_24",
         "isPantryStaple": false,
-        "notes": "For rich base"
-      },
-      {
-        "name": "Ginger-Garlic",
-        "amountPerServing": 15,
-        "unit": "g",
-        "productId": "prod_v8",
-        "isPantryStaple": false,
-        "notes": "Crushed fresh"
-      },
-      {
-        "name": "Kasuri Methi",
-        "amountPerServing": 2,
-        "unit": "g",
-        "productId": "prod_14",
-        "isPantryStaple": true,
-        "notes": "Fragrant fenugreek"
-      },
-      {
-        "name": "Tata Deggi Mirch",
-        "amountPerServing": 5,
-        "unit": "g",
-        "productId": "prod_14",
-        "isPantryStaple": true,
-        "notes": "Rich crimson red"
-      },
-      {
-        "name": "Everest Garam Masala",
-        "amountPerServing": 3,
-        "unit": "g",
-        "productId": "prod_13",
-        "isPantryStaple": true,
-        "notes": "Aromatic blend"
-      },
-      {
-        "name": "Tata Salt",
-        "amountPerServing": 4,
-        "unit": "g",
-        "productId": "prod_15",
-        "isPantryStaple": true,
-        "notes": "To taste"
+        "notes": "For rich gravy base"
       }
     ]
   },
   {
-    "id": "rec_2",
-    "name": "Amritsari Pindi Chole Kit",
-    "headline": "Authentic dark, tangy and spicy Punjabi chickpeas slow-cooked with whole spices and tea-water.",
-    "category": "Tricity Specials",
-    "cuisine": "Amritsari Punjabi",
+    "id": "rec_dal_makhani",
+    "name": "Highway Dhaba Dal Makhani (Slow Simmered)",
+    "headline": "Velvety black urad lentils slow-cooked overnight with white butter, fresh cream and aromatic spices.",
+    "category": "Punjabi & Dhaba",
+    "cuisine": "Punjabi & Dhaba",
     "diet": "Vegetarian",
     "difficulty": "Medium",
     "prepTime": "15 mins",
-    "cookTime": "30 mins",
-    "totalTime": "45 mins",
-    "calories": "320 kcal / serving",
-    "rating": 4.9,
-    "reviewsCount": 2890,
-    "defaultServings": 3,
+    "cookTime": "35 mins",
+    "totalTime": "50 mins",
+    "calories": "360 kcal / serving",
+    "rating": 4.98,
+    "reviewsCount": 5600,
+    "defaultServings": 2,
+    "kitPrice": 165,
     "thumbnail": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/5U9T-L9p94E",
-    "videoDuration": "05:10",
-    "chef": "Chef Ranveer Brar",
-    "description": "The pride of Punjab! Tender Kabuli chana simmered in dark spiced gravy with ginger juliennes, green chillies, and fragrant roasted anardana.",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "05:15",
+    "chef": "Chef Ranveer Brar / Punjabi Heritage",
+    "description": "The crown jewel of Punjabi dhabas. Whole black lentils and rajma slow-simmered with smoky charcoal dhungar, white butter, and fresh cream.",
     "steps": [
       {
         "stepNum": 1,
-        "title": "Boil Chana with Tea Bag & Spices",
-        "instruction": "Pressure cook soaked Kabuli chana with 1 tea bag, bay leaf, cinnamon, and salt for 5-6 whistles until melt-in-mouth tender.",
+        "title": "Pressure Cook Lentils",
+        "instruction": "Boil soaked Sabut Urad and Kashmiri Rajma with garlic and salt until tender.",
         "timestamp": 20,
         "formattedTime": "00:20"
       },
       {
         "stepNum": 2,
-        "title": "Bhuno the Masala Base in Mustard Oil",
-        "instruction": "Heat Fortune Kachi Ghani Mustard oil in a kadai. Saut\u00e9 chopped onions, ginger, garlic, and green chillies until dark brown.",
-        "timestamp": 80,
-        "formattedTime": "01:20"
+        "title": "Desi Ghee Tomato Tadka",
+        "instruction": "Saute pureed tomatoes with Kashmiri red chilli in desi ghee until aromatic.",
+        "timestamp": 90,
+        "formattedTime": "01:30"
       },
       {
         "stepNum": 3,
-        "title": "Simmer Chana in Spiced Gravy",
-        "instruction": "Add boiled chana along with its dark aromatic broth. Mash a few chickpeas to thicken gravy naturally. Simmer on low flame for 12 mins.",
-        "timestamp": 150,
-        "formattedTime": "02:30"
+        "title": "Slow Simmer & Mash",
+        "instruction": "Combine lentils with tadka. Simmer on low flame for 25 minutes, lightly mashing against the pan.",
+        "timestamp": 180,
+        "formattedTime": "03:00"
       },
       {
         "stepNum": 4,
-        "title": "Tadka with Verka Ghee & Ginger Juliennes",
-        "instruction": "Give a hot final tadka with hot Verka Desi Ghee, sliced green chillies, and ginger juliennes. Serve piping hot with bhature or kulcha!",
-        "timestamp": 220,
-        "formattedTime": "03:40"
+        "title": "Makhani Butter Finish",
+        "instruction": "Finish with dollops of fresh white butter, garam masala and fresh cream.",
+        "timestamp": 260,
+        "formattedTime": "04:20"
       }
     ],
     "ingredients": [
       {
-        "name": "Kabuli Chana (Special)",
-        "amountPerServing": 100,
+        "name": "Sabut Urad & Rajma Mix",
+        "amountPerServing": 90,
         "unit": "g",
-        "productId": "prod_25",
+        "productId": "prod_dals_urad",
         "isPantryStaple": false,
-        "notes": "Soaked overnight"
+        "notes": "Pre-soaked lentil mix"
       },
       {
-        "name": "Verka Desi Cow Ghee",
+        "name": "Amul Butter",
+        "amountPerServing": 30,
+        "unit": "g",
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "Pure butter"
+      },
+      {
+        "name": "Desi Ghee",
         "amountPerServing": 15,
         "unit": "ml",
-        "productId": "prod_v3",
+        "productId": "prod_15",
         "isPantryStaple": false,
-        "notes": "For royal tadka"
+        "notes": "Aromatic tadka ghee"
       },
       {
-        "name": "Kachi Ghani Mustard Oil",
-        "amountPerServing": 20,
-        "unit": "ml",
-        "productId": "o_fortune_mustard",
-        "isPantryStaple": false,
-        "notes": "Authentic aroma"
-      },
-      {
-        "name": "Red Onions (Mohali Mandi)",
-        "amountPerServing": 70,
-        "unit": "g",
-        "productId": "prod_v6",
-        "isPantryStaple": false,
-        "notes": "Finely chopped"
-      },
-      {
-        "name": "Fresh Tomatoes (Sec 26)",
-        "amountPerServing": 80,
+        "name": "Mandi Fresh Tomatoes",
+        "amountPerServing": 120,
         "unit": "g",
         "productId": "prod_v5",
         "isPantryStaple": false,
         "notes": "Pureed"
       },
       {
-        "name": "Ginger & Garlic Cloves",
-        "amountPerServing": 15,
-        "unit": "g",
-        "productId": "prod_v8",
+        "name": "Amul Fresh Cream",
+        "amountPerServing": 25,
+        "unit": "ml",
+        "productId": "prod_amul_cream",
         "isPantryStaple": false,
-        "notes": "Juliennes and minced"
-      },
-      {
-        "name": "Green Chillies",
-        "amountPerServing": 5,
-        "unit": "g",
-        "productId": "prod_coriander_chilli",
-        "isPantryStaple": false,
-        "notes": "Slit lengthwise"
-      },
-      {
-        "name": "Deggi Mirch & Garam Masala",
-        "amountPerServing": 5,
-        "unit": "g",
-        "productId": "prod_14",
-        "isPantryStaple": true,
-        "notes": "Punjabi spice mix"
-      },
-      {
-        "name": "Tata Salt",
-        "amountPerServing": 4,
-        "unit": "g",
-        "productId": "prod_15",
-        "isPantryStaple": true,
-        "notes": "To taste"
+        "notes": "Finishing cream"
       }
     ]
   },
   {
-    "id": "rec_3",
-    "name": "Creamy Alfredo Penne with Mushrooms",
-    "headline": "Classic Italian pasta bathed in a velvety white garlic, butter & cream sauce.",
-    "category": "Quick 15-Mins",
-    "cuisine": "Italian",
+    "id": "rec_2",
+    "name": "Amritsari Pindi Chole with Bhature Kit",
+    "headline": "Dark, tangy and robust chickpeas spiced with pomegranate anardana, amchoor, and ginger juliennes.",
+    "category": "Punjabi & Dhaba",
+    "cuisine": "Punjabi & Dhaba",
     "diet": "Vegetarian",
-    "difficulty": "Easy",
-    "prepTime": "5 mins",
-    "cookTime": "15 mins",
-    "totalTime": "20 mins",
-    "calories": "450 kcal / serving",
-    "rating": 4.8,
-    "reviewsCount": 1920,
+    "difficulty": "Medium",
+    "prepTime": "15 mins",
+    "cookTime": "30 mins",
+    "totalTime": "45 mins",
+    "calories": "420 kcal / serving",
+    "rating": 4.92,
+    "reviewsCount": 3100,
     "defaultServings": 2,
-    "thumbnail": "https://images.unsplash.com/photo-1621996346565-e3d5d6281519?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/LPPcNPdq_j4",
-    "videoDuration": "03:50",
-    "chef": "Italian Bistro Specials",
-    "description": "Restaurant quality Penne Alfredo made under 20 minutes! Tender pasta tossed in melted butter, heavy cream, saut\u00e9ed mushrooms, and cheese.",
+    "kitPrice": 145,
+    "thumbnail": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "05:10",
+    "chef": "Chef Harpal Singh / Amritsar Legacy",
+    "description": "Authentic Amritsari street-style Chole boiled with black tea and whole spices, tossed in tangy anardana masala with fluffy bhature mix.",
     "steps": [
       {
         "stepNum": 1,
-        "title": "Boil the Penne Pasta",
-        "instruction": "Boil Barilla Penne in well salted water for 9 mins until al-dente. Drain and reserve 1/2 cup pasta water.",
-        "timestamp": 10,
-        "formattedTime": "00:10"
+        "title": "Black Tea Potli Infusion",
+        "instruction": "Boil Kabuli chana with tea bag potli, black cardamom, and cinnamon until meltingly soft.",
+        "timestamp": 20,
+        "formattedTime": "00:20"
       },
       {
         "stepNum": 2,
-        "title": "Saut\u00e9 Garlic & Button Mushrooms",
-        "instruction": "Melt butter in a pan. Saut\u00e9 sliced garlic cloves and fresh button mushrooms until golden and aromatic.",
-        "timestamp": 55,
-        "formattedTime": "00:55"
+        "title": "Anardana Dry Roast Spices",
+        "instruction": "Roast dried pomegranate seeds, cumin, and coriander. Grind into aromatic Pindi masala.",
+        "timestamp": 80,
+        "formattedTime": "01:20"
       },
       {
         "stepNum": 3,
-        "title": "Whisk the Alfredo Cream Sauce",
-        "instruction": "Lower flame and pour in fresh cream. Season with salt and cracked black pepper. Simmer for 2 mins.",
-        "timestamp": 110,
-        "formattedTime": "01:50"
+        "title": "Simmer Chickpeas",
+        "instruction": "Toss cooked chickpeas in the dry spice rub with green chillies and ginger juliennes.",
+        "timestamp": 160,
+        "formattedTime": "02:40"
       },
       {
         "stepNum": 4,
-        "title": "Toss Pasta & Finish",
-        "instruction": "Add boiled penne into the velvety sauce. Toss with chopped coriander or parsley and serve hot!",
-        "timestamp": 175,
-        "formattedTime": "02:55"
+        "title": "Sizzling Desi Ghee Tadka",
+        "instruction": "Pour smoking hot desi ghee with hing and ajwain over the chole. Serve with pickled onions!",
+        "timestamp": 230,
+        "formattedTime": "03:50"
       }
     ],
     "ingredients": [
       {
-        "name": "Barilla Penne Pasta",
-        "amountPerServing": 100,
+        "name": "Kabuli Chana Premium",
+        "amountPerServing": 120,
         "unit": "g",
-        "productId": "prod_barilla_pasta",
+        "productId": "prod_chana_kabuli",
         "isPantryStaple": false,
-        "notes": "Durum wheat"
+        "notes": "Boiled chickpeas"
       },
       {
-        "name": "Button Mushrooms",
-        "amountPerServing": 80,
+        "name": "Amritsari Pindi Masala Kit",
+        "amountPerServing": 25,
         "unit": "g",
-        "productId": "prod_22",
+        "productId": "prod_masala_chole",
         "isPantryStaple": false,
-        "notes": "Cleaned and sliced"
+        "notes": "Anardana & spices"
+      },
+      {
+        "name": "Desi Ghee",
+        "amountPerServing": 15,
+        "unit": "ml",
+        "productId": "prod_15",
+        "isPantryStaple": false,
+        "notes": "Smoking tadka ghee"
+      },
+      {
+        "name": "Fresh Ginger & Green Chillies",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "prod_v6",
+        "isPantryStaple": false,
+        "notes": "Garnish juliennes"
+      }
+    ]
+  },
+  {
+    "id": "rec_sarson_saag",
+    "name": "Grandma's Sarson Ka Saag & Makki Roti Kit",
+    "headline": "Fresh winter mustard greens and bathua slow-cooked in earthenware with white butter & makki flour.",
+    "category": "Punjabi & Dhaba",
+    "cuisine": "Punjabi & Dhaba",
+    "diet": "Vegetarian",
+    "difficulty": "Medium",
+    "prepTime": "15 mins",
+    "cookTime": "30 mins",
+    "totalTime": "45 mins",
+    "calories": "310 kcal / serving",
+    "rating": 4.96,
+    "reviewsCount": 2400,
+    "defaultServings": 2,
+    "kitPrice": 175,
+    "thumbnail": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "05:40",
+    "chef": "MasterChef Punjab Kitchen",
+    "description": "Punjab's pride! Clean washed sarson, palak, and bathua greens churned with makki atta and tempered in garlic, ginger, and desi ghee.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "Steam Greens",
+        "instruction": "Boil chopped mustard leaves, spinach, and bathua with green chillies and garlic until soft.",
+        "timestamp": 20,
+        "formattedTime": "00:20"
+      },
+      {
+        "stepNum": 2,
+        "title": "Traditional Mathani Churning",
+        "instruction": "Mash coarsely, whisk in makki flour slurry, and simmer until velvety thick.",
+        "timestamp": 110,
+        "formattedTime": "01:50"
+      },
+      {
+        "stepNum": 3,
+        "title": "Desi Ghee Garlic Tadka",
+        "instruction": "Fry golden garlic, sliced onions, and dried red chillies in desi ghee. Pour over hot saag.",
+        "timestamp": 190,
+        "formattedTime": "03:10"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "Farm Fresh Sarson & Palak Greens",
+        "amountPerServing": 250,
+        "unit": "g",
+        "productId": "prod_v_spinach",
+        "isPantryStaple": false,
+        "notes": "Clean sorted leaves"
+      },
+      {
+        "name": "Makki Ka Atta (Maize Flour)",
+        "amountPerServing": 150,
+        "unit": "g",
+        "productId": "prod_atta_makki",
+        "isPantryStaple": false,
+        "notes": "Pure yellow maize"
+      },
+      {
+        "name": "Desi Ghee",
+        "amountPerServing": 20,
+        "unit": "ml",
+        "productId": "prod_15",
+        "isPantryStaple": false,
+        "notes": "For tadka and serving"
+      },
+      {
+        "name": "Fresh Garlic Pods",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "prod_v6",
+        "isPantryStaple": false,
+        "notes": "Chopped garlic"
+      }
+    ]
+  },
+  {
+    "id": "rec_shahi_paneer",
+    "name": "Royal Shahi Paneer (Mughlai Kaju Korma)",
+    "headline": "A regal sweet-savory gravy made with cashew paste, cardamom, saffron milk, and melt-in-mouth cottage cheese.",
+    "category": "Mughlai & Biryani",
+    "cuisine": "Mughlai & Biryani",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "10 mins",
+    "cookTime": "20 mins",
+    "totalTime": "30 mins",
+    "calories": "410 kcal / serving",
+    "rating": 4.91,
+    "reviewsCount": 3800,
+    "defaultServings": 2,
+    "kitPrice": 210,
+    "thumbnail": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "04:20",
+    "chef": "Chef Kunal Kapur / Awadhi Delights",
+    "description": "Rich Awadhi delicacy. Delicate paneer triangles in a royal white cashew-almond and yogurt gravy perfumed with green cardamom and kewra.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "White Nut Gravy Base",
+        "instruction": "Blend boiled onions, soaked cashews, and melon seeds into a silky white puree.",
+        "timestamp": 15,
+        "formattedTime": "00:15"
+      },
+      {
+        "stepNum": 2,
+        "title": "Infuse Whole Cardamom",
+        "instruction": "Saute green cardamoms, mace, and cloves in pure desi ghee.",
+        "timestamp": 70,
+        "formattedTime": "01:10"
+      },
+      {
+        "stepNum": 3,
+        "title": "Simmer with Paneer & Saffron",
+        "instruction": "Gently simmer gravy with paneer triangles, saffron-infused warm milk, and touch of honey.",
+        "timestamp": 140,
+        "formattedTime": "02:20"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "Fresh Malai Paneer",
+        "amountPerServing": 100,
+        "unit": "g",
+        "productId": "prod_v1",
+        "isPantryStaple": false,
+        "notes": "Triangle cuts"
+      },
+      {
+        "name": "Cashews Whole (Kaju)",
+        "amountPerServing": 30,
+        "unit": "g",
+        "productId": "prod_24",
+        "isPantryStaple": false,
+        "notes": "Soaked for paste"
+      },
+      {
+        "name": "Desi Ghee",
+        "amountPerServing": 15,
+        "unit": "ml",
+        "productId": "prod_15",
+        "isPantryStaple": false,
+        "notes": "Aromatic base"
       },
       {
         "name": "Amul Fresh Cream",
-        "amountPerServing": 60,
+        "amountPerServing": 30,
         "unit": "ml",
         "productId": "prod_amul_cream",
         "isPantryStaple": false,
-        "notes": "Velvety cream"
+        "notes": "Silk texture"
+      },
+      {
+        "name": "Green Cardamom & Saffron",
+        "amountPerServing": 5,
+        "unit": "g",
+        "productId": "prod_spices_mix",
+        "isPantryStaple": false,
+        "notes": "Royal aroma"
+      }
+    ]
+  },
+  {
+    "id": "rec_dum_biryani",
+    "name": "Nawabi Dum Biryani (Aromatic Basmati Kit)",
+    "headline": "Fragrant long-grain aged basmati rice layered with marinated vegetables, caramelized onions, mint & saffron.",
+    "category": "Mughlai & Biryani",
+    "cuisine": "Mughlai & Biryani",
+    "diet": "Vegetarian",
+    "difficulty": "Medium",
+    "prepTime": "20 mins",
+    "cookTime": "25 mins",
+    "totalTime": "45 mins",
+    "calories": "440 kcal / serving",
+    "rating": 4.97,
+    "reviewsCount": 6100,
+    "defaultServings": 2,
+    "kitPrice": 225,
+    "thumbnail": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "06:00",
+    "chef": "Chef Sanjeev Kapoor / Nawabi Secrets",
+    "description": "Authentic slow dum-cooked biryani. Spiced marinated paneer and fresh veggies layered with 70% boiled Daawat basmati rice, birista, mint leaves, and desi ghee.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "Parboil Aged Basmati",
+        "instruction": "Cook soaked long-grain basmati in salted water with star anise and bay leaf until 70% done.",
+        "timestamp": 25,
+        "formattedTime": "00:25"
+      },
+      {
+        "stepNum": 2,
+        "title": "Marinate Veggies & Paneer",
+        "instruction": "Toss paneer, beans, and carrots in spiced hung curd, biryani masala, and ginger-garlic paste.",
+        "timestamp": 110,
+        "formattedTime": "01:50"
+      },
+      {
+        "stepNum": 3,
+        "title": "Layer & Slow Dum Cook",
+        "instruction": "Layer vegetables with aromatic rice, golden fried birista, fresh mint, and saffron milk. Seal and steam for 18 mins.",
+        "timestamp": 210,
+        "formattedTime": "03:30"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "Daawat Rozana Basmati Rice",
+        "amountPerServing": 120,
+        "unit": "g",
+        "productId": "prod_rice_daawat",
+        "isPantryStaple": false,
+        "notes": "Aged long grains"
+      },
+      {
+        "name": "Fresh Malai Paneer",
+        "amountPerServing": 80,
+        "unit": "g",
+        "productId": "prod_v1",
+        "isPantryStaple": false,
+        "notes": "Marinated cubes"
+      },
+      {
+        "name": "Golden Fried Birista (Onions)",
+        "amountPerServing": 30,
+        "unit": "g",
+        "productId": "prod_v6",
+        "isPantryStaple": false,
+        "notes": "Crispy fried"
+      },
+      {
+        "name": "Desi Ghee",
+        "amountPerServing": 15,
+        "unit": "ml",
+        "productId": "prod_15",
+        "isPantryStaple": false,
+        "notes": "Dum drizzle"
+      }
+    ]
+  },
+  {
+    "id": "rec_chilli_paneer",
+    "name": "Desi Street-Style Chilli Paneer (Dry / Gravy)",
+    "headline": "Crispy golden paneer cubes tossed in high-flame wok with crunchy capsicum, garlic, spring onions & dark soy.",
+    "category": "Indo-Chinese",
+    "cuisine": "Indo-Chinese",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "10 mins",
+    "cookTime": "10 mins",
+    "totalTime": "20 mins",
+    "calories": "330 kcal / serving",
+    "rating": 4.93,
+    "reviewsCount": 4700,
+    "defaultServings": 2,
+    "kitPrice": 165,
+    "thumbnail": "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "03:50",
+    "chef": "Chef Ranveer Brar / Wok Street",
+    "description": "Every Indian's favorite Indo-Chinese appetizer! Crispy cornstarch-dusted paneer wok-tossed in garlic, green chillies, dark soy sauce, and red chilli sauce.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "Crisp the Paneer",
+        "instruction": "Toss paneer in cornflour, salt, and pepper. Pan-sear on high heat until edges turn golden crisp.",
+        "timestamp": 15,
+        "formattedTime": "00:15"
+      },
+      {
+        "stepNum": 2,
+        "title": "High Heat Wok Toss",
+        "instruction": "In a sizzling hot pan, flash-fry minced garlic, ginger, sliced green chillies, and crunchy capsicum.",
+        "timestamp": 70,
+        "formattedTime": "01:10"
+      },
+      {
+        "stepNum": 3,
+        "title": "Glaze in Chilli-Soy Sauce",
+        "instruction": "Add dark soy sauce, chilli vinegar, and sweet red chilli sauce. Toss paneer to coat glossy!",
+        "timestamp": 130,
+        "formattedTime": "02:10"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "Fresh Malai Paneer",
+        "amountPerServing": 120,
+        "unit": "g",
+        "productId": "prod_v1",
+        "isPantryStaple": false,
+        "notes": "Cubes"
+      },
+      {
+        "name": "Green Bell Peppers (Capsicum)",
+        "amountPerServing": 60,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "Dice cut"
+      },
+      {
+        "name": "Spring Onions & Garlic",
+        "amountPerServing": 30,
+        "unit": "g",
+        "productId": "prod_v6",
+        "isPantryStaple": false,
+        "notes": "Minced"
+      },
+      {
+        "name": "Ching's Secret Chilli Sauce & Soy",
+        "amountPerServing": 25,
+        "unit": "ml",
+        "productId": "prod_sauces_chinese",
+        "isPantryStaple": false,
+        "notes": "Wok sauce kit"
+      }
+    ]
+  },
+  {
+    "id": "rec_hakka_noodles",
+    "name": "Street-Style Veg Hakka Noodles Kit",
+    "headline": "Bouncy wheat noodles wok-tossed with shredded cabbage, carrots, bell peppers and spicy garlic schezwan.",
+    "category": "Indo-Chinese",
+    "cuisine": "Indo-Chinese",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "10 mins",
+    "cookTime": "10 mins",
+    "totalTime": "20 mins",
+    "calories": "310 kcal / serving",
+    "rating": 4.89,
+    "reviewsCount": 3500,
+    "defaultServings": 2,
+    "kitPrice": 120,
+    "thumbnail": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "03:40",
+    "chef": "Chef Harpal Singh / Indo-Chinese Chow",
+    "description": "Desi Chinese street chowmein taste at home! Steamed non-sticky noodles tossed with crunchy julienned vegetables and aromatic garlic pepper seasoning.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "Flash Boil Noodles",
+        "instruction": "Boil noodles for 4 minutes with oil and salt. Rinse under cold water to keep al-dente.",
+        "timestamp": 15,
+        "formattedTime": "00:15"
+      },
+      {
+        "stepNum": 2,
+        "title": "Stir Fry Crunchy Veggies",
+        "instruction": "Toss julienned carrots, cabbage, and capsicum in smoking oil on high flame for 2 mins.",
+        "timestamp": 70,
+        "formattedTime": "01:10"
+      },
+      {
+        "stepNum": 3,
+        "title": "Toss with Schezwan & Soy",
+        "instruction": "Add noodles, soy sauce, black pepper, and vinegar. Toss vigorously and serve piping hot!",
+        "timestamp": 130,
+        "formattedTime": "02:10"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "Ching's Secret Hakka Noodles",
+        "amountPerServing": 100,
+        "unit": "g",
+        "productId": "prod_noodles_hakka",
+        "isPantryStaple": false,
+        "notes": "Wheat noodles"
+      },
+      {
+        "name": "Shredded Cabbage & Carrot Mix",
+        "amountPerServing": 80,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "Fresh mandi veggies"
+      },
+      {
+        "name": "Garlic & Green Chilli Kit",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "prod_v6",
+        "isPantryStaple": false,
+        "notes": "Minced aromatics"
+      },
+      {
+        "name": "Soy & Schezwan Sauce Pack",
+        "amountPerServing": 20,
+        "unit": "ml",
+        "productId": "prod_sauces_chinese",
+        "isPantryStaple": false,
+        "notes": "Seasoning sauce"
+      }
+    ]
+  },
+  {
+    "id": "rec_pav_bhaji",
+    "name": "Mumbai Butter Pav Bhaji Kit",
+    "headline": "Mashed spiced vegetables simmered on tawa with generous dollops of butter, served with soft toasted pavs.",
+    "category": "North Indian Street Food",
+    "cuisine": "North Indian Street Food",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "10 mins",
+    "cookTime": "15 mins",
+    "totalTime": "25 mins",
+    "calories": "390 kcal / serving",
+    "rating": 4.96,
+    "reviewsCount": 5100,
+    "defaultServings": 2,
+    "kitPrice": 140,
+    "thumbnail": "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "04:15",
+    "chef": "Chef Sanjeev Kapoor / Street Legends",
+    "description": "Famous Juhu Beach taste! Potatoes, green peas, cauliflower, and tomatoes mashed on a hot griddle with Pav Bhaji masala, topped with butter and lemon.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "Mash Boiled Veggies",
+        "instruction": "Boil potatoes, green peas, and tomatoes. Mash thoroughly with a potato masher.",
+        "timestamp": 15,
+        "formattedTime": "00:15"
+      },
+      {
+        "stepNum": 2,
+        "title": "Tawa Butter & Masala",
+        "instruction": "Melt Amul butter on tawa. Add chopped onions, capsicum, Deggi mirch, and Everest Pav Bhaji masala.",
+        "timestamp": 75,
+        "formattedTime": "01:15"
+      },
+      {
+        "stepNum": 3,
+        "title": "Simmer & Toast Pavs",
+        "instruction": "Combine mashed bhaji, adjust water, and simmer for 10 mins. Toast buttery soft pavs with coriander!",
+        "timestamp": 145,
+        "formattedTime": "02:25"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "Boiled Veggies Mix (Potato & Peas)",
+        "amountPerServing": 180,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "Mandi fresh"
+      },
+      {
+        "name": "Everest Pav Bhaji Masala",
+        "amountPerServing": 15,
+        "unit": "g",
+        "productId": "prod_masala_pav",
+        "isPantryStaple": false,
+        "notes": "Special blend"
+      },
+      {
+        "name": "Amul Butter",
+        "amountPerServing": 40,
+        "unit": "g",
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "Butter slice"
+      },
+      {
+        "name": "Fresh Bakery Ladi Pav",
+        "amountPerServing": 2,
+        "unit": "pcs",
+        "productId": "prod_bread_pav",
+        "isPantryStaple": false,
+        "notes": "Soft buns"
+      }
+    ]
+  },
+  {
+    "id": "rec_chole_kulche",
+    "name": "Delhi Style Matar Chole Kulche Kit",
+    "headline": "Tangy white pea matar tossed with raw onions, roasted cumin, tamarind chutney, and soft bakery kulchas.",
+    "category": "North Indian Street Food",
+    "cuisine": "North Indian Street Food",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "5 mins",
+    "cookTime": "10 mins",
+    "totalTime": "15 mins",
+    "calories": "350 kcal / serving",
+    "rating": 4.9,
+    "reviewsCount": 3200,
+    "defaultServings": 2,
+    "kitPrice": 125,
+    "thumbnail": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "03:30",
+    "chef": "Chef Harpal Singh / Old Delhi Flavors",
+    "description": "Chandni Chowk street special! Boiled soft white matar tossed with dry mango powder, ginger, lemon juice, and served with butter-toasted kulchas.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "Toss Boiled Matar",
+        "instruction": "Mix warm boiled safed matar with diced onions, tomatoes, and chopped green chillies.",
+        "timestamp": 15,
+        "formattedTime": "00:15"
+      },
+      {
+        "stepNum": 2,
+        "title": "Spice with Tamarind & Cumin",
+        "instruction": "Season with roasted jeera powder, black salt, amchoor, and tangy imli chutney.",
+        "timestamp": 60,
+        "formattedTime": "01:00"
+      },
+      {
+        "stepNum": 3,
+        "title": "Warm Buttery Kulchas",
+        "instruction": "Toast fresh kulchas with butter and kasuri methi on hot tawa.",
+        "timestamp": 110,
+        "formattedTime": "01:50"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "Safed Matar (White Peas)",
+        "amountPerServing": 120,
+        "unit": "g",
+        "productId": "prod_dals_urad",
+        "isPantryStaple": false,
+        "notes": "Pre-boiled soft"
+      },
+      {
+        "name": "Fresh Bakery Amritsari Kulcha",
+        "amountPerServing": 2,
+        "unit": "pcs",
+        "productId": "prod_bread_pav",
+        "isPantryStaple": false,
+        "notes": "Soft kulche"
       },
       {
         "name": "Amul Butter",
@@ -346,140 +830,534 @@
         "unit": "g",
         "productId": "prod_amul_butter",
         "isPantryStaple": false,
-        "notes": "Salted"
+        "notes": "Toasting butter"
       },
       {
-        "name": "Garlic Cloves",
-        "amountPerServing": 10,
+        "name": "Imli & Green Chutney Pack",
+        "amountPerServing": 30,
         "unit": "g",
-        "productId": "prod_v8",
+        "productId": "prod_sauces_chinese",
         "isPantryStaple": false,
-        "notes": "Minced"
-      },
-      {
-        "name": "Tata Salt & Pepper",
-        "amountPerServing": 3,
-        "unit": "g",
-        "productId": "prod_15",
-        "isPantryStaple": true,
-        "notes": "To taste"
+        "notes": "Tangy street chutney"
       }
     ]
   },
   {
-    "id": "rec_4",
-    "name": "Mohali Street-Style Egg Bhurji",
-    "headline": "Spicy, buttery scrambled eggs loaded with crunchy onions, juicy tomatoes, and fresh chillies.",
-    "category": "Breakfast & Snacks",
-    "cuisine": "Punjab Street Food",
-    "diet": "Eggitarian",
+    "id": "rec_masala_dosa",
+    "name": "Crispy Golden Masala Dosa & Sambar Kit",
+    "headline": "Lacy fermented rice-lentil crepes filled with spiced mustard-seed potato masala, piping hot sambar & fresh coconut chutney.",
+    "category": "South Indian Classics",
+    "cuisine": "South Indian Classics",
+    "diet": "Vegetarian",
     "difficulty": "Easy",
     "prepTime": "5 mins",
-    "cookTime": "8 mins",
-    "totalTime": "13 mins",
-    "calories": "280 kcal / serving",
-    "rating": 4.9,
-    "reviewsCount": 3410,
+    "cookTime": "15 mins",
+    "totalTime": "20 mins",
+    "calories": "320 kcal / serving",
+    "rating": 4.94,
+    "reviewsCount": 4400,
     "defaultServings": 2,
-    "thumbnail": "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/5vY3gH3s_eI",
-    "videoDuration": "03:15",
-    "chef": "Chef Harpreet (Mohali Phase 7)",
-    "description": "The ultimate comfort meal loved across Chandigarh & Mohali student hubs! Soft scrambled eggs saut\u00e9ed with butter, onions, tomatoes, and chillies.",
+    "kitPrice": 135,
+    "thumbnail": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "04:30",
+    "chef": "MasterChef Dakshin Rasoi",
+    "description": "Udupi restaurant breakfast at your doorstep. Fresh naturally fermented ID batter with pre-tempered mustard potato palya, drumstick sambar, and grated coconut chutney.",
     "steps": [
       {
         "stepNum": 1,
-        "title": "Saut\u00e9 Aromatics in Butter",
-        "instruction": "Heat butter and oil in a pan. Saut\u00e9 chopped onions, ginger, garlic, and green chillies on high flame.",
+        "title": "Warm Potato Masala",
+        "instruction": "Warm the mustard, curry leaf, and turmeric mashed potato filling on low heat.",
         "timestamp": 15,
         "formattedTime": "00:15"
       },
       {
         "stepNum": 2,
-        "title": "Cook the Tomato Masala",
-        "instruction": "Add chopped tomatoes, turmeric, and Deggi mirch. Cook until mushy.",
-        "timestamp": 55,
-        "formattedTime": "00:55"
+        "title": "Spread Thin Dosa Crepe",
+        "instruction": "Pour a ladle of fresh ID batter on hot tawa. Swirl in outward circles with desi ghee until paper crisp.",
+        "timestamp": 70,
+        "formattedTime": "01:10"
       },
       {
         "stepNum": 3,
-        "title": "Scramble the Fresh Eggs",
-        "instruction": "Whisk eggs with a pinch of salt. Pour into the sizzling masala and scramble gently until fluffy.",
-        "timestamp": 105,
-        "formattedTime": "01:45"
+        "title": "Fill & Fold",
+        "instruction": "Spread potato masala in the center, roll crisp dosa and serve with fresh sambar and coconut dip.",
+        "timestamp": 130,
+        "formattedTime": "02:10"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "iD Fresh Fermented Dosa Batter",
+        "amountPerServing": 250,
+        "unit": "ml",
+        "productId": "prod_dosa_batter",
+        "isPantryStaple": false,
+        "notes": "Naturally fermented"
       },
       {
-        "stepNum": 4,
-        "title": "Butter Garnish & Serve",
-        "instruction": "Top with another dollop of butter, garam masala, and fresh coriander. Serve hot with butter-toasted bread!",
-        "timestamp": 150,
-        "formattedTime": "02:30"
+        "name": "Tempered Potato Masala",
+        "amountPerServing": 120,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "Mustard & turmeric"
+      },
+      {
+        "name": "Fresh Grated Coconut",
+        "amountPerServing": 50,
+        "unit": "g",
+        "productId": "prod_v6",
+        "isPantryStaple": false,
+        "notes": "For chutney"
+      },
+      {
+        "name": "Sambar Spice & Dal Mix",
+        "amountPerServing": 40,
+        "unit": "g",
+        "productId": "prod_dals_urad",
+        "isPantryStaple": false,
+        "notes": "Ready sambar base"
+      }
+    ]
+  },
+  {
+    "id": "rec_4",
+    "name": "Mohali Street-Style Cheesy Egg Bhurji",
+    "headline": "Fluffy spiced scrambled eggs tossed with green chillies, butter, and melted processed cheese with toasted pav.",
+    "category": "Quick 15-Mins",
+    "cuisine": "Quick 15-Mins",
+    "diet": "Non-Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "3 mins",
+    "cookTime": "10 mins",
+    "totalTime": "13 mins",
+    "calories": "280 kcal / serving",
+    "rating": 4.88,
+    "reviewsCount": 2600,
+    "defaultServings": 2,
+    "kitPrice": 95,
+    "thumbnail": "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "03:15",
+    "chef": "Chef Harpal Singh / Quick Bites",
+    "description": "Late night favorite in Tricity! Farm fresh eggs scrambled with onions, green chillies, butter, and a hint of pav bhaji masala, topped with gooey melted cheese.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "Whisk Farm Eggs",
+        "instruction": "Crack 3 farm fresh eggs into a bowl with salt, turmeric, and black pepper. Whisk until light and airy.",
+        "timestamp": 15,
+        "formattedTime": "00:15"
+      },
+      {
+        "stepNum": 2,
+        "title": "Saute Onions & Green Chillies",
+        "instruction": "Melt butter in a skillet. Saute finely chopped onions, tomatoes, and green chillies until fragrant.",
+        "timestamp": 60,
+        "formattedTime": "01:00"
+      },
+      {
+        "stepNum": 3,
+        "title": "Scramble & Melt Cheese",
+        "instruction": "Pour in eggs on medium flame. Stir gently for creamy soft curds. Top with grated cheese and serve with toasted bread!",
+        "timestamp": 120,
+        "formattedTime": "02:00"
       }
     ],
     "ingredients": [
       {
         "name": "Farm Fresh White Eggs",
-        "amountPerServing": 2,
-        "unit": "pieces",
-        "productId": "prod_12",
+        "amountPerServing": 3,
+        "unit": "pcs",
+        "productId": "prod_eggs",
         "isPantryStaple": false,
-        "notes": "Fresh eggs"
+        "notes": "Fresh protein"
       },
       {
         "name": "Amul Butter",
-        "amountPerServing": 15,
+        "amountPerServing": 20,
         "unit": "g",
         "productId": "prod_amul_butter",
         "isPantryStaple": false,
-        "notes": "Rich butter"
+        "notes": "Skillet butter"
       },
       {
-        "name": "Red Onions (Mohali Mandi)",
-        "amountPerServing": 60,
+        "name": "Amul Processed Cheese Cube",
+        "amountPerServing": 25,
+        "unit": "g",
+        "productId": "prod_cheese_slices",
+        "isPantryStaple": false,
+        "notes": "Grated on top"
+      },
+      {
+        "name": "Onions & Mandi Green Chillies",
+        "amountPerServing": 40,
         "unit": "g",
         "productId": "prod_v6",
         "isPantryStaple": false,
-        "notes": "Finely chopped"
+        "notes": "Finely diced"
+      }
+    ]
+  },
+  {
+    "id": "rec_3",
+    "name": "Creamy Alfredo Penne with Mushrooms",
+    "headline": "Al dente Italian penne enveloped in a rich garlic, parmesan, fresh cream and butter sauce.",
+    "category": "Quick 15-Mins",
+    "cuisine": "Quick 15-Mins",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "5 mins",
+    "cookTime": "15 mins",
+    "totalTime": "20 mins",
+    "calories": "420 kcal / serving",
+    "rating": 4.87,
+    "reviewsCount": 1900,
+    "defaultServings": 2,
+    "kitPrice": 170,
+    "thumbnail": "https://images.unsplash.com/photo-1621996346565-e3d5d6281699?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "04:10",
+    "chef": "Chef Ranveer Brar / Continental",
+    "description": "Italian café comfort food. Durum wheat penne tossed in rich homemade Alfredo sauce with fresh button mushrooms, minced garlic, oregano, and parmesan cheese.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "Boil Penne Pasta",
+        "instruction": "Boil penne pasta in rolling salted water for 9 mins until al-dente. Reserve 1/4 cup pasta water.",
+        "timestamp": 20,
+        "formattedTime": "00:20"
       },
       {
-        "name": "Fresh Tomatoes (Sec 26)",
-        "amountPerServing": 60,
+        "stepNum": 2,
+        "title": "Saute Mushrooms & Garlic",
+        "instruction": "Melt butter in a pan. Saute sliced button mushrooms and minced garlic until aromatic and caramelized.",
+        "timestamp": 80,
+        "formattedTime": "01:20"
+      },
+      {
+        "stepNum": 3,
+        "title": "Whisk Creamy Alfredo Sauce",
+        "instruction": "Pour in fresh cream and milk. Whisk in grated cheese, oregano, and black pepper.",
+        "timestamp": 140,
+        "formattedTime": "02:20"
+      },
+      {
+        "stepNum": 4,
+        "title": "Toss & Coat",
+        "instruction": "Add boiled pasta and reserved pasta water. Toss gently until every penne tube is coated in luscious sauce!",
+        "timestamp": 200,
+        "formattedTime": "03:20"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "Disano 100% Durum Wheat Penne",
+        "amountPerServing": 100,
+        "unit": "g",
+        "productId": "prod_pasta_penne",
+        "isPantryStaple": false,
+        "notes": "Italian penne"
+      },
+      {
+        "name": "Fresh Button Mushrooms",
+        "amountPerServing": 80,
         "unit": "g",
         "productId": "prod_v5",
         "isPantryStaple": false,
-        "notes": "Chopped"
+        "notes": "Sliced fresh"
       },
       {
-        "name": "Green Chillies",
+        "name": "Amul Fresh Cream",
+        "amountPerServing": 40,
+        "unit": "ml",
+        "productId": "prod_amul_cream",
+        "isPantryStaple": false,
+        "notes": "Velvety base"
+      },
+      {
+        "name": "Amul Butter",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "Garlic butter"
+      },
+      {
+        "name": "Italian Herb Seasoning Kit",
         "amountPerServing": 5,
         "unit": "g",
-        "productId": "prod_coriander_chilli",
+        "productId": "prod_spices_mix",
         "isPantryStaple": false,
-        "notes": "Finely sliced"
+        "notes": "Oregano & chilli flakes"
+      }
+    ]
+  },
+  {
+    "id": "rec_gajar_halwa",
+    "name": "Delhi Winter Gajar Ka Halwa Kit",
+    "headline": "Grated sweet red carrots slow-simmered in full-cream milk, pure desi ghee, khoya, and crunchy cashews & almonds.",
+    "category": "Desi Mithai & Desserts",
+    "cuisine": "Desi Mithai & Desserts",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "10 mins",
+    "cookTime": "25 mins",
+    "totalTime": "35 mins",
+    "calories": "380 kcal / serving",
+    "rating": 4.99,
+    "reviewsCount": 6800,
+    "defaultServings": 2,
+    "kitPrice": 190,
+    "thumbnail": "https://images.unsplash.com/photo-1599785209796-786432b228bc?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "05:00",
+    "chef": "Chef Sanjeev Kapoor / Desi Mithai",
+    "description": "North India's all-time favorite winter celebration sweet! Fresh grated red juicy carrots slow-roasted in pure desi ghee, khoya, cardamom, and toasted nuts.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "Simmer Carrots in Milk",
+        "instruction": "Cook grated red carrots with full-cream milk on medium heat until milk reduces completely.",
+        "timestamp": 25,
+        "formattedTime": "00:25"
       },
       {
-        "name": "Fresh Coriander",
-        "amountPerServing": 10,
+        "stepNum": 2,
+        "title": "Bhunao in Desi Ghee",
+        "instruction": "Add generous spoonfuls of pure desi ghee. Roast the carrots on low flame until rich and aromatic.",
+        "timestamp": 120,
+        "formattedTime": "02:00"
+      },
+      {
+        "stepNum": 3,
+        "title": "Khoya & Nuts Finish",
+        "instruction": "Stir in sugar, crumbled fresh khoya, toasted almonds, and green cardamom powder. Serve warm!",
+        "timestamp": 200,
+        "formattedTime": "03:20"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "Fresh Grated Red Carrots",
+        "amountPerServing": 250,
         "unit": "g",
-        "productId": "prod_coriander_chilli",
+        "productId": "prod_v5",
         "isPantryStaple": false,
-        "notes": "For garnish"
+        "notes": "Sweet Delhi carrots"
       },
       {
-        "name": "Deggi Mirch & Garam Masala",
-        "amountPerServing": 3,
-        "unit": "g",
-        "productId": "prod_14",
-        "isPantryStaple": true,
-        "notes": "Spice mix"
+        "name": "Verka Full Cream Gold Milk",
+        "amountPerServing": 250,
+        "unit": "ml",
+        "productId": "m_v_std",
+        "isPantryStaple": false,
+        "notes": "Rich milk"
       },
       {
-        "name": "Tata Salt",
-        "amountPerServing": 2,
-        "unit": "g",
+        "name": "Pure Desi Ghee",
+        "amountPerServing": 30,
+        "unit": "ml",
         "productId": "prod_15",
-        "isPantryStaple": true,
-        "notes": "To taste"
+        "isPantryStaple": false,
+        "notes": "Aroma roast"
+      },
+      {
+        "name": "Fresh Khoya / Mawa & Almonds",
+        "amountPerServing": 50,
+        "unit": "g",
+        "productId": "prod_24",
+        "isPantryStaple": false,
+        "notes": "Sweet richness"
+      }
+    ]
+  },
+  {
+    "id": "rec_butter_chicken",
+    "name": "Old Delhi Highway Butter Chicken (Murgh Makhani)",
+    "headline": "Tender tandoori chicken simmered in rich Kashmiri tomato-butter makhani gravy with roasted kasuri methi.",
+    "category": "Punjabi & Dhaba",
+    "cuisine": "Punjabi & Dhaba",
+    "diet": "Non-Vegetarian",
+    "difficulty": "Medium",
+    "prepTime": "15 mins",
+    "cookTime": "25 mins",
+    "totalTime": "40 mins",
+    "calories": "480 kcal / serving",
+    "rating": 4.98,
+    "reviewsCount": 8400,
+    "defaultServings": 2,
+    "kitPrice": 245,
+    "thumbnail": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "05:30",
+    "chef": "Chef Ranveer Brar / Highway Legacy",
+    "description": "The quintessential North Indian icon! Marinated chicken cuts seared and slow-cooked in velvety tomato-cashew makhani gravy with dollops of Amul butter.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "Sear Chicken Cuts",
+        "instruction": "Sear marinated spiced chicken in desi ghee on high flame for 5 mins until lightly charred.",
+        "timestamp": 20,
+        "formattedTime": "00:20"
+      },
+      {
+        "stepNum": 2,
+        "title": "Smooth Makhani Base",
+        "instruction": "Simmer fresh tomato puree, cashew paste, Deggi mirch and ginger-garlic paste with generous butter.",
+        "timestamp": 90,
+        "formattedTime": "01:30"
+      },
+      {
+        "stepNum": 3,
+        "title": "Simmer & Infuse",
+        "instruction": "Add seared chicken into bubbling makhani gravy. Simmer gently for 12 mins until succulent.",
+        "timestamp": 180,
+        "formattedTime": "03:00"
+      },
+      {
+        "stepNum": 4,
+        "title": "Makhan & Kasuri Methi Swirl",
+        "instruction": "Swirl in fresh cream, honey, garam masala, and hand-crushed roasted kasuri methi.",
+        "timestamp": 260,
+        "formattedTime": "04:20"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "Fresh Chicken Curry Cut",
+        "amountPerServing": 200,
+        "unit": "g",
+        "productId": "prod_chicken_curry_cut",
+        "isPantryStaple": false,
+        "notes": "Tender bone-in chicken"
+      },
+      {
+        "name": "Amul Butter",
+        "amountPerServing": 30,
+        "unit": "g",
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "Rich Punjabi butter"
+      },
+      {
+        "name": "Amul Fresh Cream",
+        "amountPerServing": 30,
+        "unit": "ml",
+        "productId": "prod_amul_cream",
+        "isPantryStaple": false,
+        "notes": "Silky cream finish"
+      },
+      {
+        "name": "Mandi Fresh Tomatoes",
+        "amountPerServing": 150,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "Sweet ripe tomatoes"
+      },
+      {
+        "name": "Cashews Whole (Kaju)",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "prod_24",
+        "isPantryStaple": false,
+        "notes": "For rich gravy"
+      }
+    ]
+  },
+  {
+    "id": "rec_chicken_biryani",
+    "name": "Nawabi Chicken Dum Biryani Kit",
+    "headline": "Aromatic long-grain basmati layered with succulent spiced chicken, golden fried onions & saffron milk.",
+    "category": "Mughlai & Biryani",
+    "cuisine": "Mughlai & Biryani",
+    "diet": "Non-Vegetarian",
+    "difficulty": "Medium",
+    "prepTime": "20 mins",
+    "cookTime": "35 mins",
+    "totalTime": "55 mins",
+    "calories": "520 kcal / serving",
+    "rating": 4.96,
+    "reviewsCount": 6100,
+    "defaultServings": 2,
+    "kitPrice": 265,
+    "thumbnail": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&auto=format&fit=crop&q=80",
+    "videoEmbed": "https://www.youtube.com/embed/U3lM8r_d8sA",
+    "videoDuration": "06:10",
+    "chef": "Chef Kunal Kapur / Awadhi Dastarkhwan",
+    "description": "Royal Mughlai heritage in your kitchen! Aged Daawat Basmati layered with slow-marinated chicken, whole spices, mint, brown onions, and pure saffron.",
+    "steps": [
+      {
+        "stepNum": 1,
+        "title": "Marinate Chicken",
+        "instruction": "Toss fresh chicken with hung curd, biryani masala, ginger-garlic and green chillies.",
+        "timestamp": 25,
+        "formattedTime": "00:25"
+      },
+      {
+        "stepNum": 2,
+        "title": "Cook Aged Basmati to 70%",
+        "instruction": "Boil whole spiced basmati rice with bay leaves, green cardamom and cloves until 70% done.",
+        "timestamp": 110,
+        "formattedTime": "01:50"
+      },
+      {
+        "stepNum": 3,
+        "title": "Dum Layering",
+        "instruction": "Layer cooked chicken masala at bottom, topped with hot basmati, birista fried onions, fresh mint & desi ghee.",
+        "timestamp": 200,
+        "formattedTime": "03:20"
+      },
+      {
+        "stepNum": 4,
+        "title": "Slow Sealed Dum",
+        "instruction": "Drizzle saffron infused warm milk. Seal pan rim with foil/dough and cook on low dum for 18 mins.",
+        "timestamp": 300,
+        "formattedTime": "05:00"
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "Fresh Boneless Chicken Cuts",
+        "amountPerServing": 180,
+        "unit": "g",
+        "productId": "prod_chicken_boneless",
+        "isPantryStaple": false,
+        "notes": "Succulent boneless cubes"
+      },
+      {
+        "name": "Daawat Rozana Super Basmati Rice",
+        "amountPerServing": 120,
+        "unit": "g",
+        "productId": "prod_rice_daawat",
+        "isPantryStaple": false,
+        "notes": "Aged fragrant rice"
+      },
+      {
+        "name": "Desi Ghee",
+        "amountPerServing": 20,
+        "unit": "ml",
+        "productId": "prod_15",
+        "isPantryStaple": false,
+        "notes": "Dum aroma ghee"
+      },
+      {
+        "name": "Royal Shahi Biryani Spices Kit",
+        "amountPerServing": 15,
+        "unit": "g",
+        "productId": "prod_spices_mix",
+        "isPantryStaple": false,
+        "notes": "Cardamom, mace & saffron"
+      },
+      {
+        "name": "Red Onions for Birista",
+        "amountPerServing": 100,
+        "unit": "g",
+        "productId": "prod_v6",
+        "isPantryStaple": false,
+        "notes": "Thinly sliced"
       }
     ]
   }

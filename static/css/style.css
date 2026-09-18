@@ -713,8 +713,349 @@ body {
 }
 
 /* ================================================= */
-/* RECIPE HUB - SOBER MASTERCLASS STYLE */
+/* RECIPE HUB - CUISINE MENU & CHEF KITS SHOWCASE */
 /* ================================================= */
+
+/* Recipe Top Showcase Card */
+.recipe-showcase-card {
+  background: linear-gradient(135deg, #3f090d 0%, #681017 60%, #851620 100%);
+  border-radius: 18px;
+  padding: 18px 20px;
+  color: #ffffff;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(63, 9, 13, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.recipe-showcase-card::after {
+  content: "🍲";
+  position: absolute;
+  right: -10px;
+  bottom: -15px;
+  font-size: 80px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.showcase-tag {
+  display: inline-block;
+  background: rgba(254, 240, 138, 0.18);
+  border: 1px solid rgba(254, 240, 138, 0.4);
+  color: #fef08a;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.showcase-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.showcase-subtitle {
+  font-size: 12.5px;
+  color: #fed7aa;
+  line-height: 1.45;
+  max-width: 92%;
+}
+
+/* Cuisine Menu Top Horizontal Carousel */
+.cuisine-menu-container {
+  margin-bottom: 14px;
+}
+
+.cuisine-menu-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0 2px;
+}
+
+.cuisine-section-label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.cuisine-region-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #c2410c;
+  background: #fff7ed;
+  padding: 3px 8px;
+  border-radius: 12px;
+  border: 1px solid #ffedd5;
+}
+
+.cuisine-menu-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 2px 2px 8px 2px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.cuisine-menu-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.cuisine-card-chip {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1.5px solid var(--beige-border);
+  border-radius: 14px;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  user-select: none;
+}
+
+.cuisine-card-chip:hover {
+  transform: translateY(-2px);
+  border-color: #f97316;
+  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.15);
+}
+
+.cuisine-card-chip.active {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border-color: #ea580c;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.22);
+  transform: translateY(-2px);
+}
+
+.cuisine-chip-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #fffbeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  border: 1px solid #fef3c7;
+}
+
+.cuisine-card-chip.active .cuisine-chip-icon-box {
+  background: #ffffff;
+  border-color: #fdba74;
+}
+
+.cuisine-chip-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cuisine-chip-name {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-dark);
+  white-space: nowrap;
+  line-height: 1.25;
+}
+
+.cuisine-card-chip.active .cuisine-chip-name {
+  color: #9a3412;
+}
+
+.cuisine-chip-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ea580c;
+  margin-top: 2px;
+}
+
+/* Dietary & Quick Filter Chips */
+.recipe-filter-chips-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 2px 14px 2px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.recipe-filter-chips-row::-webkit-scrollbar {
+  display: none;
+}
+
+.rec-filter-pill {
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1px solid var(--beige-border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.rec-filter-pill:hover {
+  border-color: var(--maroon-primary);
+  color: var(--maroon-primary);
+}
+
+.rec-filter-pill.active {
+  background: var(--maroon-primary);
+  color: #ffffff;
+  border-color: var(--maroon-primary);
+  box-shadow: 0 2px 8px rgba(66, 6, 9, 0.25);
+}
+
+/* Active Cuisine Headline Info Card */
+.active-cuisine-headline-card {
+  background: #fbf8f5;
+  border: 1px solid #eeddd0;
+  border-left: 4px solid var(--maroon-primary);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+
+.cuisine-headline-info h4 {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+}
+
+.cuisine-headline-info p {
+  font-size: 11.5px;
+  color: #666666;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Recipe Card Styling Improvements */
+.recipe-badge-cuisine {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(25, 20, 21, 0.88);
+  backdrop-filter: blur(4px);
+  color: #fed7aa;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+}
+
+.recipe-chef-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--maroon-primary);
+  margin-bottom: 4px;
+}
+
+.recipe-ingredients-preview {
+  background: #fdfaf6;
+  border: 1px dashed #e8dfd6;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 11.5px;
+  color: #555555;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.preview-kit-label {
+  font-weight: 800;
+  color: #9a3412;
+  margin-right: 4px;
+}
+
+.recipe-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--beige-border);
+}
+
+.recipe-kit-price-box {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}
+
+.kit-price-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.kit-price-val {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.btn-add-kit-direct {
+  background: #15803d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(21, 128, 61, 0.25);
+}
+
+.btn-add-kit-direct:hover {
+  background: #166534;
+  transform: translateY(-1px);
+}
+
+.btn-masterclass-details {
+  background: var(--beige-surface);
+  color: var(--maroon-primary);
+  border: 1px solid var(--beige-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-masterclass-details:hover {
+  background: var(--maroon-primary);
+  color: #ffffff;
+  border-color: var(--maroon-primary);
+}
+
 .recipes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -4005,6 +4346,657 @@ body {
   font-weight: 600;
 }
 
+/* ================================================= */
+/* GROVIO LUXURY HOME EXPERIENCE (RECIPE HIGHLIGHTS) */
+/* ================================================= */
 
+.home-experience-view {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-bottom: 24px;
+}
 
+/* 1. MasterChef Spotlight Hero Card */
+.grovio-spotlight-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(70, 5, 8, 0.16);
+  border: 1px solid rgba(212, 159, 55, 0.25);
+  background: #1a0406;
+  min-height: 380px;
+}
 
+.spotlight-image-backdrop {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.grovio-spotlight-card:hover .spotlight-image-backdrop {
+  transform: scale(1.03);
+}
+
+.spotlight-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(25, 2, 4, 0.2) 0%,
+    rgba(25, 2, 4, 0.65) 45%,
+    rgba(18, 1, 2, 0.96) 100%
+  );
+}
+
+.spotlight-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 380px;
+  box-sizing: border-box;
+}
+
+.spotlight-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.spotlight-tag {
+  background: linear-gradient(135deg, #e5a93c, #b87b14);
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(229, 169, 60, 0.4);
+}
+
+.spotlight-meta-pill {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+}
+
+.spotlight-dish-title {
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 900;
+  line-height: 1.18;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  margin-bottom: 6px;
+}
+
+.spotlight-dish-desc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.35;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.spotlight-chef-line {
+  font-size: 11.5px;
+  color: #fedfa4;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.spotlight-ingredients-preview {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  padding: 7px 11px;
+  margin-bottom: 14px;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.spotlight-ing-label {
+  font-weight: 800;
+  color: #e5a93c;
+  margin-right: 4px;
+}
+
+.spotlight-ing-tags {
+  color: #f1f3f5;
+}
+
+.spotlight-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spotlight-price-box {
+  display: flex;
+  flex-direction: column;
+  padding-right: 4px;
+}
+
+.spotlight-price-sub {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.spotlight-price-num {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.btn-spotlight-add-kit {
+  flex: 1;
+  background: linear-gradient(135deg, #25a244, #1b8a36);
+  color: #ffffff;
+  border: none;
+  padding: 11px 12px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: 0 4px 14px rgba(37, 162, 68, 0.4);
+  transition: transform 0.15s ease, background 0.15s;
+}
+
+.btn-spotlight-add-kit:active {
+  transform: scale(0.97);
+}
+
+.btn-spotlight-watch {
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  padding: 11px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn-spotlight-watch:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+/* 2. Regional Cuisines Section */
+.home-cuisines-section {
+  margin-top: 2px;
+}
+
+.home-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+
+.home-section-title {
+  font-family: var(--font-heading);
+  font-size: 16.5px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.home-section-subtitle {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin: 2px 0 0;
+}
+
+.home-see-all-link {
+  background: none;
+  border: none;
+  color: var(--maroon-primary);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.home-see-all-link:hover {
+  opacity: 0.8;
+}
+
+.home-cuisines-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.home-cuisines-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.home-cuisine-chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #ffffff;
+  border: 1px solid var(--beige-border);
+  border-radius: 14px;
+  padding: 8px 13px;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(70, 5, 8, 0.04);
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.home-cuisine-chip:hover,
+.home-cuisine-chip:active {
+  border-color: var(--maroon-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 18, 25, 0.12);
+}
+
+.home-cuisine-icon-box {
+  font-size: 20px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--maroon-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-cuisine-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-cuisine-name {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+.home-cuisine-count {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* 3. Trending & Express Recipe Shelves */
+.home-recipe-shelf-section {
+  margin-top: 4px;
+}
+
+.home-recipe-kits-scroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 4px 2px 14px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.home-recipe-kits-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.home-recipe-card {
+  width: 236px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid var(--beige-border);
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(70, 5, 8, 0.06);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-recipe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(70, 5, 8, 0.12);
+}
+
+.home-recipe-img-box {
+  position: relative;
+  width: 100%;
+  height: 142px;
+  background: #200406;
+  overflow: hidden;
+}
+
+.home-recipe-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.home-recipe-card:hover .home-recipe-img {
+  transform: scale(1.06);
+}
+
+.home-recipe-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
+.home-recipe-time {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.home-recipe-diet {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #111111;
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.home-recipe-cuisine {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(99, 18, 25, 0.88);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.home-recipe-body {
+  padding: 12px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.home-recipe-chef {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--maroon-primary);
+  margin-bottom: 3px;
+}
+
+.home-recipe-title {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.25;
+  height: 35px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.home-recipe-ingredients-note {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  margin-bottom: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-recipe-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px dashed var(--beige-border);
+}
+
+.home-recipe-price-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-recipe-price-label {
+  font-size: 9px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.home-recipe-price-val {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.btn-home-add-kit {
+  background: var(--maroon-primary);
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.16s ease;
+  box-shadow: 0 2px 6px rgba(99, 18, 25, 0.2);
+}
+
+.btn-home-add-kit:hover {
+  background: var(--maroon-vibrant);
+}
+
+.btn-home-add-kit:active {
+  transform: scale(0.94);
+}
+
+/* 4. Fresh Mandi Groceries Grid on Home */
+.home-groceries-section {
+  margin-top: 6px;
+}
+
+.home-grocery-category-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.grocery-tile-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid var(--beige-border);
+  border-radius: 14px;
+  padding: 12px 6px 10px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.grocery-tile-item:hover,
+.grocery-tile-item:active {
+  border-color: var(--maroon-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 18, 25, 0.08);
+}
+
+.grocery-tile-bubble {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--beige-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  margin-bottom: 6px;
+  transition: transform 0.16s ease;
+}
+
+.grocery-tile-bubble.highlight {
+  background: var(--maroon-soft);
+  border: 1px solid var(--maroon-border);
+}
+
+.grocery-tile-item:hover .grocery-tile-bubble {
+  transform: scale(1.08);
+}
+
+.grocery-tile-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+/* 5. Grovio Guarantee Value Strip */
+.grovio-promise-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--beige-surface) 100%);
+  border: 1px solid var(--beige-border);
+  border-radius: 16px;
+  padding: 14px 10px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.promise-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.promise-icon {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.promise-title {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.promise-sub {
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+/* 6. Search Integration: Recipe Kits in Search Results */
+.search-recipe-results-block {
+  background: var(--beige-surface);
+  border: 1px solid var(--beige-border);
+  border-radius: 16px;
+  padding: 14px 12px 6px;
+  margin-bottom: 18px;
+}
+
+.search-block-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.search-block-header h4 {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--maroon-primary);
+  margin: 0;
+}
+
+.search-block-subtitle {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}

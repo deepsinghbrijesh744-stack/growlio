@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Growlio - 10 Min Grocery & Video Recipe Kits | Tricity Chandigarh, Mohali, Panchkula, Kharar</title>
-  <link rel="stylesheet" href="./static/css/style.css?v=2.5" />
+  <title>Grovio - 10 Min Groceries & Chef Recipe Kits | Tricity Chandigarh, Mohali, Panchkula</title>
+  <link rel="stylesheet" href="./static/css/style.css?v=3.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
         <span class="preview-device-name">iPhone 16 Pro • iOS 18</span>
       </div>
       <div class="preview-info-text">
-        Mobile Quick-Commerce Experience • <strong>Growlio</strong>
+        Mobile Quick-Commerce Experience • <strong>Grovio</strong>
       </div>
       <button class="btn-toggle-fullscreen" id="toggleViewBtn" onclick="toggleIphoneView()">
         🖥️ Toggle Fullscreen / Phone
@@ -51,15 +51,15 @@
       <!-- Scrollable Mobile Viewport -->
       <div class="iphone-screen-viewport" id="iphoneViewport">
 
-        <!-- App Header: iOS Mobile Native with HIGHLIGHTED GROWLIO -->
+        <!-- App Header: iOS Mobile Native with HIGHLIGHTED GROVIO -->
         <header class="app-header">
           <div class="ios-header-brand-row">
             <div class="ios-brand-group">
-              <a href="#" class="brand-logo" onclick="switchView('groceries')" aria-label="Growlio Home">
+              <a href="#" class="brand-logo" onclick="switchView('home')" aria-label="Grovio Home">
                 <span class="brand-logo-mark">G</span>
-                <span class="brand-logo-text">Growlio</span>
+                <span class="brand-logo-text">Grovio</span>
               </a>
-              <span class="growlio-highlight-pill">⚡ 10 MINS</span>
+              <span class="grovio-highlight-pill">⚡ 8-10 MINS</span>
             </div>
 
             <div class="ios-header-actions">
@@ -84,12 +84,10 @@
           <!-- iOS Search Bar -->
           <div class="header-search-bar">
             <div class="search-input-wrapper">
-              <span class="search-icon">🔍</span>
-              <input 
-                type="text" 
+              <span class="search-icon">🔍                type="text" 
                 id="globalSearchInput" 
                 class="search-input" 
-                placeholder="Search 'all milks', 'cooking oils', 'paneer'..." 
+                placeholder="Search recipes ('Dal Makhani', 'Biryani') or groceries ('Milk', 'Ghee')..." 
                 oninput="handleSearch(this.value)"
               />
               <span class="search-mic-icon">🎙️</span>
@@ -100,318 +98,188 @@
         <!-- Main Mobile Container -->
         <main class="main-container">
 
-          <!-- Top Category Tabs Carousel (All, Electronics, Beauty, Gifting, Decor, Kids) - Placed Above -->
-          <div class="top-category-carousel-wrapper">
-            <div class="top-category-tabs-row" id="topCategoryTabsRow">
-              <div class="top-cat-tab-chip active" id="topCatTab0" data-index="0" data-cat="All" onclick="selectTopCategoryTab(0, 'All', this)">
-                <div class="tab-chip-icon-box">
-                  <span class="tab-chip-icon">✨</span>
-                </div>
-                <span class="tab-chip-label">All</span>
-              </div>
-              <div class="top-cat-tab-chip" id="topCatTab1" data-index="1" data-cat="Electronics" onclick="selectTopCategoryTab(1, 'Electronics', this)">
-                <div class="tab-chip-icon-box">
-                  <span class="tab-chip-icon">🎧</span>
-                </div>
-                <span class="tab-chip-label">Electronics</span>
-              </div>
-              <div class="top-cat-tab-chip" id="topCatTab2" data-index="2" data-cat="Beauty" onclick="selectTopCategoryTab(2, 'Beauty', this)">
-                <div class="tab-chip-icon-box">
-                  <span class="tab-chip-icon">💄</span>
-                </div>
-                <span class="tab-chip-label">Beauty</span>
-              </div>
-              <div class="top-cat-tab-chip" id="topCatTab3" data-index="3" data-cat="Gifting" onclick="selectTopCategoryTab(3, 'Gifting', this)">
-                <div class="tab-chip-icon-box">
-                  <span class="tab-chip-icon">🎁</span>
-                </div>
-                <span class="tab-chip-label">Gifting</span>
-              </div>
-              <div class="top-cat-tab-chip" id="topCatTab4" data-index="4" data-cat="Decor" onclick="selectTopCategoryTab(4, 'Decor', this)">
-                <div class="tab-chip-icon-box">
-                  <span class="tab-chip-icon">🛋️</span>
-                </div>
-                <span class="tab-chip-label">Decor</span>
-              </div>
-              <div class="top-cat-tab-chip" id="topCatTab5" data-index="5" data-cat="Kids" onclick="selectTopCategoryTab(5, 'Kids', this)">
-                <div class="tab-chip-icon-box">
-                  <span class="tab-chip-icon">🧸</span>
-                </div>
-                <span class="tab-chip-label">Kids</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- iOS Segmented Control Pills (Store / Recipe Kits) - Placed Below Categories -->
+          <!-- Grovio Modern Segmented Control (Home / Recipe Kits / Grocery Store) -->
           <div class="nav-tab-switch">
-            <button id="tabBtnGroceries" class="tab-btn active" onclick="switchView('groceries')">
-              🛒 Store
+            <button id="tabBtnHome" class="tab-btn active" onclick="switchView('home')">
+              🏠 Home
             </button>
             <button id="tabBtnRecipes" class="tab-btn" onclick="switchView('recipes')">
               🍳 Recipe Kits
               <span class="tab-badge">1-Click</span>
             </button>
+            <button id="tabBtnGroceries" class="tab-btn" onclick="switchView('groceries')">
+              🛒 Grocery Store
+            </button>
           </div>
-          
-          <!-- Compact iOS Hero Banner -->
-          <div id="heroBanner" class="recipe-hero-banner">
-            <div class="hero-text">
-              <div class="hero-badge-pill">
-                ⚡ 8-10 Min Express Delivery
-              </div>
-              <h2>All Groceries &amp; <span class="hero-highlight">Chef Kits</span></h2>
-              <p>Chandigarh, Mohali, Panchkula &amp; Kharar dark stores.</p>
-              
-              <button class="hero-cta-btn" onclick="switchView('recipes')">
-                Explore Recipe Kits ➔
-              </button>
-            </div>
 
-            <div class="hero-visual-graphic">
-              <div class="hero-preview-badge">
-                <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=160&auto=format&fit=crop&q=80" alt="Paneer Butter Masala Kit" class="hero-preview-img" />
-                <div class="hero-preview-info">
-                  <span class="hero-preview-tag">Top Kit</span>
-                  <span class="hero-preview-name">Verka Paneer Kit</span>
+          <!-- ================================================= -->
+          <!-- GROVIO HOME EXPERIENCE (RECIPES HIGHLIGHT + GROCERY) -->
+          <!-- ================================================= -->
+          <div id="homeExperienceView" class="home-experience-view">
+
+            <!-- 1. Tonight's MasterChef Spotlight Hero Card -->
+            <section class="grovio-spotlight-card" id="homeSpotlightCard">
+              <div class="spotlight-image-backdrop" style="background-image: url('https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&auto=format&fit=crop&q=80');">
+                <div class="spotlight-overlay-gradient"></div>
+              </div>
+              <div class="spotlight-content">
+                <div class="spotlight-badges-row">
+                  <span class="spotlight-tag">🔥 Tonight's Spotlight</span>
+                  <span class="spotlight-meta-pill">⏱️ 25 Mins</span>
+                  <span class="spotlight-meta-pill">🟢 100% Veg</span>
+                  <span class="spotlight-meta-pill">⭐ 4.98</span>
+                </div>
+                <h2 class="spotlight-dish-title">Highway Dhaba Dal Makhani</h2>
+                <p class="spotlight-dish-desc">
+                  Slow-simmered whole black lentils &amp; rajma in pure desi ghee, white butter, fresh cream and smoky charcoal dhungar.
+                </p>
+                <div class="spotlight-chef-line">
+                  👨‍🍳 <strong>Chef Ranveer Brar</strong> • Highway Dhaba Heritage
+                </div>
+                <div class="spotlight-ingredients-preview">
+                  <span class="spotlight-ing-label">📦 Kit includes:</span>
+                  <span class="spotlight-ing-tags">Sabut Urad Mix, Amul Butter, Desi Ghee, Mandi Tomatoes, Fresh Cream</span>
+                </div>
+                <div class="spotlight-actions-bar">
+                  <div class="spotlight-price-box">
+                    <span class="spotlight-price-sub">Kit (2 Servings)</span>
+                    <span class="spotlight-price-num">₹165</span>
+                  </div>
+                  <button class="btn-spotlight-add-kit" onclick="addRecipeKitToCart('rec_dal_makhani')">
+                    + Add Kit to Cart
+                  </button>
+                  <button class="btn-spotlight-watch" onclick="openRecipeModal('rec_dal_makhani')">
+                    ▶ Masterclass
+                  </button>
                 </div>
               </div>
-            </div>
-          </div>
+            </section>
 
-    <!-- ================================================= -->
-    <!-- MASTER DEPARTMENTS (BLINKIT STANDARD 4 SECTIONS) -->
-    <!-- ================================================= -->
-    <div id="masterDepartmentsWrapper" class="master-departments-wrapper">
+            <!-- 2. Regional Cuisines Bar ("Explore by Taste") -->
+            <section class="home-cuisines-section">
+              <div class="home-section-header">
+                <div>
+                  <h3 class="home-section-title">🍽️ Explore Cuisines</h3>
+                  <p class="home-section-subtitle">Famous North Indian &amp; Regional Menus</p>
+                </div>
+                <button class="home-see-all-link" onclick="switchView('recipes')">
+                  All Cuisines ➔
+                </button>
+              </div>
+              <div class="home-cuisines-scroll" id="homeCuisineDiscoveryRow">
+                <!-- Dynamically populated by JS renderHomeExperience() -->
+              </div>
+            </section>
 
-      <!-- DEPARTMENT 1: GROCERY & KITCHEN -->
-      <section class="department-block" id="deptGroceryBlock">
-        <div class="dept-header-row">
-          <div class="dept-title-group">
-            <h3 class="dept-title">🛒 Grocery &amp; Kitchen</h3>
-            <p class="dept-subtitle">Dairy, mandi produce, atta, oils &amp; kitchen tools</p>
-          </div>
-          <button class="dept-see-all-btn" onclick="openFullDepartment('Grocery & Kitchen')">
-            See All ➔
-          </button>
-        </div>
+            <!-- 3. Trending Chef Recipe Kits Shelf (1-Click Kits) -->
+            <section class="home-recipe-shelf-section">
+              <div class="home-section-header">
+                <div>
+                  <h3 class="home-section-title">🍳 Trending Recipe Kits</h3>
+                  <p class="home-section-subtitle">Pre-portioned fresh ingredients + HD video masterclass</p>
+                </div>
+                <button class="home-see-all-link" onclick="switchView('recipes')">
+                  View All (16) ➔
+                </button>
+              </div>
+              <div class="home-recipe-kits-scroll" id="homeTrendingRecipesShelf">
+                <!-- Populated by JS -->
+              </div>
+            </section>
 
-        <!-- 4-Column Visual Category Grid -->
-        <div class="dept-categories-grid">
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Dairy, Bread & Eggs', this)">
-            <div class="tile-icon-bubble">🥛</div>
-            <span class="tile-label">Dairy, Bread &amp; Eggs</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Vegetables & Fruits', this)">
-            <div class="tile-icon-bubble">🥦</div>
-            <span class="tile-label">Vegetables &amp; Fruits</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Atta, Rice & Dals', this)">
-            <div class="tile-icon-bubble">🌾</div>
-            <span class="tile-label">Atta, Rice &amp; Dals</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Oils, Ghee & Masalas', this)">
-            <div class="tile-icon-bubble">🫒</div>
-            <span class="tile-label">Oils, Ghee &amp; Masalas</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Dry Fruits & Cereals', this)">
-            <div class="tile-icon-bubble">🥜</div>
-            <span class="tile-label">Dry Fruits &amp; Cereals</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Kitchen Tools & Storage', this)">
-            <div class="tile-icon-bubble">🍳</div>
-            <span class="tile-label">Kitchenware &amp; Foil</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Grocery & Kitchen', 'Oils, Ghee & Masalas', this)">
-            <div class="tile-icon-bubble">🧂</div>
-            <span class="tile-label">Salt, Sugar &amp; Spices</span>
-          </div>
-          <div class="dept-category-tile highlight" onclick="switchView('recipes')">
-            <div class="tile-icon-bubble">👨‍🍳</div>
-            <span class="tile-label">Recipe Kits</span>
-          </div>
-        </div>
+            <!-- 4. 15-Minute Express Meals Shelf -->
+            <section class="home-recipe-shelf-section">
+              <div class="home-section-header">
+                <div>
+                  <h3 class="home-section-title">⏱️ 15-Min Express Meals</h3>
+                  <p class="home-section-subtitle">Quick, wholesome meals for busy evenings</p>
+                </div>
+                <button class="home-see-all-link" onclick="selectRecipeCuisine('Quick 15-Mins', null); switchView('recipes');">
+                  See Quick Meals ➔
+                </button>
+              </div>
+              <div class="home-recipe-kits-scroll" id="homeQuickMealsShelf">
+                <!-- Populated by JS -->
+              </div>
+            </section>
 
-        <!-- Featured Product Shelf -->
-        <div class="dept-shelf-container">
-          <div class="dept-shelf-label">Bestsellers in Grocery &amp; Kitchen</div>
-          <div class="dept-shelf-scroll" id="shelfGroceryContainer">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-      </section>
+            <!-- 5. Fresh Mandi Groceries & Cooking Staples -->
+            <section class="home-groceries-section">
+              <div class="home-section-header">
+                <div>
+                  <h3 class="home-section-title">🥛 Daily Fresh Cooking Essentials</h3>
+                  <p class="home-section-subtitle">Farm fresh milk, vegetables, atta, oils &amp; spices</p>
+                </div>
+                <button class="home-see-all-link" onclick="switchView('groceries')">
+                  All Groceries ➔
+                </button>
+              </div>
 
-      <!-- DEPARTMENT 2: SNACKS & DESSERTS -->
-      <section class="department-block" id="deptSnacksBlock">
-        <div class="dept-header-row">
-          <div class="dept-title-group">
-            <h3 class="dept-title">🍿 Snacks &amp; Desserts</h3>
-            <p class="dept-subtitle">Chips, namkeen, ice creams, cold drinks &amp; sweets</p>
-          </div>
-          <button class="dept-see-all-btn" onclick="openFullDepartment('Snacks & Desserts')">
-            See All ➔
-          </button>
-        </div>
+              <!-- Quick Grocery Department Grid (Purely Grocery) -->
+              <div class="home-grocery-category-tiles">
+                <div class="grocery-tile-item" onclick="openFullDepartment('Grocery & Kitchen', 'Dairy, Bread & Eggs')">
+                  <div class="grocery-tile-bubble">🥛</div>
+                  <span class="grocery-tile-title">Dairy &amp; Eggs</span>
+                </div>
+                <div class="grocery-tile-item" onclick="openFullDepartment('Grocery & Kitchen', 'Vegetables & Fruits')">
+                  <div class="grocery-tile-bubble">🥦</div>
+                  <span class="grocery-tile-title">Fresh Veggies</span>
+                </div>
+                <div class="grocery-tile-item" onclick="openFullDepartment('Grocery & Kitchen', 'Atta, Rice & Dals')">
+                  <div class="grocery-tile-bubble">🌾</div>
+                  <span class="grocery-tile-title">Atta &amp; Dals</span>
+                </div>
+                <div class="grocery-tile-item" onclick="openFullDepartment('Grocery & Kitchen', 'Oils, Ghee & Masalas')">
+                  <div class="grocery-tile-bubble">🫒</div>
+                  <span class="grocery-tile-title">Ghee &amp; Spices</span>
+                </div>
+                <div class="grocery-tile-item" onclick="openFullDepartment('Snacks & Desserts', 'Chips & Namkeen')">
+                  <div class="grocery-tile-bubble">🍿</div>
+                  <span class="grocery-tile-title">Munchies &amp; Drinks</span>
+                </div>
+                <div class="grocery-tile-item" onclick="switchView('recipes')">
+                  <div class="grocery-tile-bubble highlight">👨‍🍳</div>
+                  <span class="grocery-tile-title">Recipe Kits</span>
+                </div>
+              </div>
 
-        <!-- 4-Column Visual Category Grid -->
-        <div class="dept-categories-grid">
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Chips & Namkeen', this)">
-            <div class="tile-icon-bubble">🍟</div>
-            <span class="tile-label">Chips &amp; Namkeen</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Sweets & Chocolates', this)">
-            <div class="tile-icon-bubble">🍫</div>
-            <span class="tile-label">Sweets &amp; Chocolates</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Ice Creams & Kulfi', this)">
-            <div class="tile-icon-bubble">🍦</div>
-            <span class="tile-label">Ice Creams &amp; More</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Cold Drinks & Juices', this)">
-            <div class="tile-icon-bubble">🥤</div>
-            <span class="tile-label">Cold Drinks &amp; Juices</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Biscuits & Cookies', this)">
-            <div class="tile-icon-bubble">🍪</div>
-            <span class="tile-label">Biscuits &amp; Cookies</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Instant Noodles & Pasta', this)">
-            <div class="tile-icon-bubble">🍜</div>
-            <span class="tile-label">Noodles &amp; Maggi</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Tea & Coffee', this)">
-            <div class="tile-icon-bubble">☕</div>
-            <span class="tile-label">Tea &amp; Coffee</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Snacks & Desserts', 'Chips & Namkeen', this)">
-            <div class="tile-icon-bubble">🥨</div>
-            <span class="tile-label">Munchies &amp; Popcorn</span>
-          </div>
-        </div>
+              <!-- Daily Staples Shelf -->
+              <div class="dept-shelf-container" style="margin-top: 14px;">
+                <div class="dept-shelf-label">Popular Dairy, Produce &amp; Cooking Essentials</div>
+                <div class="dept-shelf-scroll" id="shelfGroceryContainer">
+                  <!-- Rendered by JS -->
+                </div>
+              </div>
 
-        <!-- Featured Product Shelf -->
-        <div class="dept-shelf-container">
-          <div class="dept-shelf-label">Popular Munchies, Drinks &amp; Desserts</div>
-          <div class="dept-shelf-scroll" id="shelfSnacksContainer">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-      </section>
+              <!-- Snacks & Desserts Shelf -->
+              <div class="dept-shelf-container" style="margin-top: 18px;">
+                <div class="dept-shelf-label">Munchies, Sweets &amp; Cold Drinks</div>
+                <div class="dept-shelf-scroll" id="shelfSnacksContainer">
+                  <!-- Rendered by JS -->
+                </div>
+              </div>
+            </section>
 
-      <!-- DEPARTMENT 3: BEAUTY & PERSONAL CARE -->
-      <section class="department-block" id="deptBeautyBlock">
-        <div class="dept-header-row">
-          <div class="dept-title-group">
-            <h3 class="dept-title">✨ Beauty &amp; Personal Care</h3>
-            <p class="dept-subtitle">Soaps, shampoos, skincare, oral hygiene &amp; grooming</p>
-          </div>
-          <button class="dept-see-all-btn" onclick="openFullDepartment('Beauty & Personal Care')">
-            See All ➔
-          </button>
-        </div>
+            <!-- 6. Grovio Guarantee Value Strip -->
+            <section class="grovio-promise-card">
+              <div class="promise-col">
+                <span class="promise-icon">⚡</span>
+                <span class="promise-title">8-10 Min Express</span>
+                <span class="promise-sub">Dark store near you</span>
+              </div>
+              <div class="promise-col">
+                <span class="promise-icon">📦</span>
+                <span class="promise-title">Zero Food Waste</span>
+                <span class="promise-sub">Exact pre-portioned kits</span>
+              </div>
+              <div class="promise-col">
+                <span class="promise-icon">👨‍🍳</span>
+                <span class="promise-title">Chef Masterclasses</span>
+                <span class="promise-sub">Cook like a pro at home</span>
+              </div>
+            </section>
 
-        <!-- 4-Column Visual Category Grid -->
-        <div class="dept-categories-grid">
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Bath & Body Soaps', this)">
-            <div class="tile-icon-bubble">🧼</div>
-            <span class="tile-label">Bath &amp; Body Soaps</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Hair Care & Shampoo', this)">
-            <div class="tile-icon-bubble">🧴</div>
-            <span class="tile-label">Hair Care &amp; Shampoo</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Skin & Face Care', this)">
-            <div class="tile-icon-bubble">🌸</div>
-            <span class="tile-label">Skin &amp; Face Care</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Oral Care & Dental', this)">
-            <div class="tile-icon-bubble">🪥</div>
-            <span class="tile-label">Oral Care &amp; Dental</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Shaving & Grooming', this)">
-            <div class="tile-icon-bubble">🪒</div>
-            <span class="tile-label">Shaving &amp; Grooming</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Skin & Face Care', this)">
-            <div class="tile-icon-bubble">💨</div>
-            <span class="tile-label">Deos &amp; Fragrances</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Feminine Hygiene', this)">
-            <div class="tile-icon-bubble">🩸</div>
-            <span class="tile-label">Feminine Hygiene</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Beauty & Personal Care', 'Bath & Body Soaps', this)">
-            <div class="tile-icon-bubble">🫧</div>
-            <span class="tile-label">Handwash &amp; Hygiene</span>
-          </div>
-        </div>
-
-        <!-- Featured Product Shelf -->
-        <div class="dept-shelf-container">
-          <div class="dept-shelf-label">Daily Grooming &amp; Personal Care</div>
-          <div class="dept-shelf-scroll" id="shelfBeautyContainer">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-      </section>
-
-      <!-- DEPARTMENT 4: HOUSEHOLD ESSENTIALS -->
-      <section class="department-block" id="deptHouseholdBlock">
-        <div class="dept-header-row">
-          <div class="dept-title-group">
-            <h3 class="dept-title">🏠 Household Essentials</h3>
-            <p class="dept-subtitle">Detergents, dishwash, cleaners, paper &amp; electricals</p>
-          </div>
-          <button class="dept-see-all-btn" onclick="openFullDepartment('Household Essentials')">
-            See All ➔
-          </button>
-        </div>
-
-        <!-- 4-Column Visual Category Grid -->
-        <div class="dept-categories-grid">
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Laundry & Detergents', this)">
-            <div class="tile-icon-bubble">🧺</div>
-            <span class="tile-label">Laundry &amp; Detergents</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Dishwash & Utensils', this)">
-            <div class="tile-icon-bubble">🧽</div>
-            <span class="tile-label">Dishwash &amp; Utensils</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Floor & Toilet Cleaning', this)">
-            <div class="tile-icon-bubble">🧹</div>
-            <span class="tile-label">Cleaners &amp; Disinfectants</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Paper & Tissues', this)">
-            <div class="tile-icon-bubble">🧻</div>
-            <span class="tile-label">Paper &amp; Tissues</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Pest Control & Repellents', this)">
-            <div class="tile-icon-bubble">🦟</div>
-            <span class="tile-label">Pest Control &amp; Coil</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Electricals & Batteries', this)">
-            <div class="tile-icon-bubble">🔋</div>
-            <span class="tile-label">Electricals &amp; Batteries</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Floor & Toilet Cleaning', this)">
-            <div class="tile-icon-bubble">🗑️</div>
-            <span class="tile-label">Garbage Bags</span>
-          </div>
-          <div class="dept-category-tile" onclick="filterBySubcatDept('Household Essentials', 'Floor & Toilet Cleaning', this)">
-            <div class="tile-icon-bubble">🪔</div>
-            <span class="tile-label">Pooja &amp; Agarbatti</span>
-          </div>
-        </div>
-
-        <!-- Featured Product Shelf -->
-        <div class="dept-shelf-container">
-          <div class="dept-shelf-label">Essential Cleaning &amp; Home Needs</div>
-          <div class="dept-shelf-scroll" id="shelfHouseholdContainer">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-      </section>
-
-    </div>
+          </div> <!-- /homeExperienceView -->
 
     <!-- FILTERED / ALL PRODUCTS VIEW (Activated on subcategory click or search) -->
     <section id="groceriesSection" style="display: none;">
@@ -441,20 +309,41 @@
 
     <!-- RECIPES VIEW -->
     <section id="recipesSection" style="display: none;">
-      <div class="section-header">
-        <h3 class="section-title">
-          🍳 Chef-Curated Video Masterclasses & Kits
-          <span class="section-badge">1-Click Ingredient Cart</span>
-        </h3>
-        <span id="recipeCountLabel" style="font-size: 12.5px; color: var(--text-muted); font-weight: 700;">4 recipes</span>
+      <!-- Cuisine Showcase Banner -->
+      <div class="recipe-showcase-card">
+        <div class="showcase-tag">✨ Ghar Ka MasterChef • 1-Click Recipe Kits</div>
+        <h2 class="showcase-title">Famous North Indian &amp; Regional Menus</h2>
+        <p class="showcase-subtitle">
+          Cook authentic restaurant flavors at home in minutes. HD Video Masterclass + pre-measured farm-fresh ingredients delivered in 8-10 mins!
+        </p>
       </div>
 
-      <!-- Recipe Category Pills -->
-      <div class="category-pills-row" id="recipeCategoryPills">
-        <button class="category-pill active" onclick="filterRecipeCategory('All', this)">✨ All Dishes</button>
-        <button class="category-pill" onclick="filterRecipeCategory('Tricity Specials', this)">🍛 Popular Curries</button>
-        <button class="category-pill" onclick="filterRecipeCategory('Quick 15-Mins', this)">⏱️ Quick 15-Mins</button>
-        <button class="category-pill" onclick="filterRecipeCategory('Breakfast & Snacks', this)">🥪 Breakfast & Snacks</button>
+      <!-- Cuisine Menu Showcase (Top Carousel of Regional Cuisines) -->
+      <div class="cuisine-menu-container">
+        <div class="cuisine-menu-header-row">
+          <div class="cuisine-section-label">🍽️ Explore Regional Cuisines:</div>
+          <span class="cuisine-region-badge">North India &amp; Popular Indian</span>
+        </div>
+        <div class="cuisine-menu-scroll" id="cuisineMenuScroll">
+          <!-- Populated by JS renderCuisinesMenu() -->
+        </div>
+      </div>
+
+      <!-- Dietary & Quick Filter Chips -->
+      <div class="recipe-filter-chips-row" id="recipeFilterChipsRow">
+        <button class="rec-filter-pill active" onclick="setRecipeDietFilter('all', this)">✨ All Dishes</button>
+        <button class="rec-filter-pill" onclick="setRecipeDietFilter('veg', this)">🟢 100% Veg Only</button>
+        <button class="rec-filter-pill" onclick="setRecipeDietFilter('nonveg', this)">🔴 Non-Veg Specials</button>
+        <button class="rec-filter-pill" onclick="setRecipeDietFilter('quick', this)">⏱️ Under 20 Mins</button>
+        <button class="rec-filter-pill" onclick="setRecipeDietFilter('popular', this)">⭐ MasterChef Specials</button>
+      </div>
+
+      <!-- Active Cuisine Status Headline -->
+      <div class="active-cuisine-headline-card" id="activeCuisineHeadlineCard">
+        <div class="cuisine-headline-info">
+          <h4 id="activeCuisineTitleText">🌟 All Regional Recipe Kits (16 Kits)</h4>
+          <p id="activeCuisineDescText">Explore chef-curated recipe kits across North India, Mughlai dastarkhwan, street food &amp; popular regional cuisines.</p>
+        </div>
       </div>
 
       <!-- Recipes Grid -->
@@ -582,41 +471,6 @@
       </div>
     </section>
 
-    <!-- ================================================= -->
-    <!-- ALL CATEGORIES VIEW ("SAB KUCH EK JAGAH") -->
-    <!-- ================================================= -->
-    <section id="categoriesSection" style="display: none;">
-      <div class="section-header">
-        <div class="dept-title-group">
-          <h3 class="section-title">
-            <span>🗂️ All Categories</span>
-            <span class="section-badge">Sab Kuch Ek Jagah</span>
-          </h3>
-          <p class="dept-subtitle">Browse all 4 departments &amp; 32 aisles in one place</p>
-        </div>
-      </div>
-
-      <!-- In-Category Instant Filter Input -->
-      <div class="category-search-box">
-        <span class="cat-search-icon">🔍</span>
-        <input type="text" id="catSearchInput" class="cat-search-input" placeholder="Search within all categories (e.g. milk, tea, soap)..." oninput="filterCategoriesHub(this.value)" />
-      </div>
-
-      <!-- Department Filter Tabs -->
-      <div class="category-dept-tabs" id="categoriesDeptTabs">
-        <button class="dept-tab-pill active" onclick="filterCategoriesDept('all', this)">✨ All Categories</button>
-        <button class="dept-tab-pill" onclick="filterCategoriesDept('Grocery & Kitchen', this)">🛒 Grocery &amp; Kitchen</button>
-        <button class="dept-tab-pill" onclick="filterCategoriesDept('Snacks & Desserts', this)">🍿 Snacks &amp; Desserts</button>
-        <button class="dept-tab-pill" onclick="filterCategoriesDept('Beauty & Personal Care', this)">✨ Beauty &amp; Care</button>
-        <button class="dept-tab-pill" onclick="filterCategoriesDept('Household Essentials', this)">🏠 Household</button>
-      </div>
-
-      <!-- Categories Directory Container -->
-      <div class="categories-directory-container" id="categoriesDirectoryContainer">
-        <!-- Rendered dynamically by JS with high-res icon cards, item counts & direct jump links -->
-      </div>
-    </section>
-
   </main>
 </div> <!-- /iphone-screen-viewport -->
 
@@ -634,37 +488,15 @@
         </div>
       </div>
 
-      <!-- Mobile Bottom App Bar (Solid Red Fill & White Outline, No Square Boxes) -->
+      <!-- Mobile Bottom App Bar (Grovio Classy 4+1 Clean Navigation) -->
       <nav class="blinkit-bottom-app-bar">
-        <button class="bottom-nav-item active" id="bnavHome" onclick="switchView('groceries')">
+        <button class="bottom-nav-item active" id="bnavHome" onclick="switchView('home')">
           <div class="nav-icon-wrapper">
             <svg class="nav-custom-svg" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 12.8L14 4L24 12.8C24.4 13.1 24.7 13.6 24.7 14.2C24.7 15.3 23.8 16.2 22.7 16.2H21.5V23.5C21.5 24.6 20.6 25.5 19.5 25.5H16.2V18.5C16.2 17.3 15.2 16.3 14 16.3C12.8 16.3 11.8 17.3 11.8 18.5V25.5H8.5C7.4 25.5 6.5 24.6 6.5 23.5V16.2H5.3C4.2 16.2 3.3 15.3 3.3 14.2C3.3 13.6 3.6 13.1 4 12.8Z" class="svg-red-fill"/>
             </svg>
           </div>
           <span class="nav-label">Home</span>
-        </button>
-
-        <button class="bottom-nav-item" id="bnavOrderAgain" onclick="switchView('order-again')">
-          <div class="nav-icon-wrapper">
-            <svg class="nav-custom-svg" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 3.5C19.2 3.5 23.5 7.4 24.3 12.4H21.1C20.4 9.2 17.5 6.7 14 6.7C11.5 6.7 9.3 7.9 7.9 9.8L10.8 12.6H3V4.8L5.8 7.6C7.7 5.1 10.6 3.5 14 3.5Z" class="svg-red-fill"/>
-              <path d="M14 24.5C8.8 24.5 4.5 20.6 3.7 15.6H6.9C7.6 18.8 10.5 21.3 14 21.3C16.5 21.3 18.7 20.1 20.1 18.2L17.2 15.4H25V23.2L22.2 20.4C20.3 22.9 17.4 24.5 14 24.5Z" class="svg-red-fill"/>
-            </svg>
-          </div>
-          <span class="nav-label">Order Again</span>
-        </button>
-
-        <button class="bottom-nav-item" id="bnavCategories" onclick="switchView('categories')">
-          <div class="nav-icon-wrapper">
-            <svg class="nav-custom-svg" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3.5" y="3.5" width="9.2" height="9.2" rx="2.8" class="svg-red-fill"/>
-              <rect x="15.3" y="3.5" width="9.2" height="9.2" rx="2.8" class="svg-red-fill"/>
-              <rect x="3.5" y="15.3" width="9.2" height="9.2" rx="2.8" class="svg-red-fill"/>
-              <rect x="15.3" y="15.3" width="9.2" height="9.2" rx="2.8" class="svg-red-fill"/>
-            </svg>
-          </div>
-          <span class="nav-label">Categories</span>
         </button>
 
         <button class="bottom-nav-item" id="bnavRecipes" onclick="switchView('recipes')">
@@ -675,6 +507,27 @@
             </svg>
           </div>
           <span class="nav-label">Recipes</span>
+        </button>
+
+        <button class="bottom-nav-item" id="bnavStore" onclick="switchView('groceries')">
+          <div class="nav-icon-wrapper">
+            <svg class="nav-custom-svg" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 6H23L21.5 16H6.5L5 6Z" class="svg-red-fill"/>
+              <circle cx="9" cy="22" r="2.5" class="svg-red-fill"/>
+              <circle cx="19" cy="22" r="2.5" class="svg-red-fill"/>
+            </svg>
+          </div>
+          <span class="nav-label">Store</span>
+        </button>
+
+        <button class="bottom-nav-item" id="bnavOrderAgain" onclick="switchView('order-again')">
+          <div class="nav-icon-wrapper">
+            <svg class="nav-custom-svg" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 3.5C19.2 3.5 23.5 7.4 24.3 12.4H21.1C20.4 9.2 17.5 6.7 14 6.7C11.5 6.7 9.3 7.9 7.9 9.8L10.8 12.6H3V4.8L5.8 7.6C7.7 5.1 10.6 3.5 14 3.5Z" class="svg-red-fill"/>
+              <path d="M14 24.5C8.8 24.5 4.5 20.6 3.7 15.6H6.9C7.6 18.8 10.5 21.3 14 21.3C16.5 21.3 18.7 20.1 20.1 18.2L17.2 15.4H25V23.2L22.2 20.4C20.3 22.9 17.4 24.5 14 24.5Z" class="svg-red-fill"/>
+            </svg>
+          </div>
+          <span class="nav-label">Order Again</span>
         </button>
 
         <button class="bottom-nav-item" id="bnavCart" onclick="openCartDrawer()">
@@ -1033,6 +886,6 @@
   </div> <!-- /device-page-layout -->
 
   <!-- Application Logic -->
-  <script src="./static/js/app.js?v=2.5"></script>
+  <script src="./static/js/app.js?v=3.0"></script>
 </body>
 </html>

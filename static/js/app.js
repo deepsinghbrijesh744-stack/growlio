@@ -1,11 +1,64 @@
-// Growlio Tricity Supermarket & Video Recipe App
+// Grovio - 10 Min Groceries & Chef Recipe Kits App
 let allProducts = [];
 let allRecipes = [];
 let cart = {}; // { [productId]: { product, quantity, recipeTag } }
-let currentView = 'groceries';
+let currentView = 'home';
 let selectedDepartment = 'all';
 let selectedSubcategory = 'all';
 let selectedRecipeCat = 'All';
+let selectedRecipeCuisine = 'All';
+let selectedRecipeDiet = 'all';
+
+const CUISINE_DEFINITIONS = [
+  {
+    id: 'All',
+    name: 'All Cuisines',
+    icon: '🌟',
+    desc: 'Explore chef-curated recipe kits across North India, Mughlai dastarkhwan, street food & popular regional cuisines.'
+  },
+  {
+    id: 'Punjabi & Dhaba',
+    name: 'Punjabi & Dhaba',
+    icon: '🥘',
+    desc: 'Iconic highway dhaba curries, dal makhani, pindi chole, sarson saag & butter chicken with pure desi ghee and butter.'
+  },
+  {
+    id: 'Mughlai & Biryani',
+    name: 'Mughlai & Biryani',
+    icon: '👑',
+    desc: 'Royal Shahi gravies, Awadhi slow-simmered dum biryani with fragrant basmati & whole saffron spices.'
+  },
+  {
+    id: 'North Indian Street Food',
+    name: 'Street Food',
+    icon: '🌶️',
+    desc: 'Chowpatty Mumbai butter pav bhaji & Delhi Purani Dilli matar chole kulche cooked fresh in minutes.'
+  },
+  {
+    id: 'Indo-Chinese',
+    name: 'Indo-Chinese',
+    icon: '🥟',
+    desc: 'Desi Chinese wok favorites: sizzling chilli paneer and tossing hakka noodles packed with spicy soy & schezwan.'
+  },
+  {
+    id: 'South Indian Classics',
+    name: 'South Indian',
+    icon: '🥞',
+    desc: 'Paper-crisp golden masala dosa with aromatic drumstick sambar & stone-ground naturally fermented batter.'
+  },
+  {
+    id: 'Quick 15-Mins',
+    name: 'Quick 15-Mins',
+    icon: '⏱️',
+    desc: 'Super fast, delicious meals: Mohali street egg bhurji & Italian creamy mushroom alfredo penne.'
+  },
+  {
+    id: 'Desi Mithai & Desserts',
+    name: 'Desi Mithai',
+    icon: '🍨',
+    desc: 'North India celebration winter Gajar Ka Halwa slow-roasted in pure desi ghee, fresh khoya & crunchy nuts.'
+  }
+];
 let isTricityFilterActive = false;
 let searchQuery = '';
 
@@ -47,65 +100,6 @@ const departmentSubcategories = {
     { id: 'Biscuits & Cookies', label: '🍪 Biscuits & Cookies' },
     { id: 'Instant Noodles & Pasta', label: '🍜 Noodles & Maggi' },
     { id: 'Tea & Coffee', label: '☕ Tea & Coffee' }
-  ],
-  'Beauty & Personal Care': [
-    { id: 'all', label: '✨ All Beauty & Personal Care' },
-    { id: 'Bath & Body Soaps', label: '🧼 Bath & Body Soaps' },
-    { id: 'Hair Care & Shampoo', label: '🧴 Hair Care & Shampoo' },
-    { id: 'Skin & Face Care', label: '🌸 Skin & Face Care' },
-    { id: 'Oral Care & Dental', label: '🪥 Oral Care & Dental' },
-    { id: 'Shaving & Grooming', label: '🪒 Shaving & Grooming' },
-    { id: 'Feminine Hygiene', label: '🩸 Feminine Hygiene' }
-  ],
-  'Household Essentials': [
-    { id: 'all', label: '✨ All Household Essentials' },
-    { id: 'Laundry & Detergents', label: '🧺 Laundry & Detergents' },
-    { id: 'Dishwash & Utensils', label: '🧽 Dishwash & Utensils' },
-    { id: 'Floor & Toilet Cleaning', label: '🧹 Cleaners & Disinfectants' },
-    { id: 'Paper & Tissues', label: '🧻 Paper & Tissues' },
-    { id: 'Pest Control & Repellents', label: '🦟 Pest Control' },
-    { id: 'Electricals & Batteries', label: '🔋 Electricals & Batteries' }
-  ],
-  'Beauty': [
-    { id: 'all', label: '✨ All Beauty & Personal Care' },
-    { id: 'Bath & Body Soaps', label: '🧼 Bath & Body Soaps' },
-    { id: 'Hair Care & Shampoo', label: '🧴 Hair Care & Shampoo' },
-    { id: 'Skin & Face Care', label: '🌸 Skin & Face Care' },
-    { id: 'Oral Care & Dental', label: '🪥 Oral Care & Dental' },
-    { id: 'Shaving & Grooming', label: '🪒 Shaving & Grooming' },
-    { id: 'Feminine Hygiene', label: '🩸 Feminine Hygiene' }
-  ],
-  'Electronics': [
-    { id: 'all', label: '✨ All Electronics' },
-    { id: 'Audio & Headphones', label: '🎧 Audio & Headphones' },
-    { id: 'Cables & Chargers', label: '⚡ Cables & Chargers' },
-    { id: 'Power Banks & Accessories', label: '🔋 Power Banks' },
-    { id: 'Kitchen Appliances', label: '🍳 Kitchen Appliances' },
-    { id: 'Personal Grooming Electronics', label: '🪒 Grooming & Trimmers' },
-    { id: 'Batteries & Torches', label: '🔦 Batteries & Torches' }
-  ],
-  'Gifting': [
-    { id: 'all', label: '✨ All Gifting' },
-    { id: 'Chocolates & Hampers', label: '🍫 Chocolates & Hampers' },
-    { id: 'Dry Fruit Hampers', label: '🥜 Dry Fruit Hampers' },
-    { id: 'Traditional Sweets', label: '🍬 Traditional Sweets' },
-    { id: 'Lifestyle Gifts', label: '🎁 Lifestyle Gifts' }
-  ],
-  'Decor': [
-    { id: 'all', label: '✨ All Home Decor' },
-    { id: 'Festive & Mood Lighting', label: '💡 Fairy & Mood Lights' },
-    { id: 'Aromatherapy & Candles', label: '🕯️ Scented Candles' },
-    { id: 'Plants & Greenery', label: '🪴 Artificial Plants' },
-    { id: 'Pooja & Metal Decor', label: '🪔 Brass Diyas' },
-    { id: 'Home Fragrances', label: '🌸 Room Sprays' }
-  ],
-  'Kids': [
-    { id: 'all', label: '✨ All Baby & Kids' },
-    { id: 'Diapers & Wipes', label: '👶 Diapers & Wipes' },
-    { id: 'Baby Food & Nutrition', label: '🥣 Baby Food & Cereals' },
-    { id: 'Toys & Treats', label: '🧸 Toys & Chocolates' },
-    { id: 'Art & Stationery', label: '🎨 Art & School Supplies' },
-    { id: 'Baby Bath & Skincare', label: '🛁 Baby Bath & Skincare' }
   ]
 };
 
@@ -141,11 +135,12 @@ async function loadData() {
     allProducts = await prodRes.json();
     allRecipes = await recRes.json();
 
+    renderHomeExperience();
     renderDepartmentShelves();
-    renderProducts();
+    renderCuisinesMenu();
     renderRecipes();
+    renderProducts();
     renderOrderAgainView();
-    renderCategoriesView();
     updateCartUI();
   } catch (err) {
     console.error('Failed to load initial data:', err);
@@ -336,74 +331,66 @@ function confirmSelectedAddress() {
 // -------------------------------------------------------------
 // View Switching & Master Departments Engine
 // -------------------------------------------------------------
+// -------------------------------------------------------------
+// Grovio View Switching & Navigation Engine
+// -------------------------------------------------------------
 function switchView(viewName) {
   currentView = viewName;
+  const homeTab = document.getElementById('tabBtnHome');
   const grocTab = document.getElementById('tabBtnGroceries');
   const recTab = document.getElementById('tabBtnRecipes');
-  const masterWrap = document.getElementById('masterDepartmentsWrapper');
+
+  const homeView = document.getElementById('homeExperienceView');
   const grocSec = document.getElementById('groceriesSection');
   const recSec = document.getElementById('recipesSection');
   const orderAgainSec = document.getElementById('orderAgainSection');
-  const categoriesSec = document.getElementById('categoriesSection');
-  const heroBanner = document.getElementById('heroBanner');
 
   // Bottom nav items
   const bnavHome = document.getElementById('bnavHome');
-  const bnavOrderAgain = document.getElementById('bnavOrderAgain');
-  const bnavCategories = document.getElementById('bnavCategories');
   const bnavRecipes = document.getElementById('bnavRecipes');
+  const bnavStore = document.getElementById('bnavStore');
+  const bnavOrderAgain = document.getElementById('bnavOrderAgain');
 
-  // Clear bottom nav active states
-  [bnavHome, bnavOrderAgain, bnavCategories, bnavRecipes].forEach(el => {
+  // Clear bottom nav and top tab active states
+  [bnavHome, bnavRecipes, bnavStore, bnavOrderAgain].forEach(el => {
+    if (el) el.classList.remove('active');
+  });
+  [homeTab, grocTab, recTab].forEach(el => {
     if (el) el.classList.remove('active');
   });
 
-  // Hide all dynamic view sections first
+  // Hide all sections first
+  if (homeView) homeView.style.display = 'none';
+  if (grocSec) grocSec.style.display = 'none';
   if (recSec) recSec.style.display = 'none';
   if (orderAgainSec) orderAgainSec.style.display = 'none';
-  if (categoriesSec) categoriesSec.style.display = 'none';
-  if (heroBanner) heroBanner.style.display = 'none';
-  if (masterWrap) masterWrap.style.display = 'none';
-  if (grocSec) grocSec.style.display = 'none';
 
-  if (viewName === 'groceries' || viewName === 'home') {
-    if (grocTab) grocTab.classList.add('active');
-    if (recTab) recTab.classList.remove('active');
+  if (viewName === 'home') {
+    if (homeTab) homeTab.classList.add('active');
     if (bnavHome) bnavHome.classList.add('active');
+    if (homeView) homeView.style.display = 'block';
 
-    if (heroBanner) heroBanner.style.display = 'flex';
-
-    if (selectedDepartment === 'all' && !searchQuery) {
-      if (masterWrap) masterWrap.style.display = 'flex';
-      if (grocSec) grocSec.style.display = 'none';
-    } else {
-      if (masterWrap) masterWrap.style.display = 'none';
-      if (grocSec) grocSec.style.display = 'block';
-    }
-
+    renderHomeExperience();
     renderDepartmentShelves();
-    renderProducts();
-  } else if (viewName === 'order-again') {
-    if (grocTab) grocTab.classList.remove('active');
-    if (recTab) recTab.classList.remove('active');
-    if (bnavOrderAgain) bnavOrderAgain.classList.add('active');
-
-    if (orderAgainSec) orderAgainSec.style.display = 'block';
-    renderOrderAgainView();
-  } else if (viewName === 'categories') {
-    if (grocTab) grocTab.classList.remove('active');
-    if (recTab) recTab.classList.remove('active');
-    if (bnavCategories) bnavCategories.classList.add('active');
-
-    if (categoriesSec) categoriesSec.style.display = 'block';
-    renderCategoriesView();
   } else if (viewName === 'recipes') {
     if (recTab) recTab.classList.add('active');
-    if (grocTab) grocTab.classList.remove('active');
     if (bnavRecipes) bnavRecipes.classList.add('active');
-
     if (recSec) recSec.style.display = 'block';
+
+    renderCuisinesMenu();
     renderRecipes();
+  } else if (viewName === 'groceries' || viewName === 'store') {
+    if (grocTab) grocTab.classList.add('active');
+    if (bnavStore) bnavStore.classList.add('active');
+    if (grocSec) grocSec.style.display = 'block';
+
+    renderSubcategoryPills();
+    renderProducts();
+  } else if (viewName === 'order-again') {
+    if (bnavOrderAgain) bnavOrderAgain.classList.add('active');
+    if (orderAgainSec) orderAgainSec.style.display = 'block';
+
+    renderOrderAgainView();
   }
 
   const viewport = document.getElementById('iphoneViewport');
@@ -411,95 +398,100 @@ function switchView(viewName) {
 }
 
 // -------------------------------------------------------------
-// TOP CATEGORY TABS ENGINE (EXACTLY 4 VISIBLE, AUTO-SLIDING)
+// GROVIO HOME EXPERIENCE ENGINE (RECIPES SPOTLIGHT & AISLES)
 // -------------------------------------------------------------
-function selectTopCategoryTab(index, catName, chipEl) {
-  // Update active highlight on tabs
-  document.querySelectorAll('#topCategoryTabsRow .top-cat-tab-chip').forEach((c, idx) => {
-    if (idx === index) c.classList.add('active');
-    else c.classList.remove('active');
-  });
+function renderHomeExperience() {
+  // 1. Regional Cuisines Bar (#homeCuisineDiscoveryRow)
+  const cuisineRow = document.getElementById('homeCuisineDiscoveryRow');
+  if (cuisineRow) {
+    cuisineRow.innerHTML = CUISINE_DEFINITIONS.filter(c => c.id !== 'All').map(c => {
+      const count = allRecipes.filter(r => (r.cuisine === c.id || r.category === c.id)).length;
+      return `
+        <div class="home-cuisine-chip" onclick="selectRecipeCuisine('${c.id}', null); switchView('recipes');">
+          <div class="home-cuisine-icon-box">${c.icon}</div>
+          <div class="home-cuisine-info">
+            <span class="home-cuisine-name">${c.name}</span>
+            <span class="home-cuisine-count">${count} Kits</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
 
-  // Auto-slide row smoothly without needing manual user swipe
-  autoScrollTopCategories(index);
+  // 2. Trending Chef Recipe Kits Shelf (#homeTrendingRecipesShelf)
+  const trendingShelf = document.getElementById('homeTrendingRecipesShelf');
+  if (trendingShelf) {
+    const trendingList = allRecipes.slice(0, 6);
+    trendingShelf.innerHTML = trendingList.map(r => renderHomeRecipeCard(r)).join('');
+  }
 
-  // Filter Catalog View
-  if (catName === 'All') {
-    resetToAllDepartments();
-  } else if (catName === 'Beauty') {
-    openFullDepartment('Beauty & Personal Care');
-  } else {
-    openFullDepartment(catName);
+  // 3. 15-Minute Express Meals Shelf (#homeQuickMealsShelf)
+  const quickShelf = document.getElementById('homeQuickMealsShelf');
+  if (quickShelf) {
+    const quickList = allRecipes.filter(r => {
+      const t = parseInt(r.totalTime || r.cookTime || '30');
+      return t <= 20 || r.category === 'Quick 15-Mins' || r.cuisine === 'Quick 15-Mins';
+    });
+    quickShelf.innerHTML = quickList.map(r => renderHomeRecipeCard(r)).join('');
   }
 }
 
-function autoScrollTopCategories(index) {
-  const row = document.getElementById('topCategoryTabsRow');
-  if (!row) return;
-  const chips = row.querySelectorAll('.top-cat-tab-chip');
-  if (!chips || chips.length === 0) return;
+function renderHomeRecipeCard(r) {
+  const isVeg = r.diet === 'Vegetarian';
+  const dietBadge = isVeg 
+    ? '<span class="diet-dot-veg">🟢</span> Veg' 
+    : '<span class="diet-dot-nonveg">🔴</span> Non-Veg';
 
-  const chipWidth = chips[0].offsetWidth;
-  const gap = 8; // matched to CSS gap: 8px
-  const step = chipWidth + gap;
+  const cuisineName = r.cuisine || r.category || 'Special';
+  const kitPrice = r.kitPrice || 195;
+  const ingCount = (r.ingredients || []).length;
+  const ingredientNames = (r.ingredients || []).slice(0, 3).map(i => i.name.split(' ')[0]).join(', ');
+  const ingredientsTeaser = ingCount > 0 
+    ? `${ingredientNames}${ingCount > 3 ? ` +${ingCount - 3} more` : ''}` 
+    : 'Fresh pre-measured kit';
 
-  if (index <= 1) {
-    // 1st (All) or 2nd (Electronics) -> Scroll to start (items 0,1,2,3 visible)
-    row.scrollTo({ left: 0, behavior: 'smooth' });
-  } else if (index === 2) {
-    // 3rd (Beauty) -> Slide left by 1 item so 5th item (Decor) slides in!
-    // Visible: [Electronics, Beauty, Gifting, Decor]
-    row.scrollTo({ left: step, behavior: 'smooth' });
-  } else {
-    // 4th (Gifting), 5th (Decor), or 6th (Kids) -> Slide to show up to Kids
-    // Visible: [Beauty, Gifting, Decor, Kids]
-    row.scrollTo({ left: step * 2, behavior: 'smooth' });
-  }
+  return `
+    <div class="home-recipe-card" onclick="openRecipeModal('${r.id}')">
+      <div class="home-recipe-img-box">
+        <img src="${r.thumbnail}" alt="${r.name}" class="home-recipe-img" loading="lazy" />
+        <div class="home-recipe-play">▶</div>
+        <div class="home-recipe-time">⏱️ ${r.totalTime}</div>
+        <div class="home-recipe-diet">${dietBadge}</div>
+        <div class="home-recipe-cuisine">🥘 ${cuisineName}</div>
+      </div>
+      <div class="home-recipe-body">
+        <div class="home-recipe-chef">👨‍🍳 ${r.chef ? r.chef.split('/')[0].trim() : 'MasterChef'}</div>
+        <div class="home-recipe-title">${r.name}</div>
+        <div class="home-recipe-ingredients-note">📦 <strong>Kit:</strong> ${ingredientsTeaser}</div>
+        <div class="home-recipe-footer">
+          <div class="home-recipe-price-box">
+            <span class="home-recipe-price-label">Kit for 2:</span>
+            <span class="home-recipe-price-val">₹${kitPrice}</span>
+          </div>
+          <button class="btn-home-add-kit" onclick="event.stopPropagation(); addRecipeKitToCart('${r.id}')">
+            + Add Kit
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
-function syncTopCategoryTab(deptName) {
-  const catMap = {
-    'all': 0,
-    'All': 0,
-    'Grocery & Kitchen': 0,
-    'Snacks & Desserts': 0,
-    'Household Essentials': 0,
-    'Electronics': 1,
-    'Beauty & Personal Care': 2,
-    'Beauty': 2,
-    'Gifting': 3,
-    'Decor': 4,
-    'Kids': 5
-  };
-  const targetIdx = catMap[deptName] !== undefined ? catMap[deptName] : 0;
-  document.querySelectorAll('#topCategoryTabsRow .top-cat-tab-chip').forEach((c, idx) => {
-    if (idx === targetIdx) c.classList.add('active');
-    else c.classList.remove('active');
-  });
-  autoScrollTopCategories(targetIdx);
-}
-
-function openFullDepartment(deptName) {
-  switchView('groceries');
-  const masterWrap = document.getElementById('masterDepartmentsWrapper');
-  const grocSec = document.getElementById('groceriesSection');
-  if (masterWrap) masterWrap.style.display = 'none';
-  if (grocSec) grocSec.style.display = 'block';
-
+function openFullDepartment(deptName, subcatName = 'all') {
   selectedDepartment = deptName;
-  selectedSubcategory = 'all';
+  selectedSubcategory = subcatName;
+  switchView('groceries');
 
   const titleEl = document.getElementById('sectionTitleText');
-  if (titleEl) titleEl.innerText = deptName;
+  if (titleEl) {
+    titleEl.innerText = subcatName !== 'all' ? `${deptName} ➔ ${subcatName}` : `🛒 ${deptName}`;
+  }
 
   const backBtn = document.querySelector('.btn-back-to-departments');
   if (backBtn) {
-    backBtn.innerHTML = '⬅️ Back to All Categories';
-    backBtn.onclick = resetToAllDepartments;
+    backBtn.innerHTML = '⬅️ Back to Home';
+    backBtn.onclick = () => switchView('home');
   }
-
-  // Keep top category tab highlighted and auto-slid
-  syncTopCategoryTab(deptName);
 
   renderSubcategoryPills();
   renderProducts();
@@ -509,67 +501,16 @@ function openFullDepartment(deptName) {
 }
 
 function filterBySubcatDept(deptName, subcatName, tileEl) {
-  switchView('groceries');
-  const masterWrap = document.getElementById('masterDepartmentsWrapper');
-  const grocSec = document.getElementById('groceriesSection');
-  if (masterWrap) masterWrap.style.display = 'none';
-  if (grocSec) grocSec.style.display = 'block';
-
-  selectedDepartment = deptName;
-  selectedSubcategory = subcatName;
-
-  document.querySelectorAll('.dept-category-tile').forEach(t => t.classList.remove('active'));
-  if (tileEl) tileEl.classList.add('active');
-
-  const titleEl = document.getElementById('sectionTitleText');
-  if (titleEl) titleEl.innerText = `${deptName} ➔ ${subcatName}`;
-
-  const backBtn = document.querySelector('.btn-back-to-departments');
-  if (backBtn) {
-    backBtn.innerHTML = '⬅️ Back to All Categories';
-    backBtn.onclick = resetToAllDepartments;
-  }
-
-  syncTopCategoryTab(deptName);
-
-  renderSubcategoryPills();
-  renderProducts();
-
-  const viewport = document.getElementById('iphoneViewport');
-  if (viewport) viewport.scrollTo({ top: 0, behavior: 'smooth' });
+  openFullDepartment(deptName, subcatName);
 }
 
 function resetToAllDepartments() {
-  const masterWrap = document.getElementById('masterDepartmentsWrapper');
-  const grocSec = document.getElementById('groceriesSection');
-  if (masterWrap) masterWrap.style.display = 'flex';
-  if (grocSec) grocSec.style.display = 'none';
-
   selectedDepartment = 'all';
   selectedSubcategory = 'all';
   searchQuery = '';
   const searchInput = document.getElementById('globalSearchInput');
   if (searchInput) searchInput.value = '';
-
-  const backBtn = document.querySelector('.btn-back-to-departments');
-  if (backBtn) {
-    backBtn.innerHTML = '⬅️ Back to All Categories';
-    backBtn.onclick = resetToAllDepartments;
-  }
-
-  document.querySelectorAll('.dept-category-tile').forEach(t => t.classList.remove('active'));
-
-  // Reset top category tab highlight to 'All' (index 0) and scroll to start
-  document.querySelectorAll('#topCategoryTabsRow .top-cat-tab-chip').forEach((c, idx) => {
-    if (idx === 0) c.classList.add('active');
-    else c.classList.remove('active');
-  });
-  autoScrollTopCategories(0);
-
-  renderDepartmentShelves();
-
-  const viewport = document.getElementById('iphoneViewport');
-  if (viewport) viewport.scrollTo({ top: 0, behavior: 'smooth' });
+  switchView('home');
 }
 
 // -------------------------------------------------------------
@@ -908,22 +849,12 @@ function renderDepartmentShelves() {
     {
       id: 'shelfGroceryContainer',
       deptName: 'Grocery & Kitchen',
-      items: allProducts.filter(p => p.department === 'Grocery & Kitchen').slice(0, 8)
+      items: allProducts.filter(p => p.department === 'Grocery & Kitchen').slice(0, 10)
     },
     {
       id: 'shelfSnacksContainer',
       deptName: 'Snacks & Desserts',
-      items: allProducts.filter(p => p.department === 'Snacks & Desserts').slice(0, 8)
-    },
-    {
-      id: 'shelfBeautyContainer',
-      deptName: 'Beauty & Personal Care',
-      items: allProducts.filter(p => p.department === 'Beauty & Personal Care').slice(0, 8)
-    },
-    {
-      id: 'shelfHouseholdContainer',
-      deptName: 'Household Essentials',
-      items: allProducts.filter(p => p.department === 'Household Essentials').slice(0, 8)
+      items: allProducts.filter(p => p.department === 'Snacks & Desserts').slice(0, 10)
     }
   ];
 
@@ -1008,17 +939,33 @@ function selectSubcategory(subcatId, btn) {
 
 function handleSearch(query) {
   searchQuery = query.trim().toLowerCase();
-  const masterWrap = document.getElementById('masterDepartmentsWrapper');
+  const homeView = document.getElementById('homeExperienceView');
   const grocSec = document.getElementById('groceriesSection');
+  const recSec = document.getElementById('recipesSection');
 
   if (searchQuery.length > 0) {
-    if (masterWrap) masterWrap.style.display = 'none';
+    if (homeView) homeView.style.display = 'none';
+    if (recSec) recSec.style.display = 'none';
     if (grocSec) grocSec.style.display = 'block';
     const titleEl = document.getElementById('sectionTitleText');
     if (titleEl) titleEl.innerText = `Search: "${query}"`;
   } else {
-    if (masterWrap) masterWrap.style.display = 'flex';
-    if (grocSec) grocSec.style.display = 'none';
+    // Restore the appropriate view when query is cleared
+    if (currentView === 'recipes') {
+      if (homeView) homeView.style.display = 'none';
+      if (grocSec) grocSec.style.display = 'none';
+      if (recSec) recSec.style.display = 'block';
+    } else if (currentView === 'groceries') {
+      if (homeView) homeView.style.display = 'none';
+      if (recSec) recSec.style.display = 'none';
+      if (grocSec) grocSec.style.display = 'block';
+      const titleEl = document.getElementById('sectionTitleText');
+      if (titleEl) titleEl.innerText = '🛒 All Groceries & Daily Essentials';
+    } else {
+      if (homeView) homeView.style.display = 'block';
+      if (recSec) recSec.style.display = 'none';
+      if (grocSec) grocSec.style.display = 'none';
+    }
   }
 
   renderProducts();
@@ -1036,12 +983,7 @@ function renderProducts() {
 
   // 1. Department Filter
   if (selectedDepartment !== 'all') {
-    filtered = filtered.filter(p => {
-      if (selectedDepartment === 'Beauty' || selectedDepartment === 'Beauty & Personal Care') {
-        return p.department === 'Beauty' || p.department === 'Beauty & Personal Care' || p.category === 'Beauty & Personal Care';
-      }
-      return p.department === selectedDepartment || p.category === selectedDepartment;
-    });
+    filtered = filtered.filter(p => p.department === selectedDepartment || p.category === selectedDepartment);
   }
 
   // 2. Subcategory Filter
@@ -1068,18 +1010,55 @@ function renderProducts() {
 
   document.getElementById('productCountLabel').innerText = `${filtered.length} items`;
 
+  // Prepend matching recipe kits when search query is active
+  let matchingRecipesHtml = '';
+  if (searchQuery) {
+    const matchingRecipes = allRecipes.filter(r => 
+      r.name.toLowerCase().includes(searchQuery) ||
+      (r.cuisine && r.cuisine.toLowerCase().includes(searchQuery)) ||
+      (r.category && r.category.toLowerCase().includes(searchQuery)) ||
+      (r.chef && r.chef.toLowerCase().includes(searchQuery)) ||
+      (r.ingredients && r.ingredients.some(i => i.name.toLowerCase().includes(searchQuery)))
+    );
+
+    if (matchingRecipes.length > 0) {
+      matchingRecipesHtml = `
+        <div class="search-recipe-results-block" style="grid-column: 1 / -1;">
+          <div class="search-block-header">
+            <h4>🍳 Matching Chef Recipe Kits (${matchingRecipes.length})</h4>
+            <span class="search-block-subtitle">Pre-portioned fresh ingredients + HD video masterclass</span>
+          </div>
+          <div class="home-recipe-kits-scroll">
+            ${matchingRecipes.map(r => renderHomeRecipeCard(r)).join('')}
+          </div>
+        </div>
+        <div style="grid-column: 1 / -1; margin-top: 10px; margin-bottom: 6px; font-family: var(--font-heading); font-size: 14.5px; font-weight: 800; color: var(--text-dark);">
+          🛒 Matching Groceries (${filtered.length})
+        </div>
+      `;
+    }
+  }
+
   if (filtered.length === 0) {
-    container.innerHTML = `
-      <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
-        <div style="font-size: 40px; margin-bottom: 12px;">🔍</div>
-        <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; color: var(--text-dark);">No items found</div>
-        <p style="font-size: 13.5px; margin-top: 6px;">Try searching for 'all milks', 'cooking oil', 'verka paneer', or 'chips'.</p>
-      </div>
-    `;
+    if (matchingRecipesHtml) {
+      container.innerHTML = matchingRecipesHtml + `
+        <div style="grid-column: 1/-1; text-align: center; padding: 24px 20px; color: var(--text-muted);">
+          <p style="font-size: 13px;">No individual grocery items matched "${searchQuery}", but you can order the complete recipe kit above!</p>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
+          <div style="font-size: 40px; margin-bottom: 12px;">🔍</div>
+          <div style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; color: var(--text-dark);">No items found</div>
+          <p style="font-size: 13.5px; margin-top: 6px;">Try searching for 'dal makhani', 'paneer', 'biryani', 'milk', or 'butter'.</p>
+        </div>
+      `;
+    }
     return;
   }
 
-  container.innerHTML = filtered.map(p => {
+  container.innerHTML = matchingRecipesHtml + filtered.map(p => {
     const inCart = cart[p.id];
     const qty = inCart ? inCart.quantity : 0;
 
@@ -1132,32 +1111,119 @@ function renderProducts() {
 }
 
 // -------------------------------------------------------------
-// Rendering Recipes Grid (Masterclass Showcase)
+// CUISINE MENU & RECIPES HUB ENGINE
+// -------------------------------------------------------------
+function renderCuisinesMenu() {
+  const container = document.getElementById('cuisineMenuScroll');
+  if (!container) return;
+
+  container.innerHTML = CUISINE_DEFINITIONS.map(c => {
+    const isActive = selectedRecipeCuisine === c.id;
+    const count = c.id === 'All' 
+      ? allRecipes.length 
+      : allRecipes.filter(r => (r.cuisine === c.id || r.category === c.id)).length;
+
+    return `
+      <div class="cuisine-card-chip ${isActive ? 'active' : ''}" onclick="selectRecipeCuisine('${c.id}', this)">
+        <div class="cuisine-chip-icon-box">
+          <span class="cuisine-chip-icon">${c.icon}</span>
+        </div>
+        <div class="cuisine-chip-info">
+          <div class="cuisine-chip-name">${c.name}</div>
+          <div class="cuisine-chip-count">${count} Kits</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function selectRecipeCuisine(cuisineId, chipEl) {
+  selectedRecipeCuisine = cuisineId;
+
+  document.querySelectorAll('#cuisineMenuScroll .cuisine-card-chip').forEach(el => el.classList.remove('active'));
+  if (chipEl) {
+    chipEl.classList.add('active');
+  } else {
+    document.querySelectorAll('#cuisineMenuScroll .cuisine-card-chip').forEach(el => {
+      const nameEl = el.querySelector('.cuisine-chip-name');
+      if (nameEl && (nameEl.innerText.trim() === cuisineId || (cuisineId === 'All' && nameEl.innerText.includes('All')))) {
+        el.classList.add('active');
+      }
+    });
+  }
+
+  const def = CUISINE_DEFINITIONS.find(c => c.id === cuisineId) || CUISINE_DEFINITIONS[0];
+  const count = cuisineId === 'All' 
+    ? allRecipes.length 
+    : allRecipes.filter(r => (r.cuisine === cuisineId || r.category === cuisineId)).length;
+
+  const titleEl = document.getElementById('activeCuisineTitleText');
+  const descEl = document.getElementById('activeCuisineDescText');
+  if (titleEl) titleEl.innerHTML = `${def.icon} ${def.name} (${count} Kits)`;
+  if (descEl) descEl.innerText = def.desc;
+
+  renderRecipes();
+}
+
+function setRecipeDietFilter(filterType, btnEl) {
+  selectedRecipeDiet = filterType;
+  document.querySelectorAll('#recipeFilterChipsRow .rec-filter-pill').forEach(b => b.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
+  renderRecipes();
+}
+
+// -------------------------------------------------------------
+// Rendering Recipes Grid (Masterclass Showcase & 1-Click Kits)
 // -------------------------------------------------------------
 function renderRecipes() {
   const container = document.getElementById('recipesGridContainer');
+  if (!container) return;
+
   let filtered = allRecipes;
 
-  if (selectedRecipeCat !== 'All') {
-    filtered = filtered.filter(r => r.category === selectedRecipeCat);
+  // Filter by Cuisine
+  if (selectedRecipeCuisine !== 'All') {
+    filtered = filtered.filter(r => (r.cuisine === selectedRecipeCuisine || r.category === selectedRecipeCuisine));
   }
 
+  // Filter by Diet / Time / Rating
+  if (selectedRecipeDiet === 'veg') {
+    filtered = filtered.filter(r => r.diet === 'Vegetarian');
+  } else if (selectedRecipeDiet === 'nonveg') {
+    filtered = filtered.filter(r => r.diet === 'Non-Vegetarian');
+  } else if (selectedRecipeDiet === 'quick') {
+    filtered = filtered.filter(r => {
+      const t = parseInt(r.totalTime || r.cookTime || '30');
+      return t <= 25 || (r.prepTime && r.prepTime.includes('10')) || r.category === 'Quick 15-Mins' || r.cuisine === 'Quick 15-Mins';
+    });
+  } else if (selectedRecipeDiet === 'popular') {
+    filtered = filtered.filter(r => (r.rating || 0) >= 4.95);
+  }
+
+  // Filter by Search Query
   if (searchQuery) {
+    const q = searchQuery.toLowerCase();
     filtered = filtered.filter(r => 
-      r.name.toLowerCase().includes(searchQuery) ||
-      r.category.toLowerCase().includes(searchQuery) ||
-      r.cuisine.toLowerCase().includes(searchQuery)
+      r.name.toLowerCase().includes(q) ||
+      (r.cuisine && r.cuisine.toLowerCase().includes(q)) ||
+      (r.category && r.category.toLowerCase().includes(q)) ||
+      (r.headline && r.headline.toLowerCase().includes(q)) ||
+      (r.description && r.description.toLowerCase().includes(q))
     );
   }
 
-  document.getElementById('recipeCountLabel').innerText = `${filtered.length} masterclasses`;
+  const countBadge = document.getElementById('recipeCountLabel');
+  if (countBadge) countBadge.innerText = `${filtered.length} kits`;
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div style="grid-column: 1/-1; text-align: center; padding: 50px 20px; color: var(--text-muted);">
+      <div style="grid-column: 1/-1; text-align: center; padding: 45px 20px; color: var(--text-muted);">
         <div style="font-size: 36px; margin-bottom: 10px;">🍳</div>
-        <div style="font-family: var(--font-heading); font-size: 16px; font-weight: 800; color: var(--text-dark);">No recipes found</div>
-        <p style="font-size: 13px;">No dish matches "${searchQuery}". Try searching 'paneer butter masala' or 'chole'.</p>
+        <div style="font-family: var(--font-heading); font-size: 16px; font-weight: 800; color: var(--text-dark);">No recipe kits found</div>
+        <p style="font-size: 13px; margin-top: 4px;">No recipes match "${searchQuery || selectedRecipeDiet}".</p>
+        <button class="btn-add-kit-direct" style="margin: 14px auto 0; display: inline-flex;" onclick="selectRecipeCuisine('All', null); setRecipeDietFilter('all', document.querySelector('#recipeFilterChipsRow .rec-filter-pill'));">
+          🔄 Show All 16 Cuisines &amp; Kits
+        </button>
       </div>
     `;
     return;
@@ -1169,6 +1235,14 @@ function renderRecipes() {
       ? '<span class="diet-dot-veg">🟢</span> Veg' 
       : '<span class="diet-dot-nonveg">🔴</span> Non-Veg';
 
+    const cuisineName = r.cuisine || r.category || 'Regional';
+    const kitPrice = r.kitPrice || 195;
+    const ingCount = (r.ingredients || []).length;
+    const ingredientNames = (r.ingredients || []).slice(0, 4).map(i => i.name.split(' ')[0]).join(', ');
+    const ingredientsTeaser = ingCount > 0 
+      ? `${ingredientNames}${ingCount > 4 ? ` +${ingCount - 4} more` : ''}` 
+      : 'Fresh pre-portioned ingredients';
+
     return `
       <div class="recipe-card" onclick="openRecipeModal('${r.id}')">
         <div class="recipe-thumb-box">
@@ -1176,23 +1250,39 @@ function renderRecipes() {
           <div class="play-video-overlay">
             <div class="play-circle">▶</div>
           </div>
+          <div class="recipe-badge-cuisine">🥘 ${cuisineName}</div>
           <div class="recipe-badge-time">⏱️ ${r.totalTime}</div>
           <div class="recipe-badge-diet">${dietBadge}</div>
         </div>
 
         <div class="recipe-content">
+          <div class="recipe-chef-tag">👨‍🍳 ${r.chef ? r.chef.split('/')[0].trim() : 'MasterChef'} • ${r.difficulty || 'Easy'}</div>
           <div class="recipe-title">${r.name}</div>
           <div class="recipe-headline">${r.headline}</div>
 
-          <div class="recipe-stats-row">
-            <div class="recipe-stat">⭐ ${r.rating}</div>
-            <div class="recipe-stat">• 🔥 ${r.calories.split(' ')[0]} kcal</div>
-            <div class="recipe-stat">• 👨‍🍳 ${r.chef ? r.chef.split('/')[0].trim() : 'MasterChef'}</div>
+          <div class="recipe-ingredients-preview">
+            <span class="preview-kit-label">📦 Kit contains:</span>
+            <span>${ingredientsTeaser}</span>
           </div>
 
-          <button class="btn-open-recipe-action" onclick="event.stopPropagation(); openRecipeModal('${r.id}')">
-            🍳 Watch Masterclass & Customize Cart Kit
-          </button>
+          <div class="recipe-stats-row">
+            <div class="recipe-stat">⭐ ${r.rating}</div>
+            <div class="recipe-stat">• 🔥 ${r.calories ? r.calories.split(' ')[0] : '380'} kcal</div>
+            <div class="recipe-stat">• 🍽️ ${r.defaultServings || 2} Servings</div>
+          </div>
+
+          <div class="recipe-actions-row" onclick="event.stopPropagation()">
+            <div class="recipe-kit-price-box">
+              <span class="kit-price-label">Complete Kit:</span>
+              <span class="kit-price-val">₹${kitPrice}</span>
+            </div>
+            <button class="btn-add-kit-direct" onclick="addRecipeKitToCart('${r.id}')">
+              + Add Kit
+            </button>
+            <button class="btn-masterclass-details" onclick="openRecipeModal('${r.id}')">
+              ▶ Video &amp; Steps
+            </button>
+          </div>
         </div>
       </div>
     `;
@@ -1200,12 +1290,59 @@ function renderRecipes() {
 }
 
 // -------------------------------------------------------------
+// 1-Click Add Entire Recipe Kit to Cart
+// -------------------------------------------------------------
+function addRecipeKitToCart(recipeId) {
+  const recipe = allRecipes.find(r => r.id === recipeId);
+  if (!recipe) {
+    showToast('Recipe kit not found');
+    return;
+  }
+
+  let addedItems = 0;
+  (recipe.ingredients || []).forEach(ing => {
+    const prod = ing.product || allProducts.find(p => p.id === ing.productId) || {
+      id: ing.productId || `kit_item_${recipe.id}_${Math.random().toString(36).substr(2, 5)}`,
+      name: ing.name,
+      price: Math.round((recipe.kitPrice || 195) / Math.max((recipe.ingredients || []).length, 1)),
+      image: recipe.thumbnail,
+      weight: `${(ing.amountPerServing || 100) * (recipe.defaultServings || 2)} ${ing.unit || 'g'}`
+    };
+
+    if (!cart[prod.id]) {
+      cart[prod.id] = { product: prod, quantity: 1, recipeTag: recipe.name };
+    } else {
+      cart[prod.id].quantity += 1;
+    }
+    addedItems++;
+  });
+
+  updateCartUI();
+  renderProducts();
+  renderDepartmentShelves();
+  renderOrderAgainView();
+  showToast(`🎉 Added ${recipe.name} Kit (${addedItems} fresh items) to cart!`);
+}
+
+// -------------------------------------------------------------
 // RECIPE DETAIL & VIDEO MODAL (THE CORE USP FEATURE)
 // -------------------------------------------------------------
 async function openRecipeModal(recipeId) {
   try {
-    const res = await fetch(`/api/recipes/${recipeId}`);
-    activeRecipe = await res.json();
+    // 1. First check in-memory allRecipes (fast & safe for GitHub Pages static hosting)
+    activeRecipe = allRecipes.find(r => r.id === recipeId);
+
+    // 2. Fallback to API if not loaded in-memory
+    if (!activeRecipe) {
+      const res = await fetch(`/api/recipes/${recipeId}`);
+      if (res.ok) activeRecipe = await res.json();
+    }
+
+    if (!activeRecipe) {
+      showToast('⚠️ Recipe details unavailable');
+      return;
+    }
+
     activeRecipeServings = activeRecipe.defaultServings || 2;
 
     document.getElementById('modalRecipeTitle').innerHTML = `🍳 ${activeRecipe.name}`;

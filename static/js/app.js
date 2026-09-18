@@ -110,6 +110,7 @@ let secondsRemaining = 540; // 9 mins
 // Blinkit Food & Drink Departments Architecture (12 Categories - 3 Rows of 4)
 // -------------------------------------------------------------
 const BLINKIT_STORE_CATEGORIES = [
+  { id: 'all', name: 'All Items', icon: '🌟' },
   { id: 'Vegetables & Fruits', name: 'Veggies & Fruits', icon: '🥦' },
   { id: 'Dairy, Bread & Eggs', name: 'Dairy & Eggs', icon: '🥛' },
   { id: 'Cold Drinks & Juices', name: 'Cold Drinks', icon: '🥤' },
@@ -120,8 +121,7 @@ const BLINKIT_STORE_CATEGORIES = [
   { id: 'Bakery, Sweets & Chocolates', name: 'Sweets & Choco', icon: '🍫' },
   { id: 'Tea, Coffee & Drinks', name: 'Tea & Coffee', icon: '☕' },
   { id: 'Meat, Poultry & Seafood', name: 'Fresh Meat', icon: '🍗' },
-  { id: 'sub:Bread & Pav', name: 'Bakery & Bread', icon: '🍞' },
-  { id: 'all', name: 'All Items', icon: '🌟' }
+  { id: 'sub:Bread & Pav', name: 'Bakery & Bread', icon: '🍞' }
 ];
 
 const STORE_DEPARTMENTS = BLINKIT_STORE_CATEGORIES;
@@ -1069,9 +1069,9 @@ function renderStoreCategoriesGrid() {
   if (!container) return;
 
   container.innerHTML = BLINKIT_STORE_CATEGORIES.map(cat => {
-    const isActive = selectedDepartment === cat.id;
+    const isActive = (selectedDepartment === cat.id);
     return `
-      <div class="blinkit-cat-card ${isActive ? 'active' : ''}" onclick="selectStoreCategory('${cat.id}', this)">
+      <div class="blinkit-cat-card ${isActive ? 'active' : ''}" data-cat="${cat.id}" onclick="selectStoreCategory('${cat.id}', this)">
         <div class="blinkit-cat-icon-wrap">${cat.icon}</div>
         <span class="blinkit-cat-name">${cat.name}</span>
       </div>
@@ -1088,9 +1088,7 @@ function selectStoreCategory(catId, cardEl) {
     cardEl.classList.add('active');
   } else {
     document.querySelectorAll('.blinkit-cat-card').forEach(el => {
-      const def = BLINKIT_STORE_CATEGORIES.find(c => c.id === catId);
-      const nameEl = el.querySelector('.blinkit-cat-name');
-      if (def && nameEl && nameEl.innerText.trim() === def.name) {
+      if (el.getAttribute('data-cat') === catId) {
         el.classList.add('active');
       }
     });

@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>Grovio - 10 Min Groceries & Chef Recipe Kits | Tricity Chandigarh, Mohali, Panchkula</title>
-  <link rel="stylesheet" href="./static/css/style.css?v=3.4" />
+  <link rel="stylesheet" href="./static/css/style.css?v=5.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -206,14 +209,8 @@
 
             <!-- 5. Fresh Mandi Groceries & Cooking Staples -->
             <section class="home-groceries-section">
-              <div class="home-section-header">
-                <div>
-                  <h3 class="home-section-title">🥛 Daily Fresh Cooking Essentials</h3>
-                  <p class="home-section-subtitle">Farm fresh milk, vegetables, atta, oils &amp; spices</p>
-                </div>
-                <button class="home-see-all-link" onclick="switchView('groceries')">
-                  All Groceries ➔
-                </button>
+              <div class="home-section-header" style="margin-bottom: 8px;">
+                <h3 class="home-section-title">🥛 Daily Staples</h3>
               </div>
 
               <!-- Quick Grocery Department Grid (Purely Grocery) -->
@@ -288,9 +285,58 @@
       <span id="sectionTitleText" style="display: none;">🛒 Store</span>
       <span id="productCountLabel" style="display: none;">169 items</span>
 
-      <!-- Blinkit 4-Column Category Grid (Pairs of 4) -->
+      <!-- Blinkit 4-Column Category Grid (Pairs of 4, directly below Search bar) -->
       <div class="blinkit-store-categories-grid" id="storeCategoriesGrid">
-        <!-- Populated by JS renderStoreCategoriesGrid() -->
+        <div class="blinkit-cat-card active" data-cat="all" onclick="selectStoreCategory('all', this)">
+          <div class="blinkit-cat-icon-wrap">🌟</div>
+          <span class="blinkit-cat-name">All Items</span>
+        </div>
+        <div class="blinkit-cat-card" data-cat="Vegetables & Fruits" onclick="selectStoreCategory('Vegetables & Fruits', this)">
+          <div class="blinkit-cat-icon-wrap">🥦</div>
+          <span class="blinkit-cat-name">Veggies &amp; Fruits</span>
+        </div>
+        <div class="blinkit-cat-card" data-cat="Dairy, Bread & Eggs" onclick="selectStoreCategory('Dairy, Bread & Eggs', this)">
+          <div class="blinkit-cat-icon-wrap">🥛</div>
+          <span class="blinkit-cat-name">Dairy &amp; Eggs</span>
+        </div>
+        <div class="blinkit-cat-card" data-cat="Cold Drinks & Juices" onclick="selectStoreCategory('Cold Drinks & Juices', this)">
+          <div class="blinkit-cat-icon-wrap">🥤</div>
+          <span class="blinkit-cat-name">Cold Drinks</span>
+        </div>
+
+        <div class="blinkit-cat-card" data-cat="Snacks & Munchies" onclick="selectStoreCategory('Snacks & Munchies', this)">
+          <div class="blinkit-cat-icon-wrap">🍿</div>
+          <span class="blinkit-cat-name">Munchies</span>
+        </div>
+        <div class="blinkit-cat-card" data-cat="Atta, Rice & Dals" onclick="selectStoreCategory('Atta, Rice & Dals', this)">
+          <div class="blinkit-cat-icon-wrap">🌾</div>
+          <span class="blinkit-cat-name">Atta &amp; Dals</span>
+        </div>
+        <div class="blinkit-cat-card" data-cat="Oils, Ghee & Masalas" onclick="selectStoreCategory('Oils, Ghee & Masalas', this)">
+          <div class="blinkit-cat-icon-wrap">🫒</div>
+          <span class="blinkit-cat-name">Oils &amp; Spices</span>
+        </div>
+        <div class="blinkit-cat-card" data-cat="Instant & Frozen Food" onclick="selectStoreCategory('Instant & Frozen Food', this)">
+          <div class="blinkit-cat-icon-wrap">🍜</div>
+          <span class="blinkit-cat-name">Instant Food</span>
+        </div>
+
+        <div class="blinkit-cat-card" data-cat="Bakery, Sweets & Chocolates" onclick="selectStoreCategory('Bakery, Sweets & Chocolates', this)">
+          <div class="blinkit-cat-icon-wrap">🍫</div>
+          <span class="blinkit-cat-name">Sweets &amp; Choco</span>
+        </div>
+        <div class="blinkit-cat-card" data-cat="Tea, Coffee & Drinks" onclick="selectStoreCategory('Tea, Coffee & Drinks', this)">
+          <div class="blinkit-cat-icon-wrap">☕</div>
+          <span class="blinkit-cat-name">Tea &amp; Coffee</span>
+        </div>
+        <div class="blinkit-cat-card" data-cat="Meat, Poultry & Seafood" onclick="selectStoreCategory('Meat, Poultry & Seafood', this)">
+          <div class="blinkit-cat-icon-wrap">🍗</div>
+          <span class="blinkit-cat-name">Fresh Meat</span>
+        </div>
+        <div class="blinkit-cat-card" data-cat="sub:Bread & Pav" onclick="selectStoreCategory('sub:Bread & Pav', this)">
+          <div class="blinkit-cat-icon-wrap">🍞</div>
+          <span class="blinkit-cat-name">Bakery &amp; Bread</span>
+        </div>
       </div>
 
       <!-- Products Grid (Directly below 4-column categories) -->
@@ -866,6 +912,6 @@
   </div> <!-- /device-page-layout -->
 
   <!-- Application Logic -->
-  <script src="./static/js/app.js?v=3.4"></script>
+  <script src="./static/js/app.js?v=5.0"></script>
 </body>
 </html>

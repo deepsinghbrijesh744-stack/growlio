@@ -495,6 +495,25 @@ function renderHomeExperience() {
 }
 
 
+// -------------------------------------------------------------
+// HELPER: IN-CART STATUS & HANDLER FOR RECIPE KITS
+// -------------------------------------------------------------
+function isRecipeInCart(recipe) {
+  if (!recipe || !recipe.ingredients || recipe.ingredients.length === 0) return false;
+  return recipe.ingredients.some(ing => {
+    const pid = ing.productId;
+    return pid && cart[pid] && cart[pid].quantity > 0;
+  });
+}
+
+function handleRecipeKitAdd(recipeId, btnEl) {
+  addRecipeKitToCart(recipeId);
+  if (btnEl) {
+    btnEl.classList.add('in-cart');
+    btnEl.innerHTML = '✓ IN CART';
+  }
+}
+
 function renderHomeRecipeCard(r) {
   const isVeg = r.diet === 'Vegetarian';
   const dietBadge = isVeg 
@@ -508,6 +527,8 @@ function renderHomeRecipeCard(r) {
   const ingredientsTeaser = ingCount > 0 
     ? `${ingredientNames}${ingCount > 3 ? ` +${ingCount - 3} more` : ''}` 
     : 'Fresh pre-measured kit';
+
+  const inCart = isRecipeInCart(r);
 
   return `
     <div class="home-recipe-card" onclick="openRecipeModal('${r.id}')">
@@ -527,8 +548,8 @@ function renderHomeRecipeCard(r) {
             <span class="home-recipe-price-label">Kit for 2:</span>
             <span class="home-recipe-price-val">₹${kitPrice}</span>
           </div>
-          <button class="btn-home-add-kit" onclick="event.stopPropagation(); addRecipeKitToCart('${r.id}')">
-            + Add Kit
+          <button class="btn-home-add-kit ${inCart ? 'in-cart' : ''}" onclick="event.stopPropagation(); handleRecipeKitAdd('${r.id}', this)">
+            ${inCart ? '✓ IN CART' : '+ Add Kit'}
           </button>
         </div>
       </div>
@@ -1178,19 +1199,31 @@ function renderCuisinesMenu() {
 
   container.innerHTML = CUISINE_DEFINITIONS.map(c => {
     const isActive = selectedRecipeCuisine === c.id;
-    const count = c.id === 'All' 
-      ? allRecipes.length 
-      : allRecipes.filter(r => (r.cuisine === c.id || r.category === c.id)).length;
+    let recipesForCuisine = c.id === 'All' 
+      ? allRecipes 
+      : allRecipes.filter(r => (r.cuisine === c.id || r.category === c.id));
+
+    if (selectedRecipeDiet === 'veg') {
+      recipesForCuisine = recipesForCuisine.filter(r => r.diet === 'Vegetarian');
+    } else if (selectedRecipeDiet === 'nonveg') {
+      recipesForCuisine = recipesForCuisine.filter(r => r.diet === 'Non-Vegetarian');
+    } else if (selectedRecipeDiet === 'quick') {
+      recipesForCuisine = recipesForCuisine.filter(r => {
+        const t = parseInt(r.totalTime || r.cookTime || '30');
+        return t <= 25 || (r.prepTime && r.prepTime.includes('10')) || r.category === 'Quick 15-Mins' || r.cuisine === 'Quick 15-Mins';
+      });
+    }
+
+    const count = recipesForCuisine.length;
+    if (count === 0 && c.id !== 'All') return '';
 
     return `
       <div class="cuisine-card-chip ${isActive ? 'active' : ''}" onclick="selectRecipeCuisine('${c.id}', this)">
         <div class="cuisine-chip-icon-box">
           <span class="cuisine-chip-icon">${c.icon}</span>
         </div>
-        <div class="cuisine-chip-info">
-          <div class="cuisine-chip-name">${c.name}</div>
-          <div class="cuisine-chip-count">${count} Kits</div>
-        </div>
+        <div class="cuisine-chip-name">${c.name}</div>
+        <span class="cuisine-chip-count">${count}</span>
       </div>
     `;
   }).join('');
@@ -1211,28 +1244,19 @@ function selectRecipeCuisine(cuisineId, chipEl) {
     });
   }
 
-  const def = CUISINE_DEFINITIONS.find(c => c.id === cuisineId) || CUISINE_DEFINITIONS[0];
-  const count = cuisineId === 'All' 
-    ? allRecipes.length 
-    : allRecipes.filter(r => (r.cuisine === cuisineId || r.category === cuisineId)).length;
-
-  const titleEl = document.getElementById('activeCuisineTitleText');
-  const descEl = document.getElementById('activeCuisineDescText');
-  if (titleEl) titleEl.innerHTML = `${def.icon} ${def.name} (${count} Kits)`;
-  if (descEl) descEl.innerText = def.desc;
-
   renderRecipes();
 }
 
 function setRecipeDietFilter(filterType, btnEl) {
   selectedRecipeDiet = filterType;
-  document.querySelectorAll('#recipeFilterChipsRow .rec-filter-pill').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#recipeFilterChipsRow .recipe-diet-chip, #recipeFilterChipsRow .rec-filter-pill').forEach(b => b.classList.remove('active'));
   if (btnEl) btnEl.classList.add('active');
+  renderCuisinesMenu();
   renderRecipes();
 }
 
 // -------------------------------------------------------------
-// Rendering Recipes Grid (Masterclass Showcase & 1-Click Kits)
+// Rendering Recipes Grid (Streamlined, Minimalist, Classy)
 // -------------------------------------------------------------
 function renderRecipes() {
   const container = document.getElementById('recipesGridContainer');
@@ -1280,8 +1304,8 @@ function renderRecipes() {
         <div style="font-size: 36px; margin-bottom: 10px;">🍳</div>
         <div style="font-family: var(--font-heading); font-size: 16px; font-weight: 800; color: var(--text-dark);">No recipe kits found</div>
         <p style="font-size: 13px; margin-top: 4px;">No recipes match "${searchQuery || selectedRecipeDiet}".</p>
-        <button class="btn-add-kit-direct" style="margin: 14px auto 0; display: inline-flex;" onclick="selectRecipeCuisine('All', null); setRecipeDietFilter('all', document.querySelector('#recipeFilterChipsRow .rec-filter-pill'));">
-          🔄 Show All 16 Cuisines &amp; Kits
+        <button class="btn-add-kit-direct" style="margin: 14px auto 0; display: inline-flex;" onclick="selectRecipeCuisine('All', null); setRecipeDietFilter('all', document.querySelector('#recipeFilterChipsRow .recipe-diet-chip'));">
+          🔄 Show All Cuisines &amp; Kits
         </button>
       </div>
     `;
@@ -1302,44 +1326,42 @@ function renderRecipes() {
       ? `${ingredientNames}${ingCount > 4 ? ` +${ingCount - 4} more` : ''}` 
       : 'Fresh pre-portioned ingredients';
 
+    const inCart = isRecipeInCart(r);
+
     return `
       <div class="recipe-card" onclick="openRecipeModal('${r.id}')">
         <div class="recipe-thumb-box">
           <img src="${r.thumbnail}" alt="${r.name}" class="recipe-thumb-img" loading="lazy" />
           <div class="play-video-overlay">
-            <div class="play-circle">▶</div>
+            <div class="play-circle">
+              <span class="play-icon">▶</span>
+              <span class="play-text">Masterclass</span>
+            </div>
           </div>
-          <div class="recipe-badge-cuisine">🥘 ${cuisineName}</div>
-          <div class="recipe-badge-time">⏱️ ${r.totalTime}</div>
           <div class="recipe-badge-diet">${dietBadge}</div>
+          <div class="recipe-badge-time">⏱️ ${r.totalTime}</div>
         </div>
 
         <div class="recipe-content">
-          <div class="recipe-chef-tag">👨‍🍳 ${r.chef ? r.chef.split('/')[0].trim() : 'MasterChef'} • ${r.difficulty || 'Easy'}</div>
-          <div class="recipe-title">${r.name}</div>
-          <div class="recipe-headline">${r.headline}</div>
+          <div class="recipe-meta-row">
+            <span class="recipe-chef-tag">👨‍🍳 ${r.chef ? r.chef.split('/')[0].trim() : 'MasterChef'}</span>
+            <span class="recipe-cuisine-pill">${cuisineName}</span>
+          </div>
+          <h3 class="recipe-title">${r.name}</h3>
+          <p class="recipe-headline">${r.headline || r.description || ''}</p>
 
           <div class="recipe-ingredients-preview">
-            <span class="preview-kit-label">📦 Kit contains:</span>
-            <span>${ingredientsTeaser}</span>
+            <span class="preview-kit-label">📦 Kit:</span>
+            <span class="preview-kit-items">${ingredientsTeaser}</span>
           </div>
 
-          <div class="recipe-stats-row">
-            <div class="recipe-stat">⭐ ${r.rating}</div>
-            <div class="recipe-stat">• 🔥 ${r.calories ? r.calories.split(' ')[0] : '380'} kcal</div>
-            <div class="recipe-stat">• 🍽️ ${r.defaultServings || 2} Servings</div>
-          </div>
-
-          <div class="recipe-actions-row" onclick="event.stopPropagation()">
+          <div class="recipe-actions-row">
             <div class="recipe-kit-price-box">
-              <span class="kit-price-label">Complete Kit:</span>
+              <span class="kit-price-label">Kit for ${r.defaultServings || 2}:</span>
               <span class="kit-price-val">₹${kitPrice}</span>
             </div>
-            <button class="btn-add-kit-direct" onclick="addRecipeKitToCart('${r.id}')">
-              + Add Kit
-            </button>
-            <button class="btn-masterclass-details" onclick="openRecipeModal('${r.id}')">
-              ▶ Video &amp; Steps
+            <button class="btn-add-kit-direct ${inCart ? 'in-cart' : ''}" onclick="event.stopPropagation(); handleRecipeKitAdd('${r.id}', this)">
+              ${inCart ? '✓ IN CART' : '+ ADD KIT'}
             </button>
           </div>
         </div>
@@ -1380,6 +1402,8 @@ function addRecipeKitToCart(recipeId) {
   renderProducts();
   renderDepartmentShelves();
   renderOrderAgainView();
+  renderRecipes();
+  renderHomeExperience();
   showToast(`🎉 Added ${recipe.name} Kit (${addedItems} fresh items) to cart!`);
 }
 

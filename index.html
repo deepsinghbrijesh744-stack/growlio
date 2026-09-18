@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Grovio - 10 Min Groceries & Chef Recipe Kits | Tricity Chandigarh, Mohali, Panchkula</title>
-  <link rel="stylesheet" href="./static/css/style.css?v=3.2" />
+  <link rel="stylesheet" href="./static/css/style.css?v=3.3" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -308,42 +308,30 @@
       </div>
     </section>
 
-    <!-- RECIPES VIEW -->
+    <!-- RECIPES VIEW (CLASSY, EFFICIENT, ZERO CLUTTER) -->
     <section id="recipesSection" style="display: none;">
-      <!-- Cuisine Showcase Banner -->
-      <div class="recipe-showcase-card">
-        <div class="showcase-tag">✨ Ghar Ka MasterChef • 1-Click Recipe Kits</div>
-        <h2 class="showcase-title">Famous North Indian &amp; Regional Menus</h2>
-        <p class="showcase-subtitle">
-          Cook authentic restaurant flavors at home in minutes. HD Video Masterclass + pre-measured farm-fresh ingredients delivered in 8-10 mins!
-        </p>
+      <!-- Clean Minimal Header -->
+      <div class="recipes-hub-header">
+        <div class="recipes-hub-title-row">
+          <h2 class="recipes-hub-title">🍳 Cook-at-Home Kits</h2>
+          <span class="recipes-hub-count" id="recipeCountLabel">27 kits</span>
+        </div>
+        <p class="recipes-hub-sub">Pre-portioned fresh ingredients + HD chef masterclasses in 8–10 mins</p>
       </div>
 
-      <!-- Cuisine Menu Showcase (Top Carousel of Regional Cuisines) -->
-      <div class="cuisine-menu-container">
-        <div class="cuisine-menu-header-row">
-          <div class="cuisine-section-label">🍽️ Explore Regional Cuisines:</div>
-          <span class="cuisine-region-badge">North India &amp; Popular Indian</span>
+      <!-- Unified Filter Strip: Zomato-Style Diet Toggle + Cuisine Chips -->
+      <div class="recipes-filter-wrapper">
+        <!-- Diet Selector -->
+        <div class="recipes-diet-bar" id="recipeFilterChipsRow">
+          <button class="recipe-diet-chip active" onclick="setRecipeDietFilter('all', this)">✨ All</button>
+          <button class="recipe-diet-chip" onclick="setRecipeDietFilter('veg', this)"><span class="diet-dot-veg">🟢</span> Pure Veg</button>
+          <button class="recipe-diet-chip" onclick="setRecipeDietFilter('nonveg', this)"><span class="diet-dot-nonveg">🔴</span> Non-Veg</button>
+          <button class="recipe-diet-chip" onclick="setRecipeDietFilter('quick', this)">⏱️ Under 20m</button>
         </div>
+
+        <!-- Cuisines Horizontal Carousel -->
         <div class="cuisine-menu-scroll" id="cuisineMenuScroll">
           <!-- Populated by JS renderCuisinesMenu() -->
-        </div>
-      </div>
-
-      <!-- Dietary & Quick Filter Chips -->
-      <div class="recipe-filter-chips-row" id="recipeFilterChipsRow">
-        <button class="rec-filter-pill active" onclick="setRecipeDietFilter('all', this)">✨ All Dishes</button>
-        <button class="rec-filter-pill" onclick="setRecipeDietFilter('veg', this)">🟢 100% Veg Only</button>
-        <button class="rec-filter-pill" onclick="setRecipeDietFilter('nonveg', this)">🔴 Non-Veg Specials</button>
-        <button class="rec-filter-pill" onclick="setRecipeDietFilter('quick', this)">⏱️ Under 20 Mins</button>
-        <button class="rec-filter-pill" onclick="setRecipeDietFilter('popular', this)">⭐ MasterChef Specials</button>
-      </div>
-
-      <!-- Active Cuisine Status Headline -->
-      <div class="active-cuisine-headline-card" id="activeCuisineHeadlineCard">
-        <div class="cuisine-headline-info">
-          <h4 id="activeCuisineTitleText">🌟 All Regional Recipe Kits (16 Kits)</h4>
-          <p id="activeCuisineDescText">Explore chef-curated recipe kits across North India, Mughlai dastarkhwan, street food &amp; popular regional cuisines.</p>
         </div>
       </div>
 
@@ -887,6 +875,6 @@
   </div> <!-- /device-page-layout -->
 
   <!-- Application Logic -->
-  <script src="./static/js/app.js?v=3.2"></script>
+  <script src="./static/js/app.js?v=3.3"></script>
 </body>
 </html>

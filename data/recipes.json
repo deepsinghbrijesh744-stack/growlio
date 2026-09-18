@@ -1360,5 +1360,1095 @@
         "notes": "Thinly sliced"
       }
     ]
+  },
+  {
+    "id": "rec_crispy_veg_burger",
+    "name": "McCafe Style Crispy Veg Burger",
+    "headline": "Crispy spiced potato patty, thousand island burger mayo, cheddar cheese & toasted sesame bun",
+    "description": "Double crisp spiced vegetable & potato patty shallow-fried to golden perfection, stacked with creamy thousand island sauce, crisp lettuce, juicy tomato slices and melted cheese inside warm toasted sesame buns.",
+    "category": "Fast Food & Burgers",
+    "cuisine": "Fast Food & Burgers",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "5 mins",
+    "cookTime": "10 mins",
+    "totalTime": "15 mins",
+    "servings": 2,
+    "defaultServings": 2,
+    "calories": "390 kcal",
+    "rating": 4.95,
+    "reviewsCount": 612,
+    "chef": "Chef Kunal Kapur / Cafe Street Legends",
+    "thumbnail": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=80",
+    "youtubeId": "a19ETZ5v8aM",
+    "kitPrice": 155,
+    "ingredients": [
+      {
+        "productId": "prod_burger_buns_sesame",
+        "name": "English Oven Sesame Burger Buns",
+        "amountPerServing": 1,
+        "unit": "pair",
+        "isPantryItem": false,
+        "prepNote": "Halved & toasted on butter"
+      },
+      {
+        "productId": "prod_crisp_potato_patties",
+        "name": "McCain Crispy Aloo Herb Burger Patties",
+        "amountPerServing": 1,
+        "unit": "patty",
+        "isPantryItem": false,
+        "prepNote": "Pan-fried till ultra crispy"
+      },
+      {
+        "productId": "prod_veeba_burger_mayo",
+        "name": "Veeba Creamy Thousand Island Burger Mayo",
+        "amountPerServing": 25,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Generously spread on bun bases"
+      },
+      {
+        "productId": "prod_cheese_slices",
+        "name": "Britannia Processed Cheese Slices",
+        "amountPerServing": 1,
+        "unit": "slice",
+        "isPantryItem": false,
+        "prepNote": "Melted over warm patty"
+      },
+      {
+        "productId": "prod_v5",
+        "name": "Mandi Fresh Juicy Tomatoes",
+        "amountPerServing": 40,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Cut into thin round slices"
+      },
+      {
+        "productId": "prod_amul_butter",
+        "name": "Amul Pure Salted Butter",
+        "amountPerServing": 15,
+        "unit": "g",
+        "isPantryItem": true,
+        "prepNote": "For griddling the buns"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Pan-Fry Burger Patties",
+        "instruction": "Heat 1 tbsp oil in a skillet. Shallow-fry the seasoned potato patties for 3-4 mins on medium heat until golden and ultra crisp on both sides.",
+        "timestamp": "0:45",
+        "seconds": 45
+      },
+      {
+        "step": 2,
+        "title": "Toast Sesame Buns",
+        "instruction": "Slice the sesame buns horizontally. Slather with Amul butter and toast on a hot tawa for 60 seconds until fragrant and golden brown.",
+        "timestamp": "2:10",
+        "seconds": 130
+      },
+      {
+        "step": 3,
+        "title": "Assemble the Master Burger",
+        "instruction": "Spread 1 tbsp Veeba Thousand Island burger mayo on both buns. Place fresh sliced tomatoes, hot crispy patty, a cheese slice, and top with toasted crown bun. Serve immediately!",
+        "timestamp": "4:15",
+        "seconds": 255
+      }
+    ],
+    "nutrition": {
+      "protein": "14g",
+      "carbs": "46g",
+      "fat": "18g",
+      "fiber": "4.5g"
+    },
+    "chefTip": "Place the cheese slice on the hot patty right when it comes off the pan so it melts naturally without getting greasy."
+  },
+  {
+    "id": "rec_crispy_chicken_burger",
+    "name": "Delhi Street Crispy Chicken Zinger Burger",
+    "headline": "Extra crunchy spiced fried chicken fillet, spicy chipotle mayo, crunchy onions in brioche bun",
+    "description": "Succulent chicken breast fillet seasoned in aromatic garlic pepper marinade, double-dredged for shatteringly crisp crust, topped with house burger mayo and crunchy onions in toasted sesame buns.",
+    "category": "Fast Food & Burgers",
+    "cuisine": "Fast Food & Burgers",
+    "diet": "Non-Vegetarian",
+    "difficulty": "Medium",
+    "prepTime": "8 mins",
+    "cookTime": "12 mins",
+    "totalTime": "20 mins",
+    "servings": 2,
+    "defaultServings": 2,
+    "calories": "520 kcal",
+    "rating": 4.97,
+    "reviewsCount": 845,
+    "chef": "Chef Ranveer Brar / Street Bistro Masters",
+    "thumbnail": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&auto=format&fit=crop&q=80",
+    "youtubeId": "L6hB1vX5v8c",
+    "kitPrice": 195,
+    "ingredients": [
+      {
+        "productId": "prod_chicken_breast_fillet",
+        "name": "Fresh Boneless Chicken Breast Fillet",
+        "amountPerServing": 120,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Flattened & seasoned with paprika & garlic"
+      },
+      {
+        "productId": "prod_burger_buns_sesame",
+        "name": "English Oven Sesame Burger Buns",
+        "amountPerServing": 1,
+        "unit": "pair",
+        "isPantryItem": false,
+        "prepNote": "Toasted golden in butter"
+      },
+      {
+        "productId": "prod_veeba_burger_mayo",
+        "name": "Veeba Burger Mayo",
+        "amountPerServing": 30,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "For bun dressing"
+      },
+      {
+        "productId": "prod_cheese_slices",
+        "name": "Britannia Processed Cheese Slices",
+        "amountPerServing": 1,
+        "unit": "slice",
+        "isPantryItem": false,
+        "prepNote": "Melted over hot chicken fillet"
+      },
+      {
+        "productId": "prod_v6",
+        "name": "Red Crunchy Onions",
+        "amountPerServing": 30,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Sliced into thin rings"
+      },
+      {
+        "productId": "prod_peri_peri_sprinkler",
+        "name": "Keya Peri Peri Seasoning",
+        "amountPerServing": 5,
+        "unit": "g",
+        "isPantryItem": true,
+        "prepNote": "Sprinkled on crispy crust"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Season & Crisp Chicken Fillet",
+        "instruction": "Rub chicken fillet with salt, garlic and peri peri. Dredge in seasoned flour and pan-fry on medium heat for 4-5 mins each side until deep golden and juices run clear.",
+        "timestamp": "1:15",
+        "seconds": 75
+      },
+      {
+        "step": 2,
+        "title": "Griddle Sesame Buns",
+        "instruction": "Toast the burger buns on a buttery tawa until light crispy and warm.",
+        "timestamp": "3:00",
+        "seconds": 180
+      },
+      {
+        "step": 3,
+        "title": "Layer & Serve Zinger Burger",
+        "instruction": "Coat base with burger mayo, layer crispy onion rings, hot chicken fillet, cheddar cheese slice, extra mayo on top bun and close. Crunch into pure cafe bliss!",
+        "timestamp": "4:40",
+        "seconds": 280
+      }
+    ],
+    "nutrition": {
+      "protein": "34g",
+      "carbs": "42g",
+      "fat": "22g",
+      "fiber": "3.5g"
+    },
+    "chefTip": "Don't press down on the chicken while frying to retain the natural moisture and crunchy airy crust."
+  },
+  {
+    "id": "rec_peri_peri_fries",
+    "name": "Loaded Peri-Peri Fries with Cheese Dip",
+    "headline": "Golden crisp french fries tossed in fiery African peri-peri seasoning with creamy melted cheese dip",
+    "description": "Crispy golden restaurant-style potato french fries tossed fresh in smoky peri-peri chili mix and served with an ultra-velvety melted cheese dipping sauce.",
+    "category": "Fast Food & Burgers",
+    "cuisine": "Fast Food & Burgers",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "2 mins",
+    "cookTime": "8 mins",
+    "totalTime": "10 mins",
+    "servings": 2,
+    "defaultServings": 2,
+    "calories": "310 kcal",
+    "rating": 4.92,
+    "reviewsCount": 420,
+    "chef": "MasterChef Fast Food Lab",
+    "thumbnail": "https://images.unsplash.com/photo-1576107232684-1279f3908594?w=800&auto=format&fit=crop&q=80",
+    "youtubeId": "a0wE0P6b8kM",
+    "kitPrice": 135,
+    "ingredients": [
+      {
+        "productId": "prod_french_fries_pack",
+        "name": "McCain Golden Crisp French Fries",
+        "amountPerServing": 180,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Fried till golden & crunchy"
+      },
+      {
+        "productId": "prod_peri_peri_sprinkler",
+        "name": "Keya Gourmet Peri Peri Seasoning",
+        "amountPerServing": 8,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Tossed hot in paper bag"
+      },
+      {
+        "productId": "prod_amul_pizza_cheese_200g",
+        "name": "Amul Diced Cheese Blend",
+        "amountPerServing": 30,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Melted into warm dipping sauce"
+      },
+      {
+        "productId": "m_v_gold",
+        "name": "Amul Fresh Milk",
+        "amountPerServing": 40,
+        "unit": "ml",
+        "isPantryItem": true,
+        "prepNote": "Simmered with cheese for dip"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Crisp the Fries",
+        "instruction": "Deep fry or air fry frozen french fries at 180°C for 4-5 mins until golden and crunchy.",
+        "timestamp": "0:30",
+        "seconds": 30
+      },
+      {
+        "step": 2,
+        "title": "Peri-Peri Shake Toss",
+        "instruction": "Transfer hot fries directly into a bowl or shaker bag. Sprinkle generous Keya peri-peri mix and shake vigorously for 15 seconds.",
+        "timestamp": "1:45",
+        "seconds": 105
+      },
+      {
+        "step": 3,
+        "title": "Prepare Quick Cheese Dip",
+        "instruction": "Warm 40ml milk with cheese in a small pan for 90 seconds until silky smooth. Dip hot fries and enjoy!",
+        "timestamp": "2:50",
+        "seconds": 170
+      }
+    ],
+    "nutrition": {
+      "protein": "7g",
+      "carbs": "44g",
+      "fat": "13g",
+      "fiber": "4g"
+    },
+    "chefTip": "Toss the peri-peri seasoning the exact moment fries come out of the oil so the spices adhere tightly to the crust."
+  },
+  {
+    "id": "rec_bombay_grilled_sandwich",
+    "name": "Bombay Masala Grilled Sandwich",
+    "headline": "Mumbai Chowpatty style 3-layer toasted sandwich stuffed with spiced potatoes, crunchy vegetables & green mint chutney",
+    "description": "Famous street corner Bombay sandwich with layers of zesty mashed aloo masala, crisp cucumbers, tomatoes, bell peppers, melted Amul butter and spicy mint coriander chutney toasted crisp in a grill press.",
+    "category": "Sandwiches & Toasts",
+    "cuisine": "Sandwiches & Toasts",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "5 mins",
+    "cookTime": "7 mins",
+    "totalTime": "12 mins",
+    "servings": 2,
+    "defaultServings": 2,
+    "calories": "340 kcal",
+    "rating": 4.96,
+    "reviewsCount": 780,
+    "chef": "Chef Sanjeev Kapoor / Street Legends",
+    "thumbnail": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=800&auto=format&fit=crop&q=80",
+    "youtubeId": "k7J8v11bB8M",
+    "kitPrice": 125,
+    "ingredients": [
+      {
+        "productId": "prod_bread_jumbo_sandwich",
+        "name": "Harvest Gold Jumbo White Sandwich Bread",
+        "amountPerServing": 3,
+        "unit": "slices",
+        "isPantryItem": false,
+        "prepNote": "Crust on, buttered"
+      },
+      {
+        "productId": "prod_pahadi_aloo",
+        "name": "Mandi Fresh Potatoes",
+        "amountPerServing": 80,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Boiled & spiced with chaat masala"
+      },
+      {
+        "productId": "prod_v5",
+        "name": "Mandi Tomatoes",
+        "amountPerServing": 30,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Thinly round sliced"
+      },
+      {
+        "productId": "prod_v6",
+        "name": "Crunchy Red Onions",
+        "amountPerServing": 30,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Finely round sliced"
+      },
+      {
+        "productId": "prod_amul_butter",
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 25,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Generous spread inside and out"
+      },
+      {
+        "productId": "prod_cheese_slices",
+        "name": "Britannia Cheese Slices",
+        "amountPerServing": 1,
+        "unit": "slice",
+        "isPantryItem": false,
+        "prepNote": "Layered in middle"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Butter & Chutney Base",
+        "instruction": "Take 3 jumbo slices. Generously spread room-temperature Amul butter on all slices, then apply a layer of spicy mint-coriander green chutney.",
+        "timestamp": "0:50",
+        "seconds": 50
+      },
+      {
+        "step": 2,
+        "title": "Layer Spiced Mash & Veggies",
+        "instruction": "Layer seasoned potato slices on first slice, sprinkle chaat masala. Add second slice, top with tomatoes, onions, cucumber and a cheese slice.",
+        "timestamp": "2:10",
+        "seconds": 130
+      },
+      {
+        "step": 3,
+        "title": "Crisp Grill on Pan or Toaster",
+        "instruction": "Close sandwich, butter top and bottom generously. Grill on a medium-hot tawa or sandwich toaster for 3-4 mins until golden brown with crisp grid marks. Slice into triangles and serve!",
+        "timestamp": "4:00",
+        "seconds": 240
+      }
+    ],
+    "nutrition": {
+      "protein": "11g",
+      "carbs": "48g",
+      "fat": "14g",
+      "fiber": "5g"
+    },
+    "chefTip": "Always apply butter before green chutney to prevent bread from getting soggy."
+  },
+  {
+    "id": "rec_paneer_tikka_sandwich",
+    "name": "Tandoori Paneer Tikka Club Sandwich",
+    "headline": "Marinated Malai paneer cubes, capsicum, tandoori mayonnaise and melted mozzarella on toasted jumbo bread",
+    "description": "Juicy paneer cubes tossed in tandoori spices and charred on high heat, layered with sliced bell peppers, creamy tandoori dressing and mozzarella cheese inside crunchy grilled artisan bread.",
+    "category": "Sandwiches & Toasts",
+    "cuisine": "Sandwiches & Toasts",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "5 mins",
+    "cookTime": "10 mins",
+    "totalTime": "15 mins",
+    "servings": 2,
+    "defaultServings": 2,
+    "calories": "410 kcal",
+    "rating": 4.94,
+    "reviewsCount": 540,
+    "chef": "Chef Ranveer Brar / Cafe Select",
+    "thumbnail": "https://images.unsplash.com/photo-1554433607-66b5efe9d304?w=800&auto=format&fit=crop&q=80",
+    "youtubeId": "z19N1a7b8eK",
+    "kitPrice": 165,
+    "ingredients": [
+      {
+        "productId": "prod_bread_jumbo_sandwich",
+        "name": "Harvest Gold Jumbo White Sandwich Bread",
+        "amountPerServing": 2,
+        "unit": "slices",
+        "isPantryItem": false,
+        "prepNote": "Thick slices"
+      },
+      {
+        "productId": "prod_v1",
+        "name": "Verka Malai Fresh Paneer",
+        "amountPerServing": 90,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Diced into flat bite-sized cubes"
+      },
+      {
+        "productId": "prod_v7",
+        "name": "Fresh Green Bell Pepper",
+        "amountPerServing": 30,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Julienned thin"
+      },
+      {
+        "productId": "prod_amul_pizza_cheese_200g",
+        "name": "Amul Diced Mozzarella & Cheddar Cheese",
+        "amountPerServing": 35,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "For gooey melt"
+      },
+      {
+        "productId": "prod_veeba_burger_mayo",
+        "name": "Veeba Tandoori Dressing / Mayo",
+        "amountPerServing": 25,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Spiced dressing"
+      },
+      {
+        "productId": "prod_amul_butter",
+        "name": "Amul Butter",
+        "amountPerServing": 15,
+        "unit": "g",
+        "isPantryItem": true,
+        "prepNote": "For crispy griddling"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Toss & Char Paneer Tikka",
+        "instruction": "Toss paneer cubes and capsicum in 1 tsp oil, chaat masala, and tandoori spices. Sear in hot pan for 3 mins until edges are lightly charred.",
+        "timestamp": "1:00",
+        "seconds": 60
+      },
+      {
+        "step": 2,
+        "title": "Fill & Cheese Layer",
+        "instruction": "Spread tandoori mayo on bread slices. Distribute the charred paneer & capsicum evenly, and shower with stretchy mozzarella cheese.",
+        "timestamp": "2:30",
+        "seconds": 150
+      },
+      {
+        "step": 3,
+        "title": "Slow Pan Toast",
+        "instruction": "Melt butter on tawa. Grill sandwich covered on medium-low heat for 3-4 mins so the cheese melts completely while bread turns golden crisp.",
+        "timestamp": "4:10",
+        "seconds": 250
+      }
+    ],
+    "nutrition": {
+      "protein": "18g",
+      "carbs": "38g",
+      "fat": "21g",
+      "fiber": "3.5g"
+    },
+    "chefTip": "Covering the pan with a lid while toasting traps steam and makes the cheese melt instantly without burning the bottom bread."
+  },
+  {
+    "id": "rec_chicken_club_sandwich",
+    "name": "Smoked Chicken & Egg Triple-Decker Club Sandwich",
+    "headline": "Classic 3-tier cafe sandwich layered with smoked chicken slices, fried egg, garlic mayo, tomatoes & crisp lettuce",
+    "description": "High-street deli style triple decker sandwich featuring tender smoked chicken slices, sunny side egg, garlic herb mayonnaise, sliced tomatoes and melted cheddar on golden toasted bread.",
+    "category": "Sandwiches & Toasts",
+    "cuisine": "Sandwiches & Toasts",
+    "diet": "Non-Vegetarian",
+    "difficulty": "Medium",
+    "prepTime": "5 mins",
+    "cookTime": "10 mins",
+    "totalTime": "15 mins",
+    "servings": 2,
+    "defaultServings": 2,
+    "calories": "480 kcal",
+    "rating": 4.98,
+    "reviewsCount": 690,
+    "chef": "Chef Kunal Kapur / Deli Master",
+    "thumbnail": "https://images.unsplash.com/photo-1553909489-cd47e0907980?w=800&auto=format&fit=crop&q=80",
+    "youtubeId": "w91B8v7v9aK",
+    "kitPrice": 185,
+    "ingredients": [
+      {
+        "productId": "prod_bread_jumbo_sandwich",
+        "name": "Harvest Gold Jumbo White Sandwich Bread",
+        "amountPerServing": 3,
+        "unit": "slices",
+        "isPantryItem": false,
+        "prepNote": "Lightly toasted"
+      },
+      {
+        "productId": "prod_chicken_cold_cuts",
+        "name": "Prasuma Smoked Chicken Slices",
+        "amountPerServing": 70,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Pan-warmed for 30 seconds"
+      },
+      {
+        "productId": "prod_eggs",
+        "name": "Farm Fresh White Eggs",
+        "amountPerServing": 1,
+        "unit": "egg",
+        "isPantryItem": false,
+        "prepNote": "Fried soft yolk"
+      },
+      {
+        "productId": "prod_veeba_burger_mayo",
+        "name": "Veeba Mayo",
+        "amountPerServing": 25,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Herbed mayo spread"
+      },
+      {
+        "productId": "prod_v5",
+        "name": "Mandi Fresh Tomatoes",
+        "amountPerServing": 30,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Sliced round"
+      },
+      {
+        "productId": "prod_amul_butter",
+        "name": "Amul Butter",
+        "amountPerServing": 15,
+        "unit": "g",
+        "isPantryItem": true,
+        "prepNote": "For frying egg & bread"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Toast Bread & Fry Egg",
+        "instruction": "Toast 3 slices of bread golden crisp. Fry an egg in a dab of butter with salt and black pepper.",
+        "timestamp": "1:10",
+        "seconds": 70
+      },
+      {
+        "step": 2,
+        "title": "Layer First Deck",
+        "instruction": "Apply mayo on slice 1. Layer smoked chicken slices and sliced juicy tomatoes. Cover with slice 2.",
+        "timestamp": "2:40",
+        "seconds": 160
+      },
+      {
+        "step": 3,
+        "title": "Layer Second Deck & Cut",
+        "instruction": "Apply mayo on top of slice 2, place the warm fried egg and cheese slice. Top with slice 3, skewer with toothpicks and slice into 4 classic cafe triangles.",
+        "timestamp": "4:00",
+        "seconds": 240
+      }
+    ],
+    "nutrition": {
+      "protein": "28g",
+      "carbs": "44g",
+      "fat": "20g",
+      "fiber": "3.5g"
+    },
+    "chefTip": "Insert toothpicks before cutting to hold the 3 layers firmly in place while slicing diagonally."
+  },
+  {
+    "id": "rec_alfredo_pasta",
+    "name": "Creamy Alfredo White Sauce Penne Pasta",
+    "headline": "Durum wheat penne in velvety garlic butter, fresh Amul cream, sweet corn, parmesan herbs and cracked black pepper",
+    "description": "Al dente durum wheat penne tossed in rich homemade Alfredo cream sauce simmered with crushed garlic, Amul butter, sweet tender American corn kernels, fragrant Italian herbs and stretchy mozzarella.",
+    "category": "Italian & Pasta",
+    "cuisine": "Italian & Pasta",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "5 mins",
+    "cookTime": "13 mins",
+    "totalTime": "18 mins",
+    "servings": 2,
+    "defaultServings": 2,
+    "calories": "460 kcal",
+    "rating": 4.97,
+    "reviewsCount": 890,
+    "chef": "Chef Ranveer Brar / Trattoria Italia",
+    "thumbnail": "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=800&auto=format&fit=crop&q=80",
+    "youtubeId": "b18V0a1bC8K",
+    "kitPrice": 175,
+    "ingredients": [
+      {
+        "productId": "prod_barilla_pasta",
+        "name": "Durum Wheat Penne Rigate Pasta",
+        "amountPerServing": 80,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Boiled al dente in salted water"
+      },
+      {
+        "productId": "prod_amul_cream",
+        "name": "Amul Fresh Malai Cream",
+        "amountPerServing": 60,
+        "unit": "ml",
+        "isPantryItem": false,
+        "prepNote": "Simmered into velvety sauce"
+      },
+      {
+        "productId": "prod_amul_butter",
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 20,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Sautéing garlic"
+      },
+      {
+        "productId": "prod_safal_sweet_corn",
+        "name": "Safal Frozen Sweet Corn Kernels",
+        "amountPerServing": 35,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Blanched sweet crunch"
+      },
+      {
+        "productId": "prod_amul_pizza_cheese_200g",
+        "name": "Amul Diced Cheese Blend",
+        "amountPerServing": 30,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Folded into hot pasta"
+      },
+      {
+        "productId": "prod_peri_peri_sprinkler",
+        "name": "Italian Oregano & Herb Mix",
+        "amountPerServing": 4,
+        "unit": "g",
+        "isPantryItem": true,
+        "prepNote": "Finishing seasoning"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Boil Penne Al Dente",
+        "instruction": "Boil penne pasta in rolling salted water for 9 mins until al dente. Reserve 1/4 cup pasta water before draining.",
+        "timestamp": "1:00",
+        "seconds": 60
+      },
+      {
+        "step": 2,
+        "title": "Prepare Garlic Cream Sauce",
+        "instruction": "Melt butter in a pan, sauté minced garlic for 30 seconds until aromatic. Pour in Amul cream and sweet corn kernels, simmering on low heat for 2 mins.",
+        "timestamp": "2:30",
+        "seconds": 150
+      },
+      {
+        "step": 3,
+        "title": "Toss & Coat Penne",
+        "instruction": "Add boiled penne to the cream sauce with 2 tbsp reserved pasta water. Stir in cheese and Italian herbs until every pasta tube is coated in luxurious silk.",
+        "timestamp": "4:15",
+        "seconds": 255
+      }
+    ],
+    "nutrition": {
+      "protein": "16g",
+      "carbs": "56g",
+      "fat": "19g",
+      "fiber": "4g"
+    },
+    "chefTip": "Always save a splash of starchy pasta water — it binds the cream and cheese sauce so it never separates."
+  },
+  {
+    "id": "rec_arrabiata_pasta",
+    "name": "Fiery Red Sauce Arrabiata Fusilli Pasta",
+    "headline": "Spiral fusilli pasta tossed in tangy Italian plum tomato marinara, garlic, crushed red chili flakes & basil",
+    "description": "Authentic trattoria spicy red sauce pasta made with spiral durum wheat fusilli that locks in the tangy slow-cooked tomato marinara, infused with garlic, spicy chili flakes, extra virgin olive oil and fresh cheese.",
+    "category": "Italian & Pasta",
+    "cuisine": "Italian & Pasta",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "4 mins",
+    "cookTime": "12 mins",
+    "totalTime": "16 mins",
+    "servings": 2,
+    "defaultServings": 2,
+    "calories": "380 kcal",
+    "rating": 4.93,
+    "reviewsCount": 610,
+    "chef": "Chef Sanjeev Kapoor / Mediterranean Bistro",
+    "thumbnail": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&auto=format&fit=crop&q=80",
+    "youtubeId": "c88V1b2bA9M",
+    "kitPrice": 160,
+    "ingredients": [
+      {
+        "productId": "prod_fusilli_pasta_500g",
+        "name": "Disano 100% Durum Wheat Fusilli Pasta",
+        "amountPerServing": 85,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Boiled al dente"
+      },
+      {
+        "productId": "prod_veeba_pizza_pasta_sauce",
+        "name": "Veeba Chef's Special Pizza & Pasta Sauce",
+        "amountPerServing": 70,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Herbed plum tomato base"
+      },
+      {
+        "productId": "prod_v8",
+        "name": "Fresh Garlic Cloves",
+        "amountPerServing": 15,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Thinly sliced & seared in oil"
+      },
+      {
+        "productId": "prod_amul_pizza_cheese_200g",
+        "name": "Amul Diced Cheese Blend",
+        "amountPerServing": 25,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Grated garnish on top"
+      },
+      {
+        "productId": "prod_safal_sweet_corn",
+        "name": "Safal Frozen Sweet Corn Kernels",
+        "amountPerServing": 25,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "For natural sweet balance"
+      },
+      {
+        "productId": "prod_peri_peri_sprinkler",
+        "name": "Chili Flakes & Herb Seasoning",
+        "amountPerServing": 4,
+        "unit": "g",
+        "isPantryItem": true,
+        "prepNote": "For signature arrabiata kick"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Boil Spiral Fusilli",
+        "instruction": "Cook fusilli in salted boiling water for 8 mins until tender with a bite. Drain.",
+        "timestamp": "0:50",
+        "seconds": 50
+      },
+      {
+        "step": 2,
+        "title": "Simmer Arrabiata Marinara",
+        "instruction": "Heat 1 tbsp olive oil/butter, sauté garlic slices and chili flakes for 30 seconds. Stir in Veeba pasta sauce and sweet corn, simmering for 3 mins until rich and fragrant.",
+        "timestamp": "2:15",
+        "seconds": 135
+      },
+      {
+        "step": 3,
+        "title": "Combine & Garnish",
+        "instruction": "Toss the drained fusilli directly into the bubbling tomato sauce. Cook for 1 minute on high heat so spirals absorb the tangy sauce. Top with cheese and serve piping hot.",
+        "timestamp": "3:45",
+        "seconds": 225
+      }
+    ],
+    "nutrition": {
+      "protein": "13g",
+      "carbs": "62g",
+      "fat": "9g",
+      "fiber": "5g"
+    },
+    "chefTip": "Fusilli spirals are the best shape for Arrabiata because the grooves catch and hold maximum marinara sauce in every forkful."
+  },
+  {
+    "id": "rec_artisan_pizza",
+    "name": "Artisan Cheesy Veg Thin-Crust Pan Pizza",
+    "headline": "Crispy 8-inch thin crust pizza topped with herb marinara sauce, loaded mozzarella cheese, capsicum & sweet corn",
+    "description": "Freshly baked pizzeria style pan pizza you can make on a standard tawa or oven in 10 minutes: crispy artisan thin crust, tangy Italian herb marinara, loaded molten mozzarella and crunchy farm veggies.",
+    "category": "Italian & Pasta",
+    "cuisine": "Italian & Pasta",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "5 mins",
+    "cookTime": "10 mins",
+    "totalTime": "15 mins",
+    "servings": 2,
+    "defaultServings": 2,
+    "calories": "440 kcal",
+    "rating": 4.96,
+    "reviewsCount": 725,
+    "chef": "Chef Kunal Kapur / Pizzeria Artisan",
+    "thumbnail": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&auto=format&fit=crop&q=80",
+    "youtubeId": "d77A0a3bA8M",
+    "kitPrice": 180,
+    "ingredients": [
+      {
+        "productId": "prod_pizza_base_2pc",
+        "name": "BakeFresh 8\" Thin Crust Pizza Bases",
+        "amountPerServing": 1,
+        "unit": "base",
+        "isPantryItem": false,
+        "prepNote": "8-inch artisan base"
+      },
+      {
+        "productId": "prod_veeba_pizza_pasta_sauce",
+        "name": "Veeba Pizza & Pasta Marinara Sauce",
+        "amountPerServing": 40,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Evenly spread edge to edge"
+      },
+      {
+        "productId": "prod_amul_pizza_cheese_200g",
+        "name": "Amul Diced Mozzarella & Cheddar Cheese Blend",
+        "amountPerServing": 80,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Loaded molten cheese layer"
+      },
+      {
+        "productId": "prod_v7",
+        "name": "Fresh Green Bell Pepper",
+        "amountPerServing": 30,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Diced into bite squares"
+      },
+      {
+        "productId": "prod_safal_sweet_corn",
+        "name": "Safal Frozen Sweet Corn",
+        "amountPerServing": 25,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Juicy sweet bursts"
+      },
+      {
+        "productId": "prod_v6",
+        "name": "Red Crunchy Onions",
+        "amountPerServing": 20,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Diced squares"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Sauce the Pizza Crust",
+        "instruction": "Place the pizza base on a flat surface. Spread 2 generous spoonfuls of Veeba Pizza Sauce in circular motion leaving 1/2 inch rim.",
+        "timestamp": "0:45",
+        "seconds": 45
+      },
+      {
+        "step": 2,
+        "title": "Toppings & Cheese Blanket",
+        "instruction": "Scatter diced capsicum, onions and sweet corn across the base. Cover generously with Amul mozzarella & cheddar cheese blend.",
+        "timestamp": "1:50",
+        "seconds": 110
+      },
+      {
+        "step": 3,
+        "title": "Pan Bake or Oven Melt",
+        "instruction": "Place pizza on a buttered heavy pan, cover with a tight lid and cook on low heat for 7-8 mins until base is crispy and cheese is bubbling and molten. Sprinkle oregano and slice!",
+        "timestamp": "3:30",
+        "seconds": 210
+      }
+    ],
+    "nutrition": {
+      "protein": "17g",
+      "carbs": "52g",
+      "fat": "18g",
+      "fiber": "4g"
+    },
+    "chefTip": "Cooking on low heat with a tight lid on a heavy tawa produces the exact same bubbly cheese and crunchy crust as a 300°C brick oven!"
+  },
+  {
+    "id": "rec_kolkata_paneer_roll",
+    "name": "Kolkata Tandoori Paneer Kathi Roll",
+    "headline": "Flaky pan-toasted Malabar paratha wrapped around juicy spiced paneer cubes, pickled onions, chaat masala & mint chutney",
+    "description": "Iconic Kolkata Park Street style street roll with crispy multi-layered flaky paratha rolled around smoky marinated paneer cubes, crunchy lemon onions, fresh green chilies and chatpata mint chutney.",
+    "category": "Rolls & Wraps",
+    "cuisine": "Rolls & Wraps",
+    "diet": "Vegetarian",
+    "difficulty": "Easy",
+    "prepTime": "4 mins",
+    "cookTime": "10 mins",
+    "totalTime": "14 mins",
+    "servings": 2,
+    "defaultServings": 2,
+    "calories": "390 kcal",
+    "rating": 4.94,
+    "reviewsCount": 510,
+    "chef": "Chef Sanjeev Kapoor / Park Street Kolkata",
+    "thumbnail": "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=800&auto=format&fit=crop&q=80",
+    "youtubeId": "d99E0a4bB9K",
+    "kitPrice": 145,
+    "ingredients": [
+      {
+        "productId": "prod_malabar_paratha_pack",
+        "name": "ID Fresh Flaky Malabar Parathas",
+        "amountPerServing": 1,
+        "unit": "paratha",
+        "isPantryItem": false,
+        "prepNote": "Pan toasted with ghee"
+      },
+      {
+        "productId": "prod_v1",
+        "name": "Verka Malai Fresh Paneer",
+        "amountPerServing": 80,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Sliced into finger batons"
+      },
+      {
+        "productId": "prod_v6",
+        "name": "Red Crunchy Onions",
+        "amountPerServing": 30,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Thinly sliced & tossed with lemon"
+      },
+      {
+        "productId": "prod_v7",
+        "name": "Fresh Green Capsicum",
+        "amountPerServing": 25,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Julienned stir-fry"
+      },
+      {
+        "productId": "prod_v3",
+        "name": "Verka Pure Desi Ghee",
+        "amountPerServing": 15,
+        "unit": "g",
+        "isPantryItem": true,
+        "prepNote": "For flaky pan searing"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Sear Spiced Paneer Batons",
+        "instruction": "Toss paneer fingers and capsicum with tandoori spices and chaat masala. Sauté in hot pan with 1 tsp ghee for 3 mins until edges are golden.",
+        "timestamp": "0:55",
+        "seconds": 55
+      },
+      {
+        "step": 2,
+        "title": "Toast Flaky Malabar Paratha",
+        "instruction": "Cook the layered paratha on a hot tawa with a drizzle of desi ghee for 90 seconds per side until crispy golden and flaky.",
+        "timestamp": "2:10",
+        "seconds": 130
+      },
+      {
+        "step": 3,
+        "title": "Roll & Wrap Kolkata Style",
+        "instruction": "Place paratha flat. Arrange paneer batons in a line, add lemon pickled onions, a sprinkle of chaat masala and mint chutney. Roll up tightly into parchment paper and bite in!",
+        "timestamp": "3:40",
+        "seconds": 220
+      }
+    ],
+    "nutrition": {
+      "protein": "16g",
+      "carbs": "44g",
+      "fat": "17g",
+      "fiber": "4g"
+    },
+    "chefTip": "Toss raw onion rings with lemon juice and a pinch of salt 5 minutes before rolling — it cuts the sharpness and gives that signature street crunch."
+  },
+  {
+    "id": "rec_double_egg_chicken_roll",
+    "name": "Kolkata Double Egg Chicken Bhuna Roll",
+    "headline": "Flaky paratha coated with two farm eggs, filled with tender bhuna chicken chunks, green chilies and lemon juice",
+    "description": "The undisputed king of Kolkata street food: layered flaky paratha fried with two beaten farm eggs on the tawa, packed with spicy bhuna chicken chunks, onion rings, green chilies and a squeeze of fresh lime.",
+    "category": "Rolls & Wraps",
+    "cuisine": "Rolls & Wraps",
+    "diet": "Non-Vegetarian",
+    "difficulty": "Medium",
+    "prepTime": "4 mins",
+    "cookTime": "12 mins",
+    "totalTime": "16 mins",
+    "servings": 2,
+    "defaultServings": 2,
+    "calories": "490 kcal",
+    "rating": 4.99,
+    "reviewsCount": 980,
+    "chef": "Chef Ranveer Brar / Kolkata Street Heritage",
+    "thumbnail": "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80",
+    "youtubeId": "e11A0a5bC9M",
+    "kitPrice": 175,
+    "ingredients": [
+      {
+        "productId": "prod_malabar_paratha_pack",
+        "name": "ID Fresh Flaky Malabar Parathas",
+        "amountPerServing": 1,
+        "unit": "paratha",
+        "isPantryItem": false,
+        "prepNote": "Pan toasted with egg"
+      },
+      {
+        "productId": "prod_chicken_breast_fillet",
+        "name": "Boneless Chicken Breast Fillet",
+        "amountPerServing": 90,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Cooked in spicy bhuna masala"
+      },
+      {
+        "productId": "prod_eggs",
+        "name": "Farm Fresh White Eggs",
+        "amountPerServing": 2,
+        "unit": "eggs",
+        "isPantryItem": false,
+        "prepNote": "Whisked with salt & pepper"
+      },
+      {
+        "productId": "prod_v6",
+        "name": "Red Crunchy Onions",
+        "amountPerServing": 30,
+        "unit": "g",
+        "isPantryItem": false,
+        "prepNote": "Sliced thinly with lemon"
+      },
+      {
+        "productId": "prod_coriander_chilli",
+        "name": "Fresh Green Chillies",
+        "amountPerServing": 5,
+        "unit": "g",
+        "isPantryItem": true,
+        "prepNote": "Finely chopped"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "title": "Sauté Bhuna Chicken Chunks",
+        "instruction": "Pan-toss bite-sized chicken pieces with bhuna masala, ginger-garlic and a splash of oil for 5 mins until tender and spiced.",
+        "timestamp": "1:15",
+        "seconds": 75
+      },
+      {
+        "step": 2,
+        "title": "Make Egg-Crusted Paratha",
+        "instruction": "Pour 2 whisked eggs onto a sizzling tawa. Immediately press the paratha on top of the liquid egg. Cook for 1 min until egg adheres and turns golden, then flip.",
+        "timestamp": "2:45",
+        "seconds": 165
+      },
+      {
+        "step": 3,
+        "title": "Fill & Roll",
+        "instruction": "Egg side up, add the juicy bhuna chicken, crunchy sliced onions, chopped green chilies, chaat masala and fresh lemon juice. Roll tightly and enjoy restaurant quality street food!",
+        "timestamp": "4:10",
+        "seconds": 250
+      }
+    ],
+    "nutrition": {
+      "protein": "31g",
+      "carbs": "41g",
+      "fat": "21g",
+      "fiber": "3g"
+    },
+    "chefTip": "Pressing the paratha onto the runny egg while the egg is still liquid locks the egg directly into the paratha layers."
   }
 ]

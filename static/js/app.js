@@ -14,7 +14,31 @@ const CUISINE_DEFINITIONS = [
     id: 'All',
     name: 'All Cuisines',
     icon: '🌟',
-    desc: 'Explore chef-curated recipe kits across North India, Mughlai dastarkhwan, street food & popular regional cuisines.'
+    desc: 'Explore chef-curated recipe kits across North India, Mughlai dastarkhwan, street food, Italian pastas & cafe fast foods.'
+  },
+  {
+    id: 'Fast Food & Burgers',
+    name: 'Fast Food & Burgers',
+    icon: '🍔',
+    desc: 'Crispy aloo herb burger, street chicken zinger burger & fiery loaded peri peri french fries.'
+  },
+  {
+    id: 'Sandwiches & Toasts',
+    name: 'Sandwiches & Toasts',
+    icon: '🥪',
+    desc: 'Mumbai Chowpatty masala grilled sandwich, tandoori paneer tikka sandwich & deli smoked chicken club.'
+  },
+  {
+    id: 'Italian & Pasta',
+    name: 'Italian & Pasta',
+    icon: '🍝',
+    desc: 'Creamy Alfredo white sauce penne, fiery Arrabiata fusilli & artisan cheesy thin-crust pan pizza.'
+  },
+  {
+    id: 'Rolls & Wraps',
+    name: 'Rolls & Wraps',
+    icon: '🌯',
+    desc: 'Kolkata Park Street flaky paneer kathi roll & double egg chicken bhuna street wraps.'
   },
   {
     id: 'Punjabi & Dhaba',
@@ -50,7 +74,7 @@ const CUISINE_DEFINITIONS = [
     id: 'Quick 15-Mins',
     name: 'Quick 15-Mins',
     icon: '⏱️',
-    desc: 'Super fast, delicious meals: Mohali street egg bhurji & Italian creamy mushroom alfredo penne.'
+    desc: 'Super fast, delicious meals: Mohali street egg bhurji, 10-min peri-peri fries & Bombay grilled sandwich.'
   },
   {
     id: 'Desi Mithai & Desserts',
@@ -59,6 +83,8 @@ const CUISINE_DEFINITIONS = [
     desc: 'North India celebration winter Gajar Ka Halwa slow-roasted in pure desi ghee, fresh khoya & crunchy nuts.'
   }
 ];
+
+let activeCuisineDietFilter = 'all'; // 'all', 'veg', 'nonveg'
 let isTricityFilterActive = false;
 let searchQuery = '';
 
@@ -400,41 +426,74 @@ function switchView(viewName) {
 // -------------------------------------------------------------
 // GROVIO HOME EXPERIENCE ENGINE (RECIPES SPOTLIGHT & AISLES)
 // -------------------------------------------------------------
+function setHomeCuisineDietFilter(diet, btnEl) {
+  activeCuisineDietFilter = diet;
+  document.querySelectorAll('#cuisinesDietToggleBar .cuisine-diet-pill').forEach(b => {
+    b.classList.remove('active', 'veg', 'nonveg');
+  });
+
+  if (btnEl) {
+    btnEl.classList.add('active');
+    if (diet === 'veg') btnEl.classList.add('veg');
+    if (diet === 'nonveg') btnEl.classList.add('nonveg');
+  }
+
+  renderHomeExperience();
+}
+
 function renderHomeExperience() {
   // 1. Regional Cuisines Bar (#homeCuisineDiscoveryRow)
   const cuisineRow = document.getElementById('homeCuisineDiscoveryRow');
   if (cuisineRow) {
-    cuisineRow.innerHTML = CUISINE_DEFINITIONS.filter(c => c.id !== 'All').map(c => {
-      const count = allRecipes.filter(r => (r.cuisine === c.id || r.category === c.id)).length;
-      return `
-        <div class="home-cuisine-chip" onclick="selectRecipeCuisine('${c.id}', null); switchView('recipes');">
-          <div class="home-cuisine-icon-box">${c.icon}</div>
-          <div class="home-cuisine-info">
-            <span class="home-cuisine-name">${c.name}</span>
-            <span class="home-cuisine-count">${count} Kits</span>
-          </div>
+    const validCuisines = CUISINE_DEFINITIONS.filter(c => c.id !== 'All').map(c => {
+      let matching = allRecipes.filter(r => (r.cuisine === c.id || r.category === c.id));
+      if (activeCuisineDietFilter === 'veg') {
+        matching = matching.filter(r => r.diet === 'Vegetarian');
+      } else if (activeCuisineDietFilter === 'nonveg') {
+        matching = matching.filter(r => r.diet === 'Non-Vegetarian');
+      }
+      return { ...c, count: matching.length };
+    }).filter(c => c.count > 0);
+
+    cuisineRow.innerHTML = validCuisines.map(c => `
+      <div class="home-cuisine-chip" onclick="selectRecipeCuisine('${c.id}', null); switchView('recipes');">
+        <div class="home-cuisine-icon-box">${c.icon}</div>
+        <div class="home-cuisine-info">
+          <span class="home-cuisine-name">${c.name}</span>
+          <span class="home-cuisine-count">${c.count} Kits</span>
         </div>
-      `;
-    }).join('');
+      </div>
+    `).join('');
   }
 
   // 2. Trending Chef Recipe Kits Shelf (#homeTrendingRecipesShelf)
   const trendingShelf = document.getElementById('homeTrendingRecipesShelf');
   if (trendingShelf) {
-    const trendingList = allRecipes.slice(0, 6);
-    trendingShelf.innerHTML = trendingList.map(r => renderHomeRecipeCard(r)).join('');
+    let trendingList = allRecipes;
+    if (activeCuisineDietFilter === 'veg') {
+      trendingList = trendingList.filter(r => r.diet === 'Vegetarian');
+    } else if (activeCuisineDietFilter === 'nonveg') {
+      trendingList = trendingList.filter(r => r.diet === 'Non-Vegetarian');
+    }
+    trendingShelf.innerHTML = trendingList.slice(0, 8).map(r => renderHomeRecipeCard(r)).join('');
   }
 
   // 3. 15-Minute Express Meals Shelf (#homeQuickMealsShelf)
   const quickShelf = document.getElementById('homeQuickMealsShelf');
   if (quickShelf) {
-    const quickList = allRecipes.filter(r => {
+    let quickList = allRecipes.filter(r => {
       const t = parseInt(r.totalTime || r.cookTime || '30');
       return t <= 20 || r.category === 'Quick 15-Mins' || r.cuisine === 'Quick 15-Mins';
     });
+    if (activeCuisineDietFilter === 'veg') {
+      quickList = quickList.filter(r => r.diet === 'Vegetarian');
+    } else if (activeCuisineDietFilter === 'nonveg') {
+      quickList = quickList.filter(r => r.diet === 'Non-Vegetarian');
+    }
     quickShelf.innerHTML = quickList.map(r => renderHomeRecipeCard(r)).join('');
   }
 }
+
 
 function renderHomeRecipeCard(r) {
   const isVeg = r.diet === 'Vegetarian';

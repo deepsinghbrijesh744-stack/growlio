@@ -114,16 +114,6 @@ body {
   align-items: baseline;
 }
 
-.brand-logo-text::after {
-  content: '';
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  background: var(--maroon-vibrant);
-  border-radius: 50%;
-  margin-left: 2px;
-}
-
 .delivery-badge-pill {
   display: flex;
   flex-direction: column;
@@ -4598,6 +4588,65 @@ body {
 
 .home-see-all-link:hover {
   opacity: 0.8;
+}
+
+/* Zomato-Style Veg / Non-Veg Live Filter Bar */
+.cuisines-diet-toggle-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cuisines-diet-toggle-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.cuisine-diet-pill {
+  background: #ffffff;
+  border: 1.5px solid var(--beige-border);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: 11.5px;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--text-dark);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+  box-shadow: 0 1px 4px rgba(70, 5, 8, 0.03);
+  user-select: none;
+}
+
+.cuisine-diet-pill:active {
+  transform: scale(0.96);
+}
+
+.cuisine-diet-pill.active {
+  background: var(--maroon-primary);
+  color: #ffffff;
+  border-color: var(--maroon-primary);
+  box-shadow: 0 3px 10px rgba(99, 18, 25, 0.25);
+}
+
+.cuisine-diet-pill.active.veg {
+  background: #14833b;
+  color: #ffffff;
+  border-color: #14833b;
+  box-shadow: 0 3px 10px rgba(20, 131, 59, 0.28);
+}
+
+.cuisine-diet-pill.active.nonveg {
+  background: #c5161d;
+  color: #ffffff;
+  border-color: #c5161d;
+  box-shadow: 0 3px 10px rgba(197, 22, 29, 0.28);
 }
 
 .home-cuisines-scroll {

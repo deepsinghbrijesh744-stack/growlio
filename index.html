@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Grovio - 10 Min Groceries & Chef Recipe Kits | Tricity Chandigarh, Mohali, Panchkula</title>
-  <link rel="stylesheet" href="./static/css/style.css?v=3.1" />
+  <link rel="stylesheet" href="./static/css/style.css?v=3.2" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -147,12 +147,26 @@
               <div class="home-section-header">
                 <div>
                   <h3 class="home-section-title">🍽️ Explore Cuisines</h3>
-                  <p class="home-section-subtitle">Famous North Indian &amp; Regional Menus</p>
+                  <p class="home-section-subtitle">Regional Curries, Pastas, Burgers &amp; Cafe Bites</p>
                 </div>
                 <button class="home-see-all-link" onclick="switchView('recipes')">
                   All Cuisines ➔
                 </button>
               </div>
+
+              <!-- Zomato-Style Veg / Non-Veg Quick Filter Bar -->
+              <div class="cuisines-diet-toggle-bar" id="cuisinesDietToggleBar">
+                <button class="cuisine-diet-pill active" id="cuisineDietAll" onclick="setHomeCuisineDietFilter('all', this)">
+                  ✨ All
+                </button>
+                <button class="cuisine-diet-pill" id="cuisineDietVeg" onclick="setHomeCuisineDietFilter('veg', this)">
+                  <span class="diet-dot-veg">🟢</span> Pure Veg
+                </button>
+                <button class="cuisine-diet-pill" id="cuisineDietNonVeg" onclick="setHomeCuisineDietFilter('nonveg', this)">
+                  <span class="diet-dot-nonveg">🔴</span> Non-Veg
+                </button>
+              </div>
+
               <div class="home-cuisines-scroll" id="homeCuisineDiscoveryRow">
                 <!-- Dynamically populated by JS renderHomeExperience() -->
               </div>
@@ -166,7 +180,7 @@
                   <p class="home-section-subtitle">Pre-portioned fresh ingredients + HD video masterclass</p>
                 </div>
                 <button class="home-see-all-link" onclick="switchView('recipes')">
-                  View All (16) ➔
+                  View All (27) ➔
                 </button>
               </div>
               <div class="home-recipe-kits-scroll" id="homeTrendingRecipesShelf">
@@ -873,6 +887,6 @@
   </div> <!-- /device-page-layout -->
 
   <!-- Application Logic -->
-  <script src="./static/js/app.js?v=3.1"></script>
+  <script src="./static/js/app.js?v=3.2"></script>
 </body>
 </html>

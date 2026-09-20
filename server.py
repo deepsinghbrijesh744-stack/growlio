@@ -16,7 +16,7 @@ def load_json(filename):
             return json.load(f)
     return []
 
-class GrowlioHandler(SimpleHTTPRequestHandler):
+class GrovioHandler(SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
@@ -170,8 +170,8 @@ class GrowlioHandler(SimpleHTTPRequestHandler):
 
 def run_server(port=8000):
     server_address = ('', port)
-    httpd = ThreadingHTTPServer(server_address, GrowlioHandler)
-    print(f'Growlio Tricity Server running at http://localhost:{port}/')
+    httpd = ThreadingHTTPServer(server_address, GrovioHandler)
+    print(f'Grovio Tricity Server running at http://localhost:{port}/')
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:

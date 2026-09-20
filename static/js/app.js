@@ -456,7 +456,7 @@ function confirmSelectedAddress() {
 
   if (document.getElementById('cartDeliveryHubTitle')) {
     document.getElementById('cartDeliveryHubTitle').innerText = `Delivery in ${currentDeliveryTime}`;
-    document.getElementById('cartDeliveryHubSubtitle').innerText = `Growlio dark store: ${currentDarkStore}`;
+    document.getElementById('cartDeliveryHubSubtitle').innerText = `Grovio dark store: ${currentDarkStore}`;
   }
 
   closeLocationModal();
@@ -1941,7 +1941,7 @@ function updateCartUI() {
 }
 
 function applyPromoWelcome() {
-  showToast('🎉 Coupon "GROWLIO50" applied! ₹50 OFF on your order!');
+  showToast('🎉 Coupon "GROVIO50" applied! ₹50 OFF on your order!');
   openCartDrawer();
 }
 

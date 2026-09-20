@@ -1682,7 +1682,7 @@ function closeRecipeModal() {
 function updateServings(delta) {
   if (!activeRecipe) return;
   const newServings = activeRecipeServings + delta;
-  if (newServings < 1 || newServings > 8) return;
+  if (newServings < 1 || newServings > 12) return;
 
   activeRecipeServings = newServings;
   document.getElementById('modalServingsCount').innerText = activeRecipeServings;
@@ -1700,16 +1700,45 @@ function renderIngredientRow(ing, idx) {
     weight: 'Standard pack'
   };
 
-  const totalQtyNeeded = (ing.amountPerServing || 1) * activeRecipeServings;
-  const formattedQty = `${totalQtyNeeded} ${ing.unit}`;
+  const baseServings = activeRecipe.defaultServings || 2;
+  const packMultiplier = Math.max(1, Math.ceil(activeRecipeServings / baseServings));
+  const itemPrice = prod.price * packMultiplier;
+
+  const rawQty = (ing.amountPerServing || 1) * activeRecipeServings;
+  let formattedQty;
+
+  const isPieceItem = ing.unit === 'piece' || ing.unit === 'pcs' || ing.unit === 'pc' ||
+    ing.name.toLowerCase().includes('piece') ||
+    ing.name.toLowerCase().includes('bun') ||
+    ing.name.toLowerCase().includes('lemon') ||
+    ing.name.toLowerCase().includes('egg') ||
+    ing.name.toLowerCase().includes('parota') ||
+    ing.name.toLowerCase().includes('bread') ||
+    ing.name.toLowerCase().includes('pizza base') ||
+    (ing.name.toLowerCase().includes('tomato') && ing.unit === 'piece') ||
+    (ing.name.toLowerCase().includes('onion') && ing.unit === 'piece');
+
+  if (isPieceItem) {
+    const wholeQty = Math.ceil(rawQty);
+    formattedQty = `${wholeQty} ${wholeQty > 1 && ing.unit === 'piece' ? 'pieces' : ing.unit}`;
+  } else if (ing.unit === 'g' || ing.unit === 'ml') {
+    const roundedQty = Math.round(rawQty);
+    formattedQty = `${roundedQty} ${ing.unit}`;
+  } else {
+    // tsp, tbsp, etc.
+    const cleanQty = rawQty % 1 === 0 ? rawQty : Number(rawQty.toFixed(2));
+    formattedQty = `${cleanQty} ${ing.unit}`;
+  }
 
   const badge = ing.isHomeItem 
     ? '<span class="home-item-badge">🏠 At Home</span>' 
     : '<span class="kit-item-badge">📦 In Kit</span>';
 
   const statusLabel = isSelected 
-    ? '<span class="ingredient-status-label" style="color:var(--maroon-primary); font-weight:800;">🛒 In Cart Kit</span>' 
-    : '<span style="font-size:10.5px; color:#888; font-weight:700;">🏠 At Home (Saved ₹' + prod.price + ')</span>';
+    ? `<span class="ingredient-status-label" style="color:var(--maroon-primary); font-weight:800;">🛒 In Cart Kit${packMultiplier > 1 ? ` (${packMultiplier} packs)` : ''}</span>` 
+    : `<span style="font-size:10.5px; color:#888; font-weight:700;">🏠 At Home (Saved ₹${itemPrice})</span>`;
+
+  const packNote = packMultiplier > 1 ? `<strong>${packMultiplier} × </strong>` : '';
 
   return `
     <div class="ingredient-row ${isSelected ? '' : 'excluded'}" onclick="toggleIngredientRow(${idx})">
@@ -1725,11 +1754,11 @@ function renderIngredientRow(ing, idx) {
           ${ing.name} ${badge}
         </div>
         <div class="ingredient-qty-note">
-          Need: <strong>${formattedQty}</strong> • Store Item: ${prod.name} (${prod.weight})
+          Need: <strong>${formattedQty}</strong> • Store Item: ${packNote}${prod.name} (${prod.weight})
         </div>
       </div>
       <div class="ingredient-price-col">
-        <div class="ingredient-price">₹${prod.price}</div>
+        <div class="ingredient-price">₹${itemPrice}</div>
         ${statusLabel}
       </div>
     </div>
@@ -1831,11 +1860,14 @@ function updateModalSummary() {
   let count = 0;
   let totalPrice = 0;
 
+  const baseServings = activeRecipe.defaultServings || 2;
+  const packMultiplier = Math.max(1, Math.ceil(activeRecipeServings / baseServings));
+
   activeRecipe.ingredients.forEach((ing, idx) => {
     if (ingredientSelection[idx]) {
       count++;
       const prod = ing.product || allProducts.find(p => p.id === ing.productId);
-      if (prod) totalPrice += prod.price;
+      if (prod) totalPrice += prod.price * packMultiplier;
     }
   });
 
@@ -1889,15 +1921,17 @@ function seekVideo(seconds) {
 function batchAddSelectedIngredients() {
   if (!activeRecipe) return;
   let addedCount = 0;
+  const baseServings = activeRecipe.defaultServings || 2;
+  const packMultiplier = Math.max(1, Math.ceil(activeRecipeServings / baseServings));
 
   activeRecipe.ingredients.forEach((ing, idx) => {
     if (ingredientSelection[idx]) {
       const prod = ing.product || allProducts.find(p => p.id === ing.productId);
       if (prod && prod.inStock !== false) {
         if (!cart[prod.id]) {
-          cart[prod.id] = { product: prod, quantity: 1, recipeTag: activeRecipe.name };
+          cart[prod.id] = { product: prod, quantity: packMultiplier, recipeTag: activeRecipe.name };
         } else {
-          cart[prod.id].quantity += 1;
+          cart[prod.id].quantity += packMultiplier;
         }
         addedCount++;
       }

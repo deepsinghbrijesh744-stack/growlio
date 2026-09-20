@@ -255,14 +255,14 @@ async function loadData() {
       prodRes = await fetch('/api/products');
       if (!prodRes.ok) throw new Error('API route unavailable');
     } catch {
-      prodRes = await fetch('./data/products.json?v=8.4');
+      prodRes = await fetch('./data/products.json?v=8.5');
     }
 
     try {
       recRes = await fetch('/api/recipes');
       if (!recRes.ok) throw new Error('API route unavailable');
     } catch {
-      recRes = await fetch('./data/recipes.json?v=8.4');
+      recRes = await fetch('./data/recipes.json?v=8.5');
     }
 
     allProducts = await prodRes.json();
@@ -631,12 +631,12 @@ function renderHomeRecipeCard(r) {
     : '<span class="diet-dot-nonveg">🔴</span> Non-Veg';
 
   const cuisineName = r.cuisine || r.category || 'Special';
+  const kitItems = (r.ingredients || []).filter(i => !i.isHomeItem);
   const kitPrice = r.kitPrice || 195;
-  const ingCount = (r.ingredients || []).length;
-  const ingredientNames = (r.ingredients || []).slice(0, 3).map(i => i.name.split(' ')[0]).join(', ');
-  const ingredientsTeaser = ingCount > 0 
-    ? `${ingredientNames}${ingCount > 3 ? ` +${ingCount - 3} more` : ''}` 
-    : 'Fresh pre-measured kit';
+  const kitItemNames = kitItems.slice(0, 3).map(i => i.name.split('(')[0].trim()).join(', ');
+  const kitIncludesText = kitItems.length > 0 
+    ? `${kitItemNames}${kitItems.length > 3 ? ` +${kitItems.length - 3} more` : ''}` 
+    : 'All essential ingredients';
 
   const inCart = isRecipeInCart(r);
 
@@ -651,10 +651,10 @@ function renderHomeRecipeCard(r) {
       </div>
       <div class="home-recipe-body">
         <div class="home-recipe-title">${r.name}</div>
-        <div class="home-recipe-ingredients-note">📦 <strong>Kit:</strong> ${ingredientsTeaser}</div>
+        <div class="home-recipe-ingredients-note">📦 <strong>Kit includes:</strong> ${kitIncludesText}</div>
         <div class="home-recipe-footer">
           <div class="home-recipe-price-box">
-            <span class="home-recipe-price-label">Kit for 2:</span>
+            <span class="home-recipe-price-label">Kit (2 Servings)</span>
             <span class="home-recipe-price-val">₹${kitPrice}</span>
           </div>
           <button class="btn-home-add-kit ${inCart ? 'in-cart' : ''}" onclick="event.stopPropagation(); handleRecipeKitAdd('${r.id}', this)">
@@ -1525,12 +1525,12 @@ function renderRecipes() {
       : '<span class="diet-dot-nonveg">🔴</span> Non-Veg';
 
     const cuisineName = r.cuisine || r.category || 'Regional';
+    const kitItems = (r.ingredients || []).filter(i => !i.isHomeItem);
     const kitPrice = r.kitPrice || 195;
-    const ingCount = (r.ingredients || []).length;
-    const ingredientNames = (r.ingredients || []).slice(0, 4).map(i => i.name.split(' ')[0]).join(', ');
-    const ingredientsTeaser = ingCount > 0 
-      ? `${ingredientNames}${ingCount > 4 ? ` +${ingCount - 4} more` : ''}` 
-      : 'Fresh pre-portioned ingredients';
+    const kitItemNames = kitItems.slice(0, 4).map(i => i.name.split('(')[0].trim()).join(', ');
+    const kitIncludesText = kitItems.length > 0 
+      ? `${kitItemNames}${kitItems.length > 4 ? ` +${kitItems.length - 4} more` : ''}` 
+      : 'All essential ingredients';
 
     const inCart = isRecipeInCart(r);
 
@@ -1556,13 +1556,13 @@ function renderRecipes() {
           <p class="recipe-headline">${r.headline || r.description || ''}</p>
 
           <div class="recipe-ingredients-preview">
-            <span class="preview-kit-label">📦 Kit:</span>
-            <span class="preview-kit-items">${ingredientsTeaser}</span>
+            <span class="preview-kit-label">📦 Kit includes:</span>
+            <span class="preview-kit-items">${kitIncludesText}</span>
           </div>
 
           <div class="recipe-actions-row">
             <div class="recipe-kit-price-box">
-              <span class="kit-price-label">Kit for ${r.defaultServings || 2}:</span>
+              <span class="kit-price-label">Kit (2 Servings)</span>
               <span class="kit-price-val">₹${kitPrice}</span>
             </div>
             <button class="btn-add-kit-direct ${inCart ? 'in-cart' : ''}" onclick="event.stopPropagation(); handleRecipeKitAdd('${r.id}', this)">
@@ -1586,7 +1586,10 @@ function addRecipeKitToCart(recipeId) {
   }
 
   let addedItems = 0;
+  // Add only Kit items (home items are already available at home)
   (recipe.ingredients || []).forEach(ing => {
+    if (ing.isHomeItem) return;
+
     const prod = ing.product || allProducts.find(p => p.id === ing.productId) || {
       id: ing.productId || `kit_item_${recipe.id}_${Math.random().toString(36).substr(2, 5)}`,
       name: ing.name,
@@ -1609,7 +1612,7 @@ function addRecipeKitToCart(recipeId) {
   renderOrderAgainView();
   renderRecipes();
   renderHomeExperience();
-  showToast(`🎉 Added ${recipe.name} Kit (${addedItems} fresh items) to cart!`);
+  showToast(`🎉 Added ${recipe.name} Kit (${addedItems} kit items) to cart!`);
 }
 
 // -------------------------------------------------------------
@@ -1650,10 +1653,10 @@ async function openRecipeModal(recipeId) {
     
     document.getElementById('modalServingsCount').innerText = activeRecipeServings;
 
-    // Initialize ingredient selection (all checked by default)
+    // Initialize ingredient selection (Kit items ticked by default, Home items unticked by default)
     ingredientSelection = {};
     (activeRecipe.ingredients || []).forEach((ing, index) => {
-      ingredientSelection[index] = true;
+      ingredientSelection[index] = !ing.isHomeItem;
     });
 
     renderModalIngredients();
@@ -1688,54 +1691,98 @@ function updateServings(delta) {
   updateModalSummary();
 }
 
+function renderIngredientRow(ing, idx) {
+  const isSelected = !!ingredientSelection[idx];
+  const prod = ing.product || allProducts.find(p => p.id === ing.productId) || {
+    name: ing.name,
+    price: 40,
+    image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=200',
+    weight: 'Standard pack'
+  };
+
+  const totalQtyNeeded = (ing.amountPerServing || 1) * activeRecipeServings;
+  const formattedQty = `${totalQtyNeeded} ${ing.unit}`;
+
+  const badge = ing.isHomeItem 
+    ? '<span class="home-item-badge">🏠 At Home</span>' 
+    : '<span class="kit-item-badge">📦 In Kit</span>';
+
+  const statusLabel = isSelected 
+    ? '<span class="ingredient-status-label" style="color:var(--maroon-primary); font-weight:800;">🛒 In Cart Kit</span>' 
+    : '<span style="font-size:10.5px; color:#888; font-weight:700;">🏠 At Home (Saved ₹' + prod.price + ')</span>';
+
+  return `
+    <div class="ingredient-row ${isSelected ? '' : 'excluded'}" onclick="toggleIngredientRow(${idx})">
+      <input 
+        type="checkbox" 
+        class="ingredient-check-input" 
+        ${isSelected ? 'checked' : ''} 
+        onclick="event.stopPropagation(); toggleIngredient(${idx}, this.checked)"
+      />
+      <img src="${prod.image}" alt="${prod.name}" class="ingredient-img" />
+      <div class="ingredient-details">
+        <div class="ingredient-name">
+          ${ing.name} ${badge}
+        </div>
+        <div class="ingredient-qty-note">
+          Need: <strong>${formattedQty}</strong> • Store Item: ${prod.name} (${prod.weight})
+        </div>
+      </div>
+      <div class="ingredient-price-col">
+        <div class="ingredient-price">₹${prod.price}</div>
+        ${statusLabel}
+      </div>
+    </div>
+  `;
+}
+
 function renderModalIngredients() {
   if (!activeRecipe || !activeRecipe.ingredients) return;
   const container = document.getElementById('modalIngredientsList');
 
-  container.innerHTML = activeRecipe.ingredients.map((ing, idx) => {
-    const isSelected = !!ingredientSelection[idx];
-    const prod = ing.product || allProducts.find(p => p.id === ing.productId) || {
-      name: ing.name,
-      price: 40,
-      image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=200',
-      weight: 'Standard pack'
-    };
+  const kitItems = [];
+  const homeItems = [];
 
-    const totalQtyNeeded = (ing.amountPerServing || 1) * activeRecipeServings;
-    const formattedQty = `${totalQtyNeeded} ${ing.unit}`;
+  activeRecipe.ingredients.forEach((ing, idx) => {
+    if (ing.isHomeItem) {
+      homeItems.push({ ing, idx });
+    } else {
+      kitItems.push({ ing, idx });
+    }
+  });
 
-    const stapleBadge = ing.isPantryStaple 
-      ? '<span class="pantry-tag">Pantry Staple</span>' 
-      : '';
+  let html = '';
 
-    const statusLabel = isSelected 
-      ? '<span class="ingredient-status-label" style="color:var(--maroon-primary); font-weight:800;">🛒 In Cart Kit</span>' 
-      : '<span style="font-size:10.5px; color:#888; font-weight:700;">🏠 At Home (Saved ₹' + prod.price + ')</span>';
-
-    return `
-      <div class="ingredient-row ${isSelected ? '' : 'excluded'}" onclick="toggleIngredientRow(${idx})">
-        <input 
-          type="checkbox" 
-          class="ingredient-check-input" 
-          ${isSelected ? 'checked' : ''} 
-          onclick="event.stopPropagation(); toggleIngredient(${idx}, this.checked)"
-        />
-        <img src="${prod.image}" alt="${prod.name}" class="ingredient-img" />
-        <div class="ingredient-details">
-          <div class="ingredient-name">
-            ${ing.name} ${stapleBadge}
-          </div>
-          <div class="ingredient-qty-note">
-            Need: <strong>${formattedQty}</strong> • Store Item: ${prod.name} (${prod.weight})
-          </div>
+  // 1. What's in the kit
+  if (kitItems.length > 0) {
+    html += `
+      <div class="ingredient-group-container">
+        <div class="ingredient-group-header">
+          <h5 class="ingredient-group-title">📦 What's in the kit</h5>
         </div>
-        <div class="ingredient-price-col">
-          <div class="ingredient-price">₹${prod.price}</div>
-          ${statusLabel}
+        <div class="ingredient-group-list">
+          ${kitItems.map(item => renderIngredientRow(item.ing, item.idx)).join('')}
         </div>
       </div>
     `;
-  }).join('');
+  }
+
+  // 2. Already at home
+  if (homeItems.length > 0) {
+    html += `
+      <div class="ingredient-group-container" style="margin-top: 18px;">
+        <div class="ingredient-group-header">
+          <h5 class="ingredient-group-title">🏠 Already at home</h5>
+          <p class="ingredient-group-sub">These are usually available at home. Tick only if you need them.</p>
+        </div>
+        <div class="ingredient-group-list">
+          ${homeItems.map(item => renderIngredientRow(item.ing, item.idx)).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  container.innerHTML = html;
 }
 
 function toggleIngredientRow(index) {
@@ -1760,20 +1807,23 @@ function toggleAllIngredients(selectAll) {
   showToast(selectAll ? 'All ingredients selected' : 'All ingredients deselected');
 }
 
-function deselectPantryStaples() {
+function skipHomeItems() {
   if (!activeRecipe) return;
-  let deselectedCount = 0;
   activeRecipe.ingredients.forEach((ing, idx) => {
-    if (ing.isPantryStaple) {
+    if (ing.isHomeItem) {
       ingredientSelection[idx] = false;
-      deselectedCount++;
     } else {
       ingredientSelection[idx] = true;
     }
   });
   renderModalIngredients();
   updateModalSummary();
-  showToast(`Excluded ${deselectedCount} pantry staples (Salt, Spices, Oil)`);
+  showToast('🏠 Skipped home items. Only kit items selected.');
+}
+
+// Backwards compatibility alias
+function deselectPantryStaples() {
+  skipHomeItems();
 }
 
 function updateModalSummary() {

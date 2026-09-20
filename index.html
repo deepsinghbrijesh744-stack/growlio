@@ -7,7 +7,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>Grovio - 10 Min Groceries & Chef Recipe Kits | Tricity Chandigarh, Mohali, Panchkula</title>
-  <link rel="stylesheet" href="./static/css/style.css?v=8.2" />
+  <link rel="stylesheet" href="./static/css/style.css?v=8.5" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -133,12 +133,12 @@
                 </p>
                 <div class="spotlight-ingredients-preview">
                   <span class="spotlight-ing-label">📦 Kit includes:</span>
-                  <span class="spotlight-ing-tags">Sabut Urad Mix, Amul Butter, Desi Ghee, Mandi Tomatoes, Fresh Cream</span>
+                  <span class="spotlight-ing-tags">Tata Sampann Sabut Urad Dal, Jammu Rajma, Amul Butter, Amul Fresh Cream</span>
                 </div>
                 <div class="spotlight-actions-bar">
                   <div class="spotlight-price-box">
                     <span class="spotlight-price-sub">Kit (2 Servings)</span>
-                    <span class="spotlight-price-num">₹165</span>
+                    <span class="spotlight-price-num">₹466</span>
                   </div>
                   <button class="btn-spotlight-add-kit" onclick="addRecipeKitToCart('rec_dal_makhani')">
                     + Add Kit to Cart
@@ -799,14 +799,14 @@
         <div class="ingredients-customizer-box">
           <div class="ingredients-header">
             <div>
-              <h4>🛒 Required Ingredients (Customizable Cart Kit)</h4>
+              <h4>🛒 Recipe Ingredients</h4>
               <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">
-                Uncheck ingredients you already have at home (e.g. Salt, Oil, Spices). Only selected items will be added to your 10-minute cart.
+                Kit items are pre-selected. Tick any home items you need.
               </p>
             </div>
             <div style="display: flex; gap: 8px;">
               <button class="toggle-all-btn" onclick="toggleAllIngredients(true)">Select All</button>
-              <button class="toggle-all-btn" onclick="deselectPantryStaples()">Exclude Staples</button>
+              <button class="toggle-all-btn" onclick="skipHomeItems()">Skip home items</button>
             </div>
           </div>
 
@@ -990,6 +990,6 @@
   </div> <!-- /device-page-layout -->
 
   <!-- Application Logic -->
-  <script src="./static/js/app.js?v=8.4"></script>
+  <script src="./static/js/app.js?v=8.5"></script>
 </body>
 </html>

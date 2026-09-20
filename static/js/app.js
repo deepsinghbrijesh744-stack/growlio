@@ -255,14 +255,14 @@ async function loadData() {
       prodRes = await fetch('/api/products');
       if (!prodRes.ok) throw new Error('API route unavailable');
     } catch {
-      prodRes = await fetch('./data/products.json?v=8.0');
+      prodRes = await fetch('./data/products.json?v=8.1');
     }
 
     try {
       recRes = await fetch('/api/recipes');
       if (!recRes.ok) throw new Error('API route unavailable');
     } catch {
-      recRes = await fetch('./data/recipes.json?v=8.0');
+      recRes = await fetch('./data/recipes.json?v=8.1');
     }
 
     allProducts = await prodRes.json();
@@ -650,7 +650,6 @@ function renderHomeRecipeCard(r) {
         <div class="home-recipe-cuisine">🥘 ${cuisineName}</div>
       </div>
       <div class="home-recipe-body">
-        <div class="home-recipe-chef">👨‍🍳 ${r.chef ? r.chef.split('/')[0].trim() : 'MasterChef'}</div>
         <div class="home-recipe-title">${r.name}</div>
         <div class="home-recipe-ingredients-note">📦 <strong>Kit:</strong> ${ingredientsTeaser}</div>
         <div class="home-recipe-footer">
@@ -1300,7 +1299,6 @@ function renderProducts() {
       r.name.toLowerCase().includes(searchQuery) ||
       (r.cuisine && r.cuisine.toLowerCase().includes(searchQuery)) ||
       (r.category && r.category.toLowerCase().includes(searchQuery)) ||
-      (r.chef && r.chef.toLowerCase().includes(searchQuery)) ||
       (r.ingredients && r.ingredients.some(i => i.name.toLowerCase().includes(searchQuery)))
     );
 
@@ -1552,7 +1550,6 @@ function renderRecipes() {
 
         <div class="recipe-content">
           <div class="recipe-meta-row">
-            <span class="recipe-chef-tag">👨‍🍳 ${r.chef ? r.chef.split('/')[0].trim() : 'MasterChef'}</span>
             <span class="recipe-cuisine-pill">${cuisineName}</span>
           </div>
           <h3 class="recipe-title">${r.name}</h3>
@@ -2539,7 +2536,7 @@ async function resetAdminPricesToDefault() {
     customPriceOverrides = {};
     adminPendingChanges = {};
 
-    const prodRes = await fetch('./data/products.json?v=8.0');
+    const prodRes = await fetch('./data/products.json?v=8.1');
     allProducts = await prodRes.json();
     allProducts.forEach(p => {
       if (p.inStock === undefined) p.inStock = true;

@@ -656,6 +656,7 @@ function renderHomeRecipeCard(r) {
           <div class="home-recipe-price-box">
             <span class="home-recipe-price-label">Kit (2 Servings)</span>
             <span class="home-recipe-price-val">₹${kitPrice}</span>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 1px;">Home items not included</div>
           </div>
           <button class="btn-home-add-kit ${inCart ? 'in-cart' : ''}" onclick="event.stopPropagation(); handleRecipeKitAdd('${r.id}', this)">
             ${inCart ? '✓ IN CART' : '+ Add Kit'}
@@ -1564,6 +1565,7 @@ function renderRecipes() {
             <div class="recipe-kit-price-box">
               <span class="kit-price-label">Kit (2 Servings)</span>
               <span class="kit-price-val">₹${kitPrice}</span>
+              <div style="font-size: 10px; color: var(--text-muted); margin-top: 1px;">Home items not included</div>
             </div>
             <button class="btn-add-kit-direct ${inCart ? 'in-cart' : ''}" onclick="event.stopPropagation(); handleRecipeKitAdd('${r.id}', this)">
               ${inCart ? '✓ IN CART' : '+ ADD KIT'}
@@ -1599,9 +1601,10 @@ function addRecipeKitToCart(recipeId) {
     };
 
     if (!cart[prod.id]) {
-      cart[prod.id] = { product: prod, quantity: 1, recipeTag: recipe.name };
+      cart[prod.id] = { product: prod, quantity: 1, recipeTag: recipe.name, isHomeItem: false };
     } else {
       cart[prod.id].quantity += 1;
+      cart[prod.id].isHomeItem = false;
     }
     addedItems++;
   });
@@ -1691,6 +1694,78 @@ function updateServings(delta) {
   updateModalSummary();
 }
 
+function getLeftoverNote(ing, prod, servings, packMultiplier) {
+  if (ing.isHomeItem || !prod || !prod.weight) return '';
+  
+  const w = prod.weight.trim();
+  let packVal = null;
+  let packUnit = null;
+  let packStr = '';
+
+  const kgMatch = w.match(/(\d+(?:\.\d+)?)\s*kg/i);
+  if (kgMatch) {
+    packVal = parseFloat(kgMatch[1]) * 1000;
+    packUnit = 'g';
+    packStr = parseFloat(kgMatch[1]) < 1 ? `${packVal} g` : `${kgMatch[1]} kg`;
+  } else {
+    const lMatch = w.match(/(\d+(?:\.\d+)?)\s*L(?:itre)?/i);
+    if (lMatch) {
+      packVal = parseFloat(lMatch[1]) * 1000;
+      packUnit = 'ml';
+      packStr = `${lMatch[1]} L`;
+    } else {
+      const mlMatch = w.match(/(\d+(?:\.\d+)?)\s*ml/i);
+      if (mlMatch) {
+        packVal = parseFloat(mlMatch[1]);
+        packUnit = 'ml';
+        packStr = `${Math.round(packVal)} ml`;
+      } else {
+        const gMatch = w.match(/(\d+(?:\.\d+)?)\s*g/i);
+        if (gMatch) {
+          packVal = parseFloat(gMatch[1]);
+          packUnit = 'g';
+          packStr = `${Math.round(packVal)} g`;
+        } else {
+          const pcsMatch = w.match(/(\d+)\s*(?:pcs|pc|slices|pack)/i) || w.match(/Pack of\s*(\d+)/i);
+          if (pcsMatch) {
+            packVal = parseFloat(pcsMatch[1]);
+            packUnit = 'pcs';
+            packStr = `${pcsMatch[1]} pcs`;
+          }
+        }
+      }
+    }
+  }
+
+  if (!packVal || !packUnit) return '';
+
+  const rawQty = (ing.amountPerServing || 1) * servings;
+  let used = rawQty;
+
+  const unitLower = (ing.unit || '').toLowerCase();
+  if (packUnit === 'g') {
+    if (unitLower === 'kg') used = rawQty * 1000;
+    else if (unitLower === 'tbsp') used = rawQty * 20; // 1 tbsp butter/ghee ~ 20g
+    else if (unitLower === 'tsp') used = rawQty * 5;
+  } else if (packUnit === 'ml') {
+    if (unitLower === 'tbsp') used = rawQty * 15;
+    else if (unitLower === 'tsp') used = rawQty * 5;
+    else if (unitLower === 'l') used = rawQty * 1000;
+  } else if (packUnit === 'pcs') {
+    used = Math.ceil(rawQty);
+  }
+
+  const totalCap = packVal * packMultiplier;
+  const left = totalCap - used;
+
+  if (left <= 0) return '';
+
+  const usedDisplay = used % 1 === 0 ? used : Number(used.toFixed(1));
+  const leftDisplay = left % 1 === 0 ? left : Number(left.toFixed(1));
+
+  return `${prod.name} ${packStr} pack: ${usedDisplay} ${packUnit} used, ${leftDisplay} ${packUnit} will be left for later.`;
+}
+
 function renderIngredientRow(ing, idx) {
   const isSelected = !!ingredientSelection[idx];
   const prod = ing.product || allProducts.find(p => p.id === ing.productId) || {
@@ -1736,9 +1811,14 @@ function renderIngredientRow(ing, idx) {
 
   const statusLabel = isSelected 
     ? `<span class="ingredient-status-label" style="color:var(--maroon-primary); font-weight:800;">🛒 In Cart Kit${packMultiplier > 1 ? ` (${packMultiplier} packs)` : ''}</span>` 
-    : `<span style="font-size:10.5px; color:#888; font-weight:700;">🏠 At Home (Saved ₹${itemPrice})</span>`;
+    : `<span style="font-size:10.5px; color:#888; font-weight:700;">🏠 Already at home</span>`;
 
   const packNote = packMultiplier > 1 ? `<strong>${packMultiplier} × </strong>` : '';
+
+  const leftoverNote = getLeftoverNote(ing, prod, activeRecipeServings, packMultiplier);
+  const leftoverHtml = leftoverNote 
+    ? `<div class="ingredient-leftover-note">💡 ${leftoverNote}</div>` 
+    : '';
 
   return `
     <div class="ingredient-row ${isSelected ? '' : 'excluded'}" onclick="toggleIngredientRow(${idx})">
@@ -1756,6 +1836,7 @@ function renderIngredientRow(ing, idx) {
         <div class="ingredient-qty-note">
           Need: <strong>${formattedQty}</strong> • Store Item: ${packNote}${prod.name} (${prod.weight})
         </div>
+        ${leftoverHtml}
       </div>
       <div class="ingredient-price-col">
         <div class="ingredient-price">₹${itemPrice}</div>
@@ -1812,6 +1893,28 @@ function renderModalIngredients() {
   }
 
   container.innerHTML = html;
+}
+
+function updateCustomizerButtonHighlights() {
+  if (!activeRecipe) return;
+  const skipBtn = document.getElementById('btnSkipHomeItems');
+  const allBtn = document.getElementById('btnSelectAllIngredients');
+  if (!skipBtn || !allBtn) return;
+
+  const allSelected = activeRecipe.ingredients.every((_, idx) => !!ingredientSelection[idx]);
+  const onlyKitSelected = activeRecipe.ingredients.every((ing, idx) => {
+    if (ing.isHomeItem) return !ingredientSelection[idx];
+    return !!ingredientSelection[idx];
+  });
+
+  skipBtn.classList.remove('active-customizer-tab');
+  allBtn.classList.remove('active-customizer-tab');
+
+  if (allSelected) {
+    allBtn.classList.add('active-customizer-tab');
+  } else if (onlyKitSelected) {
+    skipBtn.classList.add('active-customizer-tab');
+  }
 }
 
 function toggleIngredientRow(index) {
@@ -1871,8 +1974,15 @@ function updateModalSummary() {
     }
   });
 
-  document.getElementById('modalSelectedSummary').innerText = `Selected ${count} of ${activeRecipe.ingredients.length} items`;
-  document.getElementById('modalSelectedTotal').innerText = `₹${totalPrice}`;
+  const anyHomeSelected = activeRecipe.ingredients.some((ing, idx) => ingredientSelection[idx] && ing.isHomeItem);
+
+  document.getElementById('modalSelectedSummary').innerText = `Kit (${count} items)`;
+  document.getElementById('modalSelectedTotal').innerText = `Kit ₹${totalPrice}`;
+
+  const subtextEl = document.getElementById('modalPriceSubtext');
+  if (subtextEl) {
+    subtextEl.innerText = anyHomeSelected ? 'Includes selected home items' : 'Home items not included';
+  }
 
   const addBtn = document.getElementById('btnBatchAddToCart');
   if (count === 0) {
@@ -1882,8 +1992,10 @@ function updateModalSummary() {
   } else {
     addBtn.disabled = false;
     addBtn.style.opacity = '1';
-    addBtn.innerText = `🛒 Add Selected (${count} items • ₹${totalPrice}) to Cart`;
+    addBtn.innerText = `🛒 Add Kit to Cart • ₹${totalPrice}`;
   }
+
+  updateCustomizerButtonHighlights();
 }
 
 function renderModalSteps() {
@@ -1929,9 +2041,15 @@ function batchAddSelectedIngredients() {
       const prod = ing.product || allProducts.find(p => p.id === ing.productId);
       if (prod && prod.inStock !== false) {
         if (!cart[prod.id]) {
-          cart[prod.id] = { product: prod, quantity: packMultiplier, recipeTag: activeRecipe.name };
+          cart[prod.id] = {
+            product: prod,
+            quantity: packMultiplier,
+            recipeTag: activeRecipe.name,
+            isHomeItem: !!ing.isHomeItem
+          };
         } else {
           cart[prod.id].quantity += packMultiplier;
+          cart[prod.id].isHomeItem = !!ing.isHomeItem;
         }
         addedCount++;
       }
@@ -2046,6 +2164,33 @@ function closeCartDrawer() {
   document.body.style.overflow = 'auto';
 }
 
+function renderCartItemRow(entry) {
+  const p = entry.product;
+  const itemTotal = p.price * entry.quantity;
+
+  const recipeBadge = entry.recipeTag 
+    ? `<div class="cart-recipe-tag">For: ${entry.recipeTag}</div>` 
+    : '';
+
+  return `
+    <div class="cart-item-row">
+      <div class="cart-item-info">
+        <div class="cart-item-title">${p.name}</div>
+        <div style="font-size: 11.5px; color: var(--text-muted);">${p.weight} • ₹${p.price} each</div>
+        ${recipeBadge}
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-family: var(--font-heading); font-size: 15px; font-weight: 800; color: var(--text-dark);">₹${itemTotal}</span>
+        <div class="qty-counter">
+          <button class="qty-btn" onclick="updateCartQty('${p.id}', -1)">−</button>
+          <span class="qty-value">${entry.quantity}</span>
+          <button class="qty-btn" onclick="updateCartQty('${p.id}', 1)">+</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function renderCartDrawer() {
   const container = document.getElementById('cartItemsList');
   const cartEntries = Object.values(cart);
@@ -2073,35 +2218,40 @@ function renderCartDrawer() {
   document.getElementById('btnProceedCheckout').style.opacity = '1';
 
   let itemSubtotal = 0;
+  cartEntries.forEach(entry => {
+    itemSubtotal += entry.product.price * entry.quantity;
+  });
 
-  container.innerHTML = cartEntries.map(entry => {
-    const p = entry.product;
-    const itemTotal = p.price * entry.quantity;
-    itemSubtotal += itemTotal;
+  const kitEntries = cartEntries.filter(e => !e.isHomeItem);
+  const homeEntries = cartEntries.filter(e => !!e.isHomeItem);
 
-    const recipeBadge = entry.recipeTag 
-      ? `<div class="cart-recipe-tag">For: ${entry.recipeTag}</div>` 
-      : '';
+  let html = '';
 
-    return `
-      <div class="cart-item-row">
-        <div class="cart-item-info">
-          <div class="cart-item-title">${p.name}</div>
-          <div style="font-size: 11.5px; color: var(--text-muted);">${p.weight} • ₹${p.price} each</div>
-          ${recipeBadge}
+  if (kitEntries.length > 0) {
+    html += `
+      <div class="cart-group-section">
+        <div class="cart-group-header" style="color: var(--maroon-primary);">
+          <span>📦 Kit items</span>
+          <span style="font-size: 10.5px; background: #e8f5e9; color: #2e7d32; padding: 1px 7px; border-radius: 10px; font-weight: 700;">${kitEntries.length}</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="font-family: var(--font-heading); font-size: 15px; font-weight: 800; color: var(--text-dark);">₹${itemTotal}</span>
-          <div class="qty-counter">
-            <button class="qty-btn" onclick="updateCartQty('${p.id}', -1)">−</button>
-            <span class="qty-value">${entry.quantity}</span>
-            <button class="qty-btn" onclick="updateCartQty('${p.id}', 1)">+</button>
-          </div>
-        </div>
+        ${kitEntries.map(e => renderCartItemRow(e)).join('')}
       </div>
     `;
-  }).join('');
+  }
 
+  if (homeEntries.length > 0) {
+    html += `
+      <div class="cart-group-section" style="margin-top: 14px;">
+        <div class="cart-group-header" style="color: #666;">
+          <span>🏠 Home items</span>
+          <span style="font-size: 10.5px; background: #f5f5f5; color: #555; padding: 1px 7px; border-radius: 10px; font-weight: 700;">${homeEntries.length}</span>
+        </div>
+        ${homeEntries.map(e => renderCartItemRow(e)).join('')}
+      </div>
+    `;
+  }
+
+  container.innerHTML = html;
   updateBill(itemSubtotal);
 }
 

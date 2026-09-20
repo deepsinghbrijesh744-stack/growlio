@@ -7,7 +7,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>Grovio - 10 Min Groceries & Chef Recipe Kits | Tricity Chandigarh, Mohali, Panchkula</title>
-  <link rel="stylesheet" href="./static/css/style.css?v=8.5" />
+  <link rel="stylesheet" href="./static/css/style.css?v=8.7" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -139,6 +139,7 @@
                   <div class="spotlight-price-box">
                     <span class="spotlight-price-sub">Kit (2 Servings)</span>
                     <span class="spotlight-price-num">₹466</span>
+                    <span style="font-size: 10px; color: var(--text-muted); display: block; margin-top: 1px;">Home items not included</span>
                   </div>
                   <button class="btn-spotlight-add-kit" onclick="addRecipeKitToCart('rec_dal_makhani')">
                     + Add Kit to Cart
@@ -805,8 +806,8 @@
               </p>
             </div>
             <div style="display: flex; gap: 8px;">
-              <button class="toggle-all-btn" onclick="toggleAllIngredients(true)">Select All</button>
-              <button class="toggle-all-btn" onclick="skipHomeItems()">Skip home items</button>
+              <button id="btnSkipHomeItems" class="toggle-all-btn active-customizer-tab" onclick="skipHomeItems()">Skip home items</button>
+              <button id="btnSelectAllIngredients" class="toggle-all-btn" onclick="toggleAllIngredients(true)">Select All</button>
             </div>
           </div>
 
@@ -831,11 +832,12 @@
       <!-- Sticky Action Bar in Modal -->
       <div class="modal-footer-action">
         <div class="cart-summary-text">
-          <span id="modalSelectedSummary" class="cart-summary-count">Selected 0 items</span>
-          <span id="modalSelectedTotal" class="cart-summary-price">₹0</span>
+          <span id="modalSelectedSummary" class="cart-summary-count">Kit (0 items)</span>
+          <span id="modalSelectedTotal" class="cart-summary-price">Kit ₹0</span>
+          <div id="modalPriceSubtext" style="font-size: 10px; color: var(--text-muted); margin-top: 1px;">Home items not included</div>
         </div>
         <button id="btnBatchAddToCart" class="btn-batch-add-cart" onclick="batchAddSelectedIngredients()">
-          🛒 Add Selected Ingredients to Cart
+          🛒 Add Kit to Cart
         </button>
       </div>
 
@@ -990,6 +992,6 @@
   </div> <!-- /device-page-layout -->
 
   <!-- Application Logic -->
-  <script src="./static/js/app.js?v=8.6"></script>
+  <script src="./static/js/app.js?v=8.7"></script>
 </body>
 </html>

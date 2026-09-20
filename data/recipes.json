@@ -16,7 +16,7 @@
     "defaultServings": 2,
     "kitPrice": 195,
     "thumbnail": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/a30BLUQiFoc",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/oJugWXA9hdE?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "04:45",
     "description": "Tricity highway dhaba favorite! Soft malai paneer cubes simmered in a spiced, buttery tomato-cashew gravy with kasuri methi and fresh cream.",
     "steps": [
@@ -99,7 +99,7 @@
         "notes": "For rich gravy base"
       }
     ],
-    "youtubeId": "a30BLUQiFoc"
+    "youtubeId": "oJugWXA9hdE"
   },
   {
     "id": "rec_dal_makhani",
@@ -118,7 +118,7 @@
     "defaultServings": 2,
     "kitPrice": 165,
     "thumbnail": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/N4wvHDDF41U",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/OA1UuT_5PJ8?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "05:15",
     "description": "The crown jewel of Punjabi dhabas. Whole black lentils and rajma slow-simmered with smoky charcoal dhungar, white butter, and fresh cream.",
     "steps": [
@@ -193,7 +193,7 @@
         "notes": "Finishing cream"
       }
     ],
-    "youtubeId": "N4wvHDDF41U"
+    "youtubeId": "OA1UuT_5PJ8"
   },
   {
     "id": "rec_2",
@@ -212,7 +212,7 @@
     "defaultServings": 2,
     "kitPrice": 145,
     "thumbnail": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/j-ucNH4rGC0",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/8tLKTNTt-lU?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "05:10",
     "description": "Authentic Amritsari street-style Chole boiled with black tea and whole spices, tossed in tangy anardana masala with fluffy bhature mix.",
     "steps": [
@@ -279,7 +279,7 @@
         "notes": "Garnish juliennes"
       }
     ],
-    "youtubeId": "j-ucNH4rGC0"
+    "youtubeId": "8tLKTNTt-lU"
   },
   {
     "id": "rec_sarson_saag",
@@ -298,7 +298,7 @@
     "defaultServings": 2,
     "kitPrice": 175,
     "thumbnail": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/V7XCQ78j4ic",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/VgF53Kqvjdg?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "05:40",
     "description": "Punjab's pride! Clean washed sarson, palak, and bathua greens churned with makki atta and tempered in garlic, ginger, and desi ghee.",
     "steps": [
@@ -358,7 +358,7 @@
         "notes": "Chopped garlic"
       }
     ],
-    "youtubeId": "V7XCQ78j4ic"
+    "youtubeId": "VgF53Kqvjdg"
   },
   {
     "id": "rec_shahi_paneer",
@@ -377,7 +377,7 @@
     "defaultServings": 2,
     "kitPrice": 210,
     "thumbnail": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/G3-EASdBTOU",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/W3GlgT47U-w?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "04:20",
     "description": "Rich Awadhi delicacy. Delicate paneer triangles in a royal white cashew-almond and yogurt gravy perfumed with green cardamom and kewra.",
     "steps": [
@@ -445,7 +445,7 @@
         "notes": "Royal aroma"
       }
     ],
-    "youtubeId": "G3-EASdBTOU"
+    "youtubeId": "W3GlgT47U-w"
   },
   {
     "id": "rec_dum_biryani",
@@ -464,7 +464,7 @@
     "defaultServings": 2,
     "kitPrice": 225,
     "thumbnail": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/DQ6OZQ5EhzQ",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/-kVlSZLxQcU?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "06:00",
     "description": "Authentic slow dum-cooked biryani. Spiced marinated paneer and fresh veggies layered with 70% boiled Daawat basmati rice, birista, mint leaves, and desi ghee.",
     "steps": [
@@ -524,7 +524,7 @@
         "notes": "Dum drizzle"
       }
     ],
-    "youtubeId": "DQ6OZQ5EhzQ"
+    "youtubeId": "-kVlSZLxQcU"
   },
   {
     "id": "rec_chilli_paneer",
@@ -543,7 +543,7 @@
     "defaultServings": 2,
     "kitPrice": 165,
     "thumbnail": "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/P7ZGxWKJkX8",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/ZhjXOkbviaE?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "03:50",
     "description": "Every Indian's favorite Indo-Chinese appetizer! Crispy cornstarch-dusted paneer wok-tossed in garlic, green chillies, dark soy sauce, and red chilli sauce.",
     "steps": [
@@ -603,7 +603,7 @@
         "notes": "Wok sauce kit"
       }
     ],
-    "youtubeId": "P7ZGxWKJkX8"
+    "youtubeId": "ZhjXOkbviaE"
   },
   {
     "id": "rec_hakka_noodles",
@@ -622,7 +622,7 @@
     "defaultServings": 2,
     "kitPrice": 120,
     "thumbnail": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/u3vuq3zaR20",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/MSyf7eS39U4?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "03:40",
     "description": "Desi Chinese street chowmein taste at home! Steamed non-sticky noodles tossed with crunchy julienned vegetables and aromatic garlic pepper seasoning.",
     "steps": [
@@ -682,7 +682,7 @@
         "notes": "Seasoning sauce"
       }
     ],
-    "youtubeId": "u3vuq3zaR20"
+    "youtubeId": "MSyf7eS39U4"
   },
   {
     "id": "rec_pav_bhaji",
@@ -701,7 +701,7 @@
     "defaultServings": 2,
     "kitPrice": 140,
     "thumbnail": "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/4K0feojCXjY",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/8whZ6bn49bg?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "04:15",
     "description": "Famous Juhu Beach taste! Potatoes, green peas, cauliflower, and tomatoes mashed on a hot griddle with Pav Bhaji masala, topped with butter and lemon.",
     "steps": [
@@ -761,7 +761,7 @@
         "notes": "Soft buns"
       }
     ],
-    "youtubeId": "4K0feojCXjY"
+    "youtubeId": "8whZ6bn49bg"
   },
   {
     "id": "rec_chole_kulche",
@@ -780,7 +780,7 @@
     "defaultServings": 2,
     "kitPrice": 125,
     "thumbnail": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/NDObjug7vXU",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/yP5jH5rIdsY?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "03:30",
     "description": "Chandni Chowk street special! Boiled soft white matar tossed with dry mango powder, ginger, lemon juice, and served with butter-toasted kulchas.",
     "steps": [
@@ -840,7 +840,7 @@
         "notes": "Tangy street chutney"
       }
     ],
-    "youtubeId": "NDObjug7vXU"
+    "youtubeId": "yP5jH5rIdsY"
   },
   {
     "id": "rec_masala_dosa",
@@ -859,7 +859,7 @@
     "defaultServings": 2,
     "kitPrice": 135,
     "thumbnail": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/LRNmYe2xRIo",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/P-u2wq8RVp4?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "04:30",
     "description": "Udupi restaurant breakfast at your doorstep. Fresh naturally fermented ID batter with pre-tempered mustard potato palya, drumstick sambar, and grated coconut chutney.",
     "steps": [
@@ -919,7 +919,7 @@
         "notes": "Ready sambar base"
       }
     ],
-    "youtubeId": "LRNmYe2xRIo"
+    "youtubeId": "P-u2wq8RVp4"
   },
   {
     "id": "rec_4",
@@ -938,7 +938,7 @@
     "defaultServings": 2,
     "kitPrice": 95,
     "thumbnail": "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/Bs5Xao9MDcE",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/zi3JjWX9ONg?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "03:15",
     "description": "Late night favorite in Tricity! Farm fresh eggs scrambled with onions, green chillies, butter, and a hint of pav bhaji masala, topped with gooey melted cheese.",
     "steps": [
@@ -998,7 +998,7 @@
         "notes": "Finely diced"
       }
     ],
-    "youtubeId": "Bs5Xao9MDcE"
+    "youtubeId": "zi3JjWX9ONg"
   },
   {
     "id": "rec_3",
@@ -1017,7 +1017,7 @@
     "defaultServings": 2,
     "kitPrice": 170,
     "thumbnail": "https://images.unsplash.com/photo-1621996346565-e3d5d6281699?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/SqACGqf2f_s",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/8Dcp6NdBz_0?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "04:10",
     "description": "Italian café comfort food. Durum wheat penne tossed in rich homemade Alfredo sauce with fresh button mushrooms, minced garlic, oregano, and parmesan cheese.",
     "steps": [
@@ -1092,7 +1092,7 @@
         "notes": "Oregano & chilli flakes"
       }
     ],
-    "youtubeId": "SqACGqf2f_s"
+    "youtubeId": "8Dcp6NdBz_0"
   },
   {
     "id": "rec_gajar_halwa",
@@ -1111,7 +1111,7 @@
     "defaultServings": 2,
     "kitPrice": 190,
     "thumbnail": "https://images.unsplash.com/photo-1599785209796-786432b228bc?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/fKzi1h8tjuc",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/0DDJ4mpSSfs?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "05:00",
     "description": "North India's all-time favorite winter celebration sweet! Fresh grated red juicy carrots slow-roasted in pure desi ghee, khoya, cardamom, and toasted nuts.",
     "steps": [
@@ -1171,7 +1171,7 @@
         "notes": "Sweet richness"
       }
     ],
-    "youtubeId": "fKzi1h8tjuc"
+    "youtubeId": "0DDJ4mpSSfs"
   },
   {
     "id": "rec_butter_chicken",
@@ -1190,7 +1190,7 @@
     "defaultServings": 2,
     "kitPrice": 245,
     "thumbnail": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/E9bSLVgw0qI",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/2jT9Z4K7xEk?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "05:30",
     "description": "The quintessential North Indian icon! Marinated chicken cuts seared and slow-cooked in velvety tomato-cashew makhani gravy with dollops of Amul butter.",
     "steps": [
@@ -1265,7 +1265,7 @@
         "notes": "For rich gravy"
       }
     ],
-    "youtubeId": "E9bSLVgw0qI"
+    "youtubeId": "2jT9Z4K7xEk"
   },
   {
     "id": "rec_chicken_biryani",
@@ -1284,7 +1284,7 @@
     "defaultServings": 2,
     "kitPrice": 265,
     "thumbnail": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=600&auto=format&fit=crop&q=80",
-    "videoEmbed": "https://www.youtube.com/embed/1yBjHT4LXKo",
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/JzIW8gqlhJk?autoplay=1&playsinline=1&rel=0&modestbranding=1",
     "videoDuration": "06:10",
     "description": "Royal Mughlai heritage in your kitchen! Aged Daawat Basmati layered with slow-marinated chicken, whole spices, mint, brown onions, and pure saffron.",
     "steps": [
@@ -1359,7 +1359,7 @@
         "notes": "Thinly sliced"
       }
     ],
-    "youtubeId": "1yBjHT4LXKo"
+    "youtubeId": "JzIW8gqlhJk"
   },
   {
     "id": "rec_crispy_veg_burger",
@@ -1379,7 +1379,7 @@
     "rating": 4.95,
     "reviewsCount": 612,
     "thumbnail": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=80",
-    "youtubeId": "_q5GKCNZcHI",
+    "youtubeId": "I6QYGtPeZ7g",
     "kitPrice": 155,
     "ingredients": [
       {
@@ -1461,7 +1461,7 @@
       "fiber": "4.5g"
     },
     "chefTip": "Place the cheese slice on the hot patty right when it comes off the pan so it melts naturally without getting greasy.",
-    "videoEmbed": "https://www.youtube.com/embed/_q5GKCNZcHI"
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/I6QYGtPeZ7g?autoplay=1&playsinline=1&rel=0&modestbranding=1"
   },
   {
     "id": "rec_crispy_chicken_burger",
@@ -1481,7 +1481,7 @@
     "rating": 4.97,
     "reviewsCount": 845,
     "thumbnail": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&auto=format&fit=crop&q=80",
-    "youtubeId": "DM22sU6MjrQ",
+    "youtubeId": "Delk--iOUgE",
     "kitPrice": 195,
     "ingredients": [
       {
@@ -1563,7 +1563,7 @@
       "fiber": "3.5g"
     },
     "chefTip": "Don't press down on the chicken while frying to retain the natural moisture and crunchy airy crust.",
-    "videoEmbed": "https://www.youtube.com/embed/DM22sU6MjrQ"
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/Delk--iOUgE?autoplay=1&playsinline=1&rel=0&modestbranding=1"
   },
   {
     "id": "rec_peri_peri_fries",
@@ -1583,7 +1583,7 @@
     "rating": 4.92,
     "reviewsCount": 420,
     "thumbnail": "https://images.unsplash.com/photo-1576107232684-1279f3908594?w=800&auto=format&fit=crop&q=80",
-    "youtubeId": "wg6HnpmJPMM",
+    "youtubeId": "YtnzheRO17I",
     "kitPrice": 135,
     "ingredients": [
       {
@@ -1649,7 +1649,7 @@
       "fiber": "4g"
     },
     "chefTip": "Toss the peri-peri seasoning the exact moment fries come out of the oil so the spices adhere tightly to the crust.",
-    "videoEmbed": "https://www.youtube.com/embed/wg6HnpmJPMM"
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/YtnzheRO17I?autoplay=1&playsinline=1&rel=0&modestbranding=1"
   },
   {
     "id": "rec_bombay_grilled_sandwich",
@@ -1669,7 +1669,7 @@
     "rating": 4.96,
     "reviewsCount": 780,
     "thumbnail": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=800&auto=format&fit=crop&q=80",
-    "youtubeId": "OJc7X_FS_ek",
+    "youtubeId": "FTrojLwEA8I",
     "kitPrice": 125,
     "ingredients": [
       {
@@ -1751,7 +1751,7 @@
       "fiber": "5g"
     },
     "chefTip": "Always apply butter before green chutney to prevent bread from getting soggy.",
-    "videoEmbed": "https://www.youtube.com/embed/OJc7X_FS_ek"
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/FTrojLwEA8I?autoplay=1&playsinline=1&rel=0&modestbranding=1"
   },
   {
     "id": "rec_paneer_tikka_sandwich",
@@ -1771,7 +1771,7 @@
     "rating": 4.94,
     "reviewsCount": 540,
     "thumbnail": "https://images.unsplash.com/photo-1554433607-66b5efe9d304?w=800&auto=format&fit=crop&q=80",
-    "youtubeId": "gb9j6pddju0",
+    "youtubeId": "qjJapzuhHRU",
     "kitPrice": 165,
     "ingredients": [
       {
@@ -1853,7 +1853,7 @@
       "fiber": "3.5g"
     },
     "chefTip": "Covering the pan with a lid while toasting traps steam and makes the cheese melt instantly without burning the bottom bread.",
-    "videoEmbed": "https://www.youtube.com/embed/gb9j6pddju0"
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/qjJapzuhHRU?autoplay=1&playsinline=1&rel=0&modestbranding=1"
   },
   {
     "id": "rec_chicken_club_sandwich",
@@ -1873,7 +1873,7 @@
     "rating": 4.98,
     "reviewsCount": 690,
     "thumbnail": "https://images.unsplash.com/photo-1553909489-cd47e0907980?w=800&auto=format&fit=crop&q=80",
-    "youtubeId": "3N6wYHj5t9E",
+    "youtubeId": "O5Ontjn4kAM",
     "kitPrice": 185,
     "ingredients": [
       {
@@ -1955,7 +1955,7 @@
       "fiber": "3.5g"
     },
     "chefTip": "Insert toothpicks before cutting to hold the 3 layers firmly in place while slicing diagonally.",
-    "videoEmbed": "https://www.youtube.com/embed/3N6wYHj5t9E"
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/O5Ontjn4kAM?autoplay=1&playsinline=1&rel=0&modestbranding=1"
   },
   {
     "id": "rec_alfredo_pasta",
@@ -1975,7 +1975,7 @@
     "rating": 4.97,
     "reviewsCount": 890,
     "thumbnail": "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=800&auto=format&fit=crop&q=80",
-    "youtubeId": "gEYcNs9QenI",
+    "youtubeId": "fsKEcfROyOc",
     "kitPrice": 175,
     "ingredients": [
       {
@@ -2057,7 +2057,7 @@
       "fiber": "4g"
     },
     "chefTip": "Always save a splash of starchy pasta water — it binds the cream and cheese sauce so it never separates.",
-    "videoEmbed": "https://www.youtube.com/embed/gEYcNs9QenI"
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/fsKEcfROyOc?autoplay=1&playsinline=1&rel=0&modestbranding=1"
   },
   {
     "id": "rec_arrabiata_pasta",
@@ -2077,7 +2077,7 @@
     "rating": 4.93,
     "reviewsCount": 610,
     "thumbnail": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&auto=format&fit=crop&q=80",
-    "youtubeId": "U-4MCjHtLIs",
+    "youtubeId": "FVMa5G6I2Zk",
     "kitPrice": 160,
     "ingredients": [
       {
@@ -2159,7 +2159,7 @@
       "fiber": "5g"
     },
     "chefTip": "Fusilli spirals are the best shape for Arrabiata because the grooves catch and hold maximum marinara sauce in every forkful.",
-    "videoEmbed": "https://www.youtube.com/embed/U-4MCjHtLIs"
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/FVMa5G6I2Zk?autoplay=1&playsinline=1&rel=0&modestbranding=1"
   },
   {
     "id": "rec_artisan_pizza",
@@ -2179,7 +2179,7 @@
     "rating": 4.96,
     "reviewsCount": 725,
     "thumbnail": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&auto=format&fit=crop&q=80",
-    "youtubeId": "mjcEUYs9EAw",
+    "youtubeId": "P3qkkNm85x4",
     "kitPrice": 180,
     "ingredients": [
       {
@@ -2261,7 +2261,7 @@
       "fiber": "4g"
     },
     "chefTip": "Cooking on low heat with a tight lid on a heavy tawa produces the exact same bubbly cheese and crunchy crust as a 300°C brick oven!",
-    "videoEmbed": "https://www.youtube.com/embed/mjcEUYs9EAw"
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/P3qkkNm85x4?autoplay=1&playsinline=1&rel=0&modestbranding=1"
   },
   {
     "id": "rec_kolkata_paneer_roll",
@@ -2281,7 +2281,7 @@
     "rating": 4.94,
     "reviewsCount": 510,
     "thumbnail": "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=800&auto=format&fit=crop&q=80",
-    "youtubeId": "hJezRGdBwrc",
+    "youtubeId": "D6z1J-hcWio",
     "kitPrice": 145,
     "ingredients": [
       {
@@ -2355,7 +2355,7 @@
       "fiber": "4g"
     },
     "chefTip": "Toss raw onion rings with lemon juice and a pinch of salt 5 minutes before rolling — it cuts the sharpness and gives that signature street crunch.",
-    "videoEmbed": "https://www.youtube.com/embed/hJezRGdBwrc"
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/D6z1J-hcWio?autoplay=1&playsinline=1&rel=0&modestbranding=1"
   },
   {
     "id": "rec_double_egg_chicken_roll",
@@ -2375,7 +2375,7 @@
     "rating": 4.99,
     "reviewsCount": 980,
     "thumbnail": "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80",
-    "youtubeId": "pM5DMzqoibo",
+    "youtubeId": "g3bq4_pZyVg",
     "kitPrice": 175,
     "ingredients": [
       {
@@ -2449,6 +2449,6 @@
       "fiber": "3g"
     },
     "chefTip": "Pressing the paratha onto the runny egg while the egg is still liquid locks the egg directly into the paratha layers.",
-    "videoEmbed": "https://www.youtube.com/embed/pM5DMzqoibo"
+    "videoEmbed": "https://www.youtube-nocookie.com/embed/g3bq4_pZyVg?autoplay=1&playsinline=1&rel=0&modestbranding=1"
   }
 ]

@@ -262,7 +262,7 @@ async function loadData() {
       recRes = await fetch('/api/recipes');
       if (!recRes.ok) throw new Error('API route unavailable');
     } catch {
-      recRes = await fetch('./data/recipes.json?v=8.2');
+      recRes = await fetch('./data/recipes.json?v=8.3');
     }
 
     allProducts = await prodRes.json();
@@ -1826,8 +1826,10 @@ function renderModalSteps() {
 
 function seekVideo(seconds) {
   if (!activeRecipe) return;
-  const baseEmbed = activeRecipe.videoEmbed;
-  document.getElementById('modalVideoFrame').src = `${baseEmbed}?start=${seconds}&autoplay=1&rel=0`;
+  const ytId = activeRecipe.youtubeId || (activeRecipe.videoEmbed ? activeRecipe.videoEmbed.split('/').pop().split('?')[0] : '');
+  if (ytId) {
+    document.getElementById('modalVideoFrame').src = `https://www.youtube-nocookie.com/embed/${ytId}?start=${seconds}&autoplay=1&mute=0&rel=0&playsinline=1&modestbranding=1`;
+  }
   showToast(`Jumped to step @ ${Math.floor(seconds/60)}m ${seconds%60}s`);
 }
 

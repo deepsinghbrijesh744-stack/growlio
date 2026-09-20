@@ -255,14 +255,14 @@ async function loadData() {
       prodRes = await fetch('/api/products');
       if (!prodRes.ok) throw new Error('API route unavailable');
     } catch {
-      prodRes = await fetch('./data/products.json?v=8.1');
+      prodRes = await fetch('./data/products.json?v=8.2');
     }
 
     try {
       recRes = await fetch('/api/recipes');
       if (!recRes.ok) throw new Error('API route unavailable');
     } catch {
-      recRes = await fetch('./data/recipes.json?v=8.1');
+      recRes = await fetch('./data/recipes.json?v=8.2');
     }
 
     allProducts = await prodRes.json();
@@ -1634,7 +1634,12 @@ async function openRecipeModal(recipeId) {
     activeRecipeServings = activeRecipe.defaultServings || 2;
 
     document.getElementById('modalRecipeTitle').innerHTML = `🍳 ${activeRecipe.name}`;
-    document.getElementById('modalVideoFrame').src = activeRecipe.videoEmbed + '?autoplay=1&mute=0&rel=0';
+    const ytId = activeRecipe.youtubeId || (activeRecipe.videoEmbed ? activeRecipe.videoEmbed.split('/').pop().split('?')[0] : '');
+    if (ytId) {
+      document.getElementById('modalVideoFrame').src = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=0&rel=0&playsinline=1&modestbranding=1&enablejsapi=1`;
+    } else if (activeRecipe.videoEmbed) {
+      document.getElementById('modalVideoFrame').src = activeRecipe.videoEmbed + (activeRecipe.videoEmbed.includes('?') ? '&' : '?') + 'autoplay=1&mute=0&rel=0&playsinline=1';
+    }
 
     document.getElementById('modalMetaTime').innerText = `⏱️ ${activeRecipe.totalTime}`;
     document.getElementById('modalMetaCalories').innerText = `🔥 ${activeRecipe.calories}`;
@@ -2536,7 +2541,7 @@ async function resetAdminPricesToDefault() {
     customPriceOverrides = {};
     adminPendingChanges = {};
 
-    const prodRes = await fetch('./data/products.json?v=8.1');
+    const prodRes = await fetch('./data/products.json?v=8.2');
     allProducts = await prodRes.json();
     allProducts.forEach(p => {
       if (p.inStock === undefined) p.inStock = true;

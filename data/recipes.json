@@ -56,47 +56,95 @@
         "unit": "g",
         "productId": "prod_v1",
         "isPantryStaple": false,
-        "notes": "Soft fresh paneer"
+        "notes": "Soft fresh cubes (200g total for 2)"
       },
       {
-        "name": "Amul Butter",
-        "amountPerServing": 25,
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 100,
         "unit": "g",
-        "productId": "prod_amul_butter",
+        "productId": "prod_v3",
         "isPantryStaple": false,
-        "notes": "Salted butter"
+        "notes": "Ripe tomatoes for velvety gravy (~2.5 pcs)"
       },
       {
-        "name": "Amul Fresh Cream",
-        "amountPerServing": 30,
-        "unit": "ml",
-        "productId": "prod_amul_cream",
-        "isPantryStaple": false,
-        "notes": "Rich velvety finish"
-      },
-      {
-        "name": "Mandi Fresh Tomatoes",
-        "amountPerServing": 150,
+        "name": "Fresh Garlic Cloves",
+        "amountPerServing": 5,
         "unit": "g",
-        "productId": "prod_v5",
+        "productId": "prod_v7",
         "isPantryStaple": false,
-        "notes": "Ripe red tomatoes"
+        "notes": "5-6 peeled cloves"
       },
       {
-        "name": "Red Onions",
-        "amountPerServing": 80,
+        "name": "Fresh Ginger",
+        "amountPerServing": 5,
         "unit": "g",
         "productId": "prod_v6",
         "isPantryStaple": false,
-        "notes": "Fine sliced"
+        "notes": "1 inch piece"
       },
       {
-        "name": "Cashews Whole (Kaju)",
-        "amountPerServing": 15,
+        "name": "Whole Cashews (Kaju)",
+        "amountPerServing": 8,
         "unit": "g",
-        "productId": "prod_24",
+        "productId": "snk_cashews_200g",
         "isPantryStaple": false,
-        "notes": "For rich gravy base"
+        "notes": "8 whole cashews for rich makhani base"
+      },
+      {
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 1,
+        "unit": "tbsp",
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "2 tbsp total for slow simmer"
+      },
+      {
+        "name": "Amul Fresh Cream",
+        "amountPerServing": 0.5,
+        "unit": "tbsp",
+        "productId": "prod_amul_cream",
+        "isPantryStaple": false,
+        "notes": "1 tbsp for luscious finish"
+      },
+      {
+        "name": "Kasuri Methi (Nagauri Fenugreek)",
+        "amountPerServing": 0.25,
+        "unit": "tbsp",
+        "productId": "spc_catch_kasuri_methi",
+        "isPantryStaple": true,
+        "notes": "Crushed between palms"
+      },
+      {
+        "name": "Green Chillies",
+        "amountPerServing": 0.5,
+        "unit": "piece",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": true,
+        "notes": "Slit green chillies"
+      },
+      {
+        "name": "Cinnamon Stick (Dalchini)",
+        "amountPerServing": 0.25,
+        "unit": "piece",
+        "productId": "prod_spices_mix",
+        "isPantryStaple": true,
+        "notes": "1/4 inch stick for aroma"
+      },
+      {
+        "name": "Makhani Spices (Degi Mirch, Haldi, Coriander, Garam Masala)",
+        "amountPerServing": 1,
+        "unit": "tsp",
+        "productId": "prod_24",
+        "isPantryStaple": true,
+        "notes": "Balanced Punjabi dhaba spice blend"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "oJugWXA9hdE"
@@ -153,44 +201,92 @@
     ],
     "ingredients": [
       {
-        "name": "Sabut Urad & Rajma Mix",
-        "amountPerServing": 90,
+        "name": "Tata Sampann Sabut Urad Dal",
+        "amountPerServing": 50,
         "unit": "g",
         "productId": "prod_dals_urad",
         "isPantryStaple": false,
-        "notes": "Pre-soaked lentil mix"
+        "notes": "1/2 cup whole black urad (soaked overnight)"
       },
       {
-        "name": "Amul Butter",
-        "amountPerServing": 30,
+        "name": "Tata Sampann Jammu Rajma",
+        "amountPerServing": 15,
         "unit": "g",
+        "productId": "dal_punjabi_rajma",
+        "isPantryStaple": false,
+        "notes": "2 tbsp soaked kidney beans"
+      },
+      {
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 1.25,
+        "unit": "tbsp",
         "productId": "prod_amul_butter",
         "isPantryStaple": false,
-        "notes": "Pure butter"
-      },
-      {
-        "name": "Desi Ghee",
-        "amountPerServing": 15,
-        "unit": "ml",
-        "productId": "prod_15",
-        "isPantryStaple": false,
-        "notes": "Aromatic tadka ghee"
-      },
-      {
-        "name": "Mandi Fresh Tomatoes",
-        "amountPerServing": 120,
-        "unit": "g",
-        "productId": "prod_v5",
-        "isPantryStaple": false,
-        "notes": "Pureed"
+        "notes": "2.5 tbsp butter divided in gravy and tadka"
       },
       {
         "name": "Amul Fresh Cream",
-        "amountPerServing": 25,
-        "unit": "ml",
+        "amountPerServing": 1.5,
+        "unit": "tbsp",
         "productId": "prod_amul_cream",
         "isPantryStaple": false,
-        "notes": "Finishing cream"
+        "notes": "3 tbsp fresh cream for velvety texture"
+      },
+      {
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 75,
+        "unit": "g",
+        "productId": "prod_v3",
+        "isPantryStaple": false,
+        "notes": "2 ripe tomatoes pureed"
+      },
+      {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 35,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "1/2 cup finely chopped"
+      },
+      {
+        "name": "Fresh Ginger Garlic Paste",
+        "amountPerServing": 0.5,
+        "unit": "tbsp",
+        "productId": "prod_v6",
+        "isPantryStaple": false,
+        "notes": "Freshly ground"
+      },
+      {
+        "name": "Verka Pure Desi Ghee",
+        "amountPerServing": 0.5,
+        "unit": "tbsp",
+        "productId": "prod_15",
+        "isPantryStaple": false,
+        "notes": "1 tbsp ghee for authentic dhaba tadka"
+      },
+      {
+        "name": "Kasuri Methi & Whole Spices (Bay leaf, Cardamom, Cumin, Hing)",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_catch_kasuri_methi",
+        "isPantryStaple": true,
+        "notes": "Tempering aromatics"
+      },
+      {
+        "name": "Dal Makhani Ground Spices (Degi Mirch, Turmeric, Garam Masala)",
+        "amountPerServing": 0.75,
+        "unit": "tsp",
+        "productId": "prod_24",
+        "isPantryStaple": true,
+        "notes": "Slow simmer spice blend"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "OA1UuT_5PJ8"
@@ -247,36 +343,100 @@
     ],
     "ingredients": [
       {
-        "name": "Kabuli Chana Premium",
-        "amountPerServing": 120,
+        "name": "Amritsari Bold Kabuli Chana",
+        "amountPerServing": 75,
         "unit": "g",
         "productId": "prod_chana_kabuli",
         "isPantryStaple": false,
-        "notes": "Boiled chickpeas"
+        "notes": "1 cup soaked chickpeas for 2 servings"
       },
       {
-        "name": "Amritsari Pindi Masala Kit",
-        "amountPerServing": 25,
+        "name": "Rajdhani Maida (All Purpose Flour)",
+        "amountPerServing": 65,
         "unit": "g",
-        "productId": "prod_masala_chole",
+        "productId": "atta_rajdhani_maida",
         "isPantryStaple": false,
-        "notes": "Anardana & spices"
+        "notes": "1 cup maida for fluffy bhature"
       },
       {
-        "name": "Desi Ghee",
+        "name": "Rajdhani Sooji / Rava",
         "amountPerServing": 15,
-        "unit": "ml",
-        "productId": "prod_15",
+        "unit": "g",
+        "productId": "atta_rajdhani_sooji",
         "isPantryStaple": false,
-        "notes": "Smoking tadka ghee"
+        "notes": "2.5 tbsp for crispness in bhature"
       },
       {
-        "name": "Fresh Ginger & Green Chillies",
-        "amountPerServing": 20,
+        "name": "Mother Dairy Fresh Dahi / Curd",
+        "amountPerServing": 30,
+        "unit": "ml",
+        "productId": "md_dahi_tub_400",
+        "isPantryStaple": false,
+        "notes": "1/4 cup for bhatura dough fermentation"
+      },
+      {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 50,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "1.5 onions finely chopped"
+      },
+      {
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 40,
+        "unit": "g",
+        "productId": "prod_v3",
+        "isPantryStaple": false,
+        "notes": "1 medium tomato chopped"
+      },
+      {
+        "name": "Ginger & Garlic Cloves",
+        "amountPerServing": 10,
         "unit": "g",
         "productId": "prod_v6",
         "isPantryStaple": false,
-        "notes": "Garnish juliennes"
+        "notes": "1 inch ginger + 5 garlic cloves"
+      },
+      {
+        "name": "Verka Pure Desi Ghee",
+        "amountPerServing": 0.5,
+        "unit": "tbsp",
+        "productId": "prod_15",
+        "isPantryStaple": false,
+        "notes": "1 tbsp ghee for chole tadka"
+      },
+      {
+        "name": "MDH Pindi Chole Masala & Aamchur Blend",
+        "amountPerServing": 1,
+        "unit": "tbsp",
+        "productId": "prod_masala_chole",
+        "isPantryStaple": false,
+        "notes": "Authentic dark Amritsari spice mix"
+      },
+      {
+        "name": "Tea Leaves (Chai Patti)",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_spices_mix",
+        "isPantryStaple": true,
+        "notes": "For iconic deep dark Amritsari color"
+      },
+      {
+        "name": "Baking Soda & Sugar",
+        "amountPerServing": 0.25,
+        "unit": "tsp",
+        "productId": "prod_weikfield_baking_kit",
+        "isPantryStaple": true,
+        "notes": "For bhature rise and soft texture"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "8tLKTNTt-lU"
@@ -326,36 +486,84 @@
     ],
     "ingredients": [
       {
-        "name": "Farm Fresh Sarson & Palak Greens",
-        "amountPerServing": 250,
+        "name": "Farm Fresh Sarson Greens (Mustard Leaves)",
+        "amountPerServing": 125,
         "unit": "g",
         "productId": "prod_v_spinach",
         "isPantryStaple": false,
-        "notes": "Clean sorted leaves"
+        "notes": "250g fresh cleaned mustard greens"
       },
       {
-        "name": "Makki Ka Atta (Maize Flour)",
-        "amountPerServing": 150,
+        "name": "Farm Fresh Palak (Spinach Leaves)",
+        "amountPerServing": 125,
+        "unit": "g",
+        "productId": "prod_v_spinach",
+        "isPantryStaple": false,
+        "notes": "250g tender spinach leaves"
+      },
+      {
+        "name": "Shahi Punjab Makki Ka Atta (Corn Flour)",
+        "amountPerServing": 75,
         "unit": "g",
         "productId": "prod_atta_makki",
         "isPantryStaple": false,
-        "notes": "Pure yellow maize"
+        "notes": "1.5 tbsp for saag 'aalan' + flour for rotis"
       },
       {
-        "name": "Desi Ghee",
-        "amountPerServing": 20,
-        "unit": "ml",
-        "productId": "prod_15",
+        "name": "Fresh Garlic Cloves",
+        "amountPerServing": 15,
+        "unit": "g",
+        "productId": "prod_v7",
         "isPantryStaple": false,
-        "notes": "For tadka and serving"
+        "notes": "12-15 fresh peeled cloves for saag tadka"
       },
       {
-        "name": "Fresh Garlic Pods",
-        "amountPerServing": 20,
+        "name": "Fresh Ginger (Adrak)",
+        "amountPerServing": 15,
         "unit": "g",
         "productId": "prod_v6",
         "isPantryStaple": false,
-        "notes": "Chopped garlic"
+        "notes": "1.5 inch julienned ginger"
+      },
+      {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 35,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "1/2 cup chopped for tadka"
+      },
+      {
+        "name": "Verka Pure Desi Ghee",
+        "amountPerServing": 1,
+        "unit": "tbsp",
+        "productId": "prod_15",
+        "isPantryStaple": false,
+        "notes": "2 tbsp desi ghee for tadka and hot roti"
+      },
+      {
+        "name": "Fresh Green Chillies",
+        "amountPerServing": 1,
+        "unit": "piece",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": true,
+        "notes": "2-3 spicy green chillies"
+      },
+      {
+        "name": "Kashmiri Red Chilli Powder",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_24",
+        "isPantryStaple": true,
+        "notes": "For vibrant tadka color"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "VgF53Kqvjdg"
@@ -410,39 +618,79 @@
         "unit": "g",
         "productId": "prod_v1",
         "isPantryStaple": false,
-        "notes": "Triangle cuts"
+        "notes": "200g tender malai paneer cubes"
       },
       {
-        "name": "Cashews Whole (Kaju)",
-        "amountPerServing": 30,
+        "name": "Nashik Red Onions",
+        "amountPerServing": 35,
         "unit": "g",
-        "productId": "prod_24",
+        "productId": "prod_v5",
         "isPantryStaple": false,
-        "notes": "Soaked for paste"
+        "notes": "1 medium onion boiled for white base"
       },
       {
-        "name": "Desi Ghee",
-        "amountPerServing": 15,
-        "unit": "ml",
-        "productId": "prod_15",
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 75,
+        "unit": "g",
+        "productId": "prod_v3",
         "isPantryStaple": false,
-        "notes": "Aromatic base"
+        "notes": "2 ripe tomatoes"
+      },
+      {
+        "name": "Whole Cashews (Kaju)",
+        "amountPerServing": 8,
+        "unit": "g",
+        "productId": "snk_cashews_200g",
+        "isPantryStaple": false,
+        "notes": "6-8 whole cashews for Mughlai paste"
+      },
+      {
+        "name": "California Raw Almonds (Badam)",
+        "amountPerServing": 6,
+        "unit": "g",
+        "productId": "snk_almonds_200g",
+        "isPantryStaple": false,
+        "notes": "5-6 blanched peeled almonds"
+      },
+      {
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 0.5,
+        "unit": "tbsp",
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "1 tbsp rich butter"
       },
       {
         "name": "Amul Fresh Cream",
-        "amountPerServing": 30,
-        "unit": "ml",
+        "amountPerServing": 0.75,
+        "unit": "tbsp",
         "productId": "prod_amul_cream",
         "isPantryStaple": false,
-        "notes": "Silk texture"
+        "notes": "1.5 tbsp fresh cream"
       },
       {
-        "name": "Green Cardamom & Saffron",
-        "amountPerServing": 5,
+        "name": "Fresh Ginger & Garlic Cloves",
+        "amountPerServing": 10,
         "unit": "g",
-        "productId": "prod_spices_mix",
+        "productId": "prod_v6",
         "isPantryStaple": false,
-        "notes": "Royal aroma"
+        "notes": "1 inch ginger + 5 garlic cloves"
+      },
+      {
+        "name": "Mughlai Spices (Cardamom, Cinnamon, Bay leaf, Kasuri Methi)",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_spices_mix",
+        "isPantryStaple": true,
+        "notes": "Royal whole and ground aromatic spices"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "W3GlgT47U-w"
@@ -492,36 +740,84 @@
     ],
     "ingredients": [
       {
-        "name": "Daawat Rozana Basmati Rice",
-        "amountPerServing": 120,
+        "name": "Daawat Rozana Super Basmati Rice",
+        "amountPerServing": 60,
         "unit": "g",
         "productId": "prod_rice_daawat",
         "isPantryStaple": false,
-        "notes": "Aged long grains"
+        "notes": "1/2 glass aged long grain basmati rice"
       },
       {
-        "name": "Fresh Malai Paneer",
-        "amountPerServing": 80,
+        "name": "Fresh Farm Veggies (Cauliflower, Carrot, Beans, Peas)",
+        "amountPerServing": 75,
         "unit": "g",
-        "productId": "prod_v1",
+        "productId": "veg_cauliflower",
         "isPantryStaple": false,
-        "notes": "Marinated cubes"
+        "notes": "1 cup diced mixed crunchy vegetables"
       },
       {
-        "name": "Golden Fried Birista (Onions)",
-        "amountPerServing": 30,
+        "name": "Nashik Red Onions (for Golden Birista)",
+        "amountPerServing": 45,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "Thin sliced onions for deep fried golden birista"
+      },
+      {
+        "name": "Mother Dairy Classic Dahi / Curd",
+        "amountPerServing": 25,
+        "unit": "g",
+        "productId": "md_dahi_tub_400",
+        "isPantryStaple": false,
+        "notes": "3 tbsp beaten curd for veggie marinade"
+      },
+      {
+        "name": "Verka Pure Desi Ghee",
+        "amountPerServing": 0.5,
+        "unit": "tbsp",
+        "productId": "prod_15",
+        "isPantryStaple": false,
+        "notes": "1 tbsp ghee for aromatic dum layering"
+      },
+      {
+        "name": "Ginger Garlic Paste & Green Chillies",
+        "amountPerServing": 10,
         "unit": "g",
         "productId": "prod_v6",
         "isPantryStaple": false,
-        "notes": "Crispy fried"
+        "notes": "1/2 tbsp paste + 2 green chillies"
       },
       {
-        "name": "Desi Ghee",
-        "amountPerServing": 15,
-        "unit": "ml",
-        "productId": "prod_15",
-        "isPantryStaple": false,
-        "notes": "Dum drizzle"
+        "name": "Fresh Mint & Coriander Leaves",
+        "amountPerServing": 10,
+        "unit": "g",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": true,
+        "notes": "2 tbsp each finely chopped"
+      },
+      {
+        "name": "Biryani Masala & Ground Spices",
+        "amountPerServing": 0.5,
+        "unit": "tbsp",
+        "productId": "prod_masala_chole",
+        "isPantryStaple": true,
+        "notes": "Shahi biryani spice blend"
+      },
+      {
+        "name": "Saffron (Kesar) in Warm Milk",
+        "amountPerServing": 0.5,
+        "unit": "tbsp",
+        "productId": "md_full_cream_500",
+        "isPantryStaple": true,
+        "notes": "1 tbsp infused saffron milk for fragrant aroma"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "-kVlSZLxQcU"
@@ -572,35 +868,99 @@
     "ingredients": [
       {
         "name": "Fresh Malai Paneer",
-        "amountPerServing": 120,
+        "amountPerServing": 100,
         "unit": "g",
         "productId": "prod_v1",
         "isPantryStaple": false,
-        "notes": "Cubes"
+        "notes": "200g firm paneer cubes"
       },
       {
-        "name": "Green Bell Peppers (Capsicum)",
-        "amountPerServing": 60,
+        "name": "Crisp Green Bell Pepper (Capsicum)",
+        "amountPerServing": 40,
+        "unit": "g",
+        "productId": "veg_capsicum",
+        "isPantryStaple": false,
+        "notes": "1 green capsicum cut in square petals"
+      },
+      {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 35,
         "unit": "g",
         "productId": "prod_v5",
         "isPantryStaple": false,
-        "notes": "Dice cut"
+        "notes": "1 onion diced into petal layers"
       },
       {
-        "name": "Spring Onions & Garlic",
-        "amountPerServing": 30,
+        "name": "Fresh Garlic Cloves",
+        "amountPerServing": 10,
+        "unit": "g",
+        "productId": "prod_v7",
+        "isPantryStaple": false,
+        "notes": "6-8 cloves finely chopped"
+      },
+      {
+        "name": "Fresh Ginger (Adrak)",
+        "amountPerServing": 10,
         "unit": "g",
         "productId": "prod_v6",
         "isPantryStaple": false,
-        "notes": "Minced"
+        "notes": "1 inch finely minced"
       },
       {
-        "name": "Ching's Secret Chilli Sauce & Soy",
-        "amountPerServing": 25,
+        "name": "Ching's Secret Premium Dark Soy Sauce",
+        "amountPerServing": 10,
         "unit": "ml",
+        "productId": "prod_chings_dark_soy",
+        "isPantryStaple": false,
+        "notes": "2 tbsp dark soy sauce"
+      },
+      {
+        "name": "Ching's Schezwan Chutney / Red Chilli Sauce",
+        "amountPerServing": 10,
+        "unit": "g",
         "productId": "prod_sauces_chinese",
         "isPantryStaple": false,
-        "notes": "Wok sauce kit"
+        "notes": "1 tbsp for street style heat"
+      },
+      {
+        "name": "Kissan Fresh Tomato Ketchup",
+        "amountPerServing": 10,
+        "unit": "g",
+        "productId": "prod_kissan_ketchup",
+        "isPantryStaple": false,
+        "notes": "1 tbsp sweet & tangy balance"
+      },
+      {
+        "name": "Ching's Secret Chilli Vinegar",
+        "amountPerServing": 2.5,
+        "unit": "ml",
+        "productId": "prod_chings_vinegar",
+        "isPantryStaple": true,
+        "notes": "1/2 tbsp vinegar"
+      },
+      {
+        "name": "Corn Flour & Maida Coating Mix",
+        "amountPerServing": 15,
+        "unit": "g",
+        "productId": "atta_rajdhani_maida",
+        "isPantryStaple": true,
+        "notes": "2.5 tbsp for crisp coating on paneer"
+      },
+      {
+        "name": "Green Chillies & Spring Onion",
+        "amountPerServing": 10,
+        "unit": "g",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": true,
+        "notes": "2 slit green chillies"
+      },
+      {
+        "name": "Black Pepper & Tata Salt",
+        "amountPerServing": 0.25,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "ZhjXOkbviaE"
@@ -650,36 +1010,92 @@
     ],
     "ingredients": [
       {
-        "name": "Ching's Secret Hakka Noodles",
-        "amountPerServing": 100,
+        "name": "Ching's Secret Just Soak Hakka Noodles",
+        "amountPerServing": 75,
         "unit": "g",
         "productId": "prod_noodles_hakka",
         "isPantryStaple": false,
-        "notes": "Wheat noodles"
+        "notes": "150g boiled al dente noodles"
       },
       {
-        "name": "Shredded Cabbage & Carrot Mix",
-        "amountPerServing": 80,
+        "name": "Fresh Green Cabbage",
+        "amountPerServing": 25,
+        "unit": "g",
+        "productId": "veg_cabbage",
+        "isPantryStaple": false,
+        "notes": "1/4 cup fine shredded cabbage"
+      },
+      {
+        "name": "Crisp Green Bell Pepper (Capsicum)",
+        "amountPerServing": 25,
+        "unit": "g",
+        "productId": "veg_capsicum",
+        "isPantryStaple": false,
+        "notes": "1/4 cup julienned capsicum"
+      },
+      {
+        "name": "Fresh Orange Carrots",
+        "amountPerServing": 25,
+        "unit": "g",
+        "productId": "veg_carrots",
+        "isPantryStaple": false,
+        "notes": "1/4 cup julienned carrots"
+      },
+      {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 25,
         "unit": "g",
         "productId": "prod_v5",
         "isPantryStaple": false,
-        "notes": "Fresh mandi veggies"
+        "notes": "1/4 cup thin sliced onions"
       },
       {
-        "name": "Garlic & Green Chilli Kit",
-        "amountPerServing": 20,
+        "name": "Fresh Garlic Cloves",
+        "amountPerServing": 5,
         "unit": "g",
-        "productId": "prod_v6",
+        "productId": "prod_v7",
         "isPantryStaple": false,
-        "notes": "Minced aromatics"
+        "notes": "1/2 tbsp finely minced garlic"
       },
       {
-        "name": "Soy & Schezwan Sauce Pack",
-        "amountPerServing": 20,
+        "name": "Ching's Secret Premium Dark Soy Sauce",
+        "amountPerServing": 7,
+        "unit": "ml",
+        "productId": "prod_chings_dark_soy",
+        "isPantryStaple": false,
+        "notes": "1 tbsp soy sauce"
+      },
+      {
+        "name": "Ching's Schezwan / Red Chilli Sauce",
+        "amountPerServing": 7,
         "unit": "ml",
         "productId": "prod_sauces_chinese",
         "isPantryStaple": false,
-        "notes": "Seasoning sauce"
+        "notes": "1 tbsp spicy chilli sauce"
+      },
+      {
+        "name": "Kissan Fresh Tomato Ketchup",
+        "amountPerServing": 7,
+        "unit": "g",
+        "productId": "prod_kissan_ketchup",
+        "isPantryStaple": false,
+        "notes": "1 tbsp tomato ketchup"
+      },
+      {
+        "name": "Green Chillies & Spring Onion",
+        "amountPerServing": 5,
+        "unit": "g",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": true,
+        "notes": "1 slit green chilli"
+      },
+      {
+        "name": "Black Pepper Powder & Tata Salt",
+        "amountPerServing": 0.25,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "MSyf7eS39U4"
@@ -729,36 +1145,100 @@
     ],
     "ingredients": [
       {
-        "name": "Boiled Veggies Mix (Potato & Peas)",
-        "amountPerServing": 180,
+        "name": "Fresh Bakery Soft Ladi Pav",
+        "amountPerServing": 2,
+        "unit": "piece",
+        "productId": "prod_bread_pav",
+        "isPantryStaple": false,
+        "notes": "4 soft pillowy bakery ladi pavs"
+      },
+      {
+        "name": "Fresh Pahadi Potatoes",
+        "amountPerServing": 75,
+        "unit": "g",
+        "productId": "prod_pahadi_aloo",
+        "isPantryStaple": false,
+        "notes": "2 medium potatoes boiled & mashed"
+      },
+      {
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 75,
+        "unit": "g",
+        "productId": "prod_v3",
+        "isPantryStaple": false,
+        "notes": "2 medium tomatoes finely chopped"
+      },
+      {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 50,
         "unit": "g",
         "productId": "prod_v5",
         "isPantryStaple": false,
-        "notes": "Mandi fresh"
+        "notes": "1 large onion finely chopped"
       },
       {
-        "name": "Everest Pav Bhaji Masala",
-        "amountPerServing": 15,
+        "name": "Crisp Green Bell Pepper (Capsicum)",
+        "amountPerServing": 25,
         "unit": "g",
-        "productId": "prod_masala_pav",
+        "productId": "veg_capsicum",
         "isPantryStaple": false,
-        "notes": "Special blend"
+        "notes": "1/2 green capsicum finely diced"
       },
       {
-        "name": "Amul Butter",
-        "amountPerServing": 40,
+        "name": "Fresh Green Matar (Green Peas)",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "veg_green_peas",
+        "isPantryStaple": false,
+        "notes": "1/4 cup boiled green peas"
+      },
+      {
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 22,
         "unit": "g",
         "productId": "prod_amul_butter",
         "isPantryStaple": false,
-        "notes": "Butter slice"
+        "notes": "3 tbsp butter for bhaji and pav toasting"
       },
       {
-        "name": "Fresh Bakery Ladi Pav",
-        "amountPerServing": 2,
-        "unit": "pcs",
-        "productId": "prod_bread_pav",
+        "name": "Everest Mumbai Pav Bhaji Masala",
+        "amountPerServing": 7,
+        "unit": "g",
+        "productId": "prod_masala_pav",
         "isPantryStaple": false,
-        "notes": "Soft buns"
+        "notes": "1 tbsp authentic Mumbai street pav bhaji masala"
+      },
+      {
+        "name": "Fresh Ginger Garlic Paste",
+        "amountPerServing": 5,
+        "unit": "g",
+        "productId": "prod_v6",
+        "isPantryStaple": true,
+        "notes": "1/2 tbsp paste"
+      },
+      {
+        "name": "Kashmiri Red Chilli Powder",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_24",
+        "isPantryStaple": true,
+        "notes": "For iconic red color"
+      },
+      {
+        "name": "Juicy Fresh Yellow Lemon",
+        "amountPerServing": 0.5,
+        "unit": "piece",
+        "productId": "prod_v8",
+        "isPantryStaple": true,
+        "notes": "1 lemon for fresh squeeze garnish"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "8whZ6bn49bg"
@@ -808,36 +1288,84 @@
     ],
     "ingredients": [
       {
-        "name": "Safed Matar (White Peas)",
-        "amountPerServing": 120,
+        "name": "Tata Sampann Safed Matar (White Dried Peas)",
+        "amountPerServing": 75,
         "unit": "g",
-        "productId": "prod_dals_urad",
+        "productId": "prod_safed_matar_500g",
         "isPantryStaple": false,
-        "notes": "Pre-boiled soft"
+        "notes": "1 cup soaked & boiled white peas"
       },
       {
         "name": "Fresh Bakery Amritsari Kulcha",
         "amountPerServing": 2,
-        "unit": "pcs",
-        "productId": "prod_bread_pav",
+        "unit": "piece",
+        "productId": "prod_amritsari_kulcha_4pc",
         "isPantryStaple": false,
-        "notes": "Soft kulche"
+        "notes": "4 soft bakery tawa kulchas"
       },
       {
-        "name": "Amul Butter",
-        "amountPerServing": 20,
+        "name": "Fresh Pahadi Potato (Boiled)",
+        "amountPerServing": 35,
+        "unit": "g",
+        "productId": "prod_pahadi_aloo",
+        "isPantryStaple": false,
+        "notes": "1 medium boiled potato mashed into matar"
+      },
+      {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 35,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "1 onion finely chopped"
+      },
+      {
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 40,
+        "unit": "g",
+        "productId": "prod_v3",
+        "isPantryStaple": false,
+        "notes": "1.5 tomatoes chopped"
+      },
+      {
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 10,
         "unit": "g",
         "productId": "prod_amul_butter",
         "isPantryStaple": false,
-        "notes": "Toasting butter"
+        "notes": "1.5 tbsp butter for toasting kulchas on tawa"
       },
       {
-        "name": "Imli & Green Chutney Pack",
-        "amountPerServing": 30,
-        "unit": "g",
-        "productId": "prod_sauces_chinese",
+        "name": "Delhi Chaat & Chole Masala Blend (Aamchur, Bhuna Jeera, Black Salt)",
+        "amountPerServing": 1,
+        "unit": "tsp",
+        "productId": "prod_masala_chole",
         "isPantryStaple": false,
-        "notes": "Tangy street chutney"
+        "notes": "Signature Delhi street tangy seasoning"
+      },
+      {
+        "name": "Green Chillies & Grated Ginger",
+        "amountPerServing": 5,
+        "unit": "g",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": true,
+        "notes": "Chopped green chilli + ginger juliennes"
+      },
+      {
+        "name": "Juicy Fresh Yellow Lemon",
+        "amountPerServing": 0.5,
+        "unit": "piece",
+        "productId": "prod_v8",
+        "isPantryStaple": true,
+        "notes": "1 tbsp lemon juice"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "yP5jH5rIdsY"
@@ -887,36 +1415,68 @@
     ],
     "ingredients": [
       {
-        "name": "iD Fresh Fermented Dosa Batter",
-        "amountPerServing": 250,
+        "name": "ID Fresh Idly & Dosa Batter",
+        "amountPerServing": 150,
         "unit": "ml",
         "productId": "prod_dosa_batter",
         "isPantryStaple": false,
-        "notes": "Naturally fermented"
+        "notes": "300ml naturally fermented batter for 4 crisp dosas"
       },
       {
-        "name": "Tempered Potato Masala",
-        "amountPerServing": 120,
+        "name": "Fresh Pahadi Potatoes (for Aloo Masala)",
+        "amountPerServing": 75,
+        "unit": "g",
+        "productId": "prod_pahadi_aloo",
+        "isPantryStaple": false,
+        "notes": "2 medium potatoes boiled & mashed"
+      },
+      {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 35,
         "unit": "g",
         "productId": "prod_v5",
         "isPantryStaple": false,
-        "notes": "Mustard & turmeric"
+        "notes": "1 onion sliced for aloo stuffing"
       },
       {
-        "name": "Fresh Grated Coconut",
-        "amountPerServing": 50,
-        "unit": "g",
-        "productId": "prod_v6",
+        "name": "Verka Pure Desi Ghee / Butter",
+        "amountPerServing": 0.5,
+        "unit": "tbsp",
+        "productId": "prod_15",
         "isPantryStaple": false,
-        "notes": "For chutney"
+        "notes": "1 tbsp ghee for roasting crisp golden dosas"
       },
       {
-        "name": "Sambar Spice & Dal Mix",
-        "amountPerServing": 40,
+        "name": "Fresh Coconut / Chutney Ingredients",
+        "amountPerServing": 25,
         "unit": "g",
-        "productId": "prod_dals_urad",
+        "productId": "prod_coriander_chilli",
         "isPantryStaple": false,
-        "notes": "Ready sambar base"
+        "notes": "For fresh South Indian coconut chutney"
+      },
+      {
+        "name": "South Indian Tadka Mix (Mustard seeds, Urad dal, Curry leaves, Chana dal)",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_spices_mix",
+        "isPantryStaple": true,
+        "notes": "Aromatic tempering kit"
+      },
+      {
+        "name": "Turmeric & Green Chillies",
+        "amountPerServing": 0.25,
+        "unit": "tsp",
+        "productId": "prod_spices_mix",
+        "isPantryStaple": true,
+        "notes": "For golden yellow aloo filling"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "P-u2wq8RVp4"
@@ -967,35 +1527,83 @@
     "ingredients": [
       {
         "name": "Farm Fresh White Eggs",
-        "amountPerServing": 3,
-        "unit": "pcs",
+        "amountPerServing": 2,
+        "unit": "piece",
         "productId": "prod_eggs",
         "isPantryStaple": false,
-        "notes": "Fresh protein"
+        "notes": "4 fresh eggs for 2 servings"
       },
       {
-        "name": "Amul Butter",
-        "amountPerServing": 20,
+        "name": "Fresh Bakery Soft Ladi Pav",
+        "amountPerServing": 2,
+        "unit": "piece",
+        "productId": "prod_bread_pav",
+        "isPantryStaple": false,
+        "notes": "4 soft buttered ladi pavs"
+      },
+      {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 50,
         "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "1 large onion finely chopped"
+      },
+      {
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 35,
+        "unit": "g",
+        "productId": "prod_v3",
+        "isPantryStaple": false,
+        "notes": "1 medium tomato chopped"
+      },
+      {
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 1,
+        "unit": "tbsp",
         "productId": "prod_amul_butter",
         "isPantryStaple": false,
-        "notes": "Skillet butter"
+        "notes": "2 tbsp butter for bhurji and pav"
       },
       {
-        "name": "Amul Processed Cheese Cube",
-        "amountPerServing": 25,
+        "name": "Amul Diced Cheese / Processed Cheese",
+        "amountPerServing": 15,
         "unit": "g",
-        "productId": "prod_cheese_slices",
+        "productId": "prod_amul_pizza_cheese_200g",
         "isPantryStaple": false,
-        "notes": "Grated on top"
+        "notes": "30g cheese grated on top"
       },
       {
-        "name": "Onions & Mandi Green Chillies",
-        "amountPerServing": 40,
+        "name": "Fresh Ginger & Garlic (Minced)",
+        "amountPerServing": 5,
         "unit": "g",
-        "productId": "prod_v6",
+        "productId": "prod_v7",
         "isPantryStaple": false,
-        "notes": "Finely diced"
+        "notes": "1 tbsp chopped ginger garlic"
+      },
+      {
+        "name": "Green Chillies & Fresh Coriander",
+        "amountPerServing": 5,
+        "unit": "g",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": true,
+        "notes": "2 spicy green chillies"
+      },
+      {
+        "name": "Bhurji Spices (Turmeric, Chilli powder, Coriander, Garam Masala)",
+        "amountPerServing": 0.75,
+        "unit": "tsp",
+        "productId": "prod_24",
+        "isPantryStaple": true,
+        "notes": "Street tawa egg bhurji spices"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "zi3JjWX9ONg"
@@ -1052,44 +1660,76 @@
     ],
     "ingredients": [
       {
-        "name": "Disano 100% Durum Wheat Penne",
-        "amountPerServing": 100,
+        "name": "Disano Durum Wheat Semolina Penne Pasta",
+        "amountPerServing": 75,
         "unit": "g",
         "productId": "prod_pasta_penne",
         "isPantryStaple": false,
-        "notes": "Italian penne"
+        "notes": "150g penne / macaroni pasta"
       },
       {
-        "name": "Fresh Button Mushrooms",
-        "amountPerServing": 80,
+        "name": "Fresh Button Mushrooms (Pre-cleaned)",
+        "amountPerServing": 75,
         "unit": "g",
-        "productId": "prod_v5",
+        "productId": "prod_fresh_mushrooms_200g",
         "isPantryStaple": false,
-        "notes": "Sliced fresh"
+        "notes": "150g sliced fresh button mushrooms"
       },
       {
-        "name": "Amul Fresh Cream",
-        "amountPerServing": 40,
-        "unit": "ml",
-        "productId": "prod_amul_cream",
-        "isPantryStaple": false,
-        "notes": "Velvety base"
-      },
-      {
-        "name": "Amul Butter",
-        "amountPerServing": 20,
-        "unit": "g",
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 0.75,
+        "unit": "tbsp",
         "productId": "prod_amul_butter",
         "isPantryStaple": false,
-        "notes": "Garlic butter"
+        "notes": "1.5 tbsp butter for sautéing & roux"
       },
       {
-        "name": "Italian Herb Seasoning Kit",
+        "name": "Rajdhani Maida (All Purpose Flour)",
+        "amountPerServing": 8,
+        "unit": "g",
+        "productId": "atta_rajdhani_maida",
+        "isPantryStaple": false,
+        "notes": "1.5 tbsp maida for roux"
+      },
+      {
+        "name": "Mother Dairy Full Cream Fresh Milk",
+        "amountPerServing": 150,
+        "unit": "ml",
+        "productId": "md_full_cream_500",
+        "isPantryStaple": false,
+        "notes": "300ml milk for creamy white sauce"
+      },
+      {
+        "name": "Amul Diced Mozzarella & Cheddar Pizza Cheese",
+        "amountPerServing": 17,
+        "unit": "g",
+        "productId": "prod_amul_pizza_cheese_200g",
+        "isPantryStaple": false,
+        "notes": "1/4 cup cheese for rich cheesy melt"
+      },
+      {
+        "name": "Fresh Garlic (Crushed)",
         "amountPerServing": 5,
         "unit": "g",
-        "productId": "prod_spices_mix",
+        "productId": "prod_v7",
         "isPantryStaple": false,
-        "notes": "Oregano & chilli flakes"
+        "notes": "1 tsp crushed garlic cloves"
+      },
+      {
+        "name": "Keya Italian Pizza Seasoning & Chilli Flakes",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_oregano_chilli_flakes",
+        "isPantryStaple": true,
+        "notes": "Oregano, basil and chilli flakes"
+      },
+      {
+        "name": "Black Pepper Powder & Tata Salt",
+        "amountPerServing": 0.25,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "8Dcp6NdBz_0"
@@ -1139,36 +1779,60 @@
     ],
     "ingredients": [
       {
-        "name": "Fresh Grated Red Carrots",
+        "name": "Fresh Orange/Red Carrots (Gajar)",
         "amountPerServing": 250,
         "unit": "g",
-        "productId": "prod_v5",
+        "productId": "veg_carrots",
         "isPantryStaple": false,
-        "notes": "Sweet Delhi carrots"
+        "notes": "500g freshly grated juicy carrots"
       },
       {
-        "name": "Verka Full Cream Gold Milk",
-        "amountPerServing": 250,
+        "name": "Mother Dairy Full Cream Fresh Milk",
+        "amountPerServing": 100,
         "unit": "ml",
-        "productId": "m_v_std",
+        "productId": "md_full_cream_500",
         "isPantryStaple": false,
-        "notes": "Rich milk"
+        "notes": "200ml rich milk for slow cooking"
       },
       {
-        "name": "Pure Desi Ghee",
-        "amountPerServing": 30,
+        "name": "Madhur Pure Crystal Sugar",
+        "amountPerServing": 35,
+        "unit": "g",
+        "productId": "gro_madhur_sugar",
+        "isPantryStaple": false,
+        "notes": "70g sugar for 2 servings (adjust to taste)"
+      },
+      {
+        "name": "Verka Pure Desi Ghee",
+        "amountPerServing": 15,
         "unit": "ml",
         "productId": "prod_15",
         "isPantryStaple": false,
-        "notes": "Aroma roast"
+        "notes": "2 tbsp desi ghee for halwa bhunai"
       },
       {
-        "name": "Fresh Khoya / Mawa & Almonds",
-        "amountPerServing": 50,
+        "name": "Nutraj Whole Crunchy Cashews (Kaju)",
+        "amountPerServing": 7.5,
         "unit": "g",
-        "productId": "prod_24",
+        "productId": "snk_cashews_200g",
         "isPantryStaple": false,
-        "notes": "Sweet richness"
+        "notes": "Chopped cashews for royal garnish"
+      },
+      {
+        "name": "Nutraj California Raw Almonds (Badam)",
+        "amountPerServing": 7.5,
+        "unit": "g",
+        "productId": "snk_almonds_200g",
+        "isPantryStaple": false,
+        "notes": "Chopped almonds for royal garnish"
+      },
+      {
+        "name": "Green Cardamom (Elaichi) Powder",
+        "amountPerServing": 0.25,
+        "unit": "tsp",
+        "productId": "prod_spices_mix",
+        "isPantryStaple": true,
+        "notes": "Freshly crushed cardamom pods for fragrance"
       }
     ],
     "youtubeId": "0DDJ4mpSSfs"
@@ -1225,44 +1889,92 @@
     ],
     "ingredients": [
       {
-        "name": "Fresh Chicken Curry Cut",
-        "amountPerServing": 200,
+        "name": "Fresh Tender Boneless Chicken Breast Fillet",
+        "amountPerServing": 175,
         "unit": "g",
-        "productId": "prod_chicken_curry_cut",
+        "productId": "prod_chicken_boneless",
         "isPantryStaple": false,
-        "notes": "Tender bone-in chicken"
+        "notes": "350g boneless chicken pieces"
       },
       {
-        "name": "Amul Butter",
-        "amountPerServing": 30,
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 100,
         "unit": "g",
-        "productId": "prod_amul_butter",
+        "productId": "prod_v3",
         "isPantryStaple": false,
-        "notes": "Rich Punjabi butter"
+        "notes": "3 medium tomatoes pureed"
       },
       {
-        "name": "Amul Fresh Cream",
-        "amountPerServing": 30,
-        "unit": "ml",
-        "productId": "prod_amul_cream",
-        "isPantryStaple": false,
-        "notes": "Silky cream finish"
-      },
-      {
-        "name": "Mandi Fresh Tomatoes",
-        "amountPerServing": 150,
+        "name": "Nashik Red Onions",
+        "amountPerServing": 35,
         "unit": "g",
         "productId": "prod_v5",
         "isPantryStaple": false,
-        "notes": "Sweet ripe tomatoes"
+        "notes": "1 onion sliced for makhani base"
       },
       {
-        "name": "Cashews Whole (Kaju)",
+        "name": "Mother Dairy Classic Dahi / Curd",
         "amountPerServing": 20,
         "unit": "g",
-        "productId": "prod_24",
+        "productId": "md_dahi_tub_400",
         "isPantryStaple": false,
-        "notes": "For rich gravy"
+        "notes": "2 tbsp dahi for chicken marination"
+      },
+      {
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 22,
+        "unit": "g",
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "3 tbsp butter for gravy and searing"
+      },
+      {
+        "name": "Amul Fresh Cream",
+        "amountPerServing": 15,
+        "unit": "ml",
+        "productId": "prod_amul_cream",
+        "isPantryStaple": false,
+        "notes": "2 tbsp fresh cream for velvety finish"
+      },
+      {
+        "name": "Nutraj Whole Crunchy Cashews (Kaju)",
+        "amountPerServing": 10,
+        "unit": "g",
+        "productId": "snk_cashews_200g",
+        "isPantryStaple": false,
+        "notes": "10 cashews for smooth makhani texture"
+      },
+      {
+        "name": "Fresh Ginger Garlic Paste",
+        "amountPerServing": 10,
+        "unit": "g",
+        "productId": "prod_v6",
+        "isPantryStaple": false,
+        "notes": "1 tbsp freshly ground paste"
+      },
+      {
+        "name": "Kasuri Methi & Whole Spices (Cinnamon, Cardamom, Cloves)",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_catch_kasuri_methi",
+        "isPantryStaple": true,
+        "notes": "Makhani whole aromatics"
+      },
+      {
+        "name": "Kashmiri Degi Mirch & Garam Masala",
+        "amountPerServing": 1,
+        "unit": "tsp",
+        "productId": "prod_24",
+        "isPantryStaple": true,
+        "notes": "For rich red color and warmth"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "2jT9Z4K7xEk"
@@ -1319,44 +2031,84 @@
     ],
     "ingredients": [
       {
-        "name": "Fresh Boneless Chicken Cuts",
-        "amountPerServing": 180,
+        "name": "Fresh Tender Chicken Curry Cut",
+        "amountPerServing": 150,
         "unit": "g",
-        "productId": "prod_chicken_boneless",
+        "productId": "prod_chicken_curry_cut",
         "isPantryStaple": false,
-        "notes": "Succulent boneless cubes"
+        "notes": "300g chicken pieces for cooker biryani"
       },
       {
         "name": "Daawat Rozana Super Basmati Rice",
-        "amountPerServing": 120,
+        "amountPerServing": 100,
         "unit": "g",
         "productId": "prod_rice_daawat",
         "isPantryStaple": false,
-        "notes": "Aged fragrant rice"
+        "notes": "1 glass (200g) aged basmati rice"
       },
       {
-        "name": "Desi Ghee",
-        "amountPerServing": 20,
-        "unit": "ml",
-        "productId": "prod_15",
-        "isPantryStaple": false,
-        "notes": "Dum aroma ghee"
-      },
-      {
-        "name": "Royal Shahi Biryani Spices Kit",
-        "amountPerServing": 15,
+        "name": "Nashik Red Onions",
+        "amountPerServing": 60,
         "unit": "g",
-        "productId": "prod_spices_mix",
+        "productId": "prod_v5",
         "isPantryStaple": false,
-        "notes": "Cardamom, mace & saffron"
+        "notes": "2 onions sliced for biryani masala"
       },
       {
-        "name": "Red Onions for Birista",
-        "amountPerServing": 100,
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 35,
+        "unit": "g",
+        "productId": "prod_v3",
+        "isPantryStaple": false,
+        "notes": "1 tomato chopped"
+      },
+      {
+        "name": "Fresh Ginger Garlic Paste",
+        "amountPerServing": 10,
         "unit": "g",
         "productId": "prod_v6",
         "isPantryStaple": false,
-        "notes": "Thinly sliced"
+        "notes": "1/2 tbsp paste"
+      },
+      {
+        "name": "Verka Pure Desi Ghee",
+        "amountPerServing": 1,
+        "unit": "tbsp",
+        "productId": "prod_15",
+        "isPantryStaple": false,
+        "notes": "2 tbsp desi ghee for cooker sealing"
+      },
+      {
+        "name": "Shahi Biryani Masala Blend",
+        "amountPerServing": 1,
+        "unit": "tsp",
+        "productId": "prod_masala_chole",
+        "isPantryStaple": false,
+        "notes": "1.5 tsp fragrant biryani powder"
+      },
+      {
+        "name": "Whole Spices (Bay leaf, Dried Red Chilli, Dalchini, Cardamom, Cumin)",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_spices_mix",
+        "isPantryStaple": true,
+        "notes": "Tempering aromatics"
+      },
+      {
+        "name": "Fresh Coriander & Mint Leaves",
+        "amountPerServing": 5,
+        "unit": "g",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": true,
+        "notes": "Garnish herbs"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "youtubeId": "JzIW8gqlhJk"
@@ -1383,52 +2135,100 @@
     "kitPrice": 155,
     "ingredients": [
       {
+        "name": "English Oven Sesame Burger Buns (Pack of 4)",
+        "amountPerServing": 1,
+        "unit": "piece",
         "productId": "prod_burger_buns_sesame",
-        "name": "English Oven Sesame Burger Buns",
-        "amountPerServing": 1,
-        "unit": "pair",
-        "isPantryItem": false,
-        "prepNote": "Halved & toasted on butter"
+        "isPantryStaple": false,
+        "notes": "2 fresh sesame burger buns"
       },
       {
-        "productId": "prod_crisp_potato_patties",
-        "name": "McCain Crispy Aloo Herb Burger Patties",
-        "amountPerServing": 1,
-        "unit": "patty",
-        "isPantryItem": false,
-        "prepNote": "Pan-fried till ultra crispy"
-      },
-      {
-        "productId": "prod_veeba_burger_mayo",
-        "name": "Veeba Creamy Thousand Island Burger Mayo",
-        "amountPerServing": 25,
+        "name": "Fresh Pahadi Potatoes (Boiled)",
+        "amountPerServing": 75,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Generously spread on bun bases"
+        "productId": "prod_pahadi_aloo",
+        "isPantryStaple": false,
+        "notes": "2 boiled potatoes mashed for patty base"
       },
       {
-        "productId": "prod_cheese_slices",
+        "name": "Fresh Carrots & Green Peas (Boiled)",
+        "amountPerServing": 30,
+        "unit": "g",
+        "productId": "veg_green_peas",
+        "isPantryStaple": false,
+        "notes": "1/2 cup veggies for patty mixture"
+      },
+      {
+        "name": "Fresh Malai Paneer (Crumbled)",
+        "amountPerServing": 30,
+        "unit": "g",
+        "productId": "prod_v1",
+        "isPantryStaple": false,
+        "notes": "60g crumbled paneer for patty richness"
+      },
+      {
         "name": "Britannia Processed Cheese Slices",
         "amountPerServing": 1,
-        "unit": "slice",
-        "isPantryItem": false,
-        "prepNote": "Melted over warm patty"
+        "unit": "piece",
+        "productId": "prod_cheese_slices",
+        "isPantryStaple": false,
+        "notes": "2 cheese slices for molten layering"
       },
       {
-        "productId": "prod_v5",
-        "name": "Mandi Fresh Juicy Tomatoes",
-        "amountPerServing": 40,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Cut into thin round slices"
-      },
-      {
-        "productId": "prod_amul_butter",
-        "name": "Amul Pure Salted Butter",
+        "name": "Veeba Burger Mayonnaise",
         "amountPerServing": 15,
         "unit": "g",
-        "isPantryItem": true,
-        "prepNote": "For griddling the buns"
+        "productId": "prod_veeba_burger_mayo",
+        "isPantryStaple": false,
+        "notes": "2 tbsp creamy burger mayo sauce"
+      },
+      {
+        "name": "Kissan Fresh Tomato Ketchup",
+        "amountPerServing": 8,
+        "unit": "g",
+        "productId": "prod_kissan_ketchup",
+        "isPantryStaple": false,
+        "notes": "1 tbsp tomato ketchup"
+      },
+      {
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 8,
+        "unit": "g",
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "1 tbsp butter for toasting buns"
+      },
+      {
+        "name": "Bread Crumbs & Corn Flour",
+        "amountPerServing": 15,
+        "unit": "g",
+        "productId": "atta_rajdhani_maida",
+        "isPantryStaple": true,
+        "notes": "For super crispy golden patty crust"
+      },
+      {
+        "name": "Tomato & Onion Salad Slices",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": true,
+        "notes": "Fresh crisp rings"
+      },
+      {
+        "name": "Burger Spices (Chaat Masala, Garam Masala, Red Chilli)",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_24",
+        "isPantryStaple": true,
+        "notes": "Seasoning for potato patty"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "steps": [
@@ -1485,52 +2285,76 @@
     "kitPrice": 195,
     "ingredients": [
       {
+        "name": "Fresh Chicken Breast Fillets",
+        "amountPerServing": 125,
+        "unit": "g",
         "productId": "prod_chicken_breast_fillet",
-        "name": "Fresh Boneless Chicken Breast Fillet",
-        "amountPerServing": 120,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Flattened & seasoned with paprika & garlic"
+        "isPantryStaple": false,
+        "notes": "2 tender boneless chicken fillets"
       },
       {
-        "productId": "prod_burger_buns_sesame",
-        "name": "English Oven Sesame Burger Buns",
+        "name": "English Oven Sesame Burger Buns (Pack of 4)",
         "amountPerServing": 1,
-        "unit": "pair",
-        "isPantryItem": false,
-        "prepNote": "Toasted golden in butter"
+        "unit": "piece",
+        "productId": "prod_burger_buns_sesame",
+        "isPantryStaple": false,
+        "notes": "2 sesame burger buns"
       },
       {
-        "productId": "prod_veeba_burger_mayo",
-        "name": "Veeba Burger Mayo",
-        "amountPerServing": 30,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "For bun dressing"
-      },
-      {
-        "productId": "prod_cheese_slices",
         "name": "Britannia Processed Cheese Slices",
         "amountPerServing": 1,
-        "unit": "slice",
-        "isPantryItem": false,
-        "prepNote": "Melted over hot chicken fillet"
+        "unit": "piece",
+        "productId": "prod_cheese_slices",
+        "isPantryStaple": false,
+        "notes": "2 cheese slices"
       },
       {
-        "productId": "prod_v6",
-        "name": "Red Crunchy Onions",
-        "amountPerServing": 30,
+        "name": "Veeba Burger Mayonnaise",
+        "amountPerServing": 20,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Sliced into thin rings"
+        "productId": "prod_veeba_burger_mayo",
+        "isPantryStaple": false,
+        "notes": "3 tbsp garlic-mayo burger spread"
       },
       {
+        "name": "Mother Dairy Classic Dahi / Yogurt",
+        "amountPerServing": 25,
+        "unit": "g",
+        "productId": "md_dahi_tub_400",
+        "isPantryStaple": false,
+        "notes": "1/4 cup beaten yogurt for tender buttermilk brine"
+      },
+      {
+        "name": "Rajdhani Maida & Corn Flour Breading",
+        "amountPerServing": 40,
+        "unit": "g",
+        "productId": "atta_rajdhani_maida",
+        "isPantryStaple": false,
+        "notes": "Flour coating for signature flaky KFC crust"
+      },
+      {
+        "name": "Fresh Lettuce / Onion Slices",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": true,
+        "notes": "Crisp salad leaves"
+      },
+      {
+        "name": "Zinger Seasoning (Garlic powder, Onion powder, White/Black pepper, Paprika)",
+        "amountPerServing": 1,
+        "unit": "tsp",
         "productId": "prod_peri_peri_sprinkler",
-        "name": "Keya Peri Peri Seasoning",
-        "amountPerServing": 5,
-        "unit": "g",
-        "isPantryItem": true,
-        "prepNote": "Sprinkled on crispy crust"
+        "isPantryStaple": true,
+        "notes": "Signature crispy chicken coating spices"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "steps": [
@@ -1587,36 +2411,52 @@
     "kitPrice": 135,
     "ingredients": [
       {
-        "productId": "prod_french_fries_pack",
-        "name": "McCain Golden Crisp French Fries",
-        "amountPerServing": 180,
+        "name": "Fresh Pahadi Potatoes (Large)",
+        "amountPerServing": 175,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Fried till golden & crunchy"
+        "productId": "prod_pahadi_aloo",
+        "isPantryStaple": false,
+        "notes": "3-4 large potatoes cut into thick batons"
       },
       {
+        "name": "Keya Peri Peri Seasoning Sprinkler",
+        "amountPerServing": 5,
+        "unit": "g",
         "productId": "prod_peri_peri_sprinkler",
-        "name": "Keya Gourmet Peri Peri Seasoning",
+        "isPantryStaple": false,
+        "notes": "1.5 tsp spicy tangy peri-peri seasoning"
+      },
+      {
+        "name": "Amul Diced Mozzarella & Cheddar Pizza Cheese",
+        "amountPerServing": 25,
+        "unit": "g",
+        "productId": "prod_amul_pizza_cheese_200g",
+        "isPantryStaple": false,
+        "notes": "50g cheese for homemade warm cheese dip"
+      },
+      {
+        "name": "Mother Dairy Full Cream Fresh Milk",
+        "amountPerServing": 25,
+        "unit": "ml",
+        "productId": "md_full_cream_500",
+        "isPantryStaple": false,
+        "notes": "50ml milk to melt cheese into sauce"
+      },
+      {
+        "name": "Amul Salted Table Butter",
         "amountPerServing": 8,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Tossed hot in paper bag"
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "1 tbsp butter for cheese dip roux"
       },
       {
-        "productId": "prod_amul_pizza_cheese_200g",
-        "name": "Amul Diced Cheese Blend",
-        "amountPerServing": 30,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Melted into warm dipping sauce"
-      },
-      {
-        "productId": "m_v_gold",
-        "name": "Amul Fresh Milk",
-        "amountPerServing": 40,
-        "unit": "ml",
-        "isPantryItem": true,
-        "prepNote": "Simmered with cheese for dip"
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "steps": [
@@ -1673,52 +2513,84 @@
     "kitPrice": 125,
     "ingredients": [
       {
-        "productId": "prod_bread_jumbo_sandwich",
         "name": "Harvest Gold Jumbo White Sandwich Bread",
-        "amountPerServing": 3,
-        "unit": "slices",
-        "isPantryItem": false,
-        "prepNote": "Crust on, buttered"
+        "amountPerServing": 2,
+        "unit": "piece",
+        "productId": "prod_bread_jumbo_sandwich",
+        "isPantryStaple": false,
+        "notes": "4 jumbo slices for 2 sandwiches"
       },
       {
+        "name": "Fresh Pahadi Potatoes (Boiled)",
+        "amountPerServing": 60,
+        "unit": "g",
         "productId": "prod_pahadi_aloo",
-        "name": "Mandi Fresh Potatoes",
-        "amountPerServing": 80,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Boiled & spiced with chaat masala"
+        "isPantryStaple": false,
+        "notes": "2 medium potatoes for Mumbai aloo masala"
       },
       {
-        "productId": "prod_v5",
-        "name": "Mandi Tomatoes",
-        "amountPerServing": 30,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Thinly round sliced"
-      },
-      {
-        "productId": "prod_v6",
-        "name": "Crunchy Red Onions",
-        "amountPerServing": 30,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Finely round sliced"
-      },
-      {
-        "productId": "prod_amul_butter",
         "name": "Amul Salted Table Butter",
+        "amountPerServing": 15,
+        "unit": "g",
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "2 tbsp butter for toasting both sides"
+      },
+      {
+        "name": "Crisp Salad Kheera (Cucumber)",
         "amountPerServing": 25,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Generous spread inside and out"
+        "productId": "veg_cucumber",
+        "isPantryStaple": false,
+        "notes": "Sliced cucumber rounds"
       },
       {
-        "productId": "prod_cheese_slices",
-        "name": "Britannia Cheese Slices",
-        "amountPerServing": 1,
-        "unit": "slice",
-        "isPantryItem": false,
-        "prepNote": "Layered in middle"
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 25,
+        "unit": "g",
+        "productId": "prod_v3",
+        "isPantryStaple": false,
+        "notes": "Sliced tomato rounds"
+      },
+      {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 25,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "Sliced onion rings"
+      },
+      {
+        "name": "Fresh Coriander & Green Chilli Chutney",
+        "amountPerServing": 15,
+        "unit": "g",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": false,
+        "notes": "2 tbsp spicy Mumbai green sandwich chutney"
+      },
+      {
+        "name": "Mustard Seeds, Curry Leaves & Turmeric",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_spices_mix",
+        "isPantryStaple": true,
+        "notes": "For tempering potato masala"
+      },
+      {
+        "name": "Chaat Masala & Lemon Juice",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_v8",
+        "isPantryStaple": true,
+        "notes": "Sprinkled over veggies"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "steps": [
@@ -1775,52 +2647,100 @@
     "kitPrice": 165,
     "ingredients": [
       {
-        "productId": "prod_bread_jumbo_sandwich",
         "name": "Harvest Gold Jumbo White Sandwich Bread",
         "amountPerServing": 2,
-        "unit": "slices",
-        "isPantryItem": false,
-        "prepNote": "Thick slices"
+        "unit": "piece",
+        "productId": "prod_bread_jumbo_sandwich",
+        "isPantryStaple": false,
+        "notes": "4 jumbo bread slices"
       },
       {
+        "name": "Fresh Malai Paneer",
+        "amountPerServing": 75,
+        "unit": "g",
         "productId": "prod_v1",
-        "name": "Verka Malai Fresh Paneer",
-        "amountPerServing": 90,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Diced into flat bite-sized cubes"
+        "isPantryStaple": false,
+        "notes": "150g diced paneer cubes"
       },
       {
-        "productId": "prod_v7",
-        "name": "Fresh Green Bell Pepper",
-        "amountPerServing": 30,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Julienned thin"
-      },
-      {
-        "productId": "prod_amul_pizza_cheese_200g",
-        "name": "Amul Diced Mozzarella & Cheddar Cheese",
-        "amountPerServing": 35,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "For gooey melt"
-      },
-      {
-        "productId": "prod_veeba_burger_mayo",
-        "name": "Veeba Tandoori Dressing / Mayo",
+        "name": "Crisp Green Bell Pepper (Capsicum)",
         "amountPerServing": 25,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Spiced dressing"
+        "productId": "veg_capsicum",
+        "isPantryStaple": false,
+        "notes": "Diced capsicum cubes"
       },
       {
-        "productId": "prod_amul_butter",
-        "name": "Amul Butter",
+        "name": "Nashik Red Onions",
+        "amountPerServing": 25,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "Diced onion cubes"
+      },
+      {
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 25,
+        "unit": "g",
+        "productId": "prod_v3",
+        "isPantryStaple": false,
+        "notes": "Diced tomato cubes (seeds removed)"
+      },
+      {
+        "name": "Mother Dairy Classic Dahi / Curd",
         "amountPerServing": 15,
         "unit": "g",
-        "isPantryItem": true,
-        "prepNote": "For crispy griddling"
+        "productId": "md_dahi_tub_400",
+        "isPantryStaple": false,
+        "notes": "2 tbsp thick curd for tikka marinade"
+      },
+      {
+        "name": "Amul Diced Mozzarella & Cheddar Pizza Cheese",
+        "amountPerServing": 17,
+        "unit": "g",
+        "productId": "prod_amul_pizza_cheese_200g",
+        "isPantryStaple": false,
+        "notes": "35g cheese for grilled melt"
+      },
+      {
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 10,
+        "unit": "g",
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "1.5 tbsp butter for grilling"
+      },
+      {
+        "name": "Besan (Gram Flour)",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "atta_rajdhani_besan",
+        "isPantryStaple": true,
+        "notes": "1 tsp for binding paneer marinade"
+      },
+      {
+        "name": "Tandoori Tikka Spices (Kashmiri mirch, Jeera, Dhaniya, Garam Masala)",
+        "amountPerServing": 1,
+        "unit": "tsp",
+        "productId": "prod_24",
+        "isPantryStaple": true,
+        "notes": "Smoky tandoori marinade blend"
+      },
+      {
+        "name": "Fresh Green Chutney",
+        "amountPerServing": 10,
+        "unit": "g",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": true,
+        "notes": "Spicy mint-coriander spread"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "steps": [
@@ -1877,52 +2797,84 @@
     "kitPrice": 185,
     "ingredients": [
       {
-        "productId": "prod_bread_jumbo_sandwich",
         "name": "Harvest Gold Jumbo White Sandwich Bread",
         "amountPerServing": 3,
-        "unit": "slices",
-        "isPantryItem": false,
-        "prepNote": "Lightly toasted"
+        "unit": "piece",
+        "productId": "prod_bread_jumbo_sandwich",
+        "isPantryStaple": false,
+        "notes": "6 jumbo slices for triple-decker build"
       },
       {
-        "productId": "prod_chicken_cold_cuts",
-        "name": "Prasuma Smoked Chicken Slices",
-        "amountPerServing": 70,
+        "name": "Zorabian Smoked Chicken Slices (Shredded)",
+        "amountPerServing": 75,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Pan-warmed for 30 seconds"
+        "productId": "prod_chicken_cold_cuts",
+        "isPantryStaple": false,
+        "notes": "150g shredded cooked / smoked chicken"
       },
       {
-        "productId": "prod_eggs",
-        "name": "Farm Fresh White Eggs",
+        "name": "Farm Fresh White Eggs (Boiled)",
         "amountPerServing": 1,
-        "unit": "egg",
-        "isPantryItem": false,
-        "prepNote": "Fried soft yolk"
+        "unit": "piece",
+        "productId": "prod_eggs",
+        "isPantryStaple": false,
+        "notes": "2 sliced hard-boiled eggs"
       },
       {
+        "name": "Veeba Burger Mayonnaise",
+        "amountPerServing": 20,
+        "unit": "g",
         "productId": "prod_veeba_burger_mayo",
-        "name": "Veeba Mayo",
+        "isPantryStaple": false,
+        "notes": "3 tbsp creamy mayo spread"
+      },
+      {
+        "name": "Britannia Processed Cheese Slices",
+        "amountPerServing": 1,
+        "unit": "piece",
+        "productId": "prod_cheese_slices",
+        "isPantryStaple": false,
+        "notes": "2 cheese slices"
+      },
+      {
+        "name": "Kissan Fresh Tomato Ketchup",
+        "amountPerServing": 8,
+        "unit": "g",
+        "productId": "prod_kissan_ketchup",
+        "isPantryStaple": false,
+        "notes": "1 tbsp ketchup"
+      },
+      {
+        "name": "Sweet Corn, Capsicum & Carrot Mix",
         "amountPerServing": 25,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Herbed mayo spread"
+        "productId": "prod_safal_sweet_corn",
+        "isPantryStaple": false,
+        "notes": "1/4 cup finely chopped crunchy salad veggies"
       },
       {
-        "productId": "prod_v5",
-        "name": "Mandi Fresh Tomatoes",
-        "amountPerServing": 30,
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 10,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Sliced round"
-      },
-      {
         "productId": "prod_amul_butter",
-        "name": "Amul Butter",
-        "amountPerServing": 15,
+        "isPantryStaple": false,
+        "notes": "1.5 tbsp butter for toasting bread"
+      },
+      {
+        "name": "Cucumber & Tomato Salad Slices",
+        "amountPerServing": 25,
         "unit": "g",
-        "isPantryItem": true,
-        "prepNote": "For frying egg & bread"
+        "productId": "veg_cucumber",
+        "isPantryStaple": true,
+        "notes": "Fresh crunchy layers"
+      },
+      {
+        "name": "Black Pepper Powder & Tata Salt",
+        "amountPerServing": 0.25,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "steps": [
@@ -1979,52 +2931,76 @@
     "kitPrice": 175,
     "ingredients": [
       {
-        "productId": "prod_barilla_pasta",
-        "name": "Durum Wheat Penne Rigate Pasta",
-        "amountPerServing": 80,
+        "name": "Disano Durum Wheat Semolina Penne Pasta",
+        "amountPerServing": 75,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Boiled al dente in salted water"
+        "productId": "prod_pasta_penne",
+        "isPantryStaple": false,
+        "notes": "150g penne / macaroni pasta"
       },
       {
-        "productId": "prod_amul_cream",
-        "name": "Amul Fresh Malai Cream",
-        "amountPerServing": 60,
+        "name": "Mother Dairy Full Cream Fresh Milk",
+        "amountPerServing": 125,
         "unit": "ml",
-        "isPantryItem": false,
-        "prepNote": "Simmered into velvety sauce"
+        "productId": "md_full_cream_500",
+        "isPantryStaple": false,
+        "notes": "250ml milk for creamy béchamel sauce"
       },
       {
-        "productId": "prod_amul_butter",
         "name": "Amul Salted Table Butter",
-        "amountPerServing": 20,
+        "amountPerServing": 15,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Sautéing garlic"
+        "productId": "prod_amul_butter",
+        "isPantryStaple": false,
+        "notes": "2 tbsp butter for roux & vegetable sauté"
       },
       {
-        "productId": "prod_safal_sweet_corn",
-        "name": "Safal Frozen Sweet Corn Kernels",
+        "name": "Rajdhani Maida (All Purpose Flour)",
+        "amountPerServing": 8,
+        "unit": "g",
+        "productId": "atta_rajdhani_maida",
+        "isPantryStaple": false,
+        "notes": "1.5 tbsp maida for velvety thickening"
+      },
+      {
+        "name": "Amul Diced Mozzarella & Cheddar Pizza Cheese",
+        "amountPerServing": 17,
+        "unit": "g",
+        "productId": "prod_amul_pizza_cheese_200g",
+        "isPantryStaple": false,
+        "notes": "1/4 cup cheese for molten cheesy texture"
+      },
+      {
+        "name": "Fresh Garlic Cloves (Minced)",
+        "amountPerServing": 5,
+        "unit": "g",
+        "productId": "prod_v7",
+        "isPantryStaple": false,
+        "notes": "1/2 tbsp finely minced garlic"
+      },
+      {
+        "name": "Crunchy Veggie Trio (Capsicum, Carrot, Onion)",
         "amountPerServing": 35,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Blanched sweet crunch"
+        "productId": "veg_capsicum",
+        "isPantryStaple": false,
+        "notes": "1/2 cup diced mixed vegetables"
       },
       {
-        "productId": "prod_amul_pizza_cheese_200g",
-        "name": "Amul Diced Cheese Blend",
-        "amountPerServing": 30,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Folded into hot pasta"
+        "name": "Keya Italian Pizza Seasoning & Chilli Flakes",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_oregano_chilli_flakes",
+        "isPantryStaple": true,
+        "notes": "Oregano, mixed herbs and chilli flakes"
       },
       {
-        "productId": "prod_peri_peri_sprinkler",
-        "name": "Italian Oregano & Herb Mix",
-        "amountPerServing": 4,
-        "unit": "g",
-        "isPantryItem": true,
-        "prepNote": "Finishing seasoning"
+        "name": "Black Pepper Powder & Tata Salt",
+        "amountPerServing": 0.25,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "steps": [
@@ -2081,52 +3057,84 @@
     "kitPrice": 160,
     "ingredients": [
       {
+        "name": "Borges Durum Wheat Fusilli Pasta",
+        "amountPerServing": 75,
+        "unit": "g",
         "productId": "prod_fusilli_pasta_500g",
-        "name": "Disano 100% Durum Wheat Fusilli Pasta",
-        "amountPerServing": 85,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Boiled al dente"
+        "isPantryStaple": false,
+        "notes": "150g spiral fusilli pasta"
       },
       {
-        "productId": "prod_veeba_pizza_pasta_sauce",
-        "name": "Veeba Chef's Special Pizza & Pasta Sauce",
-        "amountPerServing": 70,
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 75,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Herbed plum tomato base"
+        "productId": "prod_v3",
+        "isPantryStaple": false,
+        "notes": "2 large ripe tomatoes pureed for fresh arrabiata"
       },
       {
-        "productId": "prod_v8",
-        "name": "Fresh Garlic Cloves",
-        "amountPerServing": 15,
+        "name": "Ching's Secret Schezwan Chutney & Dip",
+        "amountPerServing": 10,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Thinly sliced & seared in oil"
+        "productId": "prod_sauces_chinese",
+        "isPantryStaple": false,
+        "notes": "1.5 tbsp for tangy spicy desi arrabiata punch"
       },
       {
-        "productId": "prod_amul_pizza_cheese_200g",
-        "name": "Amul Diced Cheese Blend",
+        "name": "Fresh Garlic Cloves (Minced)",
+        "amountPerServing": 5,
+        "unit": "g",
+        "productId": "prod_v7",
+        "isPantryStaple": false,
+        "notes": "1 tsp finely chopped garlic"
+      },
+      {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "1/4 cup finely chopped"
+      },
+      {
+        "name": "Fresh Carrot & French Beans",
         "amountPerServing": 25,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Grated garnish on top"
+        "productId": "veg_carrots",
+        "isPantryStaple": false,
+        "notes": "1/4 cup diced veggies"
       },
       {
-        "productId": "prod_safal_sweet_corn",
-        "name": "Safal Frozen Sweet Corn Kernels",
-        "amountPerServing": 25,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "For natural sweet balance"
+        "name": "Keya Italian Pizza Seasoning & Chilli Flakes",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_oregano_chilli_flakes",
+        "isPantryStaple": true,
+        "notes": "Oregano, chilli flakes and pasta mix"
       },
       {
-        "productId": "prod_peri_peri_sprinkler",
-        "name": "Chili Flakes & Herb Seasoning",
-        "amountPerServing": 4,
-        "unit": "g",
-        "isPantryItem": true,
-        "prepNote": "For signature arrabiata kick"
+        "name": "Green Chilli",
+        "amountPerServing": 0.5,
+        "unit": "piece",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": true,
+        "notes": "1 green chilli finely chopped"
+      },
+      {
+        "name": "Cooking Oil",
+        "amountPerServing": 1,
+        "unit": "tbsp",
+        "productId": "o_fortune_sunflower",
+        "isPantryStaple": true,
+        "notes": "2 tbsp cooking oil"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "steps": [
@@ -2183,52 +3191,84 @@
     "kitPrice": 180,
     "ingredients": [
       {
-        "productId": "prod_pizza_base_2pc",
-        "name": "BakeFresh 8\" Thin Crust Pizza Bases",
+        "name": "English Oven 8-inch Thin Crust Pizza Base (2 pcs)",
         "amountPerServing": 1,
-        "unit": "base",
-        "isPantryItem": false,
-        "prepNote": "8-inch artisan base"
+        "unit": "piece",
+        "productId": "prod_pizza_base_2pc",
+        "isPantryStaple": false,
+        "notes": "2 thin crust pizza bases (or wheat flour dough)"
       },
       {
+        "name": "Veeba Pizza & Pasta Sauce",
+        "amountPerServing": 15,
+        "unit": "g",
         "productId": "prod_veeba_pizza_pasta_sauce",
-        "name": "Veeba Pizza & Pasta Marinara Sauce",
+        "isPantryStaple": false,
+        "notes": "2 tbsp rich tomato herb pizza spread"
+      },
+      {
+        "name": "Kissan Fresh Tomato Ketchup",
+        "amountPerServing": 8,
+        "unit": "g",
+        "productId": "prod_kissan_ketchup",
+        "isPantryStaple": false,
+        "notes": "1 tbsp ketchup"
+      },
+      {
+        "name": "Amul Diced Mozzarella & Cheddar Pizza Cheese",
         "amountPerServing": 40,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Evenly spread edge to edge"
-      },
-      {
         "productId": "prod_amul_pizza_cheese_200g",
-        "name": "Amul Diced Mozzarella & Cheddar Cheese Blend",
-        "amountPerServing": 80,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Loaded molten cheese layer"
+        "isPantryStaple": false,
+        "notes": "1/2 cup (80g) molten cheese blend"
       },
       {
-        "productId": "prod_v7",
-        "name": "Fresh Green Bell Pepper",
-        "amountPerServing": 30,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Diced into bite squares"
-      },
-      {
-        "productId": "prod_safal_sweet_corn",
-        "name": "Safal Frozen Sweet Corn",
-        "amountPerServing": 25,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Juicy sweet bursts"
-      },
-      {
-        "productId": "prod_v6",
-        "name": "Red Crunchy Onions",
+        "name": "Crisp Green Bell Pepper (Capsicum)",
         "amountPerServing": 20,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Diced squares"
+        "productId": "veg_capsicum",
+        "isPantryStaple": false,
+        "notes": "Diced capsicum cubes"
+      },
+      {
+        "name": "Nashik Red Onions & Mandi Tomatoes",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "Diced onion & tomato toppings"
+      },
+      {
+        "name": "Safal Frozen American Sweet Corn",
+        "amountPerServing": 15,
+        "unit": "g",
+        "productId": "prod_safal_sweet_corn",
+        "isPantryStaple": false,
+        "notes": "2 tbsp sweet corn kernels"
+      },
+      {
+        "name": "Keya Italian Pizza Seasoning & Chilli Flakes",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_oregano_chilli_flakes",
+        "isPantryStaple": true,
+        "notes": "Sprinkled over hot cheese"
+      },
+      {
+        "name": "Amul Salted Table Butter",
+        "amountPerServing": 5,
+        "unit": "g",
+        "productId": "prod_amul_butter",
+        "isPantryStaple": true,
+        "notes": "For crispy pan/tawa crust bottom"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.25,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "steps": [
@@ -2285,44 +3325,92 @@
     "kitPrice": 145,
     "ingredients": [
       {
-        "productId": "prod_malabar_paratha_pack",
-        "name": "ID Fresh Flaky Malabar Parathas",
+        "name": "ID Fresh Malabar Parota (Pack of 5)",
         "amountPerServing": 1,
-        "unit": "paratha",
-        "isPantryItem": false,
-        "prepNote": "Pan toasted with ghee"
+        "unit": "piece",
+        "productId": "prod_malabar_paratha_pack",
+        "isPantryStaple": false,
+        "notes": "2 flaky golden parathas / kathi roll wraps"
       },
       {
+        "name": "Fresh Malai Paneer",
+        "amountPerServing": 50,
+        "unit": "g",
         "productId": "prod_v1",
-        "name": "Verka Malai Fresh Paneer",
-        "amountPerServing": 80,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Sliced into finger batons"
+        "isPantryStaple": false,
+        "notes": "100g paneer fingers for filling"
       },
       {
-        "productId": "prod_v6",
-        "name": "Red Crunchy Onions",
-        "amountPerServing": 30,
+        "name": "Crisp Green Bell Pepper (Capsicum)",
+        "amountPerServing": 20,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Thinly sliced & tossed with lemon"
+        "productId": "veg_capsicum",
+        "isPantryStaple": false,
+        "notes": "Julienned bell pepper strips"
       },
       {
+        "name": "Nashik Red Onions",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "Thin sliced crunchy onions"
+      },
+      {
+        "name": "Ching's Secret Schezwan Chutney & Dip",
+        "amountPerServing": 10,
+        "unit": "g",
+        "productId": "prod_sauces_chinese",
+        "isPantryStaple": false,
+        "notes": "1.5 tbsp spicy schezwan sauce"
+      },
+      {
+        "name": "Kissan Fresh Tomato Ketchup",
+        "amountPerServing": 8,
+        "unit": "g",
+        "productId": "prod_kissan_ketchup",
+        "isPantryStaple": false,
+        "notes": "1 tbsp tomato ketchup"
+      },
+      {
+        "name": "Veeba Burger Mayonnaise",
+        "amountPerServing": 8,
+        "unit": "g",
+        "productId": "prod_veeba_burger_mayo",
+        "isPantryStaple": false,
+        "notes": "1 tbsp creamy roll dressing"
+      },
+      {
+        "name": "Fresh Garlic Cloves",
+        "amountPerServing": 5,
+        "unit": "g",
         "productId": "prod_v7",
-        "name": "Fresh Green Capsicum",
-        "amountPerServing": 25,
-        "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Julienned stir-fry"
+        "isPantryStaple": false,
+        "notes": "1/2 tsp minced garlic"
       },
       {
-        "productId": "prod_v3",
-        "name": "Verka Pure Desi Ghee",
-        "amountPerServing": 15,
+        "name": "Verka Pure Desi Ghee / Butter",
+        "amountPerServing": 10,
         "unit": "g",
-        "isPantryItem": true,
-        "prepNote": "For flaky pan searing"
+        "productId": "prod_15",
+        "isPantryStaple": false,
+        "notes": "1.5 tbsp for crisping parathas"
+      },
+      {
+        "name": "Green Chillies & Chilli Flakes",
+        "amountPerServing": 0.5,
+        "unit": "piece",
+        "productId": "prod_coriander_chilli",
+        "isPantryStaple": true,
+        "notes": "For street style kick"
+      },
+      {
+        "name": "Tata Salt",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "steps": [
@@ -2379,44 +3467,92 @@
     "kitPrice": 175,
     "ingredients": [
       {
-        "productId": "prod_malabar_paratha_pack",
-        "name": "ID Fresh Flaky Malabar Parathas",
+        "name": "ID Fresh Malabar Parota (Pack of 5)",
         "amountPerServing": 1,
-        "unit": "paratha",
-        "isPantryItem": false,
-        "prepNote": "Pan toasted with egg"
+        "unit": "piece",
+        "productId": "prod_malabar_paratha_pack",
+        "isPantryStaple": false,
+        "notes": "2 flaky golden paratha wraps"
       },
       {
-        "productId": "prod_chicken_breast_fillet",
-        "name": "Boneless Chicken Breast Fillet",
-        "amountPerServing": 90,
+        "name": "Fresh Tender Boneless Chicken Breast Fillet",
+        "amountPerServing": 75,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Cooked in spicy bhuna masala"
+        "productId": "prod_chicken_boneless",
+        "isPantryStaple": false,
+        "notes": "150g boneless bhuna chicken pieces"
       },
       {
-        "productId": "prod_eggs",
         "name": "Farm Fresh White Eggs",
         "amountPerServing": 2,
-        "unit": "eggs",
-        "isPantryItem": false,
-        "prepNote": "Whisked with salt & pepper"
+        "unit": "piece",
+        "productId": "prod_eggs",
+        "isPantryStaple": false,
+        "notes": "4 eggs (2 eggs per paratha for authentic double-egg roll)"
       },
       {
-        "productId": "prod_v6",
-        "name": "Red Crunchy Onions",
-        "amountPerServing": 30,
+        "name": "Nashik Red Onions (Sliced)",
+        "amountPerServing": 20,
         "unit": "g",
-        "isPantryItem": false,
-        "prepNote": "Sliced thinly with lemon"
+        "productId": "prod_v5",
+        "isPantryStaple": false,
+        "notes": "Thin sliced crunchy salad onion"
       },
       {
-        "productId": "prod_coriander_chilli",
-        "name": "Fresh Green Chillies",
+        "name": "Mandi Fresh Red Tomatoes",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "prod_v3",
+        "isPantryStaple": false,
+        "notes": "Chopped tomato filling"
+      },
+      {
+        "name": "Fresh Orange Carrots & Cucumber",
+        "amountPerServing": 20,
+        "unit": "g",
+        "productId": "veg_carrots",
+        "isPantryStaple": false,
+        "notes": "Shredded crunchy Kolkata salad"
+      },
+      {
+        "name": "Fresh Ginger Garlic Paste",
         "amountPerServing": 5,
         "unit": "g",
-        "isPantryItem": true,
-        "prepNote": "Finely chopped"
+        "productId": "prod_v6",
+        "isPantryStaple": false,
+        "notes": "1/2 tsp for chicken bhunai"
+      },
+      {
+        "name": "Chicken Masala & Cumin Seeds",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_masala_chole",
+        "isPantryStaple": false,
+        "notes": "1/2 tsp aromatic chicken masala"
+      },
+      {
+        "name": "Chaat Masala & Lemon Juice",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "prod_v8",
+        "isPantryStaple": true,
+        "notes": "Sprinkled over roll filling"
+      },
+      {
+        "name": "Cooking Oil / Ghee",
+        "amountPerServing": 1,
+        "unit": "tbsp",
+        "productId": "o_fortune_sunflower",
+        "isPantryStaple": true,
+        "notes": "2 tbsp for chicken and egg-paratha shallow fry"
+      },
+      {
+        "name": "Tata Salt & Black Pepper",
+        "amountPerServing": 0.5,
+        "unit": "tsp",
+        "productId": "spc_tata_salt",
+        "isPantryStaple": true,
+        "notes": "Swadanusaar / To taste"
       }
     ],
     "steps": [

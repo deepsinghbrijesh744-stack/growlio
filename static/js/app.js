@@ -255,14 +255,14 @@ async function loadData() {
       prodRes = await fetch('/api/products');
       if (!prodRes.ok) throw new Error('API route unavailable');
     } catch {
-      prodRes = await fetch('./data/products.json?v=8.2');
+      prodRes = await fetch('./data/products.json?v=8.4');
     }
 
     try {
       recRes = await fetch('/api/recipes');
       if (!recRes.ok) throw new Error('API route unavailable');
     } catch {
-      recRes = await fetch('./data/recipes.json?v=8.3');
+      recRes = await fetch('./data/recipes.json?v=8.4');
     }
 
     allProducts = await prodRes.json();

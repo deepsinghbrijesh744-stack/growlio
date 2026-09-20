@@ -10,6 +10,34 @@ let selectedRecipeCuisine = 'All';
 let selectedRecipeDiet = 'all';
 let selectedBrand = 'all';
 
+// Grovio Store Manager Dynamic Pricing Overrides State
+let customPriceOverrides = {};
+try {
+  const savedOverrides = localStorage.getItem('grovio_custom_pricing');
+  if (savedOverrides) {
+    customPriceOverrides = JSON.parse(savedOverrides);
+  }
+} catch (e) {
+  console.warn('Failed to parse grovio_custom_pricing:', e);
+}
+
+let adminSearchQuery = '';
+let adminSelectedDept = 'all';
+let adminPendingChanges = {}; // { [pid]: { price?: number, mrp?: number, inStock?: boolean } }
+
+function applyPriceOverridesToProducts() {
+  if (!allProducts || !allProducts.length) return;
+  allProducts.forEach(p => {
+    if (p.inStock === undefined) p.inStock = true;
+    if (customPriceOverrides && customPriceOverrides[p.id]) {
+      const ov = customPriceOverrides[p.id];
+      if (ov.price !== undefined && !isNaN(ov.price)) p.price = Number(ov.price);
+      if (ov.mrp !== undefined && !isNaN(ov.mrp)) p.mrp = Number(ov.mrp);
+      if (ov.inStock !== undefined) p.inStock = Boolean(ov.inStock);
+    }
+  });
+}
+
 const CUISINE_DEFINITIONS = [
   {
     id: 'All',
@@ -227,18 +255,20 @@ async function loadData() {
       prodRes = await fetch('/api/products');
       if (!prodRes.ok) throw new Error('API route unavailable');
     } catch {
-      prodRes = await fetch('./data/products.json?v=7.0');
+      prodRes = await fetch('./data/products.json?v=8.0');
     }
 
     try {
       recRes = await fetch('/api/recipes');
       if (!recRes.ok) throw new Error('API route unavailable');
     } catch {
-      recRes = await fetch('./data/recipes.json?v=7.0');
+      recRes = await fetch('./data/recipes.json?v=8.0');
     }
 
     allProducts = await prodRes.json();
     allRecipes = await recRes.json();
+
+    applyPriceOverridesToProducts();
 
     renderHomeExperience();
     renderDepartmentShelves();
@@ -1004,13 +1034,13 @@ function renderDepartmentShelves() {
   const depts = [
     {
       id: 'shelfGroceryContainer',
-      deptName: 'Grocery & Kitchen',
-      items: allProducts.filter(p => p.department === 'Grocery & Kitchen').slice(0, 10)
+      deptName: 'Daily Essentials & Dairy',
+      items: allProducts.filter(p => ['Dairy, Bread & Eggs', 'Vegetables & Fruits', 'Atta, Rice & Dals', 'Oils, Ghee & Masalas'].includes(p.department)).slice(0, 10)
     },
     {
       id: 'shelfSnacksContainer',
-      deptName: 'Snacks & Desserts',
-      items: allProducts.filter(p => p.department === 'Snacks & Desserts').slice(0, 10)
+      deptName: 'Snacks & Munchies',
+      items: allProducts.filter(p => ['Snacks & Munchies', 'Cold Drinks & Juices', 'Bakery, Sweets & Chocolates'].includes(p.department)).slice(0, 10)
     }
   ];
 
@@ -1023,7 +1053,11 @@ function renderDepartmentShelves() {
       const qty = inCart ? inCart.quantity : 0;
 
       let btnHtml = '';
-      if (qty > 0) {
+      if (p.inStock === false) {
+        btnHtml = `
+          <span style="font-size: 10px; font-weight: 800; color: #b91c1c; background: #fee2e2; padding: 4px 6px; border-radius: 6px; border: 1px solid #fecaca; white-space: nowrap;">SOLD OUT</span>
+        `;
+      } else if (qty > 0) {
         btnHtml = `
           <div class="qty-counter" style="height: 25px;">
             <button class="qty-btn" style="padding: 2px 7px; font-size: 12px;" onclick="updateCartQty('${p.id}', -1)">−</button>
@@ -1312,7 +1346,11 @@ function renderProducts() {
     const qty = inCart ? inCart.quantity : 0;
 
     let buttonHtml = '';
-    if (qty > 0) {
+    if (p.inStock === false) {
+      buttonHtml = `
+        <span style="font-size: 11px; font-weight: 800; color: #b91c1c; background: #fee2e2; padding: 4px 8px; border-radius: 6px; border: 1px solid #fecaca; display: inline-block; white-space: nowrap;">SOLD OUT</span>
+      `;
+    } else if (qty > 0) {
       buttonHtml = `
         <div class="qty-counter">
           <button class="qty-btn" onclick="updateCartQty('${p.id}', -1)">−</button>
@@ -1801,7 +1839,7 @@ function batchAddSelectedIngredients() {
   activeRecipe.ingredients.forEach((ing, idx) => {
     if (ingredientSelection[idx]) {
       const prod = ing.product || allProducts.find(p => p.id === ing.productId);
-      if (prod) {
+      if (prod && prod.inStock !== false) {
         if (!cart[prod.id]) {
           cart[prod.id] = { product: prod, quantity: 1, recipeTag: activeRecipe.name };
         } else {
@@ -1827,6 +1865,11 @@ function batchAddSelectedIngredients() {
 function addToCart(productId, recipeTag = null) {
   const prod = allProducts.find(p => p.id === productId);
   if (!prod) return;
+
+  if (prod.inStock === false) {
+    showToast(`⚠️ ${prod.name} is currently out of stock`);
+    return;
+  }
 
   if (!cart[productId]) {
     cart[productId] = { product: prod, quantity: 1, recipeTag };
@@ -2190,4 +2233,374 @@ function toggleIphoneView() {
   }
   showToast(isExpanded ? 'Switched to Fullscreen view' : 'Switched to iPhone 16 Pro view');
 }
+
+// =============================================================
+// GROVIO STORE MANAGER & DYNAMIC DAILY PRICE EDITOR ENGINE
+// =============================================================
+
+function openAdminModal() {
+  const modal = document.getElementById('adminModalBackdrop');
+  if (!modal) return;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  const searchInput = document.getElementById('adminProductSearch');
+  if (searchInput) searchInput.value = '';
+  adminSearchQuery = '';
+  adminSelectedDept = 'all';
+  adminPendingChanges = {};
+
+  renderAdminDeptFilterPills();
+  renderAdminProductList();
+  updateAdminPendingBadge();
+}
+
+function closeAdminModal() {
+  const modal = document.getElementById('adminModalBackdrop');
+  if (!modal) return;
+  modal.classList.remove('open');
+  document.body.style.overflow = 'auto';
+}
+
+function renderAdminDeptFilterPills() {
+  const container = document.getElementById('adminDeptFilterRow');
+  if (!container) return;
+
+  const depts = [
+    { id: 'all', name: 'All Items (193)', icon: '🌟' },
+    { id: 'Vegetables & Fruits', name: 'Veggies & Fruits', icon: '🥦' },
+    { id: 'Dairy, Bread & Eggs', name: 'Dairy & Eggs', icon: '🥛' },
+    { id: 'Cold Drinks & Juices', name: 'Cold Drinks', icon: '🥤' },
+    { id: 'Snacks & Munchies', name: 'Munchies', icon: '🍿' },
+    { id: 'Atta, Rice & Dals', name: 'Atta & Dals', icon: '🌾' },
+    { id: 'Oils, Ghee & Masalas', name: 'Oils & Spices', icon: '🫒' },
+    { id: 'Instant & Frozen Food', name: 'Instant Food', icon: '🍜' },
+    { id: 'Bakery, Sweets & Chocolates', name: 'Sweets & Choco', icon: '🍫' },
+    { id: 'Tea, Coffee & Drinks', name: 'Tea & Coffee', icon: '☕' },
+    { id: 'Meat, Poultry & Seafood', name: 'Fresh Meat', icon: '🍗' }
+  ];
+
+  container.innerHTML = depts.map(d => {
+    const isActive = (adminSelectedDept === d.id);
+    return `
+      <div class="admin-dept-pill ${isActive ? 'active' : ''}" onclick="filterAdminDept('${d.id}')">
+        <span>${d.icon}</span> ${d.name}
+      </div>
+    `;
+  }).join('');
+}
+
+function filterAdminDept(deptId) {
+  adminSelectedDept = deptId;
+  renderAdminDeptFilterPills();
+  renderAdminProductList();
+}
+
+function filterAdminProducts(query) {
+  adminSearchQuery = (query || '').toLowerCase().trim();
+  renderAdminProductList();
+}
+
+function renderAdminProductList() {
+  const container = document.getElementById('adminProductListContainer');
+  if (!container) return;
+
+  let list = allProducts;
+
+  // Department filter
+  if (adminSelectedDept && adminSelectedDept !== 'all') {
+    list = list.filter(p => p.department === adminSelectedDept);
+  }
+
+  // Search filter
+  if (adminSearchQuery) {
+    list = list.filter(p => {
+      const name = (p.name || '').toLowerCase();
+      const brand = (p.brand || '').toLowerCase();
+      const dept = (p.department || '').toLowerCase();
+      const sub = (p.subcategory || '').toLowerCase();
+      return name.includes(adminSearchQuery) || 
+             brand.includes(adminSearchQuery) || 
+             dept.includes(adminSearchQuery) ||
+             sub.includes(adminSearchQuery);
+    });
+  }
+
+  if (list.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 40px 16px; color: var(--text-muted);">
+        <div style="font-size: 36px; margin-bottom: 8px;">🔍</div>
+        <div style="font-weight: 800; font-size: 15px; color: var(--text-dark);">No products found</div>
+        <p style="font-size: 12px; margin-top: 4px;">Try searching for another product name, brand, or department.</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = list.map(p => {
+    const pending = adminPendingChanges[p.id] || {};
+    const currentPrice = pending.price !== undefined ? pending.price : p.price;
+    const currentMrp = pending.mrp !== undefined ? pending.mrp : p.mrp;
+    const isInStock = pending.inStock !== undefined ? pending.inStock : (p.inStock !== false);
+    const isModified = !!adminPendingChanges[p.id];
+
+    const brandBadge = p.brand ? `<span class="admin-item-brand">${p.brand}</span>` : '';
+    const tricityBadge = p.tricityBrand ? `<span style="font-size: 9.5px; font-weight: 700; color: #740a12; background: #faecec; padding: 2px 6px; border-radius: 4px;">📍 Tricity Fresh</span>` : '';
+
+    return `
+      <div class="admin-item-card ${isModified ? 'is-modified' : ''} ${!isInStock ? 'is-out-of-stock' : ''}" id="adminRow_${p.id}">
+        <div class="admin-item-top">
+          <img 
+            src="${p.image}" 
+            alt="${p.name}" 
+            class="admin-item-thumb" 
+            onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?w=200&q=80'" 
+          />
+          <div class="admin-item-info">
+            <div style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 2px;">
+              ${brandBadge}
+              ${tricityBadge}
+            </div>
+            <div class="admin-item-name" title="${p.name}">${p.name}</div>
+            <div class="admin-item-weight">📦 ${p.weight} • <span style="color: var(--text-muted);">${p.department || ''}</span></div>
+          </div>
+        </div>
+
+        <div class="admin-item-controls">
+          <div class="admin-input-group">
+            <span class="admin-input-label">Selling Price (₹)</span>
+            <input 
+              type="number" 
+              class="admin-price-input" 
+              min="1" 
+              value="${currentPrice}" 
+              oninput="onAdminPriceInput('${p.id}', 'price', this.value)" 
+            />
+          </div>
+
+          <div class="admin-input-group">
+            <span class="admin-input-label">MRP (₹)</span>
+            <input 
+              type="number" 
+              class="admin-mrp-input" 
+              min="1" 
+              value="${currentMrp}" 
+              oninput="onAdminPriceInput('${p.id}', 'mrp', this.value)" 
+            />
+          </div>
+
+          <div class="admin-stock-toggle-group">
+            <span class="admin-input-label">Stock Status</span>
+            <button 
+              type="button" 
+              id="adminStockBtn_${p.id}"
+              class="admin-stock-btn ${isInStock ? 'instock' : 'outofstock'}" 
+              onclick="toggleAdminStock('${p.id}')"
+            >
+              ${isInStock ? '🟢 In Stock' : '🔴 Sold Out'}
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function onAdminPriceInput(pid, field, value) {
+  const num = parseFloat(value);
+  if (isNaN(num) || num < 0) return;
+
+  const orig = allProducts.find(p => p.id === pid);
+  if (!adminPendingChanges[pid]) {
+    adminPendingChanges[pid] = {
+      price: orig ? orig.price : 0,
+      mrp: orig ? orig.mrp : 0,
+      inStock: orig && orig.inStock !== undefined ? orig.inStock : true
+    };
+  }
+  adminPendingChanges[pid][field] = num;
+
+  const rowEl = document.getElementById(`adminRow_${pid}`);
+  if (rowEl) rowEl.classList.add('is-modified');
+
+  updateAdminPendingBadge();
+}
+
+function toggleAdminStock(pid) {
+  const orig = allProducts.find(p => p.id === pid);
+  if (!adminPendingChanges[pid]) {
+    adminPendingChanges[pid] = {
+      price: orig ? orig.price : 0,
+      mrp: orig ? orig.mrp : 0,
+      inStock: orig && orig.inStock !== undefined ? orig.inStock : true
+    };
+  }
+
+  const currentStock = adminPendingChanges[pid].inStock !== undefined
+    ? adminPendingChanges[pid].inStock
+    : (orig && orig.inStock !== undefined ? orig.inStock : true);
+
+  const newStock = !currentStock;
+  adminPendingChanges[pid].inStock = newStock;
+
+  const btn = document.getElementById(`adminStockBtn_${pid}`);
+  if (btn) {
+    btn.className = `admin-stock-btn ${newStock ? 'instock' : 'outofstock'}`;
+    btn.innerHTML = newStock ? '🟢 In Stock' : '🔴 Sold Out';
+  }
+
+  const rowEl = document.getElementById(`adminRow_${pid}`);
+  if (rowEl) {
+    rowEl.classList.add('is-modified');
+    if (!newStock) {
+      rowEl.classList.add('is-out-of-stock');
+    } else {
+      rowEl.classList.remove('is-out-of-stock');
+    }
+  }
+
+  updateAdminPendingBadge();
+}
+
+function updateAdminPendingBadge() {
+  const count = Object.keys(adminPendingChanges).length;
+  const countEl = document.getElementById('adminPendingChangesCount');
+  const saveBtn = document.getElementById('btnAdminSave');
+
+  if (countEl) {
+    if (count === 0) {
+      countEl.innerText = 'No changes pending';
+      countEl.style.color = 'var(--text-muted)';
+    } else {
+      countEl.innerHTML = `<strong>⚡ ${count} ${count === 1 ? 'item' : 'items'} modified</strong> (unsaved)`;
+      countEl.style.color = '#dc2626';
+    }
+  }
+
+  if (saveBtn) {
+    saveBtn.innerText = count > 0 ? `💾 Apply & Save (${count})` : '💾 Apply & Save Rates';
+  }
+}
+
+function saveAdminPriceChanges() {
+  const keys = Object.keys(adminPendingChanges);
+  if (keys.length === 0) {
+    showToast('ℹ️ No changes to save');
+    return;
+  }
+
+  keys.forEach(pid => {
+    if (!customPriceOverrides[pid]) customPriceOverrides[pid] = {};
+    Object.assign(customPriceOverrides[pid], adminPendingChanges[pid]);
+  });
+
+  try {
+    localStorage.setItem('grovio_custom_pricing', JSON.stringify(customPriceOverrides));
+  } catch (e) {
+    console.error('Failed to save to localStorage:', e);
+  }
+
+  applyPriceOverridesToProducts();
+
+  // Sync active cart items
+  Object.keys(cart).forEach(pid => {
+    const p = allProducts.find(x => x.id === pid);
+    if (p) {
+      cart[pid].product.price = p.price;
+      cart[pid].product.mrp = p.mrp;
+      cart[pid].product.inStock = p.inStock;
+    }
+  });
+
+  // Re-render UI
+  updateCartUI();
+  if (typeof renderCartDrawer === 'function') renderCartDrawer();
+  renderProducts();
+  renderDepartmentShelves();
+  renderHomeExperience();
+  renderRecipes();
+  renderOrderAgainView();
+
+  const savedCount = keys.length;
+  adminPendingChanges = {};
+  updateAdminPendingBadge();
+  closeAdminModal();
+
+  showToast(`⚡ Mandi rates saved live for ${savedCount} ${savedCount === 1 ? 'item' : 'items'}!`);
+}
+
+async function resetAdminPricesToDefault() {
+  if (!confirm('Are you sure you want to reset all product prices and stock to baseline catalog rates?')) {
+    return;
+  }
+
+  try {
+    localStorage.removeItem('grovio_custom_pricing');
+    customPriceOverrides = {};
+    adminPendingChanges = {};
+
+    const prodRes = await fetch('./data/products.json?v=8.0');
+    allProducts = await prodRes.json();
+    allProducts.forEach(p => {
+      if (p.inStock === undefined) p.inStock = true;
+    });
+
+    // Sync active cart items
+    Object.keys(cart).forEach(pid => {
+      const p = allProducts.find(x => x.id === pid);
+      if (p) {
+        cart[pid].product.price = p.price;
+        cart[pid].product.mrp = p.mrp;
+        cart[pid].product.inStock = p.inStock;
+      }
+    });
+
+    updateCartUI();
+    if (typeof renderCartDrawer === 'function') renderCartDrawer();
+    renderProducts();
+    renderDepartmentShelves();
+    renderHomeExperience();
+    renderRecipes();
+    renderOrderAgainView();
+    renderAdminProductList();
+    updateAdminPendingBadge();
+
+    showToast('🔄 Restored all 193 items to baseline catalog rates!');
+  } catch (err) {
+    console.error('Error resetting baseline prices:', err);
+    showToast('⚠️ Failed to reload baseline catalog');
+  }
+}
+
+function exportAdminCatalogJson() {
+  try {
+    const jsonStr = JSON.stringify(allProducts, null, 2);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(jsonStr).then(() => {
+        showToast('📋 Copied 193-product JSON with live rates to clipboard!');
+      }).catch(() => {
+        downloadJsonFile(jsonStr, 'products.json');
+      });
+    } else {
+      downloadJsonFile(jsonStr, 'products.json');
+    }
+  } catch (err) {
+    console.error('Export failed:', err);
+    showToast('⚠️ Could not copy JSON');
+  }
+}
+
+function downloadJsonFile(content, fileName) {
+  const blob = new Blob([content], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('💾 Downloaded updated products.json!');
+}
+
 
